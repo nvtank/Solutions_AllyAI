@@ -26,16 +26,17 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 export default function Footer() {
-  const footerRef = useRef(null);
-  const contentRef = useRef(null);
-  const particlesRef = useRef(null);
+  const footerRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const particlesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
       // Main content animation
-      gsap.fromTo(contentRef.current.children,
+      if (contentRef.current) {
+        gsap.fromTo(contentRef.current.children,
         {
           opacity: 0,
           y: 60,
@@ -72,6 +73,7 @@ export default function Footer() {
             from: "random"
           }
         });
+      }
       }
 
     });

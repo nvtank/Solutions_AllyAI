@@ -6,9 +6,9 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 export default function IndustriesSection() {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const cardsContainerRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
 
   const industries = [
     {
@@ -92,59 +92,61 @@ export default function IndustriesSection() {
       );
 
       // Individual card animations - each row appears separately
-      const cards = cardsContainerRef.current.children;
-      
-      Array.from(cards).forEach((card, index) => {
-        // Entrance animation
-        gsap.fromTo(card,
-          {
-            opacity: 0,
-            x: index % 2 === 0 ? -100 : 100,
-            scale: 0.9
-          },
-          {
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 90%",
-              end: "bottom 10%",
-              toggleActions: "play none none reverse"
+      if (cardsContainerRef.current) {
+        const cards = cardsContainerRef.current.children;
+        
+        Array.from(cards).forEach((card, index) => {
+          // Entrance animation
+          gsap.fromTo(card as Element,
+            {
+              opacity: 0,
+              x: index % 2 === 0 ? -100 : 100,
+              scale: 0.9
+            },
+            {
+              opacity: 1,
+              x: 0,
+              scale: 1,
+              duration: 0.6,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: card as Element,
+                start: "top 90%",
+                end: "bottom 10%",
+                toggleActions: "play none none reverse"
+              }
             }
-          }
-        );
+          );
 
-        // Subtle floating animation
-        gsap.to(card, {
-          y: "random(-8, 8)",
-          duration: "random(3, 5)",
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          delay: index * 0.2
-        });
+          // Subtle floating animation
+          gsap.to(card as Element, {
+            y: "random(-8, 8)",
+            duration: "random(3, 5)",
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            delay: index * 0.2
+          });
 
-        // Hover scale effect
-        const cardElement = card;
-        cardElement.addEventListener('mouseenter', () => {
-          gsap.to(cardElement, {
-            scale: 1.02,
-            duration: 0.3,
-            ease: "power2.out"
+          // Hover scale effect
+          const cardElement = card as HTMLElement;
+          cardElement.addEventListener('mouseenter', () => {
+            gsap.to(cardElement, {
+              scale: 1.02,
+              duration: 0.3,
+              ease: "power2.out"
+            });
+          });
+
+          cardElement.addEventListener('mouseleave', () => {
+            gsap.to(cardElement, {
+              scale: 1,
+              duration: 0.3,
+              ease: "power2.out"
+            });
           });
         });
-
-        cardElement.addEventListener('mouseleave', () => {
-          gsap.to(cardElement, {
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out"
-          });
-        });
-      });
+      }
 
     });
 

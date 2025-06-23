@@ -6,10 +6,10 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 export default function TestimonialsSection() {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const cardsContainerRef = useRef(null);
-  const statsRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   const testimonials = [
     {
@@ -79,7 +79,8 @@ export default function TestimonialsSection() {
       );
 
       // Stats animation
-      gsap.fromTo(statsRef.current.children,
+      if (statsRef.current) {
+        gsap.fromTo(statsRef.current.children,
         {
           opacity: 0,
           y: 40,
@@ -100,9 +101,11 @@ export default function TestimonialsSection() {
           }
         }
       );
+      }
 
       // Cards animation - individual entrance
-      const cards = cardsContainerRef.current.children;
+      if (cardsContainerRef.current) {
+        const cards = cardsContainerRef.current.children;
       
       Array.from(cards).forEach((card, index) => {
         // Entrance animation
@@ -161,6 +164,7 @@ export default function TestimonialsSection() {
           });
         });
       });
+      }
 
     });
 
