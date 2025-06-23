@@ -1,4 +1,4 @@
-# AllyAI Solutions 🤖
+# TripC Solutions 🤖
 
 > **Modern AI-Powered Industrial Solutions Platform**
 
@@ -6,7 +6,7 @@ A cutting-edge Next.js website showcasing advanced AI solutions for industrial a
 
 ## 🌐 Live Demo
 
-**🔗 [Visit AllyAI Solutions](https://solutions-ally-ai.vercel.app/)**
+**🔗 [Visit TripC Solutions](https://solutions-ally-ai.vercel.app/)**
 
 ## ✨ Features
 
@@ -70,7 +70,7 @@ A cutting-edge Next.js website showcasing advanced AI solutions for industrial a
 - **Template Details** - Comprehensive template information
 
 ### 🏢 About Page
-- **Company Story** - AllyAI background and mission
+- **Company Story** - TripC background and mission
 - **Team Introduction** - Key team members
 - **Technology Stack** - Our technical capabilities
 - **Vision & Values** - Company principles
@@ -167,10 +167,10 @@ Error: #EF4444 (Red)
 ### Getting Started
 ```bash
 # Clone the repository
-git clone https://github.com/nvtank/Solutions_AllyAI.git
+git clone https://github.com/nvtank/TripC-Solutions.git
 
 # Navigate to project directory
-cd Solutions_AllyAI/project
+cd TripC-Solutions/project
 
 # Install dependencies
 npm install
@@ -241,16 +241,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support, questions, or collaboration opportunities:
 
-- **Website**: [AllyAI Solutions](https://solutions-ally-ai.vercel.app/)
-- **Email**: support@allyai.solutions
-- **GitHub**: [Repository Issues](https://github.com/nvtank/Solutions_AllyAI/issues)
+- **Website**: [TripC Solutions](https://solutions-ally-ai.vercel.app/)
+- **Email**: support@tripc.solutions
+- **GitHub**: [Repository Issues](https://github.com/nvtank/TripC-Solutions/issues)
 
 ---
 
 <div align="center">
 
-**Built with ❤️ by the AllyAI Team**
+**Built with ❤️ by the TripC Team**
 
-[Website](https://solutions-ally-ai.vercel.app/) • [GitHub](https://github.com/nvtank/Solutions_AllyAI) • [Documentation](https://github.com/nvtank/Solutions_AllyAI/wiki)
+[Website](https://solutions-ally-ai.vercel.app/) • [GitHub](https://github.com/nvtank/TripC-Solutions) • [Documentation](https://github.com/nvtank/TripC-Solutions/wiki)
 
 </div>
