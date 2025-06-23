@@ -15,7 +15,8 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
     }`}>
       <div className={`relative overflow-hidden ${
         viewMode === 'list' ? 'w-80 flex-shrink-0' : 'aspect-w-16 aspect-h-10'
-      }`}>        <Image 
+      }`}>
+        <Image 
           src={template.image} 
           alt={template.name}
           width={400}
@@ -28,19 +29,19 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
           <div className="absolute bottom-4 left-4 right-4 flex space-x-2">
             <button className="flex-1 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg text-sm font-medium hover:bg-white transition-colors flex items-center justify-center space-x-1">
               <Eye className="w-4 h-4" />
-              <span>Preview</span>
+              <span>Xem Trước</span>
             </button>
             <button className={`flex-1 bg-gradient-to-r ${template.color} text-white px-3 py-2 rounded-lg text-sm font-medium hover:shadow-lg transition-all`}>
-              Use Template
+              Sử Dụng Mẫu
             </button>
           </div>
         </div>
         <div className={`absolute top-3 left-3 px-2 py-1 bg-gradient-to-r ${template.color} text-white text-xs rounded-full font-medium`}>
-          AI Enhanced
+          Tích Hợp AI
         </div>
         {template.price === 'Premium' && (
           <div className="absolute top-3 right-3 px-2 py-1 bg-yellow-500 text-white text-xs rounded-full font-medium">
-            Premium
+            Cao Cấp
           </div>
         )}
       </div>
@@ -70,14 +71,14 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
         <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
           <div className="flex items-center space-x-1">
             <Download className="w-4 h-4" />
-            <span>{template.downloads.toLocaleString()} downloads</span>
+            <span>{template.downloads.toLocaleString()} lượt tải</span>
           </div>
-          <span className="font-semibold text-gray-900">{template.price}</span>
+          <span className="font-semibold text-gray-900">{template.price === 'Free' ? 'Miễn Phí' : 'Cao Cấp'}</span>
         </div>
         
         {viewMode === 'list' && (
           <div className="mb-4">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">Features:</h4>
+            <h4 className="text-sm font-semibold text-gray-900 mb-2">Tính Năng:</h4>
             <ul className="grid grid-cols-2 gap-1">
               {template.features.map((feature, idx) => (
                 <li key={idx} className="flex items-center text-xs text-gray-600">
@@ -95,10 +96,10 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
             className="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors flex items-center justify-center space-x-1"
           >
             <Eye className="w-4 h-4" />
-            <span>Preview</span>
+            <span>Xem Trước</span>
           </button>
           <button className={`flex-1 bg-gradient-to-r ${template.color} text-white px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg transition-all`}>
-            Use Template
+            Sử Dụng Mẫu
           </button>
         </div>
       </div>

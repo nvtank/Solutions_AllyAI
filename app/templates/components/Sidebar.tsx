@@ -31,24 +31,23 @@ export default function Sidebar({
   sortBy,
   setSortBy,
   showFilters
-}: SidebarProps) {
-  const categories: Category[] = [
-    { name: 'All', icon: iconMap.Grid, count: 150 },
-    { name: 'Business', icon: iconMap.Building2, count: 25 },
-    { name: 'E-commerce', icon: iconMap.ShoppingCart, count: 20 },
-    { name: 'Education', icon: iconMap.GraduationCap, count: 18 },
-    { name: 'Healthcare', icon: iconMap.Heart, count: 15 },
-    { name: 'Portfolio', icon: iconMap.Camera, count: 22 },
-    { name: 'Corporate', icon: iconMap.Briefcase, count: 16 },
-    { name: 'Restaurant', icon: iconMap.Utensils, count: 12 },
-    { name: 'Automotive', icon: iconMap.Car, count: 8 },
-    { name: 'Real Estate', icon: iconMap.Home, count: 14 }
+}: SidebarProps) {  const categories: Category[] = [
+    { name: 'Tất Cả', icon: iconMap.Grid, count: 150 },
+    { name: 'Kinh Doanh', icon: iconMap.Building2, count: 25 },
+    { name: 'Thương Mại Điện Tử', icon: iconMap.ShoppingCart, count: 20 },
+    { name: 'Giáo Dục', icon: iconMap.GraduationCap, count: 18 },
+    { name: 'Y Tế', icon: iconMap.Heart, count: 15 },
+    { name: 'Hồ Sơ', icon: iconMap.Camera, count: 22 },
+    { name: 'Doanh Nghiệp', icon: iconMap.Briefcase, count: 16 },
+    { name: 'Nhà Hàng', icon: iconMap.Utensils, count: 12 },
+    { name: 'Ô Tô', icon: iconMap.Car, count: 8 },
+    { name: 'Bất Động Sản', icon: iconMap.Home, count: 14 }
   ];
 
   return (
     <div className={`lg:w-80 ${showFilters ? 'block' : 'hidden lg:block'}`}>
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-24">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Categories</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Danh Mục</h3>
         <div className="space-y-2">
           {categories.map((category) => (
             <button
@@ -67,32 +66,29 @@ export default function Sidebar({
               <span className="text-sm text-gray-500">{category.count}</span>
             </button>
           ))}
-        </div>
-
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Sort By</h3>
+        </div>        <div className="mt-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Sắp Xếp Theo</h3>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
-            <option value="popular">Most Popular</option>
-            <option value="rating">Highest Rated</option>
-            <option value="newest">Newest</option>
-            <option value="name">Name A-Z</option>
+            <option value="popular">Phổ Biến Nhất</option>
+            <option value="rating">Đánh Giá Cao Nhất</option>
+            <option value="newest">Mới Nhất</option>
+            <option value="name">Tên A-Z</option>
           </select>
         </div>
 
         <div className="mt-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Price</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Giá</h3>
           <div className="space-y-2">
             <label className="flex items-center">
               <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
-              <span className="ml-2 text-gray-700">Free Templates</span>
-            </label>
-            <label className="flex items-center">
+              <span className="ml-2 text-gray-700">Mẫu Miễn Phí</span>
+            </label>            <label className="flex items-center">
               <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
-              <span className="ml-2 text-gray-700">Premium Templates</span>
+              <span className="ml-2 text-gray-700">Mẫu Cao Cấp</span>
             </label>
           </div>
         </div>
