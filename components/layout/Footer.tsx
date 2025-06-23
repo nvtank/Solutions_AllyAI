@@ -107,9 +107,9 @@ export default function Footer() {
   ];
 
   const offices = [
-    { city: 'San Francisco', country: 'USA', email: 'sf@allyai.com' },
-    { city: 'London', country: 'UK', email: 'london@allyai.com' },
-    { city: 'Singapore', country: 'SG', email: 'singapore@allyai.com' }
+    { city: 'San Francisco', country: 'USA', email: 'sf@tripcsolutions.com' },
+    { city: 'London', country: 'UK', email: 'london@tripcsolutions.com' },
+    { city: 'Singapore', country: 'SG', email: 'singapore@tripcsolutions.com' }
   ];
 
   return (

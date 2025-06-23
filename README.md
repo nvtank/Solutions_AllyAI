@@ -1,4 +1,4 @@
-# AllyAI Solutions 🤖
+# TripC Solutions 🤖
 
 > **Modern AI-Powered Industrial Solutions Platform**
 
@@ -6,7 +6,7 @@ A cutting-edge Next.js website showcasing advanced AI solutions for industrial a
 
 ## 🌐 Live Demo
 
-**🔗 [Visit AllyAI Solutions](https://solutions-ally-ai.vercel.app/)**
+**🔗 [Visit TripC Solutions](https://solutions-ally-ai.vercel.app/)**
 
 ## ✨ Features
 
@@ -64,10 +64,10 @@ A cutting-edge Next.js website showcasing advanced AI solutions for industrial a
 ### Getting Started
 ```bash
 # Clone the repository
-git clone https://github.com/nvtank/Solutions_AllyAI.git
+git clone https://github.com/nvtank/TripC-Solutions.git
 
 # Navigate to project directory
-cd Solutions_AllyAI/project
+cd TripC-Solutions/project
 
 # Install dependencies
 npm install
@@ -95,39 +95,11 @@ npm run type-check # Run TypeScript checks
 - **URL**: https://solutions-ally-ai.vercel.app/
 - **Features**: Automatic deployments, Edge Functions, Analytics
 
-### Other Platforms
-- **Netlify**: Full support with build optimizations
-- **AWS Amplify**: Scalable hosting with CDN
-- **Docker**: Containerized deployment option
-
-## 📈 Performance Metrics
-
-### Lighthouse Scores
-- **Performance**: 95+
-- **Accessibility**: 100
-- **Best Practices**: 95+
-- **SEO**: 100
-
-### Bundle Analysis
-- **Initial Bundle**: ~79.4 kB
-- **First Load JS**: ~156 kB
-- **Route-based Splitting**: Enabled
-- **Image Optimization**: Next.js Image component
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
 
 <div align="center">
 
-**Built with ❤️ by the AllyAI Team**
+**Built with ❤️ by the TripC Team**
 
-[Website](https://solutions-ally-ai.vercel.app/) • [GitHub](https://github.com/nvtank/Solutions_AllyAI) • [Documentation](https://github.com/nvtank/Solutions_AllyAI/wiki)
+[Website](https://solutions-ally-ai.vercel.app/) • [GitHub](https://github.com/nvtank/TripC-Solutions) • [Documentation](https://github.com/nvtank/TripC-Solutions/wiki)
 
 </div>

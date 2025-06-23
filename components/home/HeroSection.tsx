@@ -257,8 +257,7 @@ export default function HeroSection() {
       {/* Main Content */}
       <div className="relative z-30 max-w-6xl mt-32 mx-auto px-6 text-center">
 <div ref={titleRef} className="mb-12 text-center">
-  <h1 className="text-[60px] md:text-[120px] lg:text-[190px] font-extrabold leading-tight text-white mb-1">
-    ALLYAI
+  <h1 className="text-[60px] md:text-[120px] lg:text-[190px] font-extrabold leading-tight text-white mb-1">                    TRIPC SOLUTIONS
   </h1>
   <h2 className="text-[28px] md:text-[40px] lg:text-[100px] font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
     WEBSITE BUILDER

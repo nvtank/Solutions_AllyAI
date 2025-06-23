@@ -377,7 +377,7 @@ export default function Story2() {
                 <div ref={container_textBlock} className="w-screen bg-white text-black h-screen flex flex-col justify-center items-center font-bold px-4 relative z-20">
                     <section ref={con_p1} className="w-full mb-3 max-w-[95%] h-[12%] leading-none overflow-y-hidden flex items-center justify-center">
                         <p ref={p1} className="font-[600] italic font-sans text-center text-[50px] xs:text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] xl:text-[140px] whitespace-nowrap pb-12 text-white">
-                            ALLYAI
+                            TRIPC SOLUTIONS
                         </p>
                     </section>
                     <section ref={con_p2} className="w-full mb-3 max-w-[95%] h-[12%] leading-none overflow-y-hidden flex items-center justify-center">

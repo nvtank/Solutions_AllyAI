@@ -50,7 +50,7 @@ export default function Contact() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: "hello@allyai.com",
+      details: "hello@tripcsolutions.com",
       description: "Send us an email anytime",
       color: "from-blue-500 to-indigo-500"
     },
@@ -91,21 +91,21 @@ export default function Contact() {
       country: "USA",
       address: "123 Innovation Drive, San Francisco, CA 94105",
       phone: "+1 (555) 123-4567",
-      email: "sf@allyai.com"
+      email: "sf@tripcsolutions.com"
     },
     {
       city: "London",
       country: "UK",
       address: "45 Tech Street, London EC2A 4DP",
       phone: "+44 20 7123 4567",
-      email: "london@allyai.com"
+      email: "london@tripcsolutions.com"
     },
     {
       city: "Singapore",
       country: "Singapore",
       address: "10 Marina Boulevard, Singapore 018983",
       phone: "+65 6123 4567",
-      email: "singapore@allyai.com"
+      email: "singapore@tripcsolutions.com"
     }
   ];
 
@@ -122,7 +122,7 @@ export default function Contact() {
                 Get in <span className="text-blue-200">Touch</span>
               </h1>
               <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                Ready to transform your industrial operations? We're here to help you get started with AI solutions 
+                Ready to transform your industrial operations? We&apos;re here to help you get started with AI solutions 
                 tailored to your specific needs.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -165,13 +165,13 @@ export default function Contact() {
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
                 <p className="text-gray-600 mb-8">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                  Fill out the form below and we&apos;ll get back to you within 24 hours.
                 </p>
 
                 {isSubmitted && (
                   <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-600" />
-                    <span className="text-green-700">Message sent successfully! We'll be in touch soon.</span>
+                    <span className="text-green-700">Message sent successfully! We&apos;ll be in touch soon.</span>
                   </div>
                 )}
 
