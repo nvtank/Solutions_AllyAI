@@ -154,7 +154,7 @@ export default function About() {
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="text-center">
                 <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                  About <span className="text-blue-200">Ally AI</span>
+                  About <span className="text-blue-200">TripC Solutions</span>
                 </h1>
                 <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
                   We're on a mission to transform industries through intelligent AI solutions. 
@@ -228,7 +228,7 @@ export default function About() {
                     Building the Future of <span className="text-blue-600">Industrial AI</span>
                   </h2>
                   <p className="text-lg text-gray-600 mb-6">
-                    Founded in 2020 by a team of AI researchers and industry veterans, Ally AI was born from a simple observation: 
+                    Founded in 2020 by a team of AI researchers and industry veterans, TripC Solutions was born from a simple observation: 
                     while AI was transforming consumer technology, industrial applications were being left behind.
                   </p>
                   <p className="text-lg text-gray-600 mb-6">

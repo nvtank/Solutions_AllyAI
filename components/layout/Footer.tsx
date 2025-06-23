@@ -153,7 +153,7 @@ export default function Footer() {
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-xl blur-lg opacity-50 scale-110" />
                 </div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                  Ally AI
+                  TripC Solutions
                 </div>
               </div>
               
@@ -307,7 +307,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-6">
               <div className="text-gray-500 text-sm">
-                © 2025 Ally AI. All rights reserved.
+                © 2025 TripC Solutions. All rights reserved.
               </div>
               <div className="flex items-center space-x-2 text-sm text-gray-500">
                 <span>Made with</span>

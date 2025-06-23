@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Ally AI - Giải Pháp Công Nghệ Tương Lai',
-  description: 'Xây dựng tương lai với Ally AI - Website builder thông minh, deploy tức thì, AI chatbot và hàng nghìn template đẹp mắt.',
+  title: 'TripC Solutions - Advanced AI Industrial Solutions',
+  description: 'Transform your industrial operations with TripC Solutions - intelligent AI systems, predictive analytics, and comprehensive automation solutions.',
 };
 
 export default function RootLayout({

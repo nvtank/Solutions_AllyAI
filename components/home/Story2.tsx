@@ -377,28 +377,28 @@ export default function Story2() {
                 <div ref={container_textBlock} className="w-screen bg-white text-black h-screen flex flex-col justify-center items-center font-bold px-4 relative z-20">
                     <section ref={con_p1} className="w-full mb-3 max-w-[95%] h-[12%] leading-none overflow-y-hidden flex items-center justify-center">
                         <p ref={p1} className="font-[600] italic font-sans text-center text-[50px] xs:text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] xl:text-[140px] whitespace-nowrap pb-12 text-white">
-                            TRIPC SOLUTIONS
+                            EASY
                         </p>
                     </section>
                     <section ref={con_p2} className="w-full mb-3 max-w-[95%] h-[12%] leading-none overflow-y-hidden flex items-center justify-center">
                         <p ref={p2} className="font-sans italic text-center text-[40px] xs:text-[50px] sm:text-[65px] md:text-[80px] lg:text-[100px] xl:text-[120px] whitespace-nowrap text-white">
-                            THE BEST
+                         PROFESSIONAL
                         </p>
                     </section>
                     <section ref={con_p3} className="font-[600] mb-3 font-sans w-full max-w-[95%] h-[12%] leading-none overflow-y-hidden flex items-center justify-center">
                         <p ref={p3} className="text-center text-white text-[50px] xs:text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] xl:text-[140px] whitespace-nowrap">
-                            CHOICE 
+                            SPECTACULAR 
                         </p>
                     </section>
                     <section ref={con_p4} className="font-sans mb-3 font-[600] w-full max-w-[95%] h-[12%] leading-none overflow-y-hidden flex items-center justify-center">
                         <p ref={p4} className="italic text-white text-center text-[40px] xs:text-[50px] sm:text-[65px] md:text-[80px] lg:text-[100px] xl:text-[120px] whitespace-nowrap">
-                             FOR YOU
+                          AFFORDABLE PRICE
                         </p>
                     </section>
                 </div>
             </section>
 
-            <div ref={container_imageZoom} className="w-screen h-screen bg-white flex justify-center items-center relative overflow-hidden">
+            <div ref={container_imageZoom} className="w-screen h-screen bg-black flex justify-center items-center relative overflow-hidden">
                 {/* Enhanced Floating Particles */}
                 <div ref={particlesContainer} className="absolute inset-0 pointer-events-none">
                     {[...Array(20)].map((_, i) => (

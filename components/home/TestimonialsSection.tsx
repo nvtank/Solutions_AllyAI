@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
 
   const testimonials = [
     {
-      quote: "Ally AI transformed our manufacturing processes completely. We've seen a remarkable 40% increase in efficiency and significant cost savings across all operations.",
+      quote: "TripC Solutions transformed our manufacturing processes completely. We've seen a remarkable 40% increase in efficiency and significant cost savings across all operations.",
       author: "John Mitchell",
       position: "Operations Director",
       company: "TechManufacturing Corp",
