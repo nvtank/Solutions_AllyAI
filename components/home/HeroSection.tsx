@@ -7,15 +7,15 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const heroRef = useRef(null);
-  const titleRef = useRef(null);
-  const buttonsRef = useRef(null);
-  const particlesRef = useRef(null);
-  const gradientRef = useRef(null);
-  const statsRef = useRef(null);
-  const waveRef = useRef(null);
-  const starfieldRef = useRef(null);
-  const transitionOverlayRef = useRef(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
+  const particlesRef = useRef<HTMLDivElement>(null);
+  const gradientRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const waveRef = useRef<HTMLDivElement>(null);
+  const starfieldRef = useRef<HTMLDivElement>(null);
+  const transitionOverlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -25,50 +25,56 @@ export default function HeroSection() {
     
     const ctx = gsap.context(() => {
       // Gradient waves animation
-      gsap.to(gradientRef.current.children, {
-        x: "random(-50, 50)",
-        y: "random(-50, 50)",
-        scale: "random(0.8, 1.2)",
-        opacity: "random(0.3, 0.7)",
-        duration: "random(12, 20)",
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        stagger: {
-          amount: 5,
-          from: "random"
-        }
-      });
+      if (gradientRef.current) {
+        gsap.to(gradientRef.current.children, {
+          x: "random(-50, 50)",
+          y: "random(-50, 50)",
+          scale: "random(0.8, 1.2)",
+          opacity: "random(0.3, 0.7)",
+          duration: "random(12, 20)",
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          stagger: {
+            amount: 5,
+            from: "random"
+          }
+        });
+      }
 
       // Particle system animation
-      gsap.to(particlesRef.current.children, {
-        y: "random(-100, 100)",
-        x: "random(-100, 100)",
-        scale: "random(0.5, 1.5)",
-        opacity: "random(0.2, 0.8)",
-        duration: "random(10, 25)",
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        stagger: {
-          amount: 8,
-          from: "random"
-        }
-      });
+      if (particlesRef.current) {
+        gsap.to(particlesRef.current.children, {
+          y: "random(-100, 100)",
+          x: "random(-100, 100)",
+          scale: "random(0.5, 1.5)",
+          opacity: "random(0.2, 0.8)",
+          duration: "random(10, 25)",
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          stagger: {
+            amount: 8,
+            from: "random"
+          }
+        });
+      }
 
       // Starfield twinkling animation
-      gsap.to(starfieldRef.current.children, {
-        opacity: "random(0.1, 0.9)",
-        scale: "random(0.5, 1.2)",
-        duration: "random(2, 5)",
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        stagger: {
-          amount: 3,
-          from: "random"
-        }
-      });
+      if (starfieldRef.current) {
+        gsap.to(starfieldRef.current.children, {
+          opacity: "random(0.1, 0.9)",
+          scale: "random(0.5, 1.2)",
+          duration: "random(2, 5)",
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut",
+          stagger: {
+            amount: 3,
+            from: "random"
+          }
+        });
+      }
 
       // Wave background flow
       gsap.to(waveRef.current, {
@@ -103,33 +109,37 @@ export default function HeroSection() {
       });
 
       // Particle transform on scroll
-      gsap.to(particlesRef.current.children, {
-        scale: "random(0.3, 2)",
-        opacity: "random(0.2, 0.9)",
-        backgroundColor: "#60a5fa",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "bottom 75%",
-          end: "bottom 35%",
-          scrub: 1.5,
-          toggleActions: "play none none reverse"
-        }
-      });
+      if (particlesRef.current) {
+        gsap.to(particlesRef.current.children, {
+          scale: "random(0.3, 2)",
+          opacity: "random(0.2, 0.9)",
+          backgroundColor: "#60a5fa",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "bottom 75%",
+            end: "bottom 35%",
+            scrub: 1.5,
+            toggleActions: "play none none reverse"
+          }
+        });
+      }
 
       // Gradient waves transform on scroll
-      gsap.to(gradientRef.current.children, {
-        scale: "random(0.5, 1.8)",
-        x: "random(-200, 200)",
-        y: "random(-200, 200)",
-        opacity: "random(0.2, 0.8)",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "bottom 80%",
-          end: "bottom 30%",
-          scrub: 1.2,
-          toggleActions: "play none none reverse"
-        }
-      });
+      if (gradientRef.current) {
+        gsap.to(gradientRef.current.children, {
+          scale: "random(0.5, 1.8)",
+          x: "random(-200, 200)",
+          y: "random(-200, 200)",
+          opacity: "random(0.2, 0.8)",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "bottom 80%",
+            end: "bottom 30%",
+            scrub: 1.2,
+            toggleActions: "play none none reverse"
+          }
+        });
+      }
 
       // Parallax effects
       gsap.to(gradientRef.current, {
@@ -245,15 +255,17 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-30 max-w-6xl mx-auto px-6 text-center">
-        <div ref={titleRef} className="mb-8">
-          <h1 className="text-7xl md:text-6xl lg:text-[12rem] font-bold leading-none text-white mb-6">
-            Transform
-          </h1>
-          <h1 className="text-7xl md:text-6xl lg:text-[12rem] font-bold leading-none bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-            Everything
-          </h1>
-        </div>
+      <div className="relative z-30 max-w-6xl mt-32 mx-auto px-6 text-center">
+<div ref={titleRef} className="mb-12 text-center">
+  <h1 className="text-[60px] md:text-[120px] lg:text-[190px] font-extrabold leading-tight text-white mb-1">
+    ALLYAI
+  </h1>
+  <h2 className="text-[28px] md:text-[40px] lg:text-[100px] font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+    WEBSITE BUILDER
+  </h2>
+</div>
+
+
         <div ref={buttonsRef} className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8 mb-20">
           <button className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 flex items-center space-x-4 font-medium text-lg overflow-hidden">
             <span className="relative z-10">Get Started</span>
@@ -262,7 +274,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500 scale-110" />
           </button>
           <button className="group px-10 py-5 bg-white/5 backdrop-blur-sm border-2 border-white/20 text-white rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-500 flex items-center space-x-4 font-medium text-lg">
-            <span>See templates</span>
+            <span>View Templates</span>
           </button>
         </div>
         <div ref={statsRef} className="flex items-center justify-center space-x-16 text-white/70">
