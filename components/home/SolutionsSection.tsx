@@ -5,6 +5,13 @@ import { Building2, Factory, Cog, ArrowRight, Sparkles, Zap, Target } from 'luci
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+/**
+ * Renders a horizontally scrollable section showcasing a portfolio of AI industrial solutions with animated transitions and interactive UI elements.
+ *
+ * Displays multiple solution cards with animated entrance, parallax effects, and floating particles, along with a scroll progress bar and a final call-to-action section. Animations are powered by GSAP and ScrollTrigger, and the layout is fully responsive.
+ *
+ * @returns The React element representing the solutions section.
+ */
 export default function SolutionsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);

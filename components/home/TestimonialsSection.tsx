@@ -5,6 +5,13 @@ import { Star, Quote, ArrowRight, CheckCircle } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+/**
+ * Renders a testimonials section featuring animated client success stories, company statistics, and call-to-action buttons.
+ *
+ * The section includes animated entrance and hover effects for the title, statistics, and testimonial cards using GSAP and ScrollTrigger. Each testimonial card displays a client quote, author details, improvement highlight, and interactive UI elements. Decorative background gradients and floating particles enhance the visual appeal. The section concludes with prominent call-to-action buttons.
+ *
+ * @returns The testimonials section React element.
+ */
 export default function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);

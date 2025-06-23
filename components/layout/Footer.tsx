@@ -25,6 +25,13 @@ import {
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+/**
+ * Renders a full-screen animated footer with brand, navigation links, statistics, office locations, legal information, and visual effects.
+ *
+ * The footer includes animated floating particles, scroll-triggered content animations, and responsive grid layouts for structured content such as brand information, newsletter signup, quick links, impact stats, global offices, and trust certifications.
+ *
+ * @returns The JSX element representing the animated footer section.
+ */
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
