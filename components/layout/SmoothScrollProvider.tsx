@@ -9,6 +9,13 @@ interface SmoothScrollProviderProps {
   children: React.ReactNode;
 }
 
+/**
+ * Provides smooth scrolling behavior to its child components using Lenis and integrates with GSAP's ScrollTrigger.
+ *
+ * Wraps children in a context that enables smooth scrolling animations and synchronizes scroll events with GSAP-based animations.
+ *
+ * @param children - The React elements to receive smooth scrolling behavior
+ */
 export default function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
   const lenisRef = useRef<Lenis | null>(null);
 

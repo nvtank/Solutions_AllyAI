@@ -5,6 +5,13 @@ import { Wrench, Building2, Factory, Settings, Zap, Sparkles } from 'lucide-reac
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+/**
+ * Renders a visually animated section highlighting various industrial sectors with interactive cards.
+ *
+ * Displays a titled section featuring multiple industry cards, each with an icon, title, description, statistics, and an image. Includes scroll-triggered entrance animations, continuous floating effects, and interactive hover scaling for each card. The layout and styling adapt responsively, and the section is visually enhanced with background gradients and decorative elements.
+ *
+ * @returns The React element representing the industries showcase section.
+ */
 export default function IndustriesSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);

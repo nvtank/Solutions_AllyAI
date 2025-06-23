@@ -5,6 +5,13 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Sparkles, Brain, Zap, Target } from 'lucide-react';
 
+/**
+ * Renders a scroll-driven animated storytelling section with text reveals, morphing backgrounds, image transitions, and particle effects.
+ *
+ * This component combines GSAP and ScrollTrigger to orchestrate synchronized entrance, exit, and morphing animations for text, images, and decorative elements. It features a hero section with animated text and backgrounds, followed by a zooming image showcase with sequential overlays and floating particles, all controlled by scroll position.
+ *
+ * @returns The animated storytelling React component.
+ */
 export default function Story2() {
     const con_p1 = useRef<HTMLDivElement>(null);
     const con_p2 = useRef<HTMLDivElement>(null);
