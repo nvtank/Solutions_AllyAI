@@ -17,9 +17,8 @@ export default function Toolbar({
 }: ToolbarProps) {
   return (
     <div className="flex items-center justify-between mb-6">
-      <div className="flex items-center space-x-4">
-        <span className="text-gray-600">
-          {templatesCount} templates found
+      <div className="flex items-center space-x-4">        <span className="text-gray-600">
+          Tìm thấy {templatesCount} mẫu
         </span>
         <div className="hidden sm:flex items-center space-x-2">
           <button
@@ -40,9 +39,8 @@ export default function Toolbar({
       <button 
         onClick={() => setShowFilters(!showFilters)}
         className="lg:hidden px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors flex items-center space-x-2"
-      >
-        <Filter className="w-4 h-4" />
-        <span>Filters</span>
+      >        <Filter className="w-4 h-4" />
+        <span>Bộ Lọc</span>
       </button>
     </div>
   );
