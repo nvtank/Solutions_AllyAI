@@ -86,10 +86,10 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                 isScrolled || !isHomePage ? 'text-gray-900' : 'text-white'
               }`}>
                 <div className="text-xl font-bold tracking-tight group-hover:translate-y-[-100%] transition-transform duration-300">
-                  Ally AI
+                  TRIPC SOLUTION
                 </div>
                 <div className="absolute top-full text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:translate-y-[-100%] transition-transform duration-300">
-                  Ally AI
+                  TRIPC SOLUTION
                 </div>
               </div>
             </Link>

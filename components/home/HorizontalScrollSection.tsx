@@ -139,7 +139,7 @@ export default function HorizontalScrollSection() {
               <section className="w-full h-[60%]">
                 <div className="inline-flex items-center px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 mb-4">
                   <Sparkles className="w-3 h-3 mr-1.5 text-blue-400" />
-                  <span className="text-xs font-medium text-blue-300">Ally AI Solutions</span>
+                  <span className="text-xs font-medium text-blue-300">TripC Solutions</span>
                 </div>
                 <h2 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[90px] text-blue-400 font-bold leading-tight mb-4">
                   {contentItems[0]?.title}

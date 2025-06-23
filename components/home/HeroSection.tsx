@@ -255,14 +255,14 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-30 max-w-6xl mt-32 mx-auto px-6 text-center">
-<div ref={titleRef} className="mb-12 text-center">
-  <h1 className="text-[60px] md:text-[120px] lg:text-[190px] font-extrabold leading-tight text-white mb-1">                    TRIPC SOLUTIONS
-  </h1>
-  <h2 className="text-[28px] md:text-[40px] lg:text-[100px] font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-    WEBSITE BUILDER
-  </h2>
-</div>
+      <div className="relative z-30 mt-32 w-full text-center">
+        <div ref={titleRef} className="mb-12 w-full text-center">
+          <h1 className="text-[60px] w-full  md:text-[120px]  lg:text-[150px] font-extrabold leading-tight text-white mb-1 ">                    TRIPC SOLUTION
+          </h1>
+          <h2 className="text-[28px] md:text-[40px] lg:text-[80px] font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+            WEBSITE BUILDER
+          </h2>
+        </div>
 
 
         <div ref={buttonsRef} className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8 mb-20">
