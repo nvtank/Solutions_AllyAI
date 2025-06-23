@@ -6,12 +6,12 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 export default function SolutionsSection() {
-  const sectionRef = useRef(null);
-  const containerRef = useRef(null);
-  const titleRef = useRef(null);
-  const horizontalRef = useRef(null);
-  const cardsRef = useRef(null);
-  const progressRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const horizontalRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
 
   const solutions = [
     {
@@ -101,23 +101,24 @@ export default function SolutionsSection() {
       );
 
       // Horizontal scroll animation
-      const cards = cardsRef.current.children;
-      const totalWidth = cards.length * 100; // Each card is 100vw wide
-      
-      // Set up horizontal scroll
-      gsap.to(cardsRef.current, {
-        x: () => -(totalWidth - 100) + "vw",
-        ease: "none",
-        scrollTrigger: {
-          trigger: horizontalRef.current,
-          start: "top top",
-          end: () => "+=" + (totalWidth * 10), // Longer scroll distance
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          onUpdate: (self) => {
-            // Update progress bar
-            const progress = self.progress * 100;
+      if (cardsRef.current) {
+        const cards = cardsRef.current.children;
+        const totalWidth = cards.length * 100; // Each card is 100vw wide
+        
+        // Set up horizontal scroll
+        gsap.to(cardsRef.current, {
+          x: () => -(totalWidth - 100) + "vw",
+          ease: "none",
+          scrollTrigger: {
+            trigger: horizontalRef.current,
+            start: "top top",
+            end: () => "+=" + (totalWidth * 10), // Longer scroll distance
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+            onUpdate: (self) => {
+              // Update progress bar
+              const progress = self.progress * 100;
             gsap.set(progressRef.current, { width: `${progress}%` });
           }
         }
@@ -232,6 +233,7 @@ export default function SolutionsSection() {
           }
         );
       });
+      }
 
       // Floating particles animation
       const particles = document.querySelectorAll('.floating-particle');
@@ -382,12 +384,12 @@ export default function SolutionsSection() {
                           loading="eager"
                           onLoad={(e) => {
                             // Ensure image is visible when loaded
-                            e.target.style.opacity = '1';
+                            (e.target as HTMLImageElement).style.opacity = '1';
                           }}
                           onError={(e) => {
                             // Fallback if image fails to load
                             console.log(`Failed to load image: ${solution.image}`);
-                            e.target.style.background = `linear-gradient(135deg, ${solution.color.split(' ')[1]}, ${solution.color.split(' ')[3]})`;
+                            (e.target as HTMLImageElement).style.background = `linear-gradient(135deg, ${solution.color.split(' ')[1]}, ${solution.color.split(' ')[3]})`;
                           }}
                           style={{ opacity: 0, transition: 'opacity 0.3s ease' }}
                         />

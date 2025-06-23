@@ -6,28 +6,28 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { Sparkles, Brain, Zap, Target } from 'lucide-react';
 
 export default function Story2() {
-    const con_p1 = useRef(null);
-    const con_p2 = useRef(null);
-    const con_p3 = useRef(null);
-    const con_p4 = useRef(null);
-    const p1 = useRef(null);
-    const p2 = useRef(null);
-    const p3 = useRef(null);
-    const p4 = useRef(null);
-    const container_textBlock = useRef(null);
+    const con_p1 = useRef<HTMLDivElement>(null);
+    const con_p2 = useRef<HTMLDivElement>(null);
+    const con_p3 = useRef<HTMLDivElement>(null);
+    const con_p4 = useRef<HTMLDivElement>(null);
+    const p1 = useRef<HTMLDivElement>(null);
+    const p2 = useRef<HTMLDivElement>(null);
+    const p3 = useRef<HTMLDivElement>(null);
+    const p4 = useRef<HTMLDivElement>(null);
+    const container_textBlock = useRef<HTMLDivElement>(null);
     
     // Enhanced image effect refs
-    const container_imageZoom = useRef(null);
-    const imageContainer = useRef(null);
-    const image1 = useRef(null);
-    const image2 = useRef(null);
-    const image3 = useRef(null);
-    const textOverlay1 = useRef(null);
-    const textOverlay2 = useRef(null);
-    const textOverlay3 = useRef(null);
-    const particlesContainer = useRef(null);
-    const transitionElementsRef = useRef(null);
-    const morphingBgRef = useRef(null);
+    const container_imageZoom = useRef<HTMLDivElement>(null);
+    const imageContainer = useRef<HTMLDivElement>(null);
+    const image1 = useRef<HTMLImageElement>(null);
+    const image2 = useRef<HTMLImageElement>(null);
+    const image3 = useRef<HTMLImageElement>(null);
+    const textOverlay1 = useRef<HTMLDivElement>(null);
+    const textOverlay2 = useRef<HTMLDivElement>(null);
+    const textOverlay3 = useRef<HTMLDivElement>(null);
+    const particlesContainer = useRef<HTMLDivElement>(null);
+    const transitionElementsRef = useRef<HTMLDivElement>(null);
+    const morphingBgRef = useRef<HTMLDivElement>(null);
 
     const imageData = [
         {
@@ -75,20 +75,27 @@ export default function Story2() {
                     trigger: container_textBlock.current,
                     start: "top 100%",
                     end: "top 50%",
-                    scrub: 1.5,
-                    onStart: () => {
-                        // Sync with Hero's morphing elements
-                        gsap.to(transitionElementsRef.current.children, {
-                            scale: "random(0.5, 2)",
-                            opacity: "random(0.3, 1)",
-                            rotation: "random(0, 360)",
-                            duration: 2,
-                            ease: "power2.out",
-                            stagger: 0.1
-                        });
-                    }
+                    scrub: 1.5
                 }
             });
+
+            // Sync with Hero's morphing elements on scroll
+            if (transitionElementsRef.current) {
+                gsap.to(transitionElementsRef.current.children, {
+                    scale: "random(0.5, 2)",
+                    opacity: "random(0.3, 1)",
+                    rotation: "random(0, 360)",
+                    duration: 2,
+                    ease: "power2.out",
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: container_textBlock.current,
+                        start: "top 100%",
+                        end: "top 50%",
+                        scrub: 1.5
+                    }
+                });
+            }
 
             entranceTl
                 .to(container_textBlock.current, {
@@ -295,7 +302,8 @@ export default function Story2() {
             });
 
             // Enhanced floating particles animation synchronized with Hero
-            gsap.to(particlesContainer.current.children, {
+            if (particlesContainer.current) {
+                gsap.to(particlesContainer.current.children, {
                 y: "random(-100, 100)",
                 x: "random(-100, 100)",
                 rotation: "random(-360, 360)",
@@ -310,9 +318,11 @@ export default function Story2() {
                     from: "random"
                 }
             });
+            }
 
             // Transition elements animation
-            gsap.to(transitionElementsRef.current.children, {
+            if (transitionElementsRef.current) {
+                gsap.to(transitionElementsRef.current.children, {
                 y: "random(-200, 200)",
                 x: "random(-200, 200)",
                 rotation: "random(-720, 720)",
@@ -326,6 +336,7 @@ export default function Story2() {
                     from: "random"
                 }
             });
+            }
 
         });
 
