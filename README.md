@@ -88,13 +88,6 @@ npm run lint     # Run ESLint
 npm run type-check # Run TypeScript checks
 ```
 
-## 🌍 Deployment
-
-### Vercel (Recommended)
-- **Platform**: [Vercel](https://vercel.com/)
-- **URL**: https://solutions-ally-ai.vercel.app/
-- **Features**: Automatic deployments, Edge Functions, Analytics
-
 
 <div align="center">
 
