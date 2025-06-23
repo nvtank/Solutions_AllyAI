@@ -14,16 +14,31 @@ import { Template } from './types';
 
 export default function Templates() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Tất Cả');
   const [viewMode, setViewMode] = useState('grid');
   const [sortBy, setSortBy] = useState('popular');
   const [showFilters, setShowFilters] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
 
+  // Category mapping từ tiếng Việt sang tiếng Anh
+  const categoryMapping: Record<string, string> = {
+    'Tất Cả': 'All',
+    'Kinh Doanh': 'Business',
+    'Thương Mại Điện Tử': 'E-commerce',
+    'Giáo Dục': 'Education',
+    'Y Tế': 'Healthcare',
+    'Hồ Sơ': 'Portfolio',
+    'Doanh Nghiệp': 'Corporate',
+    'Nhà Hàng': 'Restaurant',
+    'Ô Tô': 'Automotive',
+    'Bất Động Sản': 'Real Estate'
+  };
+
   const filteredTemplates = templates.filter(template => {
     const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          template.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesCategory = selectedCategory === 'All' || template.category === selectedCategory;
+    const englishCategory = categoryMapping[selectedCategory] || selectedCategory;
+    const matchesCategory = selectedCategory === 'Tất Cả' || template.category === englishCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -90,7 +105,7 @@ export default function Templates() {
 
               <div className="text-center mt-12">
                 <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all font-medium">
-                  Load More Templates
+                  Tải Thêm Mẫu
                 </button>
               </div>
             </div>

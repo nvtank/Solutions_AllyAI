@@ -65,7 +65,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
           ? 'bg-white/80 backdrop-blur-xl shadow-lg border-b border-gray-200/50' 
           : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto pt-2 px-4 sm:px-6">
           <div className="flex items-center justify-between h-14">
             {/* Logo */}
             <Link href="/" className="group flex items-center space-x-2.5">
