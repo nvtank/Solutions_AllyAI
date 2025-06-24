@@ -50,15 +50,15 @@ export default function Contact() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: "hello@tripcsolutions.com",
-      description: "Send us an email anytime",
+      details: "bd@tripc.ai",
+      description: "Gửi email cho chúng tôi bất cứ lúc nào",
       color: "from-blue-500 to-indigo-500"
     },
     {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Call Us",
-      details: "+1 (555) 123-4567",
-      description: "Mon-Fri from 8am to 6pm PST",
+      icon: <Globe className="w-6 h-6" />,
+      title: "Website",
+      details: "solutions.tripc.ai",
+      description: "Khám phá các giải pháp của chúng tôi",
       color: "from-emerald-500 to-teal-500"
     },
     {
@@ -71,8 +71,8 @@ export default function Contact() {
     {
       icon: <Clock className="w-6 h-6" />,
       title: "Business Hours",
-      details: "Monday - Friday: 8:00 AM - 6:00 PM PST",
-      description: "We're here to help",
+      details: "Monday - Friday: 8:00 AM - 6:00 PM",
+      description: "Chúng tôi luôn sẵn sàng hỗ trợ",
       color: "from-orange-500 to-red-500"
     }
   ];

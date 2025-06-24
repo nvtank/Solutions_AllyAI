@@ -27,14 +27,11 @@ export default function SolutionsSection() {
       className="relative bg-white overflow-hidden"
       style={{ willChange: 'auto' }}
     >
-      
-      {/* Title Section - Pre-rendered */}
+    
       <SolutionsHeader ref={titleRef} />
 
-      {/* Progress Bar - Optimized */}
       <ProgressBar ref={progressRef} />
 
-      {/* Horizontal Scroll Section - Pre-rendered visible */}
       <div ref={horizontalRef} className="relative">
         <div 
           ref={cardsRef} 
@@ -51,8 +48,6 @@ export default function SolutionsSection() {
           ))}
         </div>
       </div>
-
-      {/* Final CTA Section - Pre-rendered */}
       <SolutionsCTA />
     </section>
   );

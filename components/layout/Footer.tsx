@@ -100,10 +100,10 @@ export default function Footer() {
   ];
 
   const stats = [
-    { number: '500+', label: 'Projects', icon: <Award className="w-5 h-5" /> },
-    { number: '50+', label: 'Countries', icon: <Globe className="w-5 h-5" /> },
+    { number: '500+', label: 'Dự án', icon: <Award className="w-5 h-5" /> },
+    { number: '2000+', label: 'Người dùng', icon: <Heart className="w-5 h-5" /> },
     { number: '99.9%', label: 'Uptime', icon: <Shield className="w-5 h-5" /> },
-    { number: '24/7', label: 'Support', icon: <Clock className="w-5 h-5" /> }
+    { number: '24/7', label: 'Hỗ trợ', icon: <Clock className="w-5 h-5" /> }
   ];
 
   const offices = [
@@ -158,8 +158,7 @@ export default function Footer() {
               </div>
               
               <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                Transforming industries with cutting-edge AI solutions that drive efficiency, innovation, and growth. 
-                Join the future of intelligent automation.
+                TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng. Đồng thời tuân thủ quy định Nhà nước.
               </p>
               
               {/* Social Links */}
@@ -250,76 +249,38 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right Section - Contact & Legal */}
-          <div className="lg:col-span-3 space-y-8">
-            {/* Global Offices */}
-            <div>
-              <h3 className="text-xl font-semibold mb-6 text-white relative">
-                Global Offices
-                <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
-              </h3>
-              <div className="space-y-4">
-                {offices.map((office, index) => (
-                  <div key={index} className="group bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-blue-500/30 transition-all duration-300">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Globe className="w-4 h-4 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-white text-sm mb-1 group-hover:text-blue-400 transition-colors duration-300">
-                          {office.city}, {office.country}
-                        </h4>
-                        <div className="flex items-center space-x-1 text-xs text-blue-400">
-                          <Mail className="w-3 h-3" />
-                          <span>{office.email}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Legal & Certifications */}
-            <div>
-              <h3 className="text-xl font-semibold mb-6 text-white relative">
-                Trust & Security
-                <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" />
-              </h3>
-              <div className="space-y-3">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30">ISO 27001</span>
-                  <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">SOC 2</span>
-                  <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">GDPR</span>
+          {/* Right Section - Contact */}
+          <div className="lg:col-span-3">
+            <h3 className="text-xl font-semibold mb-6 text-white relative">
+              Liên Hệ
+              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+            </h3>
+            <div className="space-y-4">
+              <div className="group flex items-start space-x-3">
+                <Mail className="w-4 h-4 mt-1 text-gray-500 group-hover:text-blue-400 transition-colors duration-300" />
+                <div>
+                  <p className="font-semibold text-gray-200">Email</p>
+                  <a href="mailto:bd@tripc.ai" className="text-sm text-gray-400 hover:text-blue-400 transition-colors duration-300">bd@tripc.ai</a>
                 </div>
-                <div className="flex space-x-4 text-xs">
-                  <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">Privacy</a>
-                  <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">Terms</a>
-                  <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">Security</a>
+              </div>
+              <div className="group flex items-start space-x-3">
+                <Globe className="w-4 h-4 mt-1 text-gray-500 group-hover:text-blue-400 transition-colors duration-300" />
+                <div>
+                  <p className="font-semibold text-gray-200">Website</p>
+                  <a href="https://solutions.tripc.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-blue-400 transition-colors duration-300">solutions.tripc.ai</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-6">
-              <div className="text-gray-500 text-sm">
-                © 2025 TripC Solutions. All rights reserved.
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-500">
-                <span>Made with</span>
-                <Heart className="w-4 h-4 text-red-400 animate-pulse" />
-                <span>in San Francisco</span>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-2 text-sm text-gray-500">
-              <Star className="w-4 h-4 text-yellow-400" />
-              <span>Trusted by 500+ companies worldwide</span>
-            </div>
+        {/* Copyright */}
+        <div className="mt-16 pt-8 border-t border-white/10 text-center text-gray-500">
+          <p>&copy; {new Date().getFullYear()} TripC Solutions. All rights reserved.</p>
+          <div className="flex items-center justify-center space-x-2 mt-2">
+            <Sparkles className="w-4 h-4 text-blue-500/50" />
+            <p className="text-sm">Designed & Built with AI</p>
+            <Sparkles className="w-4 h-4 text-purple-500/50" />
           </div>
         </div>
       </div>

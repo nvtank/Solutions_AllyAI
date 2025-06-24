@@ -4,9 +4,9 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { 
-  Brain, 
-  Shield, 
-  Target, 
+  Zap,
+  Banknote,
+  TrendingUp,
   Sparkles,
   ArrowRight,
   Check
@@ -25,50 +25,35 @@ export default function HorizontalScrollSection() {
 
   const contentItems = [
     {
-      title: "Discover Potential",
-      subtitle: "Create the future with AI",
+      icon: <Zap className="w-8 h-8" />,
+      title: "Chuyển Đổi Số Nhanh",
+      description: "Không cần đầu tư đội ngũ kỹ thuật riêng.",
+      image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    {
+      icon: <Banknote className="w-8 h-8" />,
+      title: "Tiết Kiệm Chi Phí",
+      description: "Giảm chi phí vận hành và quản lý.",
+      image: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Tăng Hiệu Quả Bán Hàng",
+      description: "Nâng cao trải nghiệm khách hàng.",
+      image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    {
+      title: "Minh Bạch & Chuyên Nghiệp",
+      subtitle: "Tăng tính minh bạch trong kinh doanh.",
       description: "Start your journey exploring the most advanced AI solutions",
       image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
     },
     {
-      icon: <Brain className="w-8 h-8" />,
-      title: "AI-Powered Analytics",
-      subtitle: "Smart Analytics",
-      description: "Advanced machine learning algorithms analyze industrial data in real-time",
-      highlights: [
-        "Real-time data processing",
-        "Predictive analysis",
-        "Pattern recognition",
-        "Automatic insights generation"
-      ],
-      image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800"
+      title: "Dễ Dàng Mở Rộng",
+      subtitle: "Mở rộng quy mô, hợp tác đối tác.",
+      description: "Start your journey exploring the most advanced AI solutions",
+      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
     },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Security & Compliance",
-      subtitle: "Absolute Security",
-      description: "Multi-layered security system ensures data is always protected",
-      highlights: [
-        "End-to-end encryption",
-        "GDPR compliance",
-        "Complete audit trail",
-        "Advanced access control"
-      ],
-      image: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800"
-    },
-    {
-      icon: <Target className="w-8 h-8" />,
-      title: "Precision Targeting",
-      subtitle: "Accurate Targeting",
-      description: "AI helps identify and target potential customers with high accuracy",
-      highlights: [
-        "Customer behavior analysis",
-        "Trend prediction",
-        "Campaign optimization",
-        "ROI tracking"
-      ],
-      image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800"
-    }
   ];
 
   useEffect(() => {
@@ -126,9 +111,18 @@ export default function HorizontalScrollSection() {
   return (
     <div>
       {/* Header */}
-      <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 w-full h-[100px] text-[30px] ss:text-[40px] sm:text-[50px] md:text-[75px] italic font-bold text-center flex items-center justify-center text-white">
-        AI <span className="text-blue-400 ml-4">SOLUTIONS</span> SHOWCASE
-      </div>
+      <div className="relative w-full py-12 md:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden text-white text-center">
+
+  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse-slow opacity-20" />
+
+  <h1 className="relative z-10 text-4xl sm:text-5xl md:text-7xl font-extrabold italic tracking-tight">
+    AI <span className="text-blue-400 drop-shadow-md">SOLUTIONS</span> SHOWCASE
+  </h1>
+
+  {/* Hiệu ứng ánh sáng nền nếu muốn nổi bật hơn nữa */}
+  <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] -translate-x-1/2 -translate-y-1/2 bg-blue-500/10 blur-3xl rounded-full pointer-events-none" />
+</div>
+
 
       <section ref={containerRef} className="bg-gradient-to-br from-gray-900 to-slate-900 w-full flex">
         <div className="w-full md:w-1/2 h-full flex flex-col">
@@ -163,23 +157,12 @@ export default function HorizontalScrollSection() {
                     {contentItems[1]?.icon}
                   </div>
                 </div>
-                <h2 className="text-[40px] sm:text-[50px] md:text-[70px] lg:text-[80px] text-blue-400 font-bold leading-tight mb-4">
-                  AI ANALYTICS
+                <h2 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[90px] text-blue-400 font-bold leading-tight mb-4">
+                  {contentItems[0]?.title}
                 </h2>
-                <p className="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-blue-200 mb-2">
-                  {contentItems[1]?.subtitle}
-                </p>
-                <p className="text-[14px] md:text-[16px] text-gray-300 mb-4">
+                <p className="text-base md:text-lg text-gray-300">
                   {contentItems[1]?.description}
                 </p>
-                <ul className="space-y-1">
-                  {contentItems[1]?.highlights?.slice(0, 2).map((highlight, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-300">
-                      <Check className="w-3 h-3 mr-2 text-blue-400" />
-                      {highlight}
-                    </li>
-                  )) || []}
-                </ul>
               </section>
             </div>
           </section>
@@ -193,23 +176,12 @@ export default function HorizontalScrollSection() {
                     {contentItems[2]?.icon}
                   </div>
                 </div>
-                <h2 className="text-[40px] sm:text-[50px] md:text-[70px] lg:text-[80px] text-blue-400 font-bold leading-tight mb-4">
-                  SECURITY
+                <h2 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[90px] text-blue-400 font-bold leading-tight mb-4">
+                  {contentItems[0]?.title}
                 </h2>
-                <p className="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-blue-200 mb-2">
-                  {contentItems[2]?.subtitle}
-                </p>
-                <p className="text-[14px] md:text-[16px] text-gray-300 mb-4">
+                <p className="text-base md:text-lg text-gray-300">
                   {contentItems[2]?.description}
                 </p>
-                <ul className="space-y-1">
-                  {contentItems[2]?.highlights?.slice(0, 2).map((highlight, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-300">
-                      <Check className="w-3 h-3 mr-2 text-blue-400" />
-                      {highlight}
-                    </li>
-                  )) || []}
-                </ul>
               </section>
             </div>
           </section>
@@ -223,21 +195,12 @@ export default function HorizontalScrollSection() {
                     {contentItems[3]?.icon}
                   </div>
                 </div>
-                <h2 className="text-[40px] sm:text-[45px] md:text-[60px] lg:text-[70px] text-blue-400 font-bold leading-tight mb-4">
-                  TARGETING
+                <h2 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[90px] text-blue-400 font-bold leading-tight mb-4">
+                  {contentItems[0]?.title}
                 </h2>
-                <p className="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-blue-200 mb-2">
-                  {contentItems[3]?.subtitle}
-                </p>
-                <p className="text-[14px] md:text-[16px] text-gray-300 mb-4">
+                <p className="text-base md:text-lg text-gray-300">
                   {contentItems[3]?.description}
                 </p>
-                <div className="flex gap-3">
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 transition-colors flex items-center space-x-1">
-                    <span>Learn More</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </button>
-                </div>
               </section>
             </div>
           </section>
@@ -252,6 +215,12 @@ export default function HorizontalScrollSection() {
             </section>
             <section className="rounded-[20px] z-30 overflow-hidden top-[50%] left-[50%] translate-x-[-50%] transform translate-y-[-50%] absolute w-[80%] h-[50%]">
               <img ref={image2Ref} src={contentItems[2]?.image} className="w-full h-full object-cover" alt="Security" />
+            </section>
+            <section className="rounded-[20px] z-20 overflow-hidden absolute w-[80%] h-[50%] top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
+              <img ref={image3Ref} src={contentItems[3]?.image} className="w-full h-full object-cover" alt="Targeting" />
+            </section>
+            <section className="rounded-[20px] z-20 overflow-hidden absolute w-[80%] h-[50%] top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
+              <img ref={image3Ref} src={contentItems[3]?.image} className="w-full h-full object-cover" alt="Targeting" />
             </section>
             <section className="rounded-[20px] z-20 overflow-hidden absolute w-[80%] h-[50%] top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
               <img ref={image3Ref} src={contentItems[3]?.image} className="w-full h-full object-cover" alt="Targeting" />

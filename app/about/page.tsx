@@ -157,8 +157,7 @@ export default function About() {
                   About <span className="text-blue-200">TripC Solutions</span>
                 </h1>
                 <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                  We're on a mission to transform industries through intelligent AI solutions. 
-                  Founded by industry experts, we're building the future of industrial automation.
+                Trong bối cảnh yêu cầu chuyển đổi số ngày càng cấp thiết, TripC Solution ra đời. Chúng tôi cung cấp nền tảng công nghệ toàn diện. Giúp doanh nghiệp số hóa hoạt động kinh doanh nhanh chóng.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                   <button className="group px-8 py-4 bg-white text-blue-600 rounded-lg hover:shadow-xl transition-all flex items-center space-x-3 font-medium">
@@ -225,16 +224,13 @@ export default function About() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                   <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                    Building the Future of <span className="text-blue-600">Industrial AI</span>
+                  TripC Solution  <span className="text-blue-600">Chuyển Đổi Số Cho Doanh Nghiệp Du Lịch – Dịch Vụ</span>
                   </h2>
                   <p className="text-lg text-gray-600 mb-6">
-                    Founded in 2020 by a team of AI researchers and industry veterans, TripC Solutions was born from a simple observation: 
-                    while AI was transforming consumer technology, industrial applications were being left behind.
+                    TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng. Đồng thời tuân thủ quy định Nhà nước.
                   </p>
                   <p className="text-lg text-gray-600 mb-6">
-                    We set out to change that by creating AI solutions specifically designed for the unique challenges of 
-                    manufacturing, construction, and heavy industry. Today, we're proud to serve hundreds of companies 
-                    across 50+ countries.
+                    Chúng tôi cung cấp một nền tảng công nghệ toàn diện, giúp các doanh nghiệp nhanh chóng số hóa hoạt động kinh doanh, từ quản lý, vận hành đến tương tác khách hàng, mà không cần đầu tư lớn vào đội ngũ kỹ thuật riêng.
                   </p>
                   <div className="flex items-center space-x-4">
                     <div className="flex -space-x-2">
