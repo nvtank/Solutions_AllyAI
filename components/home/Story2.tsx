@@ -32,20 +32,20 @@ export default function Story2() {
     const imageData = [
         {
             src: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-            title: "AI INNOVATION",
-            subtitle: "Transforming Industries",
+            title: "Yêu Cầu Chuyển Đổi Số",
+            subtitle: "Chính phủ yêu cầu minh bạch doanh thu, xuất hóa đơn điện tử.",
             icon: <Brain className="w-8 h-8" />
         },
         {
             src: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800",
-            title: "SMART SOLUTIONS",
-            subtitle: "Powered by Intelligence",
+            title: "Giải Pháp Toàn Diện",
+            subtitle: "TripC Solution giải quyết thách thức này hiệu quả.",
             icon: <Zap className="w-8 h-8" />
         },
         {
             src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800",
-            title: "PRECISION TECH",
-            subtitle: "Future Ready Systems",
+            title: "Đa Dạng Lĩnh Vực",
+            subtitle: "Phục vụ du lịch, ẩm thực, chăm sóc sức khỏe, giải trí.",
             icon: <Target className="w-8 h-8" />
         }
     ];

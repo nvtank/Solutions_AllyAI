@@ -43,9 +43,9 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
   const isHomePage = currentPage === 'home';
 
   const navItems = [
-    { name: 'Templates', href: '/templates', hasDropdown: false },
-    { name: 'About', href: '/about', hasDropdown: false },
-    { name: 'Contact', href: '/contact', hasDropdown: false },
+    { name: 'Mẫu', href: '/templates', hasDropdown: false },
+    { name: 'Chúng tôi', href: '/about', hasDropdown: false },
+    { name: 'Liên hệ', href: '/contact', hasDropdown: false },
   ];
 
   return (
@@ -58,7 +58,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
         />
       )}
 
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
+      <nav className={`fixed top-0 p-2 w-full z-50 transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${
         isScrolled || !isHomePage
@@ -68,28 +68,16 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
         <div className="max-w-7xl mx-auto pt-2 px-4 sm:px-6">
           <div className="flex items-center justify-between h-14">
             {/* Logo */}
-            <Link href="/" className="group flex items-center space-x-2.5">
-              <div className={`relative w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-500 group-hover:scale-110 ${
-                isScrolled || !isHomePage 
-                  ? 'bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg shadow-blue-500/25' 
-                  : 'bg-white/20 backdrop-blur-sm border border-white/30'
-              }`}>
-                <Brain className={`w-5 h-5 transition-all duration-300 ${
-                  isScrolled || !isHomePage ? 'text-white' : 'text-white'
-                }`} />
-                
-                {/* Animated glow effect */}
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-indigo-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-              </div>
-              
+            <Link href="/" className="group flex items-center">
+   
               <div className={`relative overflow-hidden transition-all duration-500 ${
                 isScrolled || !isHomePage ? 'text-gray-900' : 'text-white'
               }`}>
                 <div className="text-xl font-bold tracking-tight group-hover:translate-y-[-100%] transition-transform duration-300">
-                  TRIPC SOLUTION
+                  TRIPC SOLUTIONS
                 </div>
                 <div className="absolute top-full text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:translate-y-[-100%] transition-transform duration-300">
-                  TRIPC SOLUTION
+                  TRIPC SOLUTIONS
                 </div>
               </div>
             </Link>
@@ -100,11 +88,11 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                 <div key={item.name} className="relative group">
                   <Link 
                     href={item.href}
-                    className={`relative px-5 py-2.5 rounded-xl font-medium transition-all duration-500 flex items-center space-x-1 overflow-hidden ${
+                    className={`relative px-5 py-2.5 rounded-xl font-medium text-[20px] transition-all duration-500 flex items-center space-x-1 overflow-hidden ${
                       currentPage === item.name.toLowerCase() 
                         ? 'text-blue-600' 
                         : isScrolled || !isHomePage 
-                          ? 'text-gray-700 hover:text-blue-600' 
+                          ? 'text-black hover:text-blue-600' 
                           : 'text-white/90 hover:text-white'
                     }`}
                     onMouseEnter={() => setHoveredItem(item.name)}
@@ -165,26 +153,19 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
 
             {/* Action Buttons */}
             <div className="flex items-center space-x-3">
-              <button className={`hidden sm:block px-4 py-2 font-medium transition-all duration-300 rounded-lg hover:scale-105 relative overflow-hidden group ${
+              <button className={`hidden sm:block px-4 py-2 font-medium text-[20px] transition-all duration-300 rounded-lg hover:scale-105 relative overflow-hidden group ${
                 isScrolled || !isHomePage 
-                  ? 'text-gray-700 hover:text-blue-600' 
+                  ? 'text-black hover:text-blue-600' 
                   : 'text-white/90 hover:text-white'
               }`}>
-                <span className="relative z-10">Login</span>
+                <span className="relative z-10">Đăng nhập</span>
                 <div className={`absolute inset-0 rounded-lg transition-all duration-300 ${
                   isScrolled || !isHomePage
                     ? 'bg-blue-50 scale-0 group-hover:scale-100'
                     : 'bg-white/10 scale-0 group-hover:scale-100'
                 }`} />
               </button>
-              
-              <button className="relative px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 group overflow-hidden">
-                <span className="relative z-10">Get Started</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-700 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                
-                {/* Button shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              </button>
+
               
               {/* Mobile Menu Button */}
               <button 
