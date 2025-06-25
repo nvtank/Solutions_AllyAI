@@ -87,12 +87,3 @@ npm run start    # Start production server
 npm run lint     # Run ESLint
 npm run type-check # Run TypeScript checks
 ```
-
-
-<div align="center">
-
-**Built with ❤️ by the TripC Team**
-
-[Website](https://solutions-ally-ai.vercel.app/) • [GitHub](https://github.com/nvtank/TripC-Solutions) • [Documentation](https://github.com/nvtank/TripC-Solutions/wiki)
-
-</div>
