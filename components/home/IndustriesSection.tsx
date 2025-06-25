@@ -18,7 +18,7 @@ export default function IndustriesSection() {
       title2: "Giao diện thân thiện",
       description1: "Đặt bàn, phòng, tour, vé sự kiện, gói chăm sóc sức khỏe. Hỗ trợ resort, nhà hàng, spa, khu vui chơi, travel agency.",
       description2: "Dễ sử dụng trên website và ứng dụng di động. Tùy biến theo từng thương hiệu, lĩnh vực dịch vụ.",
-      stats: "500+ Projects",
+  
       color: "from-blue-500 to-indigo-500",
       bgColor: "from-blue-50 to-indigo-50",
       image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -30,7 +30,7 @@ export default function IndustriesSection() {
       title2: "Xử Lý Nhanh Chóng",
       description1: "Theo dõi tình trạng đơn hàng theo thời gian thực. Quản lý lịch sử giao dịch, báo cáo doanh thu.",
       description2: "Cập nhật và xử lý đơn nhanh ngay trên điện thoại hoặc máy tính.",
-      stats: "500+ Projects",
+ 
       color: "from-green-500 to-teal-500",
       bgColor: "from-green-50 to-teal-50",
       image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -42,7 +42,7 @@ export default function IndustriesSection() {
       title2: "Thanh Toán QR Code",
       description1: "Tự động xuất hóa đơn điện tử theo chuẩn quy định. Tùy chỉnh mẫu hóa đơn riêng.",
       description2: "Thanh toán nhanh chóng, tiện lợi qua QR Code. Hỗ trợ ví điện tử và ngân hàng phổ biến.",
-      stats: "500+ Projects",
+      
       color: "from-purple-500 to-pink-500",
       bgColor: "from-purple-50 to-pink-50",
       image: "https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -54,7 +54,7 @@ export default function IndustriesSection() {
       title2: "Lưu Trữ Dữ Liệu An Toàn",
       description1: "Hệ thống giúp doanh nghiệp tuân thủ hóa đơn, thuế.",
       description2: "Lưu trữ dữ liệu an toàn, dễ dàng truy xuất.",
-      stats: "500+ Projects",
+
       color: "from-orange-500 to-red-500",
       bgColor: "from-orange-50 to-red-50",
       image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -150,19 +150,17 @@ export default function IndustriesSection() {
       id="industries"
       className="py-32 px-4 sm:px-8 lg:px-12 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden"
     >
-      {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-8xl mx-auto relative z-10">
-        {/* Section Title */}
         <div ref={titleRef} className="text-center mb-24">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">
             TRIPC SOLUTIONS{' '}
-            <span className="text-blue-600 relative">
-              có gì?
+            <span className="text-blue-600 relative font-bold">
+              MANG ĐẾN?
               <div className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full" />
             </span>
           </h2>
@@ -197,9 +195,7 @@ export default function IndustriesSection() {
                       <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                         {industry.title_main}
                       </h3>
-                      <div className={`text-base font-medium bg-gradient-to-r ${industry.color} bg-clip-text text-transparent`}>
-                        {industry.stats}
-                      </div>
+
                     </div>
                   </div>
 
@@ -218,7 +214,7 @@ export default function IndustriesSection() {
                     className={`mt-8 px-6 py-3 bg-gradient-to-r ${industry.color} text-white rounded-lg hover:shadow-xl transition-all duration-300 font-medium text-lg relative overflow-hidden group/button`}
                     aria-label={`Learn more about ${industry.title_main}`}
                   >
-                    <span className="relative z-10">Learn More</span>
+                    <span className="relative z-10">Trải nghiệm ngay</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/button:translate-x-full transition-transform duration-500" />
                   </button>
                 </div>

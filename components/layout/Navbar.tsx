@@ -46,6 +46,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
     { name: 'Mẫu', href: '/templates', hasDropdown: false },
     { name: 'Chúng tôi', href: '/about', hasDropdown: false },
     { name: 'Liên hệ', href: '/contact', hasDropdown: false },
+    { name: 'Giải pháp', href: '/solutions', hasDropdown: false },
   ];
 
   return (
