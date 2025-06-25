@@ -88,7 +88,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                 <div key={item.name} className="relative group">
                   <Link 
                     href={item.href}
-                    className={`relative px-5 py-2.5 rounded-xl font-medium text-[20px] transition-all duration-500 flex items-center space-x-1 overflow-hidden ${
+                    className={`relative px-5 py-2.5 rounded-xl font-medium text-[17px] transition-all duration-500 flex items-center space-x-1 overflow-hidden ${
                       currentPage === item.name.toLowerCase() 
                         ? 'text-blue-600' 
                         : isScrolled || !isHomePage 
@@ -149,48 +149,6 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                   </Link>
                 </div>
               ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex items-center space-x-3">
-              <button className={`hidden sm:block px-4 py-2 font-medium text-[20px] transition-all duration-300 rounded-lg hover:scale-105 relative overflow-hidden group ${
-                isScrolled || !isHomePage 
-                  ? 'text-black hover:text-blue-600' 
-                  : 'text-white/90 hover:text-white'
-              }`}>
-                <span className="relative z-10">Đăng nhập</span>
-                <div className={`absolute inset-0 rounded-lg transition-all duration-300 ${
-                  isScrolled || !isHomePage
-                    ? 'bg-blue-50 scale-0 group-hover:scale-100'
-                    : 'bg-white/10 scale-0 group-hover:scale-100'
-                }`} />
-              </button>
-
-              
-              {/* Mobile Menu Button */}
-              <button 
-                className={`lg:hidden p-2 rounded-lg transition-all duration-300 hover:scale-110 relative overflow-hidden group ${
-                  isScrolled || !isHomePage 
-                    ? 'text-gray-700' 
-                    : 'text-white'
-                }`}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                <div className={`absolute inset-0 rounded-lg transition-all duration-300 ${
-                  isScrolled || !isHomePage
-                    ? 'bg-gray-100 scale-0 group-hover:scale-100'
-                    : 'bg-white/10 scale-0 group-hover:scale-100'
-                }`} />
-                
-                <div className="relative w-6 h-6 z-10">
-                  <Menu className={`absolute inset-0 transition-all duration-300 ${
-                    isMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
-                  }`} />
-                  <X className={`absolute inset-0 transition-all duration-300 ${
-                    isMenuOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
-                  }`} />
-                </div>
-              </button>
             </div>
           </div>
 
