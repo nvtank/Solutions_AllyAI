@@ -7,14 +7,11 @@ const SolutionsHeader = forwardRef<HTMLDivElement>((props, ref) => {
       <div className="max-w-4xl mx-auto text-center">
         <div ref={ref} style={{ opacity: 1, transform: 'translateY(0px)' }}>  
           <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-          Lợi Ích Khi Sử Dụng <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            TripC Solution
-            </span>
+              GIẢI PHÁP
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur illum expedita, fugit assumenda velit magnam doloribus quidem, debitis iure, corporis sint. Delectus consequuntur modi debitis facere, officiis sapiente quis odit.
+            TRIPC SOLUTIONS đưa ra một hệ sinh thái giải pháp toàn diện hỗ trợ doanh nghiệp từ bán hàng đến tài chính
           </p>
         </div>
       </div>
