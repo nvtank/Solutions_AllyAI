@@ -10,7 +10,6 @@ import SolutionsSection from '@/components/home/SolutionsSection';
 import HorizontalScrollSection from '@/components/home/HorizontalScrollSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CTASection from '@/components/home/CTASection';
-import ChatBot from '@/components/shared/ChatBot';
 
 export default function Home() {
   return (
@@ -25,7 +24,7 @@ export default function Home() {
         <TestimonialsSection />
         <CTASection />
         <Footer />
-        <ChatBot />
+      
       </div>
     </SmoothScrollProvider>
   );

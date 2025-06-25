@@ -259,8 +259,8 @@ export default function HeroSection() {
         <div ref={titleRef} className="mb-12 w-full text-center">
           <h1 className="text-[60px] w-full  md:text-[120px]  lg:text-[100px] font-extrabold leading-tight text-white mb-1 ">                    TRIPC SOLUTIONS
           </h1>
-          <h2 className="text-[28px] md:text-[40px] lg:text-[60px] font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-            WEBSITE BUILDER
+          <h2 className="text-[28px] md:text-[40px] lg:text-[50px] font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+            Chuyển Đổi Số Cho Doanh Nghiệp Du Lịch - Dịch Vụ
           </h2>
         </div>
 
