@@ -1,3 +1,5 @@
+'use client';
+
 import { 
   Grid, Building2, ShoppingCart, GraduationCap, Heart, Camera, 
   Briefcase, Utensils, Car, Home 

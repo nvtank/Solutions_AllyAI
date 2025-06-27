@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { SOLUTIONS_DATA } from './solutions/solutionsData';
+import { solutionsWithIcons } from './solutions/solutionsData';
 import { useAnimations } from './solutions/useAnimations';
 import { useFloatingParticles } from './solutions/useFloatingParticles';
 import SolutionsHeader from './solutions/SolutionsHeader';
@@ -38,7 +38,7 @@ export default function SolutionsSection() {
           className="flex"
           style={{ transform: 'translateX(0px)', willChange: 'transform' }}
         >
-          {SOLUTIONS_DATA.map((solution, index) => (
+          {solutionsWithIcons.map((solution, index) => (
             <SolutionCard
               key={solution.id}
               solution={solution}

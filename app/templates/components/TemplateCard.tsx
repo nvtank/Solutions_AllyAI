@@ -1,3 +1,5 @@
+'use client';
+
 import { Star, Download, Eye, Check } from 'lucide-react';
 import Image from 'next/image';
 import { Template } from '../types';

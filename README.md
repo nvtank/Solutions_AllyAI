@@ -1,31 +1,31 @@
-# TripC Solutions 🤖
+# TripC Solutions 🏨
 
-> **Modern AI-Powered Industrial Solutions Platform**
+> **Modern Multi-Service Booking Platform**
 
-A cutting-edge Next.js website showcasing advanced AI solutions for industrial automation, manufacturing optimization, and predictive analytics. Built with modern web technologies and featuring stunning animations and responsive design.
+A cutting-edge Next.js website showcasing comprehensive booking solutions for travel, hospitality, dining, and entertainment sectors. Built with modern web technologies and featuring stunning animations and responsive design.
 
 ## 🌐 Live Demo
 
-**🔗 [Visit TripC Solutions](https://solutions-ally-ai.vercel.app/)**
+**🔗 [Visit TripC Solutions](https://solutions.tripc.ai/)**
 
 ## ✨ Features
 
 ### 🎯 Core Functionality
-- **AI Solutions Showcase** - Comprehensive display of industrial AI solutions
-- **Interactive Templates** - Browsable collection of AI templates and tools
-- **Industry-Specific Solutions** - Tailored solutions for manufacturing, construction, and heavy industry
-- **Client Testimonials** - Real success stories and case studies
-- **Contact & Support** - Professional contact forms and support channels
+- **Multi-Service Booking Platform** - Comprehensive booking solutions for various industries
+- **Digital Transformation Solutions** - Complete digitization tools for businesses
+- **Industry-Specific Solutions** - Tailored solutions for travel, dining, entertainment, and healthcare
+- **Client Success Stories** - Real testimonials and case studies
+- **Professional Contact & Support** - Multi-channel contact forms and consultation services
 
 ### 🎨 Design & UX
 - **Modern Glass Morphism UI** - Contemporary design with frosted glass effects
-- **Smooth Animations** - GSAP-powered animations and transitions
+- **Smooth Scroll Animations** - GSAP-powered horizontal scrolling and transitions
 - **Responsive Design** - Optimized for all devices and screen sizes
 - **Interactive Components** - Engaging hover effects and micro-interactions
-- **Dark/Light Mode Support** - Adaptive theming capabilities
+- **Professional Business Theme** - Clean, corporate design approach
 
 ### 🚀 Technical Features
-- **Next.js 14** - Latest React framework with App Router
+- **Next.js 13** - Latest React framework with App Router
 - **TypeScript** - Full type safety and developer experience
 - **Tailwind CSS** - Utility-first CSS framework
 - **GSAP Animations** - Professional-grade animations

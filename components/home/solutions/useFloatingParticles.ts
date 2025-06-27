@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { SOLUTIONS_DATA } from './solutionsData';
+import { solutionsWithIcons } from './solutionsData';
 
 export interface FloatingParticle {
   key: number;
@@ -9,7 +9,7 @@ export interface FloatingParticle {
 
 export function useFloatingParticles(): FloatingParticle[][] {
   const floatingParticles = useMemo(() => {
-    return SOLUTIONS_DATA.map(solution => 
+    return solutionsWithIcons.map(solution => 
       [...Array(4)].map((_, i) => ({
         key: i,
         style: {

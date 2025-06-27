@@ -9,6 +9,11 @@ export { useAnimations } from './useAnimations';
 export { useFloatingParticles } from './useFloatingParticles';
 
 // Export data and types
-export { SOLUTIONS_DATA, TOTAL_CARDS, CARD_WIDTH, ANIMATION_DURATION } from './solutionsData';
-export type { Solution } from './solutionsData';
+export { solutionsData } from '@/data';
+export type { Solution } from '@/data';
 export type { FloatingParticle } from './useFloatingParticles';
+
+// Constants
+export const TOTAL_CARDS = 5;
+export const CARD_WIDTH = 100;
+export const ANIMATION_DURATION = 3;

@@ -59,7 +59,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
         />
       )}
 
-      <nav className={`fixed top-0 p-2 w-full z-50 transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
+      <nav className={`fixed top-0 p-2 w-full z-50 transition-all duration-700 ease-&lsqb;cubic-bezier(0.25,0.46,0.45,0.94)&rsqb; ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${
         isScrolled || !isHomePage
@@ -154,7 +154,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
           </div>
 
           {/* Mobile Menu */}
-          <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
+          <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-&lsqb;cubic-bezier(0.25,0.46,0.45,0.94)&rsqb; ${
             isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}>
             <div className="py-4 space-y-2 border-t border-gray-200/50">

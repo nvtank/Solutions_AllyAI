@@ -1,3 +1,5 @@
+'use client';
+
 import { Search, Filter } from 'lucide-react';
 
 interface TemplatesHeaderProps {

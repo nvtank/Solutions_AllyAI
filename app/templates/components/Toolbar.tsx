@@ -1,3 +1,5 @@
+'use client';
+
 import { Grid, List, Filter } from 'lucide-react';
 
 interface ToolbarProps {
