@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { homeContent } from '@/data';
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -257,30 +258,34 @@ export default function HeroSection() {
       {/* Main Content */}
       <div className="relative z-30 mt-32 w-full text-center">
         <div ref={titleRef} className="mb-12 w-full text-center">
-          <h1 className="text-[60px] w-full  md:text-[120px]  lg:text-[100px] font-extrabold leading-tight text-white mb-1 ">                    TRIPC SOLUTIONS
+          <h1 className="text-[60px] w-full md:text-[120px] lg:text-[100px] font-extrabold leading-tight text-white mb-1">
+            {homeContent.hero.title.toUpperCase()}
           </h1>
           <h2 className="text-[28px] md:text-[40px] lg:text-[50px] font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-            Chuyển Đổi Số Cho Doanh Nghiệp Du Lịch - Dịch Vụ
+            {homeContent.hero.subtitle}
           </h2>
+    
         </div>
-
 
         <div ref={buttonsRef} className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-20">
           <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 flex items-center space-x-3 font-medium text-base overflow-hidden">
-            <span className="relative z-10">Bắt đầu ngay</span>
+            <span className="relative z-10">{homeContent.hero.cta.primary}</span>
             <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-500" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500 scale-110" />
           </button>
           <button className="group px-8 py-4 bg-white/5 backdrop-blur-sm border-2 border-white/20 text-white rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-500 flex items-center space-x-3 font-medium text-base">
-            <span>Xem các mẫu</span>
+            <span>{homeContent.hero.cta.secondary}</span>
           </button>
         </div>
+
+
+
         <div ref={statsRef} className="flex items-center justify-center space-x-16 text-white/70">
           {[
             { number: '500+', label: 'Dự án' },
             { number: '2000+', label: 'Người dùng' },
-            { number: '99.9%', label: 'Uptime' }
+            { number: '99.9%', label: 'Uptime SLA' }
           ].map((stat, index) => (
             <div key={index} className="text-center group cursor-pointer">
               <div className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300">

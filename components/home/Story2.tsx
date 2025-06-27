@@ -24,19 +24,19 @@ export default function Story2() {
 
     const imageData = [
         {
-            src: "/chuyendoiso.jpg", 
+            src: "/images/chuyendoiso.jpg", 
             title: "Yêu Cầu Chuyển Đổi Số",
             subtitle: "Chính phủ yêu cầu minh bạch doanh thu, xuất hóa đơn điện tử.",
             icon: <Brain className="w-8 h-8" />
         },
         {
-            src: "/congnghe.png", 
+            src: "/images/congnghe.png", 
             title: "Giải Pháp Toàn Diện",
             subtitle: "TripC Solution giải quyết thách thức này hiệu quả.",
             icon: <Zap className="w-8 h-8" />
         },
         {
-            src: "/dadanlinhvuc.jpg", 
+            src: "/images/dadanlinhvuc.jpg", 
             title: "Đa Dạng Lĩnh Vực",
             subtitle: "Phục vụ du lịch, ẩm thực, chăm sóc sức khỏe, giải trí.",
             icon: <Target className="w-8 h-8" />
@@ -50,106 +50,91 @@ export default function Story2() {
         // Enhanced image morphing animation
         const tl = gsap.timeline();
         
-        // Initial setup - bắt đầu rất nhỏ
+        // Initial setup - bắt đầu từ dưới màn hình
         gsap.set(imageContainer.current, { 
-            width: "2px",
-            height: "2px",
-            borderRadius: "100%",
-            opacity: 0.3,
-            scale: 0.1
+            width: "150px",
+            height: "150px",
+            borderRadius: "20px",
+            opacity: 0.7,
+            scale: 0.8,
+            y: "100vh" // Bắt đầu từ dưới màn hình
         });
-        gsap.set([image2.current, image3.current], { opacity: 0, scale: 0.8 });
+        gsap.set([image2.current, image3.current], { opacity: 0, scale: 0.9 });
         gsap.set([textOverlay1.current, textOverlay2.current, textOverlay3.current], { 
             opacity: 0, 
-            y: 50,
-            scale: 0.1
+            y: 30,
+            scale: 0.9
         });
 
-        // Main animation sequence with enhanced transitions
-        // Phase 1: Zoom từ điểm rất nhỏ thành hình vuông vừa
+        // Main animation sequence - tối ưu cho tốc độ
+        // Phase 1: Di chuyển từ dưới lên nhanh hơn
         tl.to(imageContainer.current, {
-            width: "8px",
-            height: "8px",
-            opacity: 0.6,
+            y: 0, // Di chuyển lên vị trí trung tâm
             scale: 1,
-            duration: 0.5,
-            ease: "power2.out"
-        })
-        .to(imageContainer.current, {
-            width: "300px",
-            height: "300px",
-            borderRadius: "30px",
             opacity: 1,
-            scale: 1.1,
-            duration: 1.5,
-            ease: "back.out(1.7)"
-        })
-        .to(imageContainer.current, {
-            scale: 1,
-            duration: 0.3,
+            duration: 0.8, // Giảm từ 1.2s xuống 0.8s
             ease: "power2.out"
         })
-        // Phase 2: Zoom ra toàn màn hình
+        // Phase 2: Phóng to nhanh hơn
         .to(imageContainer.current, {
             width: "100vw",
             height: "100vh",
             borderRadius: "0px",
-            duration: 1.2,
-            ease: "power2.inOut"
-        }, "+=0.3")
+            duration: 1.0, // Giảm từ 1.5s xuống 1.0s
+            ease: "power3.out"
+        }, "+=0.3") // Giảm delay từ 0.5s xuống 0.3s
         .to(textOverlay1.current, {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.8,
-            ease: "back.out(1.7)"
-        }, "-=0.8")
+            duration: 0.5, // Giảm từ 0.8s xuống 0.5s
+            ease: "power2.out"
+        }, "-=0.2") // Giảm overlap
         .to([image1.current, textOverlay1.current], {
             opacity: 0,
-            scale: 1.1,
-            rotation: 5,
-            duration: 0.6
-        }, "+=1.5")
+            scale: 1.05,
+            duration: 0.4 // Giữ nguyên
+        }, "+=1.2") // Giảm delay từ 2s xuống 1.2s
         .to(image2.current, {
             opacity: 1,
             scale: 1,
-            duration: 0.8,
+            duration: 0.5, // Giảm từ 0.8s xuống 0.5s
             ease: "power2.out"
-        }, "-=0.3")
+        }, "-=0.2")
         .to(textOverlay2.current, {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.8,
-            ease: "back.out(1.7)"
-        }, "-=0.4")
+            duration: 0.5, // Giảm từ 0.8s xuống 0.5s
+            ease: "power2.out"
+        }, "-=0.2") // Giảm overlap
         .to([image2.current, textOverlay2.current], {
             opacity: 0,
-            scale: 1.1,
-            rotation: -5,
-            duration: 0.6
-        }, "+=1")
+            scale: 1.05,
+            duration: 0.4 // Giữ nguyên
+        }, "+=1.0") // Giảm delay từ 1.5s xuống 1.0s
         .to(image3.current, {
             opacity: 1,
             scale: 1,
-            duration: 0.8,
+            duration: 0.5, // Giảm từ 0.8s xuống 0.5s
             ease: "power2.out"
-        }, "-=0.3")
+        }, "-=0.2")
         .to(textOverlay3.current, {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.8,
-            ease: "back.out(1.7)"
-        }, "-=0.4");
+            duration: 0.5, // Giảm từ 0.8s xuống 0.5s
+            ease: "power2.out"
+        }, "-=0.2"); // Giảm overlap
 
         ScrollTrigger.create({
             trigger: container_imageZoom.current,
             pin: container_imageZoom.current,
-            scrub: 1,
+            scrub: 1, // Giảm từ 2 xuống 1 để responsive hơn
             animation: tl,
-            start: "top 0%",
-            end: "bottom top"
+            start: "top top",
+            end: "+=150%", // Giảm từ 200% xuống 150%
+            anticipatePin: 1
         });
 
         // Particle animation
@@ -173,26 +158,11 @@ export default function Story2() {
     }, []);
 
     return (
-        <div>
+        <div className="relative">
             <div ref={container_imageZoom} className="w-screen h-screen bg-black flex justify-center items-center relative overflow-hidden">
-                {/* Particles container */}
-                <div ref={particlesContainer} className="absolute inset-0 pointer-events-none">
-                    {[...Array(8)].map((_, i) => (
-                        <div
-                            key={i}
-                            className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-60"
-                            style={{
-                                left: '50%',
-                                top: '50%',
-                                transform: 'translate(-50%, -50%)'
-                            }}
-                        />
-                    ))}
-                </div>
-
                 <div 
                     ref={imageContainer}
-                    className="relative w-1 h-1 rounded-full overflow-hidden shadow-lg opacity-30"
+                    className="relative rounded-2xl overflow-hidden shadow-2xl opacity-70 transition-all duration-300"
                 >
                     <img 
                         ref={image1}
@@ -276,6 +246,8 @@ export default function Story2() {
                     </div>
                 </div>
             </div>
+            {/* Placeholder div để tạo scroll space */}
+            <div className="h-[50vh]"></div> {/* Giảm từ 100vh xuống 50vh */}
         </div>
     );
 }

@@ -1,57 +1,116 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Monitor, Smartphone, Settings } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+const products = [
+  {
+    id: 1,
+    title: "Nền tảng Booking Đa dịch vụ",
+    description: "Nền tảng giúp doanh nghiệp số hóa toàn bộ quy trình bán dịch vụ du lịch từ lưu trú, tour, voucher tour, vé khu vui chơi đến dịch vụ di chuyển. Tất cả trong một hệ thống quản lý thống nhất.",
+    features: [
+      {
+        name: "Website booking dịch vụ",
+        description: "Cung cấp giao diện đặt dịch vụ trực tuyến, thân thiện với người dùng, hỗ trợ thanh toán, xem thông tin và quản lý đơn đặt.",
+        buttonText: "Xem ngay",
+        link: "#", // Thay bằng link từ proposal
+        icon: <Monitor className="w-6 h-6" />
+      },
+      {
+        name: "Website quản trị dành cho Admin",
+        description: "Cho phép đối tác cập nhật thông tin dịch vụ, điều chỉnh giá, quản lý khuyến mãi, theo dõi đơn hàng và doanh thu.",
+        buttonText: "Xem ngay", 
+        link: "#", // Thay bằng link từ proposal
+        icon: <Settings className="w-6 h-6" />
+      },
+      {
+        name: "TripC Merchant App",
+        description: "Ứng dụng dành cho nhân viên tại cơ sở (khách sạn, điểm đón tour, khu vui chơi...) giúp xác nhận dịch vụ, quét mã QR và cập nhật trạng thái đơn hàng ngay trên điện thoại.",
+        hasAppStores: true,
+        icon: <Smartphone className="w-6 h-6" />
+      }
+    ],
+    ctaText: "Dùng thử miễn phí",
+    ctaLink: "#contact-form", // Link đến form liên hệ
+    visual: "/images/booking-platform-mockup.jpg"
+  },
+  {
+    id: 2,
+    title: "Nền tảng Booking Bán vé Sự kiện & Du lịch",
+    description: "Nền tảng hỗ trợ các khu vui chơi, điểm du lịch bán vé trực tuyến với giao diện thân thiện, đặt vé nhanh chóng, hiển thị rõ thông tin chương trình, thời gian, giá vé và ưu đãi. Giúp tự động hóa quy trình đặt vé, kiểm soát số lượng khách, tích hợp thanh toán và cung cấp báo cáo theo thời gian thực – nâng cao trải nghiệm khách hàng và tối ưu vận hành cho doanh nghiệp.",
+    ctaText: "Dùng thử miễn phí",
+    ctaLink: "#contact-form",
+    visual: "/images/ticket-platform-mockup.jpg"
+  },
+  {
+    id: 3,
+    title: "Nền tảng Booking Dịch vụ Giải trí",
+    description: "Giải pháp đặt chỗ linh hoạt cho các loại hình dịch vụ giải trí – từ nhà hàng, spa đến karaoke và sân thể thao. Nền tảng hỗ trợ tối ưu hoá trải nghiệm người dùng nhờ tính năng gợi ý khung giờ trống, nhắc lịch tự động và quản lý khách hàng hiệu quả, giúp nâng cao tỷ lệ sử dụng dịch vụ và tối ưu vận hành.",
+    ctaText: "Dùng thử miễn phí",
+    ctaLink: "#contact-form",
+    visual: "/images/entertainment-platform-mockup.jpg"
+  },
+  {
+    id: 4,
+    title: "Nền tảng So sánh & Tìm kiếm Lưu trú",
+    description: "Nền tảng hỗ trợ người dùng khám phá các điểm đến phổ biến, so sánh giá phòng từ nhiều nguồn khác nhau và điều hướng đến các trang đặt phòng phù hợp. Với giao diện thân thiện, trải nghiệm tìm kiếm mượt mà và thông tin minh bạch, hệ thống giúp người dùng tiết kiệm thời gian, lựa chọn tối ưu cho mỗi chuyến đi.",
+    ctaText: "Dùng thử miễn phí", 
+    ctaLink: "#contact-form",
+    visual: "/images/search-platform-mockup.jpg"
+  }
+];
+
 export default function CTASection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const particlesRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // Content animation
-      gsap.fromTo(contentRef.current,
+      // Header animation
+      gsap.fromTo(headerRef.current,
         {
           opacity: 0,
-          y: 100,
+          y: 50
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Cards stagger animation
+      gsap.fromTo(cardsRef.current?.children || [],
+        {
+          opacity: 0,
+          y: 80,
           scale: 0.9
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 1.5,
+          duration: 0.8,
           ease: "back.out(1.7)",
+          stagger: 0.2,
           scrollTrigger: {
-            trigger: contentRef.current,
+            trigger: cardsRef.current,
             start: "top 80%",
-            end: "bottom 20%",
             toggleActions: "play none none reverse"
           }
         }
       );
-
-      // Floating particles
-      if (particlesRef.current) {
-        gsap.to(particlesRef.current.children, {
-          y: "random(-100, 100)",
-          x: "random(-50, 50)",
-          rotation: "random(-360, 360)",
-          duration: "random(8, 12)",
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          stagger: {
-            amount: 3,
-            from: "random"
-          }
-        });
-      }
 
     });
 
@@ -59,71 +118,121 @@ export default function CTASection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 px-6 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/3 rounded-full blur-3xl" />
-      </div>
-
-      {/* Floating particles */}
-      <div ref={particlesRef} className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-white/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
-
-      <div ref={contentRef} className="max-w-5xl mx-auto text-center text-white relative z-10">
-        {/* Badge */}
-        <div className="inline-flex items-center px-6 py-3 bg-white/10 rounded-full border border-white/20 mb-8 backdrop-blur-sm">
-          <Sparkles className="w-5 h-5 mr-2 text-white" />
-          <span className="text-sm font-medium">
-            Ready to Transform?
+    <section ref={sectionRef} className="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+      {/* Header */}
+      <div ref={headerRef} className="max-w-7xl mx-auto text-center mb-16">
+        <div className="inline-flex items-center px-6 py-3 bg-blue-50 rounded-full border border-blue-200 mb-8">
+          <Sparkles className="w-5 h-5 mr-2 text-blue-600" />
+          <span className="text-sm font-medium text-blue-600">
+            Sản phẩm của chúng tôi
           </span>
         </div>
 
-        <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-          Ready to Transform Your
-          <br />
-          <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-            Industrial Operations?
+        <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          Giải pháp 
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            {" "}Toàn diện
           </span>
+          <br />
+          cho Doanh nghiệp
         </h2>
         
-        <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
-          Join hundreds of companies already using our AI solutions to drive efficiency and innovation
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Hệ sinh thái nền tảng booking đa dịch vụ giúp doanh nghiệp chuyển đổi số hoàn toàn
         </p>
-        
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-          <button className="group relative px-12 py-5 bg-white text-blue-600 rounded-full hover:bg-gray-100 transition-all duration-500 transform hover:scale-105 text-lg font-bold overflow-hidden">
-            <span className="relative z-10">Start Free Trial</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-          </button>
-          
-          <button className="group px-12 py-5 border-2 border-white text-white rounded-full hover:bg-white hover:text-blue-600 transition-all duration-500 text-lg font-medium relative overflow-hidden">
-            <span className="relative z-10 flex items-center space-x-2">
-              <span>Schedule Demo</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </span>
-            <div className="absolute inset-0 bg-white scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full" />
-          </button>
+      </div>
+
+      {/* Products Grid */}
+      <div ref={cardsRef} className="max-w-7xl mx-auto space-y-16">
+        {products.map((product, index) => (
+          <ProductCard key={product.id} product={product} index={index} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProductCard({ product, index }: { product: any; index: number }) {
+  const isEven = index % 2 === 0;
+  
+  return (
+    <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16`}>
+      {/* Content */}
+      <div className="flex-1 space-y-8">
+        <div>
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+            {product.title}
+          </h3>
+          <p className="text-lg text-gray-600 leading-relaxed mb-8">
+            {product.description}
+          </p>
         </div>
-        
-        <div className="mt-8 text-sm opacity-80">
-          No credit card required • 30-day free trial • Cancel anytime
+
+        {/* Features for Product 1 */}
+        {product.features && (
+          <div className="space-y-6">
+            {product.features.map((feature: any, idx: number) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 flex-shrink-0">
+                    {feature.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">
+                      {feature.name}
+                    </h4>
+                    <p className="text-gray-600 mb-4">
+                      {feature.description}
+                    </p>
+                    
+                    {feature.buttonText && (
+                      <a 
+                        href={feature.link}
+                        className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium"
+                      >
+                        {feature.buttonText}
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    )}
+                    
+                    {feature.hasAppStores && (
+                      <div className="flex gap-4 mt-4">
+                        <img src="/images/app-store.png" alt="App Store" className="h-12" />
+                        <img src="/images/google-play.png" alt="Google Play" className="h-12" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* CTA Button */}
+        <div className="pt-6">
+          <a 
+            href={product.ctaLink}
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg group"
+          >
+            {product.ctaText}
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+          </a>
         </div>
       </div>
 
-      {/* Bottom gradient */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-900 to-transparent" />
-    </section>
+      {/* Visual */}
+      <div className="flex-1 relative">
+        <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 overflow-hidden">
+          <img 
+            src={product.visual}
+            alt={product.title}
+            className="w-full h-auto max-w-md mx-auto rounded-2xl shadow-2xl"
+          />
+          {/* Decorative elements */}
+          <div className="absolute top-4 right-4 w-32 h-32 bg-blue-200/30 rounded-full blur-2xl" />
+          <div className="absolute bottom-4 left-4 w-24 h-24 bg-indigo-200/30 rounded-full blur-xl" />
+        </div>
+      </div>
+    </div>
   );
 }
