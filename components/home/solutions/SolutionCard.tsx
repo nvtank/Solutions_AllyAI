@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink, Smartphone } from 'lucide-react';
 import { Solution } from './solutionsData';
 
 interface SolutionCardProps {
@@ -10,6 +10,20 @@ interface SolutionCardProps {
     className: string;
   }>;
 }
+
+// Component cho App Store icons
+const AppStoreIcons = () => (
+  <div className="flex space-x-3 mt-3">
+    <div className="w-32 h-10 bg-black text-white rounded-lg flex items-center justify-center text-xs font-medium">
+      <Smartphone className="w-4 h-4 mr-2" />
+      App Store
+    </div>
+    <div className="w-32 h-10 bg-black text-white rounded-lg flex items-center justify-center text-xs font-medium">
+      <Smartphone className="w-4 h-4 mr-2" />
+      CH Play
+    </div>
+  </div>
+);
 
 export default function SolutionCard({ solution, index, floatingParticles = [] }: SolutionCardProps) {
   return (
@@ -56,7 +70,7 @@ export default function SolutionCard({ solution, index, floatingParticles = [] }
                 </div>
                 
                 <div>
-                  <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight font-['Inter']">
                     {solution.title}
                   </h3>
                   <p className={`text-lg font-semibold bg-gradient-to-r ${solution.color} bg-clip-text text-transparent mb-4`}>
@@ -68,19 +82,48 @@ export default function SolutionCard({ solution, index, floatingParticles = [] }
                 </div>
               </div>
 
-              {/* Features Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                {solution.features.map((feature, idx) => (
-                  <div 
-                    key={idx} 
-                    className="feature-item flex items-center space-x-3 p-3 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 transform-gpu"
-                    style={{ opacity: 1, transform: 'translateY(0px)', willChange: 'transform' }}
-                  >
-                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${solution.color}`} />
-                    <span className="text-sm font-medium text-gray-700">{feature}</span>
-                  </div>
-                ))}
-              </div>
+              {/* Sub Products (chỉ hiển thị cho solution đầu tiên) */}
+              {solution.subProducts && (
+                <div className="space-y-4">
+                  {solution.subProducts.map((subProduct, idx) => (
+                    <div 
+                      key={idx} 
+                      className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-gray-200 hover:shadow-lg transition-all duration-300"
+                    >
+                      <h4 className="font-semibold text-gray-900 mb-2">{subProduct.title}</h4>
+                      <p className="text-sm text-gray-600 mb-3">{subProduct.description}</p>
+                      
+                      {subProduct.hasAppIcons ? (
+                        <AppStoreIcons />
+                      ) : (
+                        <button 
+                          onClick={() => subProduct.buttonLink && window.open(subProduct.buttonLink, '_blank')}
+                          className={`inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${solution.color} text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all duration-300`}
+                        >
+                          <span>{subProduct.buttonText}</span>
+                          <ExternalLink className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Features Grid (chỉ hiển thị nếu không có subProducts) */}
+              {!solution.subProducts && solution.features && (
+                <div className="grid grid-cols-2 gap-4">
+                  {solution.features.map((feature, idx) => (
+                    <div 
+                      key={idx} 
+                      className="feature-item flex items-center space-x-3 p-3 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 transform-gpu"
+                      style={{ opacity: 1, transform: 'translateY(0px)', willChange: 'transform' }}
+                    >
+                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${solution.color}`} />
+                      <span className="text-sm font-medium text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Stats & CTA */}
               <div className="flex items-center justify-between pt-6">
@@ -95,7 +138,7 @@ export default function SolutionCard({ solution, index, floatingParticles = [] }
                 
                 <button className={`group px-6 py-3 bg-gradient-to-r ${solution.color} text-white rounded-lg hover:shadow-xl transition-all duration-300 font-medium relative overflow-hidden transform-gpu`}>
                   <span className="relative z-10 flex items-center space-x-2">
-                    <span>Xem mẫu ngay</span>
+                    <span>Dùng thử miễn phí</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-200" />
@@ -115,12 +158,19 @@ export default function SolutionCard({ solution, index, floatingParticles = [] }
                 >
                   {solution.title} Visual
                 </div>
-                {/* Uncomment if solution.image exists in Solution interface */}
-                {/* <img 
-                  src={solution.image} 
-                  alt={solution.title} 
-                  className="w-full h-full object-cover"
-                /> */}
+                {/* Mock up desktop và app cho solution đầu tiên */}
+                {solution.id === '01' && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="grid grid-cols-2 gap-4 w-full h-full p-8">
+                      <div className="bg-white rounded-lg shadow-lg p-4 flex items-center justify-center">
+                        <span className="text-sm font-medium text-gray-600">Desktop Mockup</span>
+                      </div>
+                      <div className="bg-white rounded-lg shadow-lg p-4 flex items-center justify-center">
+                        <span className="text-sm font-medium text-gray-600">Mobile App Mockup</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
