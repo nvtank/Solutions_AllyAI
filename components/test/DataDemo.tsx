@@ -27,15 +27,6 @@ export default function DataDemo() {
           <p>Hero Title: {aboutContent.hero.title}</p>
           <p>Mission: {aboutContent.mission.mission.description}</p>
         </div>
-
-        <div>
-          <h3 className="font-semibold text-orange-600">✅ Features:</h3>
-          <ul className="list-disc pl-5">
-            {homeContent.hero.features.map((feature, index) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
-        </div>
       </div>
 
       <div className="mt-6 p-4 bg-green-50 rounded border border-green-200">
