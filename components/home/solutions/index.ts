@@ -2,7 +2,13 @@
 export { default as SolutionsHeader } from './SolutionsHeader';
 export { default as ProgressBar } from './ProgressBar';
 export { default as SolutionCard } from './SolutionCard';
+export { default as SolutionCardContent } from './SolutionCardContent';
+export { default as SolutionVisual } from './SolutionVisual';
+export { default as AppStoreIcons } from './AppStoreIcons';
 export { default as SolutionsCTA } from './SolutionsCTA';
+
+// Export individual card components
+export * from './cards';
 
 // Export hooks
 export { useAnimations } from './useAnimations';

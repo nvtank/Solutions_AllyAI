@@ -148,23 +148,23 @@ export default function IndustriesSection() {
     <section
       ref={sectionRef}
       id="industries"
-      className="py-32 px-4 sm:px-8 lg:px-12 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden"
+      className="py-16 sm:py-24 lg:py-32 px-4 sm:px-8 lg:px-12 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden"
     >
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-20 hidden sm:block">
+        <div className="absolute top-1/3 left-1/4 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-8xl mx-auto relative z-10">
-        <div ref={titleRef} className="text-center mb-24">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+        <div ref={titleRef} className="text-center mb-12 sm:mb-16 lg:mb-24">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-gray-900 px-2">
             TRIPC SOLUTIONS{' '}
             <span className="text-blue-600 relative font-bold">
               MANG ĐẾN?
-              <div className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full" />
+              <div className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-1.5 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full" />
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto px-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium facilis rem ducimus.
           </p>
         </div>
@@ -172,14 +172,17 @@ export default function IndustriesSection() {
         {/* Cards */}
         <div
           ref={cardsContainerRef}
-          className="relative grid px-24 gap-8 md:grid-cols-2 md:gap-12 max-w-8xl mx-auto"
+          className="relative grid gap-6 sm:gap-8 lg:gap-12 md:grid-cols-2 max-w-8xl mx-auto px-4 sm:px-8 lg:px-24"
           style={{ transformStyle: 'preserve-3d' }}
         >
           {industries.map((industry, index) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 transform
-                ${index === 0 ? 'md:-translate-y-16 md:-translate-x-8' : index === 1 ? 'md:translate-y-16 md:translate-x-8' : index === 2 ? 'md:translate-y-16 md:-translate-x-8' : 'md:-translate-y-16 md:translate-x-8'}`}
+              className={`group relative bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 transform
+                ${index === 0 ? 'md:-translate-y-8 lg:-translate-y-16 md:-translate-x-4 lg:-translate-x-8' : 
+                  index === 1 ? 'md:translate-y-8 lg:translate-y-16 md:translate-x-4 lg:translate-x-8' : 
+                  index === 2 ? 'md:translate-y-8 lg:translate-y-16 md:-translate-x-4 lg:-translate-x-8' : 
+                  'md:-translate-y-8 lg:-translate-y-16 md:translate-x-4 lg:translate-x-8'}`}
               style={{ zIndex: index % 2 === 0 ? 10 : 5 }}
             >
               {/* Background gradient overlay */}
@@ -187,31 +190,30 @@ export default function IndustriesSection() {
                 className={`absolute inset-0 bg-gradient-to-br ${industry.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
               />
 
-              <div className="relative z-10 p-8 sm:p-12 grid md:grid-cols-5 gap-8 items-start">
+              <div className="relative z-10 p-4 sm:p-6 lg:p-8 xl:p-12 grid gap-4 sm:gap-6 lg:gap-8 md:grid-cols-5 items-start">
                 {/* Content */}
                 <div className="md:col-span-3">
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center mb-4 sm:mb-6">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                         {industry.title_main}
                       </h3>
-
                     </div>
                   </div>
 
-                  <div className="space-y-6">
+                  <div className="space-y-4 sm:space-y-6">
                     <div>
-                      <h4 className="text-xl font-medium text-gray-800">{industry.title1}</h4>
-                      <p className="text-base text-gray-600 leading-relaxed">{industry.description1}</p>
+                      <h4 className="text-base sm:text-lg lg:text-xl font-medium text-gray-800">{industry.title1}</h4>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{industry.description1}</p>
                     </div>
                     <div>
-                      <h4 className="text-xl font-medium text-gray-800">{industry.title2}</h4>
-                      <p className="text-base text-gray-600 leading-relaxed">{industry.description2}</p>
+                      <h4 className="text-base sm:text-lg lg:text-xl font-medium text-gray-800">{industry.title2}</h4>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{industry.description2}</p>
                     </div>
                   </div>
 
                   <button
-                    className={`mt-8 px-6 py-3 bg-gradient-to-r ${industry.color} text-white rounded-lg hover:shadow-xl transition-all duration-300 font-medium text-lg relative overflow-hidden group/button`}
+                    className={`mt-6 sm:mt-8 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r ${industry.color} text-white rounded-lg hover:shadow-xl transition-all duration-300 font-medium text-sm sm:text-base lg:text-lg relative overflow-hidden group/button`}
                     aria-label={`Learn more about ${industry.title_main}`}
                   >
                     <span className="relative z-10">Trải nghiệm ngay</span>
@@ -221,7 +223,7 @@ export default function IndustriesSection() {
 
                 {/* Image */}
                 <div className="md:col-span-2 relative">
-                  <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden">
+                  <div className="relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-lg sm:rounded-xl overflow-hidden">
                     <img
                       src={industry.image}
                       alt={industry.title_main}
@@ -229,12 +231,12 @@ export default function IndustriesSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   </div>
-                  {/* Decorative elements */}
+                  {/* Decorative elements - hidden on mobile */}
                   <div
-                    className={`absolute -top-3 -right-3 w-5 h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-60 group-hover:scale-125 transition-transform duration-300`}
+                    className={`absolute -top-3 -right-3 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-60 group-hover:scale-125 transition-transform duration-300 hidden sm:block`}
                   />
                   <div
-                    className={`absolute -bottom-3 -left-3 w-5 h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-40 group-hover:scale-125 transition-transform duration-300`}
+                    className={`absolute -bottom-3 -left-3 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-40 group-hover:scale-125 transition-transform duration-300 hidden sm:block`}
                   />
                 </div>
               </div>

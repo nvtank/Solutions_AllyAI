@@ -121,5 +121,20 @@ export const solutionsWithIcons = [
       value: "1M+",
       label: "Tìm kiếm/tháng"
     }
+  },
+
+  {
+    id: "05",
+    title: "Tích hợp API & Webhook",
+    subtitle: "Kết nối hệ sinh thái",
+    description: "Bộ API đầy đủ và webhook system cho phép tích hợp với mọi hệ thống, từ CRM, ERP đến các ứng dụng bên thứ ba.",
+    color: "from-indigo-500 to-purple-500",
+    bgGradient: "from-indigo-50 to-purple-50",
+    icon: <Shield className="w-8 h-8" />,
+
+    stats: {
+      value: "500+",
+      label: "API endpoints"
+    }
   }
 ];

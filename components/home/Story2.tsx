@@ -188,60 +188,54 @@ export default function Story2() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
           
-                    <div ref={textOverlay1} className="absolute inset-0 flex flex-col justify-center items-center text-white p-8">
-                  
-                        <div className="bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/20 max-w-2xl mx-auto">
-                            <div className="flex items-center justify-center mb-6">
-                                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 backdrop-blur-sm border border-blue-400/30">
-                                    {imageData[0].icon}
+                    <div ref={textOverlay1} className="absolute inset-0 flex flex-col justify-center items-center text-white p-4 sm:p-6 lg:p-8">
+                        <div className="bg-black/40 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-white/20 max-w-sm sm:max-w-lg lg:max-w-2xl mx-auto">
+                            <div className="flex items-center justify-center mb-4 sm:mb-6">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-2 sm:mr-3 backdrop-blur-sm border border-blue-400/30">
+                                    <Brain className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
                                 </div>
-                                <Sparkles className="w-6 h-6 text-blue-400" />
+                                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-400" />
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-white bg-clip-text text-transparent">
+                            <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-3 sm:mb-4 text-white">
                                 {imageData[0].title}
                             </h2>
-                            <p className="text-lg md:text-xl text-center text-blue-200 font-medium leading-relaxed">
+                            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-center text-blue-200 font-medium leading-relaxed">
                                 {imageData[0].subtitle}
                             </p>
-                     
                         </div>
                     </div>
 
-                    <div ref={textOverlay2} className="absolute inset-0 flex flex-col justify-center items-center text-white p-8">
-                  
-                        <div className="bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/20 max-w-2xl mx-auto">
-                            <div className="flex items-center justify-center mb-6">
-                                <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mr-3 backdrop-blur-sm border border-yellow-400/30">
-                                    {imageData[1].icon}
+                    <div ref={textOverlay2} className="absolute inset-0 flex flex-col justify-center items-center text-white p-4 sm:p-6 lg:p-8">
+                        <div className="bg-black/40 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-white/20 max-w-sm sm:max-w-lg lg:max-w-2xl mx-auto">
+                            <div className="flex items-center justify-center mb-4 sm:mb-6">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mr-2 sm:mr-3 backdrop-blur-sm border border-yellow-400/30">
+                                    <Zap className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
                                 </div>
-                                <Sparkles className="w-6 h-6 text-yellow-400" />
+                                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-yellow-400" />
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-white bg-clip-text text-transparent">
+                            <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-3 sm:mb-4 text-white">
                                 {imageData[1].title}
                             </h2>
-                            <p className="text-lg md:text-xl text-center text-yellow-200 font-medium leading-relaxed">
+                            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-center text-yellow-200 font-medium leading-relaxed">
                                 {imageData[1].subtitle}
                             </p>
-                         
                         </div>
                     </div>
 
-                    <div ref={textOverlay3} className="absolute inset-0 flex flex-col justify-center items-center text-white p-8">
-             
-                        <div className="bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/20 max-w-2xl mx-auto">
-                            <div className="flex items-center justify-center mb-6">
-                                <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-3 backdrop-blur-sm border border-green-400/30">
-                                    {imageData[2].icon}
+                    <div ref={textOverlay3} className="absolute inset-0 flex flex-col justify-center items-center text-white p-4 sm:p-6 lg:p-8">
+                        <div className="bg-black/40 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-white/20 max-w-sm sm:max-w-lg lg:max-w-2xl mx-auto">
+                            <div className="flex items-center justify-center mb-4 sm:mb-6">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-2 sm:mr-3 backdrop-blur-sm border border-green-400/30">
+                                    <Target className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
                                 </div>
-                                <Sparkles className="w-6 h-6 text-green-400" />
+                                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-green-400" />
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-white bg-clip-text text-transparent">
+                            <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-3 sm:mb-4 text-white">
                                 {imageData[2].title}
                             </h2>
-                            <p className="text-lg md:text-xl text-center text-green-200 font-medium leading-relaxed">
+                            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-center text-green-200 font-medium leading-relaxed">
                                 {imageData[2].subtitle}
                             </p>
-                        
                         </div>
                     </div>
                 </div>

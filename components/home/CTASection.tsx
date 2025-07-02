@@ -118,17 +118,17 @@ export default function CTASection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+    <section ref={sectionRef} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-white">
       {/* Header */}
-      <div ref={headerRef} className="max-w-7xl mx-auto text-center mb-16">
-        <div className="inline-flex items-center px-6 py-3 bg-blue-50 rounded-full border border-blue-200 mb-8">
-          <Sparkles className="w-5 h-5 mr-2 text-blue-600" />
-          <span className="text-sm font-medium text-blue-600">
+      <div ref={headerRef} className="max-w-7xl mx-auto text-center mb-8 sm:mb-12 lg:mb-16">
+        <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-blue-50 rounded-full border border-blue-200 mb-6 sm:mb-8">
+          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-600" />
+          <span className="text-xs sm:text-sm font-medium text-blue-600">
             Sản phẩm của chúng tôi
           </span>
         </div>
 
-        <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight px-2">
           Giải pháp 
           <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
             {" "}Toàn diện
@@ -137,13 +137,13 @@ export default function CTASection() {
           cho Doanh nghiệp
         </h2>
         
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
           Hệ sinh thái nền tảng booking đa dịch vụ giúp doanh nghiệp chuyển đổi số hoàn toàn
         </p>
       </div>
 
       {/* Products Grid */}
-      <div ref={cardsRef} className="max-w-7xl mx-auto space-y-16">
+      <div ref={cardsRef} className="max-w-7xl mx-auto space-y-8 sm:space-y-12 lg:space-y-16">
         {products.map((product, index) => (
           <ProductCard key={product.id} product={product} index={index} />
         ))}
@@ -156,49 +156,49 @@ function ProductCard({ product, index }: { product: any; index: number }) {
   const isEven = index % 2 === 0;
   
   return (
-    <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16`}>
+    <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-6 sm:gap-8 lg:gap-12 xl:gap-16`}>
       {/* Content */}
-      <div className="flex-1 space-y-8">
+      <div className="flex-1 space-y-6 sm:space-y-8">
         <div>
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             {product.title}
           </h3>
-          <p className="text-lg text-gray-600 leading-relaxed mb-8">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
             {product.description}
           </p>
         </div>
 
         {/* Features for Product 1 */}
         {product.features && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {product.features.map((feature: any, idx: number) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 flex-shrink-0">
+              <div key={idx} className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-50 rounded-lg sm:rounded-xl flex items-center justify-center text-blue-600 flex-shrink-0">
                     {feature.icon}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                       {feature.name}
                     </h4>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
                       {feature.description}
                     </p>
                     
                     {feature.buttonText && (
                       <a 
                         href={feature.link}
-                        className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium"
+                        className="inline-flex items-center px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg sm:rounded-xl hover:bg-blue-700 transition-colors font-medium text-sm sm:text-base"
                       >
                         {feature.buttonText}
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
                       </a>
                     )}
                     
                     {feature.hasAppStores && (
-                      <div className="flex gap-4 mt-4">
-                        <img src="/images/app-store.png" alt="App Store" className="h-12" />
-                        <img src="/images/google-play.png" alt="Google Play" className="h-12" />
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-3 sm:mt-4">
+                        <img src="/images/app-store.png" alt="App Store" className="h-10 sm:h-12" />
+                        <img src="/images/google-play.png" alt="Google Play" className="h-10 sm:h-12" />
                       </div>
                     )}
                   </div>
@@ -209,28 +209,28 @@ function ProductCard({ product, index }: { product: any; index: number }) {
         )}
 
         {/* CTA Button */}
-        <div className="pt-6">
+        <div className="pt-4 sm:pt-6">
           <a 
             href={product.ctaLink}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg group"
+            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg sm:rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-base sm:text-lg group"
           >
             {product.ctaText}
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </a>
         </div>
       </div>
 
       {/* Visual */}
-      <div className="flex-1 relative">
-        <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 overflow-hidden">
+      <div className="flex-1 relative w-full">
+        <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 overflow-hidden">
           <img 
             src={product.visual}
             alt={product.title}
-            className="w-full h-auto max-w-md mx-auto rounded-2xl shadow-2xl"
+            className="w-full h-auto max-w-xs sm:max-w-sm lg:max-w-md mx-auto rounded-xl sm:rounded-2xl shadow-2xl"
           />
-          {/* Decorative elements */}
-          <div className="absolute top-4 right-4 w-32 h-32 bg-blue-200/30 rounded-full blur-2xl" />
-          <div className="absolute bottom-4 left-4 w-24 h-24 bg-indigo-200/30 rounded-full blur-xl" />
+          {/* Decorative elements - hidden on mobile */}
+          <div className="absolute top-4 right-4 w-24 h-24 sm:w-32 sm:h-32 bg-blue-200/30 rounded-full blur-2xl hidden sm:block" />
+          <div className="absolute bottom-4 left-4 w-16 h-16 sm:w-24 sm:h-24 bg-indigo-200/30 rounded-full blur-xl hidden sm:block" />
         </div>
       </div>
     </div>
