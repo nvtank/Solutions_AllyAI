@@ -80,7 +80,7 @@ export const solutionsWithIcons = [
 
   {
     id: "02", 
-    title: "Nền tảng Booking Bán vé Sự kiện & Du lịch",
+    title: "Nền tảng Booking Bán vé khu vui chơi & Du lịch",
     subtitle: "Giải pháp bán vé trực tuyến",
     description: "Nền tảng hỗ trợ các khu vui chơi, điểm du lịch bán vé trực tuyến với giao diện thân thiện, đặt vé nhanh chóng, hiển thị rõ thông tin chương trình, thời gian, giá vé và ưu đãi. Giúp tự động hóa quy trình đặt vé, kiểm soát số lượng khách, tích hợp thanh toán và cung cấp báo cáo theo thời gian thực – nâng cao trải nghiệm khách hàng và tối ưu vận hành cho doanh nghiệp.",
     color: "from-purple-500 to-pink-500",
@@ -95,9 +95,9 @@ export const solutionsWithIcons = [
 
   {
     id: "03",
-    title: "Nền tảng Booking Dịch vụ Giải trí",
-    subtitle: "Đặt chỗ linh hoạt đa ngành",
-    description: "Giải pháp đặt chỗ linh hoạt cho các loại hình dịch vụ giải trí – từ nhà hàng, spa đến karaoke và sân thể thao. Nền tảng hỗ trợ tối ưu hoá trải nghiệm người dùng nhờ tính năng gợi ý khung giờ trống, nhắc lịch tự động và quản lý khách hàng hiệu quả, giúp nâng cao tỷ lệ sử dụng dịch vụ và tối ưu vận hành.",
+    title: "Nền tảng Booking bán vé tàu du lịch, vé phà",
+    subtitle: "Booking linh hoạt đa ngành",
+    description: "Giải pháp Booking linh hoạt cho các loại hình dịch vụ giải trí",
     color: "from-green-500 to-emerald-500", 
     bgGradient: "from-green-50 to-emerald-50",
     icon: <Users className="w-8 h-8" />,
@@ -110,9 +110,9 @@ export const solutionsWithIcons = [
 
   {
     id: "04",
-    title: "Nền tảng So sánh & Tìm kiếm Lưu trú",
-    subtitle: "So sánh giá thông minh", 
-    description: "Nền tảng hỗ trợ người dùng khám phá các điểm đến phổ biến, so sánh giá phòng từ nhiều nguồn khác nhau và điều hướng đến các trang đặt phòng phù hợp. Với giao diện thân thiện, trải nghiệm tìm kiếm mượt mà và thông tin minh bạch, hệ thống giúp người dùng tiết kiệm thời gian, lựa chọn tối ưu cho mỗi chuyến đi.",
+    title: "Nền tảng đặt chỗ nhà hàng, spa, karaoke & sân thể thao",
+    subtitle: "Đặt chỗ linh hoạt đa ngành", 
+    description: "Giải pháp đặt chỗ linh hoạt cho các loại hình dịch vụ giải trí – từ nhà hàng, spa đến karaoke và sân thể thao. Nền tảng hỗ trợ tối ưu hoá trải nghiệm người dùng nhờ tính năng gợi ý khung giờ trống, nhắc lịch tự động và quản lý khách hàng hiệu quả, giúp nâng cao tỷ lệ sử dụng dịch vụ và tối ưu vận hành.",
     color: "from-orange-500 to-red-500",
     bgGradient: "from-orange-50 to-red-50", 
     icon: <Database className="w-8 h-8" />,
@@ -125,9 +125,9 @@ export const solutionsWithIcons = [
 
   {
     id: "05",
-    title: "Tích hợp API & Webhook",
-    subtitle: "Kết nối hệ sinh thái",
-    description: "Bộ API đầy đủ và webhook system cho phép tích hợp với mọi hệ thống, từ CRM, ERP đến các ứng dụng bên thứ ba.",
+    title: "Nền tảng đặt phòng lưu trú",
+    subtitle: "Nền tảng so sánh & Tìm kiếm Lưu trú",
+    description: "Nền tảng hỗ trợ người dùng khám phá các điểm đến phổ biến, so sánh giá phòng từ nhiều nguồn khác nhau và điều hướng đến các trang đặt phòng phù hợp. Với giao diện thân thiện, trải nghiệm tìm kiếm mượt mà và thông tin minh bạch, hệ thống giúp người dùng tiết kiệm thời gian, lựa chọn tối ưu cho mỗi chuyến đi.",
     color: "from-indigo-500 to-purple-500",
     bgGradient: "from-indigo-50 to-purple-50",
     icon: <Shield className="w-8 h-8" />,

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <SmoothScrollProvider>
       <div className="min-h-screen bg-white overflow-hidden">
-        {/* <Navbar currentPage="home" /> */}
+        <Navbar currentPage="home" />
         <HeroSection />
         <Story2 />
         <IndustriesSection />
