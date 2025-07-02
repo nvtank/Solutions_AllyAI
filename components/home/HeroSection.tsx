@@ -256,42 +256,39 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-30 mt-32 w-full text-center">
-        <div ref={titleRef} className="mb-12 w-full text-center">
-          <h1 className="text-[60px] w-full md:text-[120px] lg:text-[100px] font-extrabold leading-tight text-white mb-1">
+      <div className="relative z-30 mt-16 sm:mt-24 lg:mt-32 w-full text-center px-4 sm:px-6 lg:px-8">
+        <div ref={titleRef} className="mb-8 sm:mb-10 lg:mb-12 w-full text-center">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[100px] font-extrabold leading-tight text-white mb-2 sm:mb-4">
             {homeContent.hero.title.toUpperCase()}
           </h1>
-          <h2 className="text-[28px] md:text-[40px] lg:text-[50px] font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+          <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
             {homeContent.hero.subtitle}
           </h2>
-    
         </div>
 
-        <div ref={buttonsRef} className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-20">
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 flex items-center space-x-3 font-medium text-base overflow-hidden">
+        <div ref={buttonsRef} className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 lg:space-x-6 mb-12 sm:mb-16 lg:mb-20">
+          <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 flex items-center space-x-2 sm:space-x-3 font-medium text-sm sm:text-base overflow-hidden w-full sm:w-auto">
             <span className="relative z-10">{homeContent.hero.cta.primary}</span>
-            <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-500" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-500" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500 scale-110" />
           </button>
-          <button className="group px-8 py-4 bg-white/5 backdrop-blur-sm border-2 border-white/20 text-white rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-500 flex items-center space-x-3 font-medium text-base">
+          <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-white/5 backdrop-blur-sm border-2 border-white/20 text-white rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-500 flex items-center space-x-2 sm:space-x-3 font-medium text-sm sm:text-base w-full sm:w-auto">
             <span>{homeContent.hero.cta.secondary}</span>
           </button>
         </div>
 
-
-
-        <div ref={statsRef} className="flex items-center justify-center space-x-16 text-white/70">
+        <div ref={statsRef} className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8 lg:space-x-16 text-white/70">
           {[
             { number: '500+', label: 'Dự án' },
             { number: '2000+', label: 'Người dùng' },
             { number: '99.9%', label: 'Uptime SLA' }
           ].map((stat, index) => (
             <div key={index} className="text-center group cursor-pointer">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
                 {stat.number}
               </div>
-              <div className="text-sm uppercase tracking-wider group-hover:text-blue-400 transition-colors duration-300">
+              <div className="text-xs sm:text-sm uppercase tracking-wider group-hover:text-blue-400 transition-colors duration-300">
                 {stat.label}
               </div>
             </div>
@@ -303,18 +300,18 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-400/40 to-transparent" />
       
-      {/* Corner Decorations */}
-      <div className="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-blue-400/20 rounded-tl-xl" />
-      <div className="absolute top-8 right-8 w-16 h-16 border-r-2 border-t-2 border-blue-400/20 rounded-tr-xl" />
-      <div className="absolute bottom-8 left-8 w-16 h-16 border-l-2 border-b-2 border-blue-400/20 rounded-bl-xl" />
-      <div className="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-blue-400/20 rounded-br-xl" />
+      {/* Corner Decorations - Hidden on mobile */}
+      <div className="hidden sm:block absolute top-4 sm:top-8 left-4 sm:left-8 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 border-l-2 border-t-2 border-blue-400/20 rounded-tl-xl" />
+      <div className="hidden sm:block absolute top-4 sm:top-8 right-4 sm:right-8 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 border-r-2 border-t-2 border-blue-400/20 rounded-tr-xl" />
+      <div className="hidden sm:block absolute bottom-4 sm:bottom-8 left-4 sm:left-8 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 border-l-2 border-b-2 border-blue-400/20 rounded-bl-xl" />
+      <div className="hidden sm:block absolute bottom-4 sm:bottom-8 right-4 sm:right-8 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 border-r-2 border-b-2 border-blue-400/20 rounded-br-xl" />
 
-      {/* Floating Sparkles */}
-      <div className="absolute top-1/5 right-12 animate-pulse">
-        <Sparkles className="w-5 h-5 text-blue-400/50" />
+      {/* Floating Sparkles - Responsive positioning */}
+      <div className="hidden sm:block absolute top-1/5 right-6 sm:right-12 animate-pulse">
+        <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400/50" />
       </div>
-      <div className="absolute bottom-1/5 left-12 animate-pulse" style={{ animationDelay: '0.5s' }}>
-        <Sparkles className="w-4 h-4 text-indigo-400/50" />
+      <div className="hidden sm:block absolute bottom-1/5 left-6 sm:left-12 animate-pulse" style={{ animationDelay: '0.5s' }}>
+        <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-indigo-400/50" />
       </div>
     </section>
   );

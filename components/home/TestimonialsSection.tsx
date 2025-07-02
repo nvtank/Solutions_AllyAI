@@ -172,44 +172,44 @@ export default function TestimonialsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
-      {/* Enhanced background elements */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-1/4 left-1/6 w-80 h-80 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/3 right-1/6 w-96 h-96 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-cyan-50 to-blue-50 rounded-full blur-3xl" />
+    <section ref={sectionRef} className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
+      {/* Enhanced background elements - hidden on mobile for performance */}
+      <div className="absolute inset-0 opacity-40 hidden sm:block">
+        <div className="absolute top-1/4 left-1/6 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/3 right-1/6 w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-[500px] sm:h-[500px] bg-gradient-to-r from-cyan-50 to-blue-50 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Section */}
-        <div ref={titleRef} className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full border border-blue-200 mb-6">
-            <CheckCircle className="w-4 h-4 mr-2 text-blue-600" />
-            <span className="text-sm font-medium text-blue-700">Client Success Stories</span>
+        <div ref={titleRef} className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-50 rounded-full border border-blue-200 mb-4 sm:mb-6">
+            <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-600" />
+            <span className="text-xs sm:text-sm font-medium text-blue-700">Client Success Stories</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
             Trusted by <span className="text-blue-600 relative">
               Industry Leaders
-              <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full" />
+              <div className="absolute -bottom-1 left-0 w-full h-0.5 sm:h-1 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full" />
             </span>
           </h2>
           
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
             See how leading companies are transforming their operations and achieving remarkable results with our AI solutions
           </p>
         </div>
 
         {/* Stats Section */}
-        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-16">
           {stats.map((stat, index) => (
-            <div key={index} className="group text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300">
-              <div className="text-3xl mb-2">{stat.icon}</div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300">
+            <div key={index} className="group text-center p-3 sm:p-4 lg:p-6 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300">
+              <div className="text-lg sm:text-2xl lg:text-3xl mb-1 sm:mb-2">{stat.icon}</div>
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300">
                 {stat.number}
               </div>
-              <div className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+              <div className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
                 {stat.label}
               </div>
             </div>
@@ -217,59 +217,59 @@ export default function TestimonialsSection() {
         </div>
         
         {/* Testimonials Grid */}
-        <div ref={cardsContainerRef} className="grid lg:grid-cols-3 gap-8">
+        <div ref={cardsContainerRef} className="grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
+            <div key={index} className="group relative bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
               
               {/* Background gradient overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
               
               {/* Content */}
-              <div className="relative z-10 p-8">
+              <div className="relative z-10 p-4 sm:p-6 lg:p-8">
                 
                 {/* Quote Icon & Rating */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${testimonial.color} rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
-                    <Quote className="w-6 h-6 text-white" />
+                <div className="flex items-center justify-between mb-4 sm:mb-6">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${testimonial.color} rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
+                    <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   
                   <div className="flex items-center space-x-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-300" style={{ transitionDelay: `${i * 50}ms` }} />
+                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-300" style={{ transitionDelay: `${i * 50}ms` }} />
                     ))}
                   </div>
                 </div>
 
                 {/* Quote Text */}
-                <blockquote className="text-gray-700 text-lg leading-relaxed mb-8 relative">
-                  <span className="text-6xl text-gray-200 absolute -top-4 -left-2 font-serif">"</span>
+                <blockquote className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 relative">
+                  <span className="text-4xl sm:text-6xl text-gray-200 absolute -top-2 sm:-top-4 -left-1 sm:-left-2 font-serif">&ldquo;</span>
                   <span className="relative z-10">{testimonial.quote}</span>
-                  <span className="text-6xl text-gray-200 absolute -bottom-8 -right-2 font-serif">"</span>
+                  <span className="text-4xl sm:text-6xl text-gray-200 absolute -bottom-6 sm:-bottom-8 -right-1 sm:-right-2 font-serif">&rdquo;</span>
                 </blockquote>
 
                 {/* Improvement Badge */}
-                <div className={`inline-flex items-center px-4 py-2 bg-gradient-to-r ${testimonial.color} rounded-full text-white text-sm font-medium mb-6 group-hover:scale-105 transition-transform duration-300`}>
-                  <CheckCircle className="w-4 h-4 mr-2" />
+                <div className={`inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r ${testimonial.color} rounded-full text-white text-xs sm:text-sm font-medium mb-4 sm:mb-6 group-hover:scale-105 transition-transform duration-300`}>
+                  <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                   {testimonial.improvement}
                 </div>
 
                 {/* Author Info */}
                 <div className="flex items-center">
-                  <div className="relative mr-4">
+                  <div className="relative mr-3 sm:mr-4">
                     <img
                       src={testimonial.avatar}
                       alt={testimonial.author}
-                      className="w-16 h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-500 border-4 border-white shadow-lg"
+                      className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-500 border-4 border-white shadow-lg"
                     />
                     <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${testimonial.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                   </div>
                   
                   <div className="flex-1">
-                    <div className="font-bold text-gray-900 text-lg mb-1 group-hover:text-blue-600 transition-colors duration-300">
+                    <div className="font-bold text-gray-900 text-base sm:text-lg mb-1 group-hover:text-blue-600 transition-colors duration-300">
                       {testimonial.author}
                     </div>
-                    <div className="text-sm text-gray-600 mb-1 font-medium">{testimonial.position}</div>
-                    <div className="text-sm text-gray-500 font-medium">{testimonial.company}</div>
+                    <div className="text-xs sm:text-sm text-gray-600 mb-1 font-medium">{testimonial.position}</div>
+                    <div className="text-xs sm:text-sm text-gray-500 font-medium">{testimonial.company}</div>
                     <div className="text-xs text-gray-400 flex items-center mt-1">
                       <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
                       {testimonial.location}
@@ -278,9 +278,9 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* Read More Button */}
-                <button className="group/btn mt-6 w-full flex items-center justify-center space-x-2 py-3 px-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all duration-300 text-gray-700 hover:text-blue-600">
-                  <span className="font-medium">Read Full Case Study</span>
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                <button className="group/btn mt-4 sm:mt-6 w-full flex items-center justify-center space-x-2 py-2.5 sm:py-3 px-4 bg-gray-50 hover:bg-gray-100 rounded-lg sm:rounded-xl transition-all duration-300 text-gray-700 hover:text-blue-600">
+                  <span className="font-medium text-sm sm:text-base">Read Full Case Study</span>
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                 </button>
               </div>
               
@@ -307,17 +307,17 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-4">
-            <button className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-medium relative overflow-hidden">
-              <span className="relative z-10 flex items-center space-x-2">
-                <span>Join Our Success Stories</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+        <div className="text-center mt-8 sm:mt-12 lg:mt-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <button className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg sm:rounded-xl hover:shadow-xl transition-all duration-300 font-medium relative overflow-hidden">
+              <span className="relative z-10 flex items-center justify-center space-x-2">
+                <span className="text-sm sm:text-base">Join Our Success Stories</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             </button>
             
-            <button className="px-8 py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl hover:border-blue-300 hover:text-blue-600 transition-all duration-300 font-medium">
+            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-lg sm:rounded-xl hover:border-blue-300 hover:text-blue-600 transition-all duration-300 font-medium text-sm sm:text-base">
               View All Case Studies
             </button>
           </div>
