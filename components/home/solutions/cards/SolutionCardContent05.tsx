@@ -25,7 +25,7 @@ export default function SolutionCardContent05({ solution, index }: SolutionCardC
             maxWidth: '100%'
           }}
         >
-          {/* Header */}
+
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.color} flex items-center justify-center text-white shadow-lg transform-gpu`}>
