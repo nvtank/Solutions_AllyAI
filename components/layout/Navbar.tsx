@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Brain, Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { navbarContent } from '@/data';
@@ -12,6 +12,17 @@ interface NavbarProps {
 export default function Navbar({ currentPage = 'home' }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -22,16 +33,22 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
         />
       )}
 
-      <nav className="fixed top-0 p-2 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-xl shadow-lg border-b border-gray-200/50">
+      <nav className={`fixed top-0 p-2 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/90 backdrop-blur-xl shadow-lg border-b border-gray-200/50' 
+          : 'bg-transparent'
+      }`}>
         <div className="max-w-7xl mx-auto pt-2 px-4 sm:px-6">
           <div className="flex items-center justify-between h-14">
             {/* Logo */}
             <Link href="/" className="group flex items-center">
-              <div className="relative overflow-hidden transition-all duration-500 text-gray-900">
-                <div className="text-xl font-bold tracking-tight group-hover:translate-y-[-100%] transition-transform duration-300">
+              <div className="relative overflow-hidden transition-all duration-500">
+                <div className={`text-xl font-bold tracking-tight group-hover:translate-y-[-100%] transition-all duration-300 ${
+                  isScrolled ? 'text-gray-900' : 'text-white'
+                }`}>
                   {navbarContent.logo}
                 </div>
-                <div className="absolute top-full text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:translate-y-[-100%] transition-transform duration-300">
+                <div className="absolute top-full text-xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent group-hover:translate-y-[-100%] transition-transform duration-300">
                   {navbarContent.logo}
                 </div>
               </div>
@@ -42,13 +59,19 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                 <div key={item.name} className="relative group">
                   <Link 
                     href={item.href}
-                    className="relative px-4 py-2 rounded-lg text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
+                    className={`relative px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
+                      isScrolled 
+                        ? 'text-gray-700 hover:text-blue-600' 
+                        : 'text-white/90 hover:text-white'
+                    }`}
                     onMouseEnter={() => setHoveredItem(item.name)}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
                     <span className="relative z-10">{item.name}</span>
                     {hoveredItem === item.name && (
-                      <div className="absolute inset-0 bg-blue-50 rounded-lg transition-all duration-200" />
+                      <div className={`absolute inset-0 rounded-lg transition-all duration-200 ${
+                        isScrolled ? 'bg-blue-50' : 'bg-white/10'
+                      }`} />
                     )}
                   </Link>
                 </div>
@@ -56,7 +79,11 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
             </div>
 
             <button
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className={`lg:hidden p-2 rounded-lg transition-colors ${
+                isScrolled 
+                  ? 'hover:bg-gray-100 text-gray-700' 
+                  : 'hover:bg-white/10 text-white'
+              }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
