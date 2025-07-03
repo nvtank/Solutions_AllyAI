@@ -3,12 +3,15 @@ export const homeContent = {
   hero: {
     title: "TRIPC SOLUTIONS",
     subtitle: "Chuyển Đổi Số Cho Doanh Nghiệp Du Lịch - Dịch Vụ",
-
     cta: {
       primary: "Bắt đầu ngay",
       secondary: "Xem các mẫu"
     },
-
+    stats: [
+      { number: '500+', label: 'Dự án' },
+      { number: '2000+', label: 'Người dùng' },
+      { number: '99.9%', label: 'Uptime SLA' }
+    ]
   },
 
   story: {

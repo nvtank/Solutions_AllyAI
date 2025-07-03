@@ -1,232 +1,143 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import { 
-  Zap,
-  Banknote,
-  TrendingUp,
-  Sparkles,
-  ArrowRight,
-  Check
-} from 'lucide-react';
+import Image from 'next/image';
+import { Zap, Banknote, TrendingUp, ShieldCheck, GitBranch, Sparkles } from 'lucide-react';
+
+const contentItems = [
+	{
+		icon: <Zap className="w-8 h-8 text-blue-400" />,
+		title: 'Chuyển Đổi Số Nhanh Chóng',
+		description:
+			'Triển khai nền tảng dễ dàng mà không cần đầu tư đội ngũ kỹ thuật. TripC giúp doanh nghiệp bắt đầu ngay với hạ tầng sẵn có và hỗ trợ vận hành trọn gói.',
+		image:
+			'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+	},
+	{
+		icon: <Banknote className="w-8 h-8 text-green-400" />,
+		title: 'Tiết Kiệm Chi Phí Vượt Trội',
+		description:
+			'Tối ưu hóa chi phí vận hành và quản lý với các giải pháp tự động hóa thông minh. Nền tảng của chúng tôi giúp giảm thiểu các công việc thủ công, tiết kiệm thời gian và nguồn lực.',
+		image:
+			'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+	},
+	{
+		icon: <TrendingUp className="w-8 h-8 text-amber-400" />,
+		title: 'Tăng Trưởng Doanh Thu Bền Vững',
+		description:
+			'Cải thiện đáng kể hiệu quả bán hàng bằng cách cá nhân hóa trải nghiệm khách hàng. Thu thập và phân tích dữ liệu để đưa ra các chiến lược kinh doanh hiệu quả, tăng tỷ lệ chuyển đổi.',
+		image:
+			'https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+	},
+	{
+		icon: <ShieldCheck className="w-8 h-8 text-teal-400" />,
+		title: 'Minh Bạch & Chuyên Nghiệp',
+		description:
+			'Xây dựng hình ảnh thương hiệu chuyên nghiệp và đáng tin cậy. Hệ thống báo cáo và quản lý minh bạch giúp theo dõi hiệu suất và đưa ra quyết định dựa trên dữ liệu thực tế.',
+		image:
+			'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+	},
+	{
+		icon: <GitBranch className="w-8 h-8 text-purple-400" />,
+		title: 'Dễ Dàng Mở Rộng Quy Mô',
+		description:
+			'Nền tảng linh hoạt cho phép dễ dàng mở rộng quy mô kinh doanh, tích hợp với các đối tác và dịch vụ mới một cách liền mạch, không làm gián đoạn hoạt động hiện tại.',
+		image:
+			'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+	},
+];
 
 export default function HorizontalScrollSection() {
-  const containerRef = useRef(null);
-  const rightSectionRef = useRef(null);
-  const section1Ref = useRef(null);
-  const section2Ref = useRef(null);
-  const section3Ref = useRef(null);
-  const section4Ref = useRef(null);
-  const image1Ref = useRef(null);
-  const image2Ref = useRef(null);
-  const image3Ref = useRef(null);
+	const sectionRef = useRef<HTMLDivElement>(null);
 
-  const contentItems = [
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Chuyển Đổi Số Nhanh",
-      description: "Không cần đầu tư đội ngũ kỹ thuật riêng.",
-      image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800"
-    },
-    {
-      icon: <Banknote className="w-8 h-8" />,
-      title: "Tiết Kiệm Chi Phí",
-      description: "Giảm chi phí vận hành và quản lý.",
-      image: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800"
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "Tăng Hiệu Quả Bán Hàng",
-      description: "Nâng cao trải nghiệm khách hàng.",
-      image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800"
-    },
-    {
-      title: "Minh Bạch & Chuyên Nghiệp",
-      subtitle: "Tăng tính minh bạch trong kinh doanh.",
-      description: "Start your journey exploring the most advanced AI solutions",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
-    },
-    {
-      title: "Dễ Dàng Mở Rộng",
-      subtitle: "Mở rộng quy mô, hợp tác đối tác.",
-      description: "Start your journey exploring the most advanced AI solutions",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
-    },
-  ];
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-visible');
+					}
+				});
+			},
+			{
+				threshold: 0.1,
+			}
+		);
 
-  useEffect(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
+		const elements = sectionRef.current?.querySelectorAll('.feature-card');
+		elements?.forEach((el) => observer.observe(el));
 
-    const ctx = gsap.context(() => {
-      // Pin the right section
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        pin: rightSectionRef.current,
-        scrub: true
-      });
+		return () => {
+			elements?.forEach((el) => observer.unobserve(el));
+		};
+	}, []);
 
-      // Animate images with stacking effect
-      gsap.to(image1Ref.current, {
-        yPercent: -200,
-        scrollTrigger: {
-          trigger: section2Ref.current,
-          start: "top 80%",
-          end: "bottom top",
-          scrub: true,
-        }
-      });
+	return (
+		<section ref={sectionRef} className="bg-slate-900 py-20 sm:py-28">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="text-center px-5 sm:px-5 mb-16">
+					<h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+						Tại Sao Chọn{' '}
+						<span className="text-blue-400">TripC Solutions?</span>
+					</h2>
+					<p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">
+						Chúng tôi không chỉ cung cấp công nghệ, chúng tôi mang đến giải pháp
+						toàn diện giúp doanh nghiệp của bạn cất cánh.
+					</p>
+				</div>
 
-      gsap.to(image2Ref.current, {
-        yPercent: -200,
-        scrollTrigger: {
-          trigger: section3Ref.current,
-          start: "top 80%",
-          end: "bottom top",
-          scrub: true,
-        }
-      });
+				<div className="grid gap-12 p-6 sm:p-0 md:gap-16">
+					{contentItems.map((item, index) => (
+						<div
+							key={index}
+							className={`feature-card flex flex-col md:flex-row items-center gap-8 md:gap-12 ${
+								index % 2 !== 0 ? 'md:flex-row-reverse' : ''
+							}`}
+						>
+							{/* Content */}
+							<div className="md:w-1/2 text-center md:text-left text-xs">
+								<div className="inline-flex items-center justify-center w-16 h-16 bg-slate-800/70 rounded-2xl mb-6 border border-slate-700">
+									{item.icon}
+								</div>
+								<h3 className="text-3xl font-bold text-white mb-4">
+									{item.title}
+								</h3>
+								<p className="text-slate-300 text-lg leading-relaxed">
+									{item.description}
+								</p>
+							</div>
 
-      gsap.to(image3Ref.current, {
-        yPercent: -200,
-        scrollTrigger: {
-          trigger: section4Ref.current,
-          start: "top 80%",
-          end: "bottom top",
-          scrub: true,
-        }
-      });
-    });
-
-    return () => {
-      ctx.revert();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
-  return (
-    <div>
-      {/* Header */}
-      <div className="relative w-full py-8 sm:py-12 md:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden text-white text-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse-slow opacity-20" />
-        
-        <h1 className="relative z-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold italic tracking-tight px-4">
-          AI <span className="text-blue-400 drop-shadow-md">SOLUTIONS</span> SHOWCASE
-        </h1>
-
-        {/* Hiệu ứng ánh sáng nền */}
-        <div className="absolute top-1/2 left-1/2 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] -translate-x-1/2 -translate-y-1/2 bg-blue-500/10 blur-3xl rounded-full pointer-events-none" />
-      </div>
-
-
-      <section ref={containerRef} className="bg-gradient-to-br from-gray-900 to-slate-900 w-full flex">
-        <div className="w-full md:w-1/2 h-full flex flex-col">
-          
-          {/* Section 1 - Intro */}
-          <section ref={section1Ref} className="w-full h-screen flex justify-center items-center px-4 sm:px-6">
-            <div className="w-full max-w-[350px] sm:max-w-[450px] h-[300px] sm:h-[350px] flex flex-col text-white">
-              <section className="w-full h-[60%]">
-                <div className="inline-flex items-center px-2 sm:px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 mb-3 sm:mb-4">
-                  <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-1 sm:mr-1.5 text-blue-400" />
-                  <span className="text-xs font-medium text-blue-300">TripC Solutions</span>
-                </div>
-                <h2 className="text-[24px] sm:text-[32px] md:text-[40px] lg:text-[60px] xl:text-[80px] 2xl:text-[90px] text-blue-400 font-bold leading-tight mb-3 sm:mb-4">
-                  {contentItems[0]?.title}
-                </h2>
-                <p className="text-sm sm:text-base md:text-[16px] lg:text-[18px] xl:text-[20px] font-semibold text-blue-200 mb-2">
-                  {contentItems[0]?.subtitle}
-                </p>
-                <p className="text-xs sm:text-sm md:text-[14px] lg:text-[16px] text-gray-300">
-                  {contentItems[0]?.description}
-                </p>
-              </section>
-            </div>
-          </section>
-
-          {/* Section 2 - AI Analytics */}
-          <section ref={section2Ref} className="w-full h-screen flex justify-center items-center px-4 sm:px-6">
-            <div className="w-full max-w-[350px] sm:max-w-[450px] h-[300px] sm:h-[350px] flex flex-col text-white">
-              <section className="w-full h-[60%]">
-                <div className="flex items-center mb-3 sm:mb-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 mr-2 sm:mr-3">
-                    {contentItems[1]?.icon}
-                  </div>
-                </div>
-                <h2 className="text-[24px] sm:text-[32px] md:text-[40px] lg:text-[60px] xl:text-[80px] 2xl:text-[90px] text-blue-400 font-bold leading-tight mb-3 sm:mb-4">
-                  {contentItems[1]?.title}
-                </h2>
-                <p className="text-sm sm:text-base md:text-lg text-gray-300">
-                  {contentItems[1]?.description}
-                </p>
-              </section>
-            </div>
-          </section>
-
-          {/* Section 3 - Security */}
-          <section ref={section3Ref} className="w-full h-screen flex justify-center items-center px-4 sm:px-6">
-            <div className="w-full max-w-[350px] sm:max-w-[450px] h-[300px] sm:h-[350px] flex flex-col text-white">
-              <section className="w-full h-[60%]">
-                <div className="flex items-center mb-3 sm:mb-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 mr-2 sm:mr-3">
-                    {contentItems[2]?.icon}
-                  </div>
-                </div>
-                <h2 className="text-[24px] sm:text-[32px] md:text-[40px] lg:text-[60px] xl:text-[80px] 2xl:text-[90px] text-blue-400 font-bold leading-tight mb-3 sm:mb-4">
-                  {contentItems[2]?.title}
-                </h2>
-                <p className="text-sm sm:text-base md:text-lg text-gray-300">
-                  {contentItems[2]?.description}
-                </p>
-              </section>
-            </div>
-          </section>
-
-          {/* Section 4 - Targeting */}
-          <section ref={section4Ref} className="w-full h-screen flex justify-center items-center px-4 sm:px-6">
-            <div className="w-full max-w-[350px] sm:max-w-[450px] h-[300px] sm:h-[350px] flex flex-col text-white">
-              <section className="w-full h-[60%]">
-                <div className="flex items-center mb-3 sm:mb-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 mr-2 sm:mr-3">
-                    <Check className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
-                  </div>
-                </div>
-                <h2 className="text-[24px] sm:text-[32px] md:text-[40px] lg:text-[60px] xl:text-[80px] 2xl:text-[90px] text-blue-400 font-bold leading-tight mb-3 sm:mb-4">
-                  {contentItems[3]?.title}
-                </h2>
-                <p className="text-sm sm:text-base md:text-lg text-gray-300">
-                  {contentItems[3]?.description}
-                </p>
-              </section>
-            </div>
-          </section>
-
-        </div>
-
-        {/* Right Section - Pinned Images */}
-        <div ref={rightSectionRef} className="hidden md:flex w-1/2 overflow-hidden h-screen relative flex-col">
-          <div className="w-full h-[60%] overflow-y-hidden">
-            <section className="rounded-[20px] overflow-hidden z-40 w-[80%] h-[50%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] absolute">
-              <img ref={image1Ref} src={contentItems[1]?.image} className="w-full h-full object-cover" alt="AI Analytics" />
-            </section>
-            <section className="rounded-[20px] z-30 overflow-hidden top-[50%] left-[50%] translate-x-[-50%] transform translate-y-[-50%] absolute w-[80%] h-[50%]">
-              <img ref={image2Ref} src={contentItems[2]?.image} className="w-full h-full object-cover" alt="Security" />
-            </section>
-            <section className="rounded-[20px] z-20 overflow-hidden absolute w-[80%] h-[50%] top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
-              <img ref={image3Ref} src={contentItems[3]?.image} className="w-full h-full object-cover" alt="Targeting" />
-            </section>
-            <section className="rounded-[20px] z-20 overflow-hidden absolute w-[80%] h-[50%] top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
-              <img ref={image3Ref} src={contentItems[3]?.image} className="w-full h-full object-cover" alt="Targeting" />
-            </section>
-            <section className="rounded-[20px] z-20 overflow-hidden absolute w-[80%] h-[50%] top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
-              <img ref={image3Ref} src={contentItems[3]?.image} className="w-full h-full object-cover" alt="Targeting" />
-            </section>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+							{/* Image */}
+							<div className="md:w-1/2 w-full">
+								<div className="relative aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/10 border-2 border-slate-800 hover:border-blue-500/50 transition-all duration-300">
+									<Image
+										src={item.image}
+										alt={item.title}
+										layout="fill"
+										objectFit="cover"
+										className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+									/>
+									<div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-slate-900/20"></div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+			<style jsx>{`
+				.feature-card {
+					opacity: 0;
+					transform: translateY(50px);
+					transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+				}
+				.feature-card.is-visible {
+					opacity: 1;
+					transform: translateY(0);
+				}
+				.feature-card .relative:hover img {
+					transform: scale(1.05);
+				}
+			`}</style>
+		</section>
+	);
 }

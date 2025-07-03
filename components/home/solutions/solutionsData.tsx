@@ -9,15 +9,12 @@ import {
   Shield
 } from 'lucide-react';
 
-// Re-export from data layer
 export { solutionsData } from '@/data';
 
-// Animation constants
 export const TOTAL_CARDS = 5;
-export const CARD_WIDTH = 100; // 100vw per card
+export const CARD_WIDTH = 100;
 export const ANIMATION_DURATION = 0.8;
 
-// Solution interface
 export interface Solution {
   id: string;
   title: string;
@@ -40,7 +37,6 @@ export interface Solution {
   };
 }
 
-// Enhanced solutions data with icons
 export const solutionsWithIcons = [
   {
     id: "01",
@@ -56,13 +52,13 @@ export const solutionsWithIcons = [
         title: "Website booking dịch vụ",
         description: "Cung cấp giao diện đặt dịch vụ trực tuyến, thân thiện với người dùng, hỗ trợ thanh toán, xem thông tin và quản lý đơn đặt.",
         buttonText: "Xem ngay",
-        buttonLink: "https://booking.tripc.ai" // Thay bằng link từ proposal
+        buttonLink: "https://booking.tripc.ai"
       },
       {
         title: "Website quản trị dành cho Admin",
         description: "Cho phép đối tác cập nhật thông tin dịch vụ, điều chỉnh giá, quản lý khuyến mãi, theo dõi đơn hàng và doanh thu.",
         buttonText: "Xem ngay",
-        buttonLink: "https://admin.tripc.ai" // Thay bằng link từ proposal
+        buttonLink: "https://admin.tripc.ai"
       },
       {
         title: "TripC Merchant App",

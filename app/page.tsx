@@ -22,7 +22,7 @@ export default function Home() {
         <SolutionsSection />
         <HorizontalScrollSection />
         <TestimonialsSection />
-        <CTASection />
+        {/* <CTASection /> */}
         <Footer />
       
       </div>
