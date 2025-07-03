@@ -65,80 +65,78 @@ export default function IndustriesSection() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // Title animation
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 70 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: 'top 85%',
-            end: 'bottom 15%',
-            toggleActions: 'play none none reverse',
-          },
-        },
-      );
-
-      // Card animations
-      if (cardsContainerRef.current) {
-        const cards = cardsContainerRef.current.children;
-
-        Array.from(cards).forEach((card, index) => {
-          // Entrance animation with slight rotation
+      // Use matchMedia for responsive animations
+      ScrollTrigger.matchMedia({
+        // Desktop animations
+        "(min-width: 768px)": function() {
+          // Title animation
           gsap.fromTo(
-            card,
-            { opacity: 0, x: index % 2 === 0 ? -150 : 150, rotate: index % 2 === 0 ? -5 : 5 },
+            titleRef.current,
+            { opacity: 0, y: 70 },
             {
               opacity: 1,
-              x: 0,
-              rotate: 0,
-              duration: 1,
-              ease: 'power3.out',
+              y: 0,
+              duration: 0.8,
+              ease: 'power2.out',
               scrollTrigger: {
-                trigger: card,
-                start: 'top 90%',
-                end: 'bottom 10%',
+                trigger: titleRef.current,
+                start: 'top 85%',
+                end: 'bottom 15%',
                 toggleActions: 'play none none reverse',
               },
             },
           );
 
-          // Floating animation
-          gsap.to(card, {
-            y: 'random(-15, 15)',
-            rotate: 'random(-2, 2)',
-            duration: 'random(4, 6)',
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: index * 0.4,
-          });
+          // Card animations
+          if (cardsContainerRef.current) {
+            const cards = cardsContainerRef.current.children;
 
-          // Hover effect
-          const cardElement = card as HTMLElement;
-          cardElement.addEventListener('mouseenter', () => {
-            gsap.to(cardElement, {
-              scale: 1.05,
-              rotate: index % 2 === 0 ? 2 : -2,
-              duration: 0.5,
-              ease: 'power2.out',
-            });
-          });
+            Array.from(cards).forEach((card, index) => {
+              // Entrance animation
+              gsap.fromTo(
+                card,
+                { opacity: 0, y: 100, scale: 0.9 },
+                {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  duration: 0.6,
+                  ease: 'power3.out',
+                  delay: index * 0.1,
+                  scrollTrigger: {
+                    trigger: card,
+                    start: 'top 90%',
+                    end: 'bottom 10%',
+                    toggleActions: 'play none none reverse',
+                  },
+                },
+              );
 
-          cardElement.addEventListener('mouseleave', () => {
-            gsap.to(cardElement, {
-              scale: 1,
-              rotate: 0,
-              duration: 0.5,
-              ease: 'power2.out',
+              // Hover effect
+              const cardElement = card as HTMLElement;
+              cardElement.addEventListener('mouseenter', () => {
+                gsap.to(cardElement, {
+                  scale: 1.03,
+                  duration: 0.4,
+                  ease: 'power2.out',
+                });
+              });
+
+              cardElement.addEventListener('mouseleave', () => {
+                gsap.to(cardElement, {
+                  scale: 1,
+                  duration: 0.4,
+                  ease: 'power2.out',
+                });
+              });
             });
-          });
-        });
-      }
+          }
+        },
+        // No animations on mobile
+        "(max-width: 767px)": function() {
+          // You can leave this empty to have no animations on mobile
+        }
+      });
     });
 
     return () => ctx.revert();
@@ -172,24 +170,36 @@ export default function IndustriesSection() {
         {/* Cards */}
         <div
           ref={cardsContainerRef}
-          className="relative grid gap-6 sm:gap-8 lg:gap-12 md:grid-cols-2 max-w-8xl mx-auto px-4 sm:px-8 lg:px-24"
-          style={{ transformStyle: 'preserve-3d' }}
+          className="grid grid-cols-1 space-y-12 md:grid-cols-2 gap-8 lg:gap-12 max-w-8xl mx-auto"
         >
           {industries.map((industry, index) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 transform
-                ${index === 0 ? 'md:-translate-y-8 lg:-translate-y-16 md:-translate-x-4 lg:-translate-x-8' : 
-                  index === 1 ? 'md:translate-y-8 lg:translate-y-16 md:translate-x-4 lg:translate-x-8' : 
-                  index === 2 ? 'md:translate-y-8 lg:translate-y-16 md:-translate-x-4 lg:-translate-x-8' : 
-                  'md:-translate-y-8 lg:-translate-y-16 md:translate-x-4 lg:translate-x-8'}`}
-              style={{ zIndex: index % 2 === 0 ? 10 : 5 }}
+              className={`group relative bg-white rounded-2xl p-2 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-300`}
             >
               {/* Background gradient overlay */}
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${industry.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
               />
 
+                {/* Image */}
+                <div className="md:col-span-2 relative block sm:hidden">
+                  <div className="relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-lg sm:rounded-xl overflow-hidden">
+                    <img
+                      src={industry.image}
+                      alt={industry.title_main}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  </div>
+                  {/* Decorative elements - hidden on mobile */}
+                  <div
+                    className={`absolute -top-3 -right-3 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-60 group-hover:scale-125 transition-transform duration-300 hidden sm:block`}
+                  />
+                  <div
+                    className={`absolute -bottom-3 -left-3 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-40 group-hover:scale-125 transition-transform duration-300 hidden sm:block`}
+                  />
+                </div>
               <div className="relative z-10 p-4 sm:p-6 lg:p-8 xl:p-12 grid gap-4 sm:gap-6 lg:gap-8 md:grid-cols-5 items-start">
                 {/* Content */}
                 <div className="md:col-span-3">
@@ -222,7 +232,7 @@ export default function IndustriesSection() {
                 </div>
 
                 {/* Image */}
-                <div className="md:col-span-2 relative">
+                <div className="md:col-span-2 relative hidden sm:block">
                   <div className="relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-lg sm:rounded-xl overflow-hidden">
                     <img
                       src={industry.image}

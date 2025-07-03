@@ -24,19 +24,16 @@ export default function SolutionsSection() {
     <section 
       ref={sectionRef} 
       id="solutions" 
-      className="relative bg-white overflow-hidden"
-      style={{ willChange: 'auto' }}
+      className="relative bg-white overflow-hidden py-16 sm:py-24"
     >
-    
       <SolutionsHeader ref={titleRef} />
 
-      <ProgressBar ref={progressRef} />
 
+      <ProgressBar ref={progressRef} />
       <div ref={horizontalRef} className="relative">
         <div 
           ref={cardsRef} 
-          className="flex"
-          style={{ transform: 'translateX(0px)', willChange: 'transform' }}
+          className="lg:flex lg:w-max grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 px-4 sm:px-6 lg:px-0"
         >
           {solutionsWithIcons.map((solution, index) => (
             <SolutionCard

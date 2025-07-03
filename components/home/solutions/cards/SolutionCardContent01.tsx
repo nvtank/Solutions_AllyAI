@@ -14,8 +14,6 @@ export default function SolutionCardContent01({ solution, index }: SolutionCardC
   return (
     <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8 xl:px-12">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center h-full">
-        
-        {/* First Text Column - Header & Description */}
         <div 
           className={`text-column-1 space-y-4 lg:col-span-1 ${index % 2 === 1 ? 'lg:order-1' : 'lg:order-1'}`}
           style={{ 
@@ -26,7 +24,6 @@ export default function SolutionCardContent01({ solution, index }: SolutionCardC
             maxWidth: '100%'
           }}
         >
-          {/* Header */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.color} flex items-center justify-center text-white shadow-lg transform-gpu`}>
@@ -50,7 +47,6 @@ export default function SolutionCardContent01({ solution, index }: SolutionCardC
             </div>
           </div>
 
-          {/* CTA Button */}
           <div className="pt-4">
             <button 
               onClick={() => window.location.href = '#contact-form'}
@@ -65,7 +61,6 @@ export default function SolutionCardContent01({ solution, index }: SolutionCardC
           </div>
         </div>
 
-        {/* Second Text Column - Features & Details */}
         <div 
           className={`text-column-2 space-y-4 lg:col-span-1 ${index % 2 === 1 ? 'lg:order-2' : 'lg:order-2'}`}
           style={{ 
@@ -76,13 +71,12 @@ export default function SolutionCardContent01({ solution, index }: SolutionCardC
             maxWidth: '100%'
           }}
         >
-          {/* Sub Products - Specific for Solution 01 */}
           {solution.subProducts && (
             <div className="space-y-3">
               {solution.subProducts.map((subProduct, idx) => (
                 <div 
                   key={idx} 
-                  className="bg-white/90 backdrop-blur-sm rounded-lg p-3 border border-gray-200 hover:shadow-md transition-all duration-300"
+                  className="bg-white/90 backdrop-blur-sm rounded-lg p-3 hover:shadow-md transition-all duration-300"
                 >
                   <h4 className="font-semibold text-gray-900 mb-1 text-sm">{subProduct.title}</h4>
                   <p className="text-xs text-gray-600 mb-2 leading-relaxed">{subProduct.description}</p>
@@ -103,7 +97,6 @@ export default function SolutionCardContent01({ solution, index }: SolutionCardC
             </div>
           )}
 
-          {/* Stats */}
           <div className="pt-4">
             <div className="space-y-1">
               <div className={`text-2xl font-bold bg-gradient-to-r ${solution.color} bg-clip-text text-transparent`}>
@@ -116,7 +109,6 @@ export default function SolutionCardContent01({ solution, index }: SolutionCardC
           </div>
         </div>
 
-        {/* Visual Column */}
         <div 
           className={`visual-container lg:col-span-1 ${index % 2 === 1 ? 'lg:order-3' : 'lg:order-3'}`}
           style={{ 

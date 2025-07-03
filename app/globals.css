@@ -114,5 +114,26 @@ html {
 	}
 	body {
 		@apply bg-background text-foreground;
+		font-feature-settings: "rlig" 1, "calt" 1;
+	}
+}
+
+/* Responsive Typography */
+html {
+	/* Base font size for mobile */
+	font-size: 14px;
+}
+
+@screen sm {
+	html {
+		/* Slightly larger on small screens */
+		font-size: 15px;
+	}
+}
+
+@screen md {
+	html {
+		/* Standard font size for medium screens and up */
+		font-size: 16px;
 	}
 }

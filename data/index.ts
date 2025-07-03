@@ -7,6 +7,12 @@ export { default as aboutContent } from './content/about';
 export { default as contactContent } from './content/contact';
 export { default as homeContent } from './content/home';
 export { default as solutionsData } from './content/solutions';
+export { default as uiText } from './content/ui-text';
+export { default as navbarContent } from './content/navbar';
+export { default as footerContent } from './content/footer';
+export { default as ctaContent } from './content/cta';
+export { default as industriesContent } from './content/industries';
+export { default as featuresContent } from './content/features';
 
 // Type definitions
 export interface ContactFormData {

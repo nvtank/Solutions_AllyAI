@@ -1,9 +1,7 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { TOTAL_CARDS, CARD_WIDTH, ANIMATION_DURATION } from './solutionsData';
 
-// Preload GSAP plugins and register immediately
 gsap.registerPlugin(ScrollTrigger);
 
 interface AnimationRefs {
@@ -14,124 +12,82 @@ interface AnimationRefs {
 }
 
 export function useAnimations({ titleRef, horizontalRef, cardsRef, progressRef }: AnimationRefs) {
-  const setupAnimations = useCallback(() => {
+  useEffect(() => {
     const ctx = gsap.context(() => {
-      // Immediate rendering - set initial states to visible
-      gsap.set("*", { willChange: 'auto' });
-      
-      // Title animation - simplified for faster load
+      // Common animation for the title on all screen sizes
       if (titleRef.current) {
-        gsap.set(titleRef.current, { opacity: 1, y: 0 }); // Pre-rendered visible
-        gsap.fromTo(titleRef.current,
-          { opacity: 0.8, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: ANIMATION_DURATION,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: titleRef.current,
-              start: "top 90%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
+        gsap.from(titleRef.current, {
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        });
       }
 
-      // Horizontal scroll - optimized for immediate rendering
-      if (cardsRef.current) {
-        const totalWidth = TOTAL_CARDS * CARD_WIDTH;
-        
-        // Pre-render cards in visible state
-        const cards = Array.from(cardsRef.current.children);
-        cards.forEach(card => {
-          gsap.set(card, { opacity: 1, x: 0, force3D: true });
-        });
-        
-        // Optimized horizontal scroll
-        const horizontalTween = gsap.to(cardsRef.current, {
-          x: () => -(totalWidth - CARD_WIDTH) + "vw",
-          ease: "none",
-          force3D: true,
-          scrollTrigger: {
-            trigger: horizontalRef.current,
-            start: "top top",
-            end: () => "+=" + (totalWidth * 6),
-            scrub: 0.3,
-            pin: true,
-            anticipatePin: 1,
-            onUpdate: (self) => {
-              // Throttled progress update
-              if (progressRef.current) {
-                const progress = Math.round(self.progress * 100);
-                gsap.set(progressRef.current, { width: `${progress}%` });
-              }
-            }
-          }
-        });
+      // Create responsive animations using matchMedia
+      ScrollTrigger.matchMedia({
+ 
+        "(min-width: 1024px)": () => {
+          if (horizontalRef.current && cardsRef.current && progressRef.current) {
+           
+            gsap.set(progressRef.current.parentElement, { display: 'block' });
 
-        // Immediate card content visibility
-        cards.forEach((card, index) => {
-          const elements = {
-            content: card.querySelector('.card-content'),
-            features: card.querySelectorAll('.feature-item')
-          };
-          
-          // Set all elements to visible immediately
-          if (elements.content) {
-            gsap.set(elements.content, { opacity: 1, x: 0, force3D: true });
+            const totalWidth = cardsRef.current.scrollWidth - window.innerWidth;
+
+            gsap.to(cardsRef.current, {
+              x: () => -totalWidth,
+              ease: "none",
+              scrollTrigger: {
+                trigger: horizontalRef.current,
+                start: "top top",
+                end: () => `+=${totalWidth}`,
+                scrub: 1,
+                pin: true,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                  if (progressRef.current) {
+                    gsap.set(progressRef.current, { width: `${self.progress * 100}%` });
+                  }
+                },
+              },
+            });
           }
-          
-          if (elements.features.length > 0) {
-            gsap.set(elements.features, { opacity: 1, y: 0, force3D: true });
+        },
+
+        // MOBILE/TABLET ANIMATIONS---
+        "(max-width: 1023px)": () => {
+
+          if (progressRef.current) {
+            gsap.set(progressRef.current.parentElement, { display: 'none' });
           }
-          
-          // Minimal entrance animations
-          if (elements.content) {
-            gsap.fromTo(elements.content,
-              { opacity: 0.9, x: -20 },
-              {
-                opacity: 1,
-                x: 0,
-                duration: ANIMATION_DURATION,
+
+          if (cardsRef.current) {
+            const cards = Array.from(cardsRef.current.children);
+            cards.forEach((card) => {
+              gsap.from(card, {
+                opacity: 0,
+                y: 60,
+                duration: 0.6,
                 ease: "power2.out",
                 scrollTrigger: {
                   trigger: card,
-                  start: "left 85%",
-                  horizontal: true,
-                  toggleActions: "play none none reverse"
-                }
-              }
-            );
+                  start: "top 90%", 
+                  toggleActions: "play none none reverse",
+                },
+              });
+            });
           }
-        });
-      }
-
-      // Floating particles - simple animation
-      requestAnimationFrame(() => {
-        const particles = document.querySelectorAll('.floating-particle');
-        particles.forEach((particle, i) => {
-          gsap.to(particle, {
-            y: "random(-30, 30)",
-            x: "random(-15, 15)",
-            duration: "random(8, 12)",
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: i * 0.2,
-            force3D: true
-          });
-        });
+        },
       });
     });
 
-    return ctx;
-  }, [titleRef, horizontalRef, cardsRef, progressRef]);
-
-  useEffect(() => {
-    const ctx = setupAnimations();
+    // Cleanup function to revert all animations
     return () => ctx.revert();
-  }, [setupAnimations]);
-
-  return { setupAnimations };
+  }, [titleRef, horizontalRef, cardsRef, progressRef]);
 }
