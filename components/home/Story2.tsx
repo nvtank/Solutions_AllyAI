@@ -2,34 +2,94 @@
 
 import { Brain, Zap, Target } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Story2() {
-    const cardData = [
-        {
-            title: "Yêu Cầu Chuyển Đổi Số",
-            subtitle: "Chính phủ yêu cầu minh bạch doanh thu, xuất hóa đơn điện tử.",
-            icon: <Brain className="w-8 h-8" />,
-            gradient: "from-blue-500/10 to-gray-900",
-            borderColor: "border-blue-500/30",
-            textColor: "text-blue-300"
-        },
-        {
-            title: "Giải Pháp Toàn Diện",
-            subtitle: "TripC Solution giải quyết thách thức này hiệu quả.",
-            icon: <Zap className="w-8 h-8" />,
-            gradient: "from-yellow-500/10 to-gray-900",
-            borderColor: "border-yellow-500/30",
-            textColor: "text-yellow-300"
-        },
-        {
-            title: "Đa Dạng Lĩnh Vực",
-            subtitle: "Phục vụ du lịch, ẩm thực, chăm sóc sức khỏe, giải trí.",
-            icon: <Target className="w-8 h-8" />,
-            gradient: "from-green-500/10 to-gray-900",
-            borderColor: "border-green-500/30",
-            textColor: "text-green-300"
+    const { t, language } = useLanguage();
+
+    const getCardData = () => {
+        const icons = [
+            <Brain className="w-8 h-8" />,
+            <Zap className="w-8 h-8" />,
+            <Target className="w-8 h-8" />
+        ];
+        
+        const gradients = [
+            "from-blue-500/10 to-gray-900",
+            "from-yellow-500/10 to-gray-900",
+            "from-green-500/10 to-gray-900"
+        ];
+        
+        const borderColors = [
+            "border-blue-500/30",
+            "border-yellow-500/30", 
+            "border-green-500/30"
+        ];
+        
+        const textColors = [
+            "text-blue-300",
+            "text-yellow-300",
+            "text-green-300"
+        ];
+
+        if (language === 'vi') {
+            return [
+                {
+                    title: "Yêu Cầu Chuyển Đổi Số",
+                    subtitle: "Chính phủ yêu cầu minh bạch doanh thu, xuất hóa đơn điện tử.",
+                    icon: icons[0],
+                    gradient: gradients[0],
+                    borderColor: borderColors[0],
+                    textColor: textColors[0]
+                },
+                {
+                    title: "Giải Pháp Toàn Diện",
+                    subtitle: "TripC Solution giải quyết thách thức này hiệu quả.",
+                    icon: icons[1],
+                    gradient: gradients[1],
+                    borderColor: borderColors[1],
+                    textColor: textColors[1]
+                },
+                {
+                    title: "Đa Dạng Lĩnh Vực",
+                    subtitle: "Phục vụ du lịch, ẩm thực, chăm sóc sức khỏe, giải trí.",
+                    icon: icons[2],
+                    gradient: gradients[2],
+                    borderColor: borderColors[2],
+                    textColor: textColors[2]
+                }
+            ];
+        } else {
+            return [
+                {
+                    title: "Digital Transformation Requirements",
+                    subtitle: "Government requires revenue transparency and electronic invoicing.",
+                    icon: icons[0],
+                    gradient: gradients[0],
+                    borderColor: borderColors[0],
+                    textColor: textColors[0]
+                },
+                {
+                    title: "Comprehensive Solutions",
+                    subtitle: "TripC Solution effectively addresses these challenges.",
+                    icon: icons[1],
+                    gradient: gradients[1],
+                    borderColor: borderColors[1],
+                    textColor: textColors[1]
+                },
+                {
+                    title: "Diverse Industries",
+                    subtitle: "Serving tourism, dining, healthcare, entertainment.",
+                    icon: icons[2],
+                    gradient: gradients[2],
+                    borderColor: borderColors[2],
+                    textColor: textColors[2]
+                }
+            ];
         }
-    ];
+    };
+
+    const cardData = getCardData();
 
     const gridRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);

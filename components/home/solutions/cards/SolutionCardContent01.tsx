@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowRight, ExternalLink } from 'lucide-react';
-import { type Solution } from '../solutionsData';
+import { type Solution } from '../../../../data/content/solutionsData';
 import AppStoreIcons from '../AppStoreIcons';
 import SolutionCard01 from './SolutionCard01';
 

@@ -3,52 +3,24 @@
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { Zap, Banknote, TrendingUp, ShieldCheck, GitBranch, Sparkles } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const contentItems = [
-	{
-		icon: <Zap className="w-8 h-8 text-blue-400" />,
-		title: 'Chuyển Đổi Số Nhanh Chóng',
-		description:
-			'Triển khai nền tảng dễ dàng mà không cần đầu tư đội ngũ kỹ thuật. TripC giúp doanh nghiệp bắt đầu ngay với hạ tầng sẵn có và hỗ trợ vận hành trọn gói.',
-		image:
-			'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-	},
-	{
-		icon: <Banknote className="w-8 h-8 text-green-400" />,
-		title: 'Tiết Kiệm Chi Phí Vượt Trội',
-		description:
-			'Tối ưu hóa chi phí vận hành và quản lý với các giải pháp tự động hóa thông minh. Nền tảng của chúng tôi giúp giảm thiểu các công việc thủ công, tiết kiệm thời gian và nguồn lực.',
-		image:
-			'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-	},
-	{
-		icon: <TrendingUp className="w-8 h-8 text-amber-400" />,
-		title: 'Tăng Trưởng Doanh Thu Bền Vững',
-		description:
-			'Cải thiện đáng kể hiệu quả bán hàng bằng cách cá nhân hóa trải nghiệm khách hàng. Thu thập và phân tích dữ liệu để đưa ra các chiến lược kinh doanh hiệu quả, tăng tỷ lệ chuyển đổi.',
-		image:
-			'https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-	},
-	{
-		icon: <ShieldCheck className="w-8 h-8 text-teal-400" />,
-		title: 'Minh Bạch & Chuyên Nghiệp',
-		description:
-			'Xây dựng hình ảnh thương hiệu chuyên nghiệp và đáng tin cậy. Hệ thống báo cáo và quản lý minh bạch giúp theo dõi hiệu suất và đưa ra quyết định dựa trên dữ liệu thực tế.',
-		image:
-			'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-	},
-	{
-		icon: <GitBranch className="w-8 h-8 text-purple-400" />,
-		title: 'Dễ Dàng Mở Rộng Quy Mô',
-		description:
-			'Nền tảng linh hoạt cho phép dễ dàng mở rộng quy mô kinh doanh, tích hợp với các đối tác và dịch vụ mới một cách liền mạch, không làm gián đoạn hoạt động hiện tại.',
-		image:
-			'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-	},
-];
+const iconMap = {
+  Zap: <Zap className="w-8 h-8 text-blue-400" />,
+  Banknote: <Banknote className="w-8 h-8 text-green-400" />,
+  TrendingUp: <TrendingUp className="w-8 h-8 text-amber-400" />,
+  ShieldCheck: <ShieldCheck className="w-8 h-8 text-teal-400" />,
+  GitBranch: <GitBranch className="w-8 h-8 text-purple-400" />,
+  Sparkles: <Sparkles className="w-8 h-8 text-pink-400" />,
+};
 
 export default function HorizontalScrollSection() {
 	const sectionRef = useRef<HTMLDivElement>(null);
+	const { t } = useLanguage();
+
+	// Get content from translations
+	const whyChooseData = (t('whyChoose') as unknown as any) || {};
+	const contentItems = whyChooseData.items || [];
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -77,17 +49,15 @@ export default function HorizontalScrollSection() {
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center px-5 sm:px-5 mb-16">
 					<h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-						Tại Sao Chọn{' '}
-						<span className="text-blue-400">TripC Solutions?</span>
+						{whyChooseData.title}
 					</h2>
 					<p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">
-						Chúng tôi không chỉ cung cấp công nghệ, chúng tôi mang đến giải pháp
-						toàn diện giúp doanh nghiệp của bạn cất cánh.
+						{whyChooseData.subtitle}
 					</p>
 				</div>
 
 				<div className="grid gap-12 p-6 sm:p-0 md:gap-16">
-					{contentItems.map((item, index) => (
+					{contentItems.map((item: any, index: number) => (
 						<div
 							key={index}
 							className={`feature-card flex flex-col md:flex-row items-center gap-8 md:gap-12 ${
@@ -97,7 +67,7 @@ export default function HorizontalScrollSection() {
 							{/* Content */}
 							<div className="md:w-1/2 text-center md:text-left text-xs">
 								<div className="inline-flex items-center justify-center w-16 h-16 bg-slate-800/70 rounded-2xl mb-6 border border-slate-700">
-									{item.icon}
+									{iconMap[item.icon as keyof typeof iconMap] || iconMap.Zap}
 								</div>
 								<h3 className="text-3xl font-bold text-white mb-4">
 									{item.title}

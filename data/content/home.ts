@@ -125,32 +125,29 @@ export const homeContent = {
   },
 
   testimonials: {
-    title: "Khách hàng nói gì về chúng tôi",
-    subtitle: "Những câu chuyện thành công thực tế",
+    title: "Được Tin Dùng Bởi Các Nhà Lãnh Đạo",
+    subtitle: "Khách hàng của chúng tôi đã đạt được những kết quả vượt trội. Hãy xem họ nói gì về sự hợp tác với TripC Solutions.",
     items: [
       {
-        name: "Anh Nguyễn Văn A",
-        position: "Giám đốc",
-        company: "Resort Paradise Bay",
-        content: "Sau 3 tháng sử dụng TripC, doanh thu tăng 35% và thời gian xử lý booking giảm 70%. Đội ngũ support rất chuyên nghiệp.",
-        rating: 5,
-        image: "/images/testimonials/customer1.jpg"
+        quote: "Nền tảng của TripC Solutions đã cách mạng hóa hoạt động của chúng tôi. Giao diện trực quan và các tính năng mạnh mẽ đã giúp chúng tôi tăng hiệu quả lên 40% và giảm đáng kể chi phí vận hành. Đây là một giải pháp không thể thiếu cho bất kỳ doanh nghiệp nào muốn tối ưu hóa quy trình.",
+        author: "Trần Văn Minh",
+        position: "Giám đốc Vận hành",
+        company: "Tập đoàn TechGlobal",
+        avatar: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
       },
       {
-        name: "Chị Trần Thị B",
-        position: "Chủ nhà hàng",
-        company: "Chuỗi nhà hàng Sài Gòn Taste",
-        content: "Hệ thống đặt bàn online giúp chúng tôi quản lý khách hàng hiệu quả hơn. No-show giảm 60%, customer satisfaction tăng đáng kể.",
-        rating: 5,
-        image: "/images/testimonials/customer2.jpg"
+        quote: "Chúng tôi đã triển khai hệ thống bảo trì dự đoán của TripC và kết quả thật đáng kinh ngạc. Nó đã giúp chúng tôi ngăn chặn nhiều sự cố nghiêm trọng, tiết kiệm hàng ngàn đô la chi phí sửa chữa và thời gian ngừng hoạt động. Đội ngũ hỗ trợ của họ cũng rất chuyên nghiệp và nhiệt tình.",
+        author: "Lê Thị Thu Hà",
+        position: "Quản lý Nhà máy",
+        company: "Advanced Industries",
+        avatar: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
       },
       {
-        name: "Anh Lê Văn C", 
-        position: "CEO",
-        company: "VietTravel Tours",
-        content: "TripC giúp chúng tôi tự động hóa 80% quy trình booking. Có thể focus vào việc phát triển sản phẩm tour thay vì xử lý admin.",
-        rating: 5,
-        image: "/images/testimonials/customer3.jpg"
+        quote: "Các giải pháp AI của TripC thực sự vượt trội. Khả năng phân tích dữ liệu thời gian thực đã mang lại cho chúng tôi những hiểu biết sâu sắc chưa từng có, giúp chúng tôi đưa ra quyết định kinh doanh nhanh chóng và chính xác hơn. Sự hợp tác này đã tạo ra một lợi thế cạnh tranh rõ rệt cho chúng tôi.",
+        author: "Phạm Nhật Vượng",
+        position: "Giám đốc Công nghệ",
+        company: "Innovatech Solutions",
+        avatar: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400",
       }
     ]
   },

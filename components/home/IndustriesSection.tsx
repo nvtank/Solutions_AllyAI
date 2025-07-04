@@ -4,62 +4,17 @@ import { useRef, useEffect } from 'react';
 import { Wrench } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function IndustriesSection() {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
 
-  const industries = [
-    {
-    
-      title_main: "Nền Tảng Đặt Đa Dịch Vụ",
-      title1: "Hệ thống Booking đa năng",
-      title2: "Giao diện thân thiện",
-      description1: "Đặt bàn, phòng, tour, vé sự kiện, gói chăm sóc sức khỏe. Hỗ trợ resort, nhà hàng, spa, khu vui chơi, travel agency.",
-      description2: "Dễ sử dụng trên website và ứng dụng di động. Tùy biến theo từng thương hiệu, lĩnh vực dịch vụ.",
-  
-      color: "from-blue-500 to-indigo-500",
-      bgColor: "from-blue-50 to-indigo-50",
-      image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-      
-      title_main: "Ứng Dụng Quản Lý Đơn Hàng",
-      title1: "Theo Dõi Đơn Hàng",
-      title2: "Xử Lý Nhanh Chóng",
-      description1: "Theo dõi tình trạng đơn hàng theo thời gian thực. Quản lý lịch sử giao dịch, báo cáo doanh thu.",
-      description2: "Cập nhật và xử lý đơn nhanh ngay trên điện thoại hoặc máy tính.",
- 
-      color: "from-green-500 to-teal-500",
-      bgColor: "from-green-50 to-teal-50",
-      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-     
-      title_main: "Tích Hợp Hóa Đơn & Thanh Toán Điện Tử",
-      title1: "Hóa Đơn Tự Động",
-      title2: "Thanh Toán QR Code",
-      description1: "Tự động xuất hóa đơn điện tử theo chuẩn quy định. Tùy chỉnh mẫu hóa đơn riêng.",
-      description2: "Thanh toán nhanh chóng, tiện lợi qua QR Code. Hỗ trợ ví điện tử và ngân hàng phổ biến.",
-      
-      color: "from-purple-500 to-pink-500",
-      bgColor: "from-purple-50 to-pink-50",
-      image: "https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-   
-      title_main: "Đáp Ứng Yêu Cầu Pháp Lý & Quản Lý Minh Bạch",
-      title1: "Tuân Thủ Pháp Luật",
-      title2: "Lưu Trữ Dữ Liệu An Toàn",
-      description1: "Hệ thống giúp doanh nghiệp tuân thủ hóa đơn, thuế.",
-      description2: "Lưu trữ dữ liệu an toàn, dễ dàng truy xuất.",
-
-      color: "from-orange-500 to-red-500",
-      bgColor: "from-orange-50 to-red-50",
-      image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-  ];
+  // Get industries data from translations
+  const industriesData = (t('industries') as unknown as any) || {};
+  const industries = industriesData.items || [];
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -156,14 +111,10 @@ export default function IndustriesSection() {
       <div className="max-w-8xl mx-auto relative z-10">
         <div ref={titleRef} className="text-center mb-12 sm:mb-16 lg:mb-24">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-gray-900 px-2">
-            TRIPC SOLUTIONS{' '}
-            <span className="text-blue-600 relative font-bold">
-              MANG ĐẾN?
-              <div className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-1.5 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full" />
-            </span>
+            {industriesData.title}
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto px-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium facilis rem ducimus.
+            {industriesData.subtitle}
           </p>
         </div>
 
@@ -172,7 +123,7 @@ export default function IndustriesSection() {
           ref={cardsContainerRef}
           className="grid grid-cols-1 space-y-12 md:grid-cols-2 gap-8 lg:gap-12 max-w-8xl mx-auto"
         >
-          {industries.map((industry, index) => (
+          {industries.map((industry: any, index: number) => (
             <div
               key={index}
               className={`group relative bg-white rounded-2xl p-2 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-300`}

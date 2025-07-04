@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
-import { type Solution } from './solutionsData';
+import { type Solution } from '../../../data/content/solutionsData';
 import SolutionCardContent from './SolutionCardContent';
 
 interface SolutionCardProps {

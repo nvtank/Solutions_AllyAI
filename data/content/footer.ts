@@ -119,7 +119,25 @@ export const footerContent = {
     madeWith: "Được phát triển với",
     love: "❤️",
     location: "tại Việt Nam"
-  }
+  },
+
+  quickLinks: [
+    { name: 'Giải pháp', href: '/solutions' },
+    { name: 'Lĩnh vực', href: '#' },
+    { name: 'Về chúng tôi', href: '/about' },
+    { name: 'Liên hệ', href: '/contact' },
+    { name: 'Mẫu', href: '/templates' },
+    { name: 'Hỗ trợ', href: '#' }
+  ],
+
+  socialLinks: [
+    { name: 'Twitter', href: '#', color: 'hover:bg-blue-500' },
+    { name: 'LinkedIn', href: '#', color: 'hover:bg-blue-600' },
+    { name: 'GitHub', href: '#', color: 'hover:bg-gray-700' },
+    { name: 'Instagram', href: '#', color: 'hover:bg-pink-500' },
+    { name: 'YouTube', href: '#', color: 'hover:bg-red-500' },
+    { name: 'Facebook', href: '#', color: 'hover:bg-blue-700' }
+  ]
 };
 
 export default footerContent;

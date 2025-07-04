@@ -1,7 +1,7 @@
 'use client';
 
 import { Database } from 'lucide-react';
-import { type Solution } from '../solutionsData';
+import { type Solution } from '../../../../data/content/solutionsData';
 
 interface SolutionCard04Props {
   solution: Solution;
