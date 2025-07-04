@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowRight, ExternalLink } from 'lucide-react';
-import { type Solution } from '../solutionsData';
+import { type Solution } from '../../../../data/content/solutionsData';
 import SolutionCard03 from './SolutionCard03';
 
 interface SolutionCardContent03Props {

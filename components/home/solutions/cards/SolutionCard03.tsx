@@ -1,7 +1,7 @@
 'use client';
 
 import { Users } from 'lucide-react';
-import { type Solution } from '../solutionsData';
+import { type Solution } from '../../../../data/content/solutionsData';
 
 interface SolutionCard03Props {
   solution: Solution;

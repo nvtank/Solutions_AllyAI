@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Brain, Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import { navbarContent } from '@/data';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageToggle from '@/components/ui/LanguageToggle';
 
 interface NavbarProps {
   currentPage?: string;
@@ -13,6 +14,15 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
+
+  const navItems = [
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.solutions'), href: '/solutions' },
+    { name: t('nav.contact'), href: '/contact' },
+    { name: t('nav.templates'), href: '/templates' }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,16 +56,16 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                 <div className={`text-xl font-bold tracking-tight group-hover:translate-y-[-100%] transition-all duration-300 ${
                   isScrolled ? 'text-gray-900' : 'text-white'
                 }`}>
-                  {navbarContent.logo}
+                  {t('nav.logo')}
                 </div>
                 <div className="absolute top-full text-xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent group-hover:translate-y-[-100%] transition-transform duration-300">
-                  {navbarContent.logo}
+                  {t('nav.logo')}
                 </div>
               </div>
             </Link>
             
             <div className="hidden lg:flex items-center space-x-1">
-              {navbarContent.navItems.map((item) => (
+              {navItems.map((item) => (
                 <div key={item.name} className="relative group">
                   <Link 
                     href={item.href}
@@ -76,6 +86,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                   </Link>
                 </div>
               ))}
+              <LanguageToggle />
             </div>
 
             <button
@@ -95,7 +106,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
           <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl shadow-xl border-t border-gray-200/50 z-40">
             <div className="max-w-7xl mx-auto px-4 py-4">
               <div className="space-y-2">
-                {navbarContent.navItems.map((item) => (
+                {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
@@ -105,6 +116,9 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                     {item.name}
                   </Link>
                 ))}
+                <div className="px-4 py-3">
+                  <LanguageToggle />
+                </div>
               </div>
             </div>
           </div>

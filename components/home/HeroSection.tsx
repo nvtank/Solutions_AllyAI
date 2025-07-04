@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { homeContent } from '@/data';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -17,6 +17,24 @@ export default function HeroSection() {
   const buttonsRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { t, language } = useLanguage();
+
+  // Get stats data based on current language
+  const getStatsData = () => {
+    if (language === 'vi') {
+      return [
+        { number: '500+', label: 'Dự án' },
+        { number: '2000+', label: 'Người dùng' },
+        { number: '99.9%', label: 'Uptime SLA' }
+      ];
+    } else {
+      return [
+        { number: '500+', label: 'Projects' },
+        { number: '2000+', label: 'Users' },
+        { number: '99.9%', label: 'Uptime SLA' }
+      ];
+    }
+  };
 
   useEffect(() => {
     setIsVisible(true);
@@ -226,28 +244,28 @@ export default function HeroSection() {
       <div className="relative z-30 flex flex-col items-center justify-center h-full w-full text-center px-4 sm:px-6 lg:px-8">
         <div ref={titleRef} className="w-full max-w-5xl">
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight text-white mb-3 sm:mb-4">
-            {homeContent.hero.title.toUpperCase()}
+            {t('hero.title').toUpperCase()}
           </h1>
           <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-            {homeContent.hero.subtitle}
+            {t('hero.subtitle')}
           </h2>
         </div>
 
         <div ref={buttonsRef} className="flex flex-row items-center justify-center space-x-4 lg:space-x-6 my-8 sm:my-10 md:my-12">
           <button className="group relative px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 flex items-center space-x-2 sm:space-x-3 font-medium text-sm sm:text-base overflow-hidden w-auto">
-            <span className="relative z-10">{homeContent.hero.cta.primary}</span>
+            <span className="relative z-10">{t('hero.cta.primary')}</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-500" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500 scale-110" />
           </button>
           <button className="group px-6 py-3 sm:px-8 sm:py-4 bg-white/5 backdrop-blur-sm border-2 border-white/20 text-white rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-500 flex items-center space-x-2 sm:space-x-3 font-medium text-sm sm:text-base w-auto">
-            <span>{homeContent.hero.cta.secondary}</span>
+            <span>{t('hero.cta.secondary')}</span>
           </button>
         </div>
 
           <div className='hidden sm:block '>
                   <div ref={statsRef} className="flex  flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8 lg:space-x-16 text-white/70 mt-8 sm:mt-0">
-                  {homeContent.hero.stats.map((stat, index) => (
+                  {getStatsData().map((stat, index) => (
                     <div key={index} className="text-center group cursor-pointer">
                       <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 group-hover:scale-110 transition-transform duration-300">
                         {stat.number}

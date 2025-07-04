@@ -24,11 +24,62 @@ import {
 } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement>(null);
+  const { t, language } = useLanguage();
+
+  // Get footer data based on current language
+  const getFooterData = () => {
+    if (language === 'vi') {
+      return {
+        quickLinks: [
+          { name: 'Giải pháp', href: '/solutions' },
+          { name: 'Lĩnh vực', href: '#' },
+          { name: 'Về chúng tôi', href: '/about' },
+          { name: 'Liên hệ', href: '/contact' },
+          { name: 'Mẫu', href: '/templates' },
+          { name: 'Hỗ trợ', href: '#' }
+        ],
+        socialLinks: [
+          { name: 'Twitter', href: '#', color: 'hover:bg-blue-500' },
+          { name: 'LinkedIn', href: '#', color: 'hover:bg-blue-600' },
+          { name: 'GitHub', href: '#', color: 'hover:bg-gray-700' },
+          { name: 'Instagram', href: '#', color: 'hover:bg-pink-500' },
+          { name: 'YouTube', href: '#', color: 'hover:bg-red-500' },
+          { name: 'Facebook', href: '#', color: 'hover:bg-blue-700' }
+        ],
+        quickLinksTitle: "Liên kết nhanh",
+        description: "TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng. Đồng thời tuân thủ quy định Nhà nước."
+      };
+    } else {
+      return {
+        quickLinks: [
+          { name: 'Solutions', href: '/solutions' },
+          { name: 'Industries', href: '#' },
+          { name: 'About Us', href: '/about' },
+          { name: 'Contact', href: '/contact' },
+          { name: 'Templates', href: '/templates' },
+          { name: 'Support', href: '#' }
+        ],
+        socialLinks: [
+          { name: 'Twitter', href: '#', color: 'hover:bg-blue-500' },
+          { name: 'LinkedIn', href: '#', color: 'hover:bg-blue-600' },
+          { name: 'GitHub', href: '#', color: 'hover:bg-gray-700' },
+          { name: 'Instagram', href: '#', color: 'hover:bg-pink-500' },
+          { name: 'YouTube', href: '#', color: 'hover:bg-red-500' },
+          { name: 'Facebook', href: '#', color: 'hover:bg-blue-700' }
+        ],
+        quickLinksTitle: "Quick Links",
+        description: "TripC Solution is a trusted partner for digital transformation. Helping tourism & service businesses grow while complying with government regulations."
+      };
+    }
+  };
+
+  const footerData = getFooterData();
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -81,23 +132,14 @@ export default function Footer() {
     return () => ctx.revert();
   }, []);
 
-  const quickLinks = [
-    { name: 'Giải pháp', href: '/solutions' },
-    { name: 'Lĩnh vực', href: '#' },
-    { name: 'Về chúng tôi', href: '/about' },
-    { name: 'Liên hệ', href: '/contact' },
-    { name: 'Mẫu', href: '/templates' },
-    { name: 'Hỗ trợ', href: '#' }
-  ];
-
-  const socialLinks = [
-    { icon: <Twitter className="w-5 h-5" />, href: '#', name: 'Twitter', color: 'hover:bg-blue-500' },
-    { icon: <Linkedin className="w-5 h-5" />, href: '#', name: 'LinkedIn', color: 'hover:bg-blue-600' },
-    { icon: <Github className="w-5 h-5" />, href: '#', name: 'GitHub', color: 'hover:bg-gray-700' },
-    { icon: <Instagram className="w-5 h-5" />, href: '#', name: 'Instagram', color: 'hover:bg-pink-500' },
-    { icon: <Youtube className="w-5 h-5" />, href: '#', name: 'YouTube', color: 'hover:bg-red-500' },
-    { icon: <Facebook className="w-5 h-5" />, href: '#', name: 'Facebook', color: 'hover:bg-blue-700' }
-  ];
+  const socialIcons = {
+    Twitter: <Twitter className="w-5 h-5" />,
+    LinkedIn: <Linkedin className="w-5 h-5" />,
+    GitHub: <Github className="w-5 h-5" />,
+    Instagram: <Instagram className="w-5 h-5" />,
+    YouTube: <Youtube className="w-5 h-5" />,
+    Facebook: <Facebook className="w-5 h-5" />
+  };
 
   const stats = [
     { number: '500+', label: 'Dự án', icon: <Award className="w-5 h-5" /> },
@@ -158,12 +200,12 @@ export default function Footer() {
               </div>
               
               <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
-                TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng. Đồng thời tuân thủ quy định Nhà nước.
+                {footerData.description}
               </p>
               
               {/* Social Links */}
               <div className="flex flex-wrap gap-3 mb-8">
-                {socialLinks.map((social, i) => (
+                {footerData.socialLinks.map((social, i) => (
                   <a 
                     key={i} 
                     href={social.href} 
@@ -171,7 +213,7 @@ export default function Footer() {
                     title={social.name}
                   >
                     <span className="relative z-10 text-gray-300 group-hover:text-white transition-colors duration-300">
-                      {social.icon}
+                      {socialIcons[social.name as keyof typeof socialIcons]}
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
                   </a>
@@ -211,11 +253,11 @@ export default function Footer() {
             {/* Quick Links */}
             <div>
               <h3 className="text-xl font-semibold mb-6 text-white relative">
-                Liên kết nhanh
+                {footerData.quickLinksTitle}
                 <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" />
               </h3>
               <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                {quickLinks.map((item, i) => (
+                {footerData.quickLinks.map((item, i) => (
                   <a key={i} href={item.href} className="group text-gray-400 hover:text-blue-400 transition-all duration-300 flex items-center space-x-2 p-2 rounded-lg hover:bg-white/5">
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                     <span className="text-sm sm:text-base group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>

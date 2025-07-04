@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { solutionsWithIcons } from './solutionsData';
+import { solutionsWithIcons } from '../../../data/content/solutionsData';
 
 export interface FloatingParticle {
   key: number;

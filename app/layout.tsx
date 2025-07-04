@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Analytics from '@/components/analytics/Analytics';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -96,7 +97,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Analytics />
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

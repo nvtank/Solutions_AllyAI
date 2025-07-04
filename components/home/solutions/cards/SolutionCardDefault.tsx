@@ -1,6 +1,6 @@
 'use client';
 
-import { type Solution } from '../solutionsData';
+import { type Solution } from '../../../../data/content/solutionsData';
 
 interface SolutionCardDefaultProps {
   solution: Solution;
