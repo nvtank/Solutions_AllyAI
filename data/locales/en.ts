@@ -99,20 +99,7 @@ export const en = {
         description1: "System helps businesses comply with invoice and tax regulations.",
         description2: "Safe data storage, easy retrieval."
       },
-      {
-        name: "Entertainment & Sports",
-        description: "Court booking, event tickets and group activities", 
-        image: "/images/entertainment.jpg",
-        stats: "80+ venues",
-        features: ["Facility Booking", "Event Management", "Group Reservations"]
-      },
-      {
-        name: "Healthcare & Wellness",
-        description: "Appointment scheduling, telemedicine and health packages",
-        image: "/images/healthcare.jpg",
-        stats: "50+ clinics",
-        features: ["Doctor Scheduling", "Patient Records", "Telemedicine"]
-      }
+    
     ]
   },
 

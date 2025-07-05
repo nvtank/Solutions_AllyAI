@@ -47,35 +47,43 @@ export const vi = {
   // Industries Section
   industries: {
     title: "TRIPC SOLUTIONS MANG ĐẾN?",
-    subtitle: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium facilis rem ducimus.",
+    subtitle: "Nền tảng thông minh giúp doanh nghiệp tự động hóa quy trình nâng cao trải nghiệm khách hàng",
     items: [
       {
         title_main: "Nền Tảng Đặt Đa Dịch Vụ",
         title1: "Hệ thống Booking đa năng",
         title2: "Giao diện thân thiện",
         description1: "Đặt bàn, phòng, tour, vé sự kiện, gói chăm sóc sức khỏe. Hỗ trợ resort, nhà hàng, spa, khu vui chơi, travel agency.",
-        description2: "Dễ sử dụng trên website và ứng dụng di động. Tùy biến theo từng thương hiệu, lĩnh vực dịch vụ."
+        description2: "Dễ sử dụng trên website và ứng dụng di động. Tùy biến theo từng thương hiệu, lĩnh vực dịch vụ.",
+     
+        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
       },
       {
         title_main: "Ứng Dụng Quản Lý Đơn Hàng",
         title1: "Theo Dõi Đơn Hàng",
         title2: "Xử Lý Nhanh Chóng",
         description1: "Theo dõi tình trạng đơn hàng theo thời gian thực. Quản lý lịch sử giao dịch, báo cáo doanh thu.",
-        description2: "Cập nhật và xử lý đơn nhanh ngay trên điện thoại hoặc máy tính."
+        description2: "Cập nhật và xử lý đơn nhanh ngay trên điện thoại hoặc máy tính.",
+    
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80"
       },
       {
         title_main: "Tích Hợp Hóa Đơn & Thanh Toán Điện Tử",
         title1: "Hóa Đơn Tự Động",
         title2: "Thanh Toán QR Code",
         description1: "Tự động xuất hóa đơn điện tử theo chuẩn quy định. Tùy chỉnh mẫu hóa đơn riêng.",
-        description2: "Thanh toán nhanh chóng, tiện lợi qua QR Code. Hỗ trợ ví điện tử và ngân hàng phổ biến."
+        description2: "Thanh toán nhanh chóng, tiện lợi qua QR Code. Hỗ trợ ví điện tử và ngân hàng phổ biến.",
+       
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
       },
       {
         title_main: "Đáp Ứng Yêu Cầu Pháp Lý & Quản Lý Minh Bạch",
         title1: "Tuân Thủ Pháp Luật",
         title2: "Lưu Trữ Dữ Liệu An Toàn",
         description1: "Hệ thống giúp doanh nghiệp tuân thủ hóa đơn, thuế.",
-        description2: "Lưu trữ dữ liệu an toàn, dễ dàng truy xuất."
+        description2: "Lưu trữ dữ liệu an toàn, dễ dàng truy xuất.",
+    
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
       }
     ]
   },
