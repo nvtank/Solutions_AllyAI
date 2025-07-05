@@ -28,14 +28,11 @@ export default function SolutionCardContent04({ solution, index }: SolutionCardC
           {/* Header */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.color} flex items-center justify-center text-white shadow-lg transform-gpu`}>
-                {solution.icon}
-              </div>
-              <div className="text-4xl font-bold text-gray-200">
+          
+              <div className="text-4xl font-bold text-black">
                 {solution.id}
               </div>
             </div>
-            
             <div>
               <h3 className="text-2xl lg:text-3xl font-black text-gray-900 mb-3 leading-tight tracking-tight">
                 {solution.title}

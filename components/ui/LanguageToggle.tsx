@@ -24,7 +24,7 @@ export default function LanguageToggle() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 rounded-lg hover:bg-gray-50"
+        className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-white hover:text-blue-600 transition-colors duration-200 rounded-lg hover:bg-gray-50"
       >
         <Globe className="w-4 h-4" />
         <span className="hidden sm:inline">{currentLanguage?.flag}</span>
@@ -38,7 +38,7 @@ export default function LanguageToggle() {
             className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-20">
+          <div className="absolute right-0 mt-2 w-48 bg-white  rounded-lg shadow-lg border border-gray-200 z-20">
             <div className="py-2">
               {languages.map((lang) => (
                 <button

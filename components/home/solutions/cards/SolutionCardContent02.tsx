@@ -27,11 +27,9 @@ export default function SolutionCardContent02({ solution, index }: SolutionCardC
         >
           {/* Header */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.color} flex items-center justify-center text-white shadow-lg transform-gpu`}>
-                {solution.icon}
-              </div>
-              <div className="text-4xl font-bold text-gray-200">
+        <div className="flex items-center space-x-3">
+          
+              <div className="text-4xl font-bold text-black">
                 {solution.id}
               </div>
             </div>
