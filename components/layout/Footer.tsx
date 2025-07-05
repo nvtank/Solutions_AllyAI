@@ -37,44 +37,34 @@ export default function Footer() {
     if (language === 'vi') {
       return {
         quickLinks: [
-          { name: 'Giải pháp', href: '/solutions' },
-          { name: 'Lĩnh vực', href: '#' },
+          // { name: 'Giải pháp', href: '/solutions' },
           { name: 'Về chúng tôi', href: '/about' },
           { name: 'Liên hệ', href: '/contact' },
-          { name: 'Mẫu', href: '/templates' },
-          { name: 'Hỗ trợ', href: '#' }
+          { name: 'Mẫu', href: '/templates' }
         ],
         socialLinks: [
-          { name: 'Twitter', href: '#', color: 'hover:bg-blue-500' },
-          { name: 'LinkedIn', href: '#', color: 'hover:bg-blue-600' },
-          { name: 'GitHub', href: '#', color: 'hover:bg-gray-700' },
-          { name: 'Instagram', href: '#', color: 'hover:bg-pink-500' },
-          { name: 'YouTube', href: '#', color: 'hover:bg-red-500' },
-          { name: 'Facebook', href: '#', color: 'hover:bg-blue-700' }
+          { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nvtank', color: 'hover:bg-blue-600' },
+          { name: 'Facebook', href: 'https://www.facebook.com/tuan.anh.871341', color: 'hover:bg-blue-700' },
+          { name: 'YouTube', href: 'https://www.youtube.com/watch?v=Jh6Xz1WD3C0&list=RDHmFXik5Yz64&index=4', color: 'hover:bg-red-500' }
         ],
         quickLinksTitle: "Liên kết nhanh",
-        description: "TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng. Đồng thời tuân thủ quy định Nhà nước."
+        description: "TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng bền vững."
       };
     } else {
       return {
         quickLinks: [
-          { name: 'Solutions', href: '/solutions' },
-          { name: 'Industries', href: '#' },
+          // { name: 'Solutions', href: '/solutions' },
           { name: 'About Us', href: '/about' },
           { name: 'Contact', href: '/contact' },
-          { name: 'Templates', href: '/templates' },
-          { name: 'Support', href: '#' }
+          { name: 'Templates', href: '/templates' }
         ],
         socialLinks: [
-          { name: 'Twitter', href: '#', color: 'hover:bg-blue-500' },
-          { name: 'LinkedIn', href: '#', color: 'hover:bg-blue-600' },
-          { name: 'GitHub', href: '#', color: 'hover:bg-gray-700' },
-          { name: 'Instagram', href: '#', color: 'hover:bg-pink-500' },
-          { name: 'YouTube', href: '#', color: 'hover:bg-red-500' },
-          { name: 'Facebook', href: '#', color: 'hover:bg-blue-700' }
+          { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nvtank', color: 'hover:bg-blue-600' },
+          { name: 'Facebook', href: 'https://facebook.com/tuan.anh.871341', color: 'hover:bg-blue-700' },
+          { name: 'YouTube', href: 'https://www.youtube.com/watch?v=Jh6Xz1WD3C0&list=RDHmFXik5Yz64&index=4', color: 'hover:bg-red-500' }
         ],
         quickLinksTitle: "Quick Links",
-        description: "TripC Solution is a trusted partner for digital transformation. Helping tourism & service businesses grow while complying with government regulations."
+        description: "TripC Solution is a trusted partner for digital transformation. Helping tourism & service businesses grow sustainably."
       };
     }
   };
@@ -133,25 +123,19 @@ export default function Footer() {
   }, []);
 
   const socialIcons = {
-    Twitter: <Twitter className="w-5 h-5" />,
     LinkedIn: <Linkedin className="w-5 h-5" />,
-    GitHub: <Github className="w-5 h-5" />,
-    Instagram: <Instagram className="w-5 h-5" />,
-    YouTube: <Youtube className="w-5 h-5" />,
-    Facebook: <Facebook className="w-5 h-5" />
+    Facebook: <Facebook className="w-5 h-5" />,
+    YouTube: <Youtube className="w-5 h-5" />
   };
 
   const stats = [
     { number: '500+', label: 'Dự án', icon: <Award className="w-5 h-5" /> },
     { number: '2000+', label: 'Người dùng', icon: <Heart className="w-5 h-5" /> },
-    { number: '99.9%', label: 'Thời gian hoạt động', icon: <Shield className="w-5 h-5" /> },
-    { number: '24/7', label: 'Hỗ trợ', icon: <Clock className="w-5 h-5" /> }
+    { number: '99.9%', label: 'Uptime', icon: <Shield className="w-5 h-5" /> }
   ];
 
   const offices = [
-    { city: 'San Francisco', country: 'USA', email: 'sf@tripcsolutions.com' },
-    { city: 'London', country: 'UK', email: 'london@tripcsolutions.com' },
-    { city: 'Singapore', country: 'SG', email: 'singapore@tripcsolutions.com' }
+    { city: 'Ho Chi Minh', country: 'Vietnam', email: 'contact@tripc.ai' }
   ];
 
   return (
@@ -183,33 +167,35 @@ export default function Footer() {
 
       {/* Main Content */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+        <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           
-          {/* Left Section - Brand & Newsletter */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Left Section - Brand */}
+          <div className="space-y-6">
             {/* Brand */}
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center relative">
-                  <Brain className="w-7 h-7 md:w-8 md:h-8 text-white" />
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center relative">
+                  <Brain className="w-7 h-7 text-white" />
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-xl blur-lg opacity-50 scale-110" />
                 </div>
-                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
                   TripC Solutions
                 </div>
               </div>
               
-              <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
+              <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
                 {footerData.description}
               </p>
               
               {/* Social Links */}
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex gap-3">
                 {footerData.socialLinks.map((social, i) => (
                   <a 
                     key={i} 
                     href={social.href} 
-                    className={`group w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 ${social.color} relative overflow-hidden`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300 ${social.color} relative overflow-hidden`}
                     title={social.name}
                   >
                     <span className="relative z-10 text-gray-300 group-hover:text-white transition-colors duration-300">
@@ -220,47 +206,21 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-
-            {/* Newsletter */}
-            <div className="bg-gradient-to-br from-blue-600/10 to-indigo-600/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-blue-500/20">
-              <div className="flex items-center mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center mr-3">
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-lg font-bold text-white">Cập nhật thông tin</h3>
-                  <p className="text-blue-200 text-xs sm:text-sm">Nhận tin tức & phân tích AI</p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Nhập email của bạn"
-                  className="flex-1 px-3 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                />
-                <button className="group px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center sm:justify-start space-x-1">
-                  <Send className="w-4 h-4" />
-                  <span className="sm:hidden">Đăng ký</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
-              </div>
-            </div>
           </div>
 
-          {/* Center Section - Links & Stats */}
-          <div className="md:col-span-1 lg:col-span-4 space-y-8">
+          {/* Center Section - Links */}
+          <div className="space-y-6">
             {/* Quick Links */}
             <div>
-              <h3 className="text-xl font-semibold mb-6 text-white relative">
+              <h3 className="text-lg font-semibold mb-4 text-white relative">
                 {footerData.quickLinksTitle}
-                <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" />
+                <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" />
               </h3>
-              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+              <div className="space-y-2">
                 {footerData.quickLinks.map((item, i) => (
                   <a key={i} href={item.href} className="group text-gray-400 hover:text-blue-400 transition-all duration-300 flex items-center space-x-2 p-2 rounded-lg hover:bg-white/5">
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    <span className="text-sm sm:text-base group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>
+                    <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>
                   </a>
                 ))}
               </div>
@@ -268,22 +228,22 @@ export default function Footer() {
 
             {/* Stats */}
             <div>
-              <h3 className="text-xl font-semibold mb-6 text-white relative">
-                Dấu ấn của chúng tôi
-                <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" />
+              <h3 className="text-lg font-semibold mb-4 text-white relative">
+                Thống kê
+                <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" />
               </h3>
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="grid grid-cols-3 gap-2">
                 {stats.map((stat, index) => (
-                  <div key={index} className="group text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:scale-105">
-                    <div className="flex items-center justify-center mb-2">
-                      <div className="bg-gradient-to-br from-blue-500 to-indigo-500 p-2 rounded-lg text-white group-hover:scale-110 transition-transform duration-300">
+                  <div key={index} className="group text-center p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:scale-105">
+                    <div className="flex items-center justify-center mb-1">
+                      <div className="bg-gradient-to-br from-blue-500 to-indigo-500 p-1.5 rounded-lg text-white group-hover:scale-110 transition-transform duration-300">
                         {stat.icon}
                       </div>
                     </div>
-                    <div className="text-xl sm:text-2xl font-bold text-white mb-1 group-hover:text-blue-400 transition-colors duration-300">
+                    <div className="text-lg font-bold text-white mb-1 group-hover:text-blue-400 transition-colors duration-300">
                       {stat.number}
                     </div>
-                    <div className="text-gray-400 text-xs sm:text-sm group-hover:text-gray-300 transition-colors duration-300">
+                    <div className="text-gray-400 text-xs group-hover:text-gray-300 transition-colors duration-300">
                       {stat.label}
                     </div>
                   </div>
@@ -293,32 +253,39 @@ export default function Footer() {
           </div>
 
           {/* Right Section - Contact */}
-          <div className="md:col-span-2 lg:col-span-3">
-            <h3 className="text-xl font-semibold mb-6 text-white relative">
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white relative">
               Liên Hệ
-              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+              <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
             </h3>
             <div className="space-y-4">
               <div className="group flex items-start space-x-3">
                 <Mail className="w-4 h-4 mt-1 text-gray-500 group-hover:text-blue-400 transition-colors duration-300" />
                 <div>
-                  <p className="font-semibold text-gray-200">Email</p>
-                  <a href="mailto:bd@tripc.ai" className="text-sm sm:text-base text-gray-400 hover:text-blue-400 transition-colors duration-300">bd@tripc.ai</a>
+                  <p className="font-semibold text-gray-200 text-sm">Email</p>
+                  <a href="mailto:contact@tripc.ai" className="text-sm text-gray-400 hover:text-blue-400 transition-colors duration-300">contact@tripc.ai</a>
                 </div>
               </div>
               <div className="group flex items-start space-x-3">
                 <Globe className="w-4 h-4 mt-1 text-gray-500 group-hover:text-blue-400 transition-colors duration-300" />
                 <div>
-                  <p className="font-semibold text-gray-200">Website</p>
-                  <a href="https://solutions.tripc.ai" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base text-gray-400 hover:text-blue-400 transition-colors duration-300">solutions.tripc.ai</a>
+                  <p className="font-semibold text-gray-200 text-sm">Website</p>
+                  <a href="https://solutions.tripc.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-blue-400 transition-colors duration-300">solutions.tripc.ai</a>
                 </div>
+              </div>
+              <div className="group flex items-start space-x-3">
+                <MapPin className="w-4 h-4 mt-1 text-gray-500 group-hover:text-blue-400 transition-colors duration-300" />
+                <a href="https://maps.app.goo.gl/d1kHAhfboqUG4diV7" className="cursor-pointer">
+                  <p className="font-semibold text-gray-200 text-sm">Địa chỉ</p>
+                  <p className="text-sm text-gray-400">153, Đống Đa, Thạch Thang Đà Nẵng</p>
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-16 pt-8 border-t border-white/10 text-center text-gray-500">
+        <div className="mt-12 pt-6 border-t border-white/10 text-center text-gray-500">
           <p className="text-sm">&copy; {new Date().getFullYear()} TripC Solutions. Bản quyền đã được bảo hộ.</p>
         </div>
       </div>

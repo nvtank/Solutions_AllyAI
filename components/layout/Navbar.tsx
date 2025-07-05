@@ -19,7 +19,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
   const navItems = [
     { name: t('nav.home'), href: '/' },
     { name: t('nav.about'), href: '/about' },
-    { name: t('nav.solutions'), href: '/solutions' },
+    // { name: t('nav.solutions'), href: '/solutions' },
     { name: t('nav.contact'), href: '/contact' },
     { name: t('nav.templates'), href: '/templates' }
   ];

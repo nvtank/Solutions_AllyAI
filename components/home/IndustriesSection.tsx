@@ -125,11 +125,11 @@ export default function IndustriesSection() {
           {industries.map((industry: any, index: number) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200/50 hover:border-gray-300 transform hover:-translate-y-2`}
+              className={`group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200/50 hover:border-gray-300 transform `}
             >
               {/* Background gradient overlay */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${industry.bgColor} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-gradient-to-br ${industry.bgColor} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
               />
               
               {/* Two Column Layout */}
