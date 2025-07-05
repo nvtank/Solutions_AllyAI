@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import { Wrench } from 'lucide-react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -12,7 +13,6 @@ export default function IndustriesSection() {
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
 
-  // Get industries data from translations
   const industriesData = (t('industries') as unknown as any) || {};
   const industries = industriesData.items || [];
 
@@ -118,95 +118,97 @@ export default function IndustriesSection() {
           </p>
         </div>
 
-        {/* Cards */}
         <div
           ref={cardsContainerRef}
-          className="grid grid-cols-1 space-y-12 md:grid-cols-2 gap-8 lg:gap-12 max-w-8xl mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full mx-auto"
         >
           {industries.map((industry: any, index: number) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-2xl p-2 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-300`}
+              className={`group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200/50 hover:border-gray-300 transform hover:-translate-y-2`}
             >
               {/* Background gradient overlay */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${industry.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-gradient-to-br ${industry.bgColor} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
               />
-
-                {/* Image */}
-                <div className="md:col-span-2 relative block sm:hidden">
-                  <div className="relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-lg sm:rounded-xl overflow-hidden">
-                    <img
-                      src={industry.image}
-                      alt={industry.title_main}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  </div>
-                  {/* Decorative elements - hidden on mobile */}
-                  <div
-                    className={`absolute -top-3 -right-3 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-60 group-hover:scale-125 transition-transform duration-300 hidden sm:block`}
-                  />
-                  <div
-                    className={`absolute -bottom-3 -left-3 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-40 group-hover:scale-125 transition-transform duration-300 hidden sm:block`}
-                  />
-                </div>
-              <div className="relative z-10 p-4 sm:p-6 lg:p-8 xl:p-12 grid gap-4 sm:gap-6 lg:gap-8 md:grid-cols-5 items-start">
-                {/* Content */}
-                <div className="md:col-span-3">
-                  <div className="flex items-center mb-4 sm:mb-6">
-                    <div>
-                      <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+              
+              {/* Two Column Layout */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[280px]">
+                {/* Left Column - Text Content */}
+                <div className="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">
                         {industry.title_main}
                       </h3>
                     </div>
                   </div>
 
-                  <div className="space-y-4 sm:space-y-6">
-                    <div>
-                      <h4 className="text-base sm:text-lg lg:text-xl font-medium text-gray-800">{industry.title1}</h4>
-                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{industry.description1}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-base sm:text-lg lg:text-xl font-medium text-gray-800">{industry.title2}</h4>
-                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{industry.description2}</p>
+                  {/* Stats Badge */}
+                  <div className="mb-4">
+                    <div className="inline-flex bg-gradient-to-r from-blue-50 to-purple-50 rounded-full px-3 py-1 shadow-sm">
+                      <span className="text-xs font-semibold text-gray-700">{industry.stats}</span>
                     </div>
                   </div>
 
-                  <button
-                    className={`mt-6 sm:mt-8 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r ${industry.color} text-white rounded-lg hover:shadow-xl transition-all duration-300 font-medium text-sm sm:text-base lg:text-lg relative overflow-hidden group/button`}
-                    aria-label={`Learn more about ${industry.title_main}`}
-                  >
-                    <span className="relative z-10">Trải nghiệm ngay</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/button:translate-x-full transition-transform duration-500" />
-                  </button>
+                  <div className="space-y-4">
+                    {/* First Content Block */}
+                    <div className="bg-gray-50 rounded-xl p-3 sm:p-4 group-hover:bg-gray-100 transition-colors duration-300">
+                      <h4 className="text-sm font-semibold text-gray-900 mb-1">
+                        {industry.title1}
+                      </h4>
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                        {industry.description1}
+                      </p>
+                    </div>
+
+                    {/* Second Content Block */}
+                    <div className="bg-gray-50 rounded-xl p-3 sm:p-4 group-hover:bg-gray-100 transition-colors duration-300">
+                      <h4 className="text-sm font-semibold text-gray-900 mb-1">
+                        {industry.title2}
+                      </h4>
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                        {industry.description2}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="flex justify-start mt-6">
+                    <button
+                      className={`px-6 py-2 bg-gradient-to-r ${industry.color || 'from-blue-500 to-purple-500'} text-white rounded-full hover:shadow-xl transform hover:scale-105 transition-all duration-300 font-semibold text-xs sm:text-sm relative overflow-hidden group/button`}
+                      aria-label={`Learn more about ${industry.title_main}`}
+                    >
+                      <span className="relative z-10 flex items-center">
+                        Trải nghiệm ngay
+                        <svg className="w-3 h-3 ml-1 transform group-hover/button:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/button:translate-x-full transition-transform duration-500" />
+                    </button>
+                  </div>
                 </div>
 
-                {/* Image */}
-                <div className="md:col-span-2 relative hidden sm:block">
-                  <div className="relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-lg sm:rounded-xl overflow-hidden">
-                    <img
-                      src={industry.image}
-                      alt={industry.title_main}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  </div>
-                  {/* Decorative elements - hidden on mobile */}
-                  <div
-                    className={`absolute -top-3 -right-3 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-60 group-hover:scale-125 transition-transform duration-300 hidden sm:block`}
-                  />
-                  <div
-                    className={`absolute -bottom-3 -left-3 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-br ${industry.color} rounded-full opacity-40 group-hover:scale-125 transition-transform duration-300 hidden sm:block`}
+                {/* Right Column - Image */}
+                <div className="relative h-56 sm:h-64 lg:h-auto overflow-hidden">
+                  <Image
+                    src={`/${index + 1}.jpg`}
+                    alt={industry.title_main}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
               </div>
 
-              {/* Subtle border glow */}
-              <div
-                className={`absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-br ${industry.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                style={{ mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', maskComposite: 'exclude' }}
-              />
+              {/* Animated border */}
+              <div className={`absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-br ${industry.color || 'from-blue-500 to-purple-500'} opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none`} 
+                   style={{ 
+                     mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                     maskComposite: 'exclude',
+                     WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                     WebkitMaskComposite: 'xor'
+                   }} />
             </div>
           ))}
         </div>

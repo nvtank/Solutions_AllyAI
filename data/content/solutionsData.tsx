@@ -9,8 +9,6 @@ import {
   Shield
 } from 'lucide-react';
 
-export { solutionsData } from '@/data';
-
 export const TOTAL_CARDS = 5;
 export const CARD_WIDTH = 100;
 export const ANIMATION_DURATION = 0.8;

@@ -15,8 +15,7 @@ export { useAnimations } from './useAnimations';
 export { useFloatingParticles } from './useFloatingParticles';
 
 // Export data and types
-export { solutionsData } from '@/data';
-export type { Solution } from '@/data';
+export type { Solution } from '../../../data/content/solutionsData';
 export type { FloatingParticle } from './useFloatingParticles';
 
 // Constants
