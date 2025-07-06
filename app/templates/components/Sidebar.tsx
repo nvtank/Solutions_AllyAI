@@ -2,7 +2,7 @@
 
 import { 
   Grid, Building2, ShoppingCart, GraduationCap, Heart, Camera, 
-  Briefcase, Utensils, Car, Home 
+  Briefcase, Utensils, Car, Home, Plane, Palette, Users, Shield
 } from 'lucide-react';
 import { Category } from '../types';
 
@@ -24,7 +24,11 @@ const iconMap: Record<string, React.ReactNode> = {
   Briefcase: <Briefcase className="w-4 h-4" />,
   Utensils: <Utensils className="w-4 h-4" />,
   Car: <Car className="w-4 h-4" />,
-  Home: <Home className="w-4 h-4" />
+  Home: <Home className="w-4 h-4" />,
+  Plane: <Plane className="w-4 h-4" />,
+  Palette: <Palette className="w-4 h-4" />,
+  Users: <Users className="w-4 h-4" />,
+  Shield: <Shield className="w-4 h-4" />
 };
 
 export default function Sidebar({
@@ -33,65 +37,95 @@ export default function Sidebar({
   sortBy,
   setSortBy,
   showFilters
-}: SidebarProps) {  const categories: Category[] = [
-    { name: 'Tất Cả', icon: iconMap.Grid, count: 150 },
-    { name: 'Kinh Doanh', icon: iconMap.Building2, count: 25 },
-    { name: 'Thương Mại Điện Tử', icon: iconMap.ShoppingCart, count: 20 },
-    { name: 'Giáo Dục', icon: iconMap.GraduationCap, count: 18 },
-    { name: 'Y Tế', icon: iconMap.Heart, count: 15 },
-    { name: 'Hồ Sơ', icon: iconMap.Camera, count: 22 },
-    { name: 'Doanh Nghiệp', icon: iconMap.Briefcase, count: 16 },
-    { name: 'Nhà Hàng', icon: iconMap.Utensils, count: 12 },
-    { name: 'Ô Tô', icon: iconMap.Car, count: 8 },
-    { name: 'Bất Động Sản', icon: iconMap.Home, count: 14 }
+}: SidebarProps) {
+  const categories: Category[] = [
+    { name: 'Tất Cả', icon: iconMap.Grid, count: 12 },
+    { name: 'Du Lịch', icon: iconMap.Plane, count: 12 }
   ];
 
   return (
     <div className={`lg:w-80 ${showFilters ? 'block' : 'hidden lg:block'}`}>
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-24">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Danh Mục</h3>
-        <div className="space-y-2">
-          {categories.map((category) => (
-            <button
-              key={category.name}
-              onClick={() => setSelectedCategory(category.name)}
-              className={`w-full flex items-center justify-between p-3 rounded-lg transition-all ${
-                selectedCategory === category.name
-                  ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                  : 'text-gray-700 hover:bg-gray-50'
-              }`}
-            >
-              <div className="flex items-center space-x-3">
-                {category.icon}
-                <span className="font-medium">{category.name}</span>
-              </div>
-              <span className="text-sm text-gray-500">{category.count}</span>
-            </button>
-          ))}
-        </div>        <div className="mt-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Sắp Xếp Theo</h3>
+      {/* Clean Professional Sidebar */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sticky top-24">
+        
+        {/* Categories Section */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Danh Mục</h3>
+          
+          <div className="space-y-2">
+            {categories.map((category) => (
+              <button
+                key={category.name}
+                onClick={() => setSelectedCategory(category.name)}
+                className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
+                  selectedCategory === category.name
+                    ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                    : 'text-gray-700 hover:bg-gray-50 border border-transparent'
+                }`}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className={`${
+                    selectedCategory === category.name ? 'text-blue-600' : 'text-gray-400'
+                  }`}>
+                    {category.icon}
+                  </div>
+                  <span className="font-medium">{category.name}</span>
+                </div>
+                <span className={`px-2 py-1 rounded-full text-sm font-medium ${
+                  selectedCategory === category.name
+                    ? 'bg-blue-100 text-blue-700'
+                    : 'bg-gray-100 text-gray-600'
+                }`}>
+                  {category.count}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Sort Section */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Sắp xếp theo</h3>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700 bg-white"
           >
-            <option value="popular">Phổ Biến Nhất</option>
-            <option value="rating">Đánh Giá Cao Nhất</option>
-            <option value="newest">Mới Nhất</option>
+            <option value="popular">Phổ biến nhất</option>
+            <option value="rating">Đánh giá cao nhất</option>
+            <option value="newest">Mới nhất</option>
             <option value="name">Tên A-Z</option>
           </select>
         </div>
 
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Giá</h3>
-          <div className="space-y-2">
-            <label className="flex items-center">
-              <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
-              <span className="ml-2 text-gray-700">Mẫu Miễn Phí</span>
-            </label>            <label className="flex items-center">
-              <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
-              <span className="ml-2 text-gray-700">Mẫu Cao Cấp</span>
+        {/* Price Filter Section */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Giá cả</h3>
+          <div className="space-y-3">
+            <label className="flex items-center cursor-pointer">
+              <input 
+                type="checkbox" 
+                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              />
+              <span className="ml-3 text-gray-700">Mẫu miễn phí</span>
             </label>
+            
+            <label className="flex items-center cursor-pointer">
+              <input 
+                type="checkbox" 
+                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              />
+              <span className="ml-3 text-gray-700">Mẫu cao cấp</span>
+            </label>
+          </div>
+        </div>
+
+        {/* Simple Stats */}
+        <div className="p-4 bg-gray-50 rounded-lg border">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-gray-900 mb-1">4.8★</div>
+            <div className="text-sm text-gray-600 mb-3">Đánh giá trung bình</div>
+            <div className="text-lg font-semibold text-gray-900">50K+ lượt tải</div>
           </div>
         </div>
       </div>

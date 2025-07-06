@@ -20,7 +20,7 @@ export default function IndustriesSection() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // Use matchMedia for responsive animations
+
       ScrollTrigger.matchMedia({
         // Desktop animations
         "(min-width: 768px)": function() {
@@ -67,23 +67,10 @@ export default function IndustriesSection() {
                 },
               );
 
-              // Hover effect
-              const cardElement = card as HTMLElement;
-              cardElement.addEventListener('mouseenter', () => {
-                gsap.to(cardElement, {
-                  scale: 1.03,
-                  duration: 0.4,
-                  ease: 'power2.out',
-                });
-              });
+              
+     
 
-              cardElement.addEventListener('mouseleave', () => {
-                gsap.to(cardElement, {
-                  scale: 1,
-                  duration: 0.4,
-                  ease: 'power2.out',
-                });
-              });
+         
             });
           }
         },
@@ -125,16 +112,12 @@ export default function IndustriesSection() {
           {industries.map((industry: any, index: number) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200/50 hover:border-gray-300 transform `}
+              className={`group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200/50 hover:border-gray-300  `}
             >
-              {/* Background gradient overlay */}
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${industry.bgColor} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
               />
-              
-              {/* Two Column Layout */}
               <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[280px]">
-                {/* Left Column - Text Content */}
                 <div className="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center">

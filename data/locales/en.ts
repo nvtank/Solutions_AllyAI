@@ -47,7 +47,7 @@ export const en = {
   // Industries Section
   industries: {
     title: "WHAT DOES TRIPC SOLUTIONS BRING?",
-    subtitle: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium facilis rem ducimus.",
+    subtitle: "Smart Platform helps businesses automate processes to improve customer experience",
     originalTitle: "Serving All Industries",
     originalSubtitle: "Customized solutions for each sector",
     items: [
