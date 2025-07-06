@@ -12,12 +12,13 @@ interface TemplateCardProps {
 
 export default function TemplateCard({ template, viewMode, onPreview }: TemplateCardProps) {
   return (
-    <div className={`group bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 ${
+    <div className={`group bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-300 ${
       viewMode === 'list' ? 'flex' : ''
     }`}>
       <div className={`relative overflow-hidden ${
         viewMode === 'list' ? 'w-80 flex-shrink-0' : 'aspect-w-16 aspect-h-10'
       }`}>
+        {/* Clean Image */}
         <Image 
           src={template.image} 
           alt={template.name}
@@ -27,60 +28,53 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
             viewMode === 'list' ? 'h-full' : 'h-48'
           }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        
+        {/* Simple Overlay */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <div className="absolute bottom-4 left-4 right-4 flex space-x-2">
-            <button className="flex-1 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg text-sm font-medium hover:bg-white transition-colors flex items-center justify-center space-x-1">
+            <button className="flex-1 bg-white text-gray-800 px-3 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors flex items-center justify-center space-x-1">
               <Eye className="w-4 h-4" />
-              <span>Xem Trước</span>
+              <span>Xem trước</span>
             </button>
-            <button className={`flex-1 bg-gradient-to-r ${template.color} text-white px-3 py-2 rounded-lg text-sm font-medium hover:shadow-lg transition-all`}>
-              Sử Dụng Mẫu
+            <button className="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition-colors">
+              Sử dụng
             </button>
           </div>
         </div>
-        <div className={`absolute top-3 left-3 px-2 py-1 bg-gradient-to-r ${template.color} text-white text-xs rounded-full font-medium`}>
-          Tích Hợp AI
-        </div>
-        {template.price === 'Premium' && (
-          <div className="absolute top-3 right-3 px-2 py-1 bg-yellow-500 text-white text-xs rounded-full font-medium">
-            Cao Cấp
-          </div>
-        )}
+        
+  
       </div>
       
-      <div className="p-6 flex-1">
+      <div className="p-6 flex-1 h-full flex flex-col">
+        {/* Header */}
         <div className="flex items-start justify-between mb-3">
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-1">{template.name}</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-1">{template.name}</h3>
             <p className="text-sm text-gray-600">{template.category}</p>
-          </div>
-          <div className="flex items-center space-x-1">
-            <Star className="w-4 h-4 text-yellow-400 fill-current" />
-            <span className="text-sm font-medium text-gray-700">{template.rating}</span>
           </div>
         </div>
         
-        <p className="text-gray-600 mb-4 text-sm">{template.description}</p>
+        {/* Description */}
+        <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+          {template.description.split(' ').length > 10
+            ? template.description.split(' ').slice(0, 10).join(' ') + '...'
+            : template.description
+          }
+        </p>
         
+        {/* Simple Tags */}
         <div className="flex flex-wrap gap-1 mb-4">
-          {template.tags.slice(0, 3).map((tag, idx) => (
-            <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+          {template.tags.slice(0, 2).map((tag, idx) => (
+            <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">
               {tag}
             </span>
           ))}
         </div>
         
-        <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-          <div className="flex items-center space-x-1">
-            <Download className="w-4 h-4" />
-            <span>{template.downloads.toLocaleString()} lượt tải</span>
-          </div>
-          <span className="font-semibold text-gray-900">{template.price === 'Free' ? 'Miễn Phí' : 'Cao Cấp'}</span>
-        </div>
-        
+        {/* Features for List View */}
         {viewMode === 'list' && (
           <div className="mb-4">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">Tính Năng:</h4>
+            <h4 className="text-sm font-semibold text-gray-900 mb-2">Tính năng:</h4>
             <ul className="grid grid-cols-2 gap-1">
               {template.features.map((feature, idx) => (
                 <li key={idx} className="flex items-center text-xs text-gray-600">
@@ -92,16 +86,17 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
           </div>
         )}
         
-        <div className="flex space-x-2">
+        {/* Action Buttons - Always at bottom */}
+        <div className="flex space-x-2 ">
           <button 
             onClick={() => onPreview(template)}
-            className="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors flex items-center justify-center space-x-1"
+            className="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded text-sm font-medium hover:bg-gray-200 transition-colors flex items-center justify-center space-x-1"
           >
             <Eye className="w-4 h-4" />
-            <span>Xem Trước</span>
+            <span>Xem trước</span>
           </button>
-          <button className={`flex-1 bg-gradient-to-r ${template.color} text-white px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg transition-all`}>
-            Sử Dụng Mẫu
+          <button className="flex-1 bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition-colors">
+            Sử dụng
           </button>
         </div>
       </div>

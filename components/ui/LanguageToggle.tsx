@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Globe, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { motion } from 'framer-motion';
 
 export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const languages = [
     { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
@@ -20,11 +22,24 @@ export default function LanguageToggle() {
     setIsOpen(false);
   };
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-white hover:text-blue-600 transition-colors duration-200 rounded-lg hover:bg-gray-50"
+        className={`flex items-center space-x-2 px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+          scrolled 
+            ? 'text-gray-600 hover:text-gray-900' 
+            : 'text-white/80 hover:text-white'
+        }`}
       >
         <Globe className="w-4 h-4" />
         <span className="hidden sm:inline">{currentLanguage?.flag}</span>
@@ -38,20 +53,22 @@ export default function LanguageToggle() {
             className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-48 bg-white  rounded-lg shadow-lg border border-gray-200 z-20">
+          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-20">
             <div className="py-2">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
                   onClick={() => handleLanguageChange(lang.code as 'vi' | 'en')}
-                  className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-150 flex items-center space-x-3 ${
-                    language === lang.code ? 'text-blue-600 bg-blue-50' : 'text-gray-700'
+                  className={`w-full text-left px-4 py-2 text-sm transition-colors duration-200 flex items-center space-x-3 ${
+                    language === lang.code 
+                      ? 'text-blue-600 bg-blue-50' 
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
                   }`}
                 >
                   <span className="text-lg">{lang.flag}</span>
                   <span>{lang.name}</span>
                   {language === lang.code && (
-                    <div className="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <div className="ml-auto w-2 h-2 bg-blue-600 rounded-full" />
                   )}
                 </button>
               ))}

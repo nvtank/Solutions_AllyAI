@@ -16,32 +16,79 @@ export default function TemplatesHeader({
   setShowFilters 
 }: TemplatesHeaderProps) {
   return (
-    <section className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white py-20 mt-20">
-      <div className="max-w-7xl mx-auto px-6">        <div className="text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-blue-200">Mẫu AI</span> Chuyên Nghiệp
+    <section className="bg-gradient-to-r from-gray-200 to-blue-500 py-16 mt-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-12">
+          {/* Simple Professional Title */}
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Mẫu Website Du Lịch
           </h1>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Chọn từ hơn 150 mẫu được thiết kế chuyên nghiệp với khả năng AI tích hợp. 
-            Hoàn hảo cho mọi ngành nghề và nhu cầu kinh doanh.
+          <p className="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
+            Bộ sưu tập mẫu website chuyên nghiệp cho ngành du lịch với tích hợp AI thông minh
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <div className="relative w-full sm:w-96">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />              <input
+          
+          {/* Clean Stats */}
+          <div className="flex justify-center items-center space-x-8 mb-8">
+            <div className="text-center">
+              <span className="text-2xl font-bold text-blue-600">12</span>
+              <p className="text-sm text-gray-500">Mẫu</p>
+            </div>
+            <div className="w-px h-8 bg-gray-300"></div>
+            <div className="text-center">
+              <span className="text-2xl font-bold text-blue-600">4.8★</span>
+              <p className="text-sm text-gray-500">Đánh giá</p>
+            </div>
+            <div className="w-px h-8 bg-gray-300"></div>
+            <div className="text-center">
+              <span className="text-2xl font-bold text-blue-600">50K+</span>
+              <p className="text-sm text-gray-500">Lượt tải</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Clean Search & Filter */}
+        <div className="max-w-2xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-4">
+            {/* Simple Search Input */}
+            <div className="relative flex-1">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input
                 type="text"
                 placeholder="Tìm kiếm mẫu..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-lg border-0 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/20"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               />
             </div>
+            
+            {/* Simple Filter Button */}
             <button 
               onClick={() => setShowFilters(!showFilters)}
-              className="px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/30 transition-all flex items-center space-x-2"
+              className={`px-6 py-3 border rounded-lg transition-colors flex items-center space-x-2 ${
+                showFilters 
+                  ? 'bg-blue-600 text-white border-blue-600' 
+                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+              }`}
             >
               <Filter className="w-5 h-5" />
-              <span>Bộ Lọc</span>
+              <span>Bộ lọc</span>
             </button>
+          </div>
+          
+          {/* Professional Tags */}
+          <div className="mt-6 text-center ">
+            <p className="text-sm text-gray-500 mb-3">Danh mục phổ biến:</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {['Khách sạn', 'Tour du lịch', 'Homestay', 'Travel blog'].map((tag, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSearchTerm(tag)}
+                  className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-full text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600 transition-colors"
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

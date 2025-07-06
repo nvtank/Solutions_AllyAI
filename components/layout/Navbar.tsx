@@ -3,8 +3,11 @@
 import { useState, useEffect } from 'react';
 import { Brain, Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageToggle from '@/components/ui/LanguageToggle';
+import { motion } from 'framer-motion';
 
 interface NavbarProps {
   currentPage?: string;
@@ -12,9 +15,13 @@ interface NavbarProps {
 
 export default function Navbar({ currentPage = 'home' }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeTab, setActiveTab] = useState<string | null>(null);
   const { t } = useLanguage();
+  const pathname = usePathname();
+  
+  // Check if current page is homepage
+  const isHomepage = pathname === '/';
 
   const navItems = [
     { name: t('nav.home'), href: '/' },
@@ -43,80 +50,102 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
         />
       )}
 
-      <nav className={`fixed top-0 p-2 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/90 backdrop-blur-xl shadow-lg border-b border-gray-200/50' 
+      <nav className={`fixed top-0 pt-2 pb-2 px-2 w-full z-50 transition-all duration-300 ${
+        isScrolled || !isHomepage
+          ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-200' 
           : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto pt-2 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-14">
-            {/* Logo */}
-            <Link href="/" className="group flex items-center">
-              <div className="relative overflow-hidden transition-all duration-500">
-                <div className={`text-xl font-bold tracking-tight group-hover:translate-y-[-100%] transition-all duration-300 ${
-                  isScrolled ? 'text-gray-900' : 'text-white'
-                }`}>
-                  {t('nav.logo')}
-                </div>
-                <div className="absolute top-full text-xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent group-hover:translate-y-[-100%] transition-transform duration-300">
-                  {t('nav.logo')}
-                </div>
+      
+            <Link href="/" className="flex items-center">
+              <div className={`text-xl font-bold tracking-tight transition-colors duration-200 ${
+                isScrolled || !isHomepage ? 'text-gray-900' : 'text-white'
+              }`}>
+                {t('nav.logo')}
               </div>
             </Link>
             
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className={`hidden lg:flex items-center relative rounded-xl p-1 ${
+              isScrolled || !isHomepage
+                ? 'bg-gray-100/80 backdrop-blur-sm' 
+                : ' backdrop-blur-sm'
+            }`}>
               {navItems.map((item) => (
-                <div key={item.name} className="relative group">
-                  <Link 
+                <div
+                  key={item.name}
+                  className="relative h-full"
+                >
+                  <Link
                     href={item.href}
-                    className={`relative px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
-                      isScrolled 
-                        ? 'text-gray-700 hover:text-blue-600' 
-                        : 'text-white/90 hover:text-white'
+                    className={`relative z-10 px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${
+                      isScrolled || !isHomepage
+                        ? activeTab === item.name 
+                          ? 'text-white' 
+                          : 'text-gray-600 hover:text-gray-900'
+                        : activeTab === item.name 
+                          ? 'text-white' 
+                          : 'text-white hover:text-white'
                     }`}
-                    onMouseEnter={() => setHoveredItem(item.name)}
-                    onMouseLeave={() => setHoveredItem(null)}
+                    onMouseEnter={() => setActiveTab(item.name)}
+                    onMouseLeave={() => setActiveTab(null)}
                   >
-                    <span className="relative z-10">{item.name}</span>
-                    {hoveredItem === item.name && (
-                      <div className={`absolute inset-0 rounded-lg transition-all duration-200 ${
-                        isScrolled ? 'bg-blue-50' : 'bg-white/10'
-                      }`} />
-                    )}
+                    {item.name}
                   </Link>
+                  
+                  {/* Animated background - Motion.dev style */}
+                  {activeTab === item.name && (
+                    <motion.div
+                      className={`absolute -inset-2 h-[45px] rounded-lg ${
+                        isScrolled || !isHomepage
+                          ? 'bg-gray-900 bg-opacity-70 shadow-lg' 
+                          : 'bg-gray-200 bg-opacity-40 shadow-lg text-white'
+                      }`}
+                      layoutId="activeTab"
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                        mass: 0.8
+                      }}
+                    />
+                  )}
                 </div>
               ))}
-              <LanguageToggle />
+              
+              <div className="ml-4">
+                <LanguageToggle />
+              </div>
             </div>
 
             <button
-              className={`lg:hidden p-2 rounded-lg transition-colors ${
-                isScrolled 
-                  ? 'hover:bg-gray-100 text-gray-700' 
-                  : 'hover:bg-white/10 text-white'
+              className={`lg:hidden p-2 rounded-lg transition-colors duration-200 ${
+                isScrolled || !isHomepage
+                  ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100' 
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
               }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl shadow-xl border-t border-gray-200/50 z-40">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-40">
             <div className="max-w-7xl mx-auto px-4 py-4">
-              <div className="space-y-2">
+              <div className="space-y-1">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block px-4 py-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium"
+                    className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <div className="px-4 py-3">
+                <div className="px-4 py-3 border-t border-gray-200 mt-4 pt-4">
                   <LanguageToggle />
                 </div>
               </div>
