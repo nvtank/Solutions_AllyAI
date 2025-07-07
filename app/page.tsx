@@ -19,7 +19,7 @@ export default function Home() {
         <HeroSection />
         <Story2 />
         <IndustriesSection />
-        <SolutionsSection />
+        {/* <SolutionsSection /> */}
         <HorizontalScrollSection />
         <TestimonialsSection />
         {/* <CTASection /> */}

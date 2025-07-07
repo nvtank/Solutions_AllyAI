@@ -56,7 +56,7 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
         
         {/* Description */}
         <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-          {template.description.split(' ').length > 10
+          {template.description.split(' ').length > 10  
             ? template.description.split(' ').slice(0, 10).join(' ') + '...'
             : template.description
           }
