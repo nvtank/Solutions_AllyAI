@@ -43,44 +43,17 @@ export default function Footer() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { t, language } = useLanguage();
 
-  // Get footer data based on current language
-  const getFooterData = () => {
-    if (language === 'vi') {
-      return {
-        quickLinks: [
-          // { name: 'Giải pháp', href: '/solutions' },
-          { name: 'Về chúng tôi', href: '/about' },
-          { name: 'Liên hệ', href: '/contact' },
-          { name: 'Mẫu', href: '/templates' }
-        ],
-        socialLinks: [
-          { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nvtank', color: 'hover:bg-[#0365FA]' },
-          { name: 'Facebook', href: 'https://www.facebook.com/tuan.anh.871341', color: 'hover:bg-[#0365FA]' },
-          { name: 'YouTube', href: 'https://www.youtube.com/watch?v=Jh6Xz1WD3C0&list=RDHmFXik5Yz64&index=4', color: 'hover:bg-red-500' }
-        ],
-        quickLinksTitle: "Liên kết nhanh",
-        description: "TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng bền vững."
-      };
-    } else {
-      return {
-        quickLinks: [
-          // { name: 'Solutions', href: '/solutions' },
-          { name: 'About Us', href: '/about' },
-          { name: 'Contact', href: '/contact' },
-          { name: 'Templates', href: '/templates' }
-        ],
-        socialLinks: [
-          { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nvtank', color: 'hover:bg-[#0365FA]' },
-          { name: 'Facebook', href: 'https://facebook.com/tuan.anh.871341', color: 'hover:bg-[#0365FA]' },
-          { name: 'YouTube', href: 'https://www.youtube.com/watch?v=Jh6Xz1WD3C0&list=RDHmFXik5Yz64&index=4', color: 'hover:bg-red-500' }
-        ],
-        quickLinksTitle: "Quick Links",
-        description: "TripC Solution is a trusted partner for digital transformation. Helping tourism & service businesses grow sustainably."
-      };
-    }
+  // Get footer data from locales
+  const footerData = {
+    quickLinks: t('footer.quickLinks'),
+    quickLinksTitle: t('footer.quickLinksTitle'),
+    description: t('footer.description'),
+    socialLinks: [
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nvtank', color: 'hover:bg-[#0365FA]' },
+      { name: 'Facebook', href: 'https://www.facebook.com/tuan.anh.871341', color: 'hover:bg-[#0365FA]' },
+      { name: 'YouTube', href: 'https://www.youtube.com/watch?v=Jh6Xz1WD3C0&list=RDHmFXik5Yz64&index=4', color: 'hover:bg-red-500' }
+    ]
   };
-
-  const footerData = getFooterData();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -164,9 +137,13 @@ export default function Footer() {
     YouTube: <Youtube className="w-5 h-5" />
   };
 
-  const stats = [
+  const stats = language === 'vi' ? [
     { number: '500+', label: 'Dự án', icon: <Award className="w-5 h-5" /> },
     { number: '2000+', label: 'Người dùng', icon: <Heart className="w-5 h-5" /> },
+    { number: '99.9%', label: 'Uptime', icon: <Shield className="w-5 h-5" /> }
+  ] : [
+    { number: '500+', label: 'Projects', icon: <Award className="w-5 h-5" /> },
+    { number: '2000+', label: 'Users', icon: <Heart className="w-5 h-5" /> },
     { number: '99.9%', label: 'Uptime', icon: <Shield className="w-5 h-5" /> }
   ];
 
@@ -195,14 +172,8 @@ export default function Footer() {
         ))}
       </div>
 
-      {/* Background Gradients */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-full h-full md:w-96 md:h-96 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-full h-full md:w-80 md:h-80 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full md:w-[600px] md:h-[600px] bg-white/3 rounded-full blur-3xl" />
-      </div>
 
-      {/* Main Content */}
+
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           
@@ -261,11 +232,11 @@ export default function Footer() {
                   ))}
                 </div>
               </div>
-
+{/* 
               {/* Stats */}
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-white relative">
-                  Thống kê
+                  {language === 'vi' ? 'Thống kê' : 'Statistics'}
                   <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
                 </h3>
                 <div className="space-y-3">
@@ -285,7 +256,7 @@ export default function Footer() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> 
             </div>
 
             {/* Contact Info */}
@@ -334,8 +305,12 @@ export default function Footer() {
                 <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <MessageSquare className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Liên hệ với chúng tôi</h3>
-                <p className="text-white/80 text-sm">Gửi tin nhắn và chúng tôi sẽ phản hồi sớm nhất có thể</p>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {language === 'vi' ? 'Liên hệ với chúng tôi' : 'Contact Us'}
+                </h3>
+                <p className="text-white/80 text-sm">
+                  {language === 'vi' ? 'Gửi tin nhắn và chúng tôi sẽ phản hồi sớm nhất có thể' : 'Send us a message and we will get back to you as soon as possible'}
+                </p>
               </div>
               
               {isSubmitted ? (
@@ -343,9 +318,15 @@ export default function Footer() {
                   <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-green-400" />
                   </div>
-                  <h4 className="text-xl font-semibold text-green-400 mb-2">Thành công!</h4>
-                  <p className="text-green-300 text-sm">Tin nhắn của bạn đã được gửi thành công.</p>
-                  <p className="text-green-300 text-sm">Chúng tôi sẽ liên hệ với bạn sớm nhất.</p>
+                  <h4 className="text-xl font-semibold text-green-400 mb-2">
+                    {language === 'vi' ? 'Thành công!' : 'Success!'}
+                  </h4>
+                  <p className="text-green-300 text-sm">
+                    {language === 'vi' ? 'Tin nhắn của bạn đã được gửi thành công.' : 'Your message has been sent successfully.'}
+                  </p>
+                  <p className="text-green-300 text-sm">
+                    {language === 'vi' ? 'Chúng tôi sẽ liên hệ với bạn sớm nhất.' : 'We will contact you as soon as possible.'}
+                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -357,7 +338,7 @@ export default function Footer() {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        placeholder="Họ và tên *"
+                        placeholder={language === 'vi' ? 'Họ và tên *' : 'Full Name *'}
                         required
                         className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-200"
                       />
@@ -384,7 +365,7 @@ export default function Footer() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="Số điện thoại"
+                      placeholder={language === 'vi' ? 'Số điện thoại' : 'Phone Number'}
                       className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-200"
                     />
                   </div>
@@ -395,7 +376,7 @@ export default function Footer() {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Tin nhắn của bạn *"
+                      placeholder={language === 'vi' ? 'Tin nhắn của bạn *' : 'Your Message *'}
                       rows={4}
                       required
                       className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-200 resize-none"
@@ -410,12 +391,12 @@ export default function Footer() {
                     {isSubmitting ? (
                       <>
                         <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Đang gửi...</span>
+                        <span>{language === 'vi' ? 'Đang gửi...' : 'Sending...'}</span>
                       </>
                     ) : (
                       <>
                         <Send className="w-4 h-4" />
-                        <span>Gửi tin nhắn</span>
+                        <span>{language === 'vi' ? 'Gửi tin nhắn' : 'Send Message'}</span>
                       </>
                     )}
                   </button>
@@ -427,7 +408,9 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-12 pt-6 border-t border-white/20 text-center text-white/60">
-          <p className="text-sm">&copy; {new Date().getFullYear()} TripC Solutions. Bản quyền đã được bảo hộ.</p>
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} TripC Solutions. {language === 'vi' ? 'Bản quyền đã được bảo hộ.' : 'All rights reserved.'}
+          </p>
         </div>
       </div>
 
