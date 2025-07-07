@@ -4,11 +4,25 @@ import { Star } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+interface Testimonial {
+  author: string;
+  position: string;
+  company: string;
+  quote: string;
+  avatar: string;
+}
+
+interface TestimonialsData {
+  title: string;
+  subtitle: string;
+  items: Testimonial[];
+}
+
 export default function TestimonialsSection() {
   const { t } = useLanguage();
 
   // Get testimonials data from locale files
-  const testimonialsData = t('testimonials');
+  const testimonialsData = t('testimonials') as TestimonialsData;
   return (
     <section className="bg-gradient-to-b from-gray-50 to-white py-20 sm:py-28 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-12 sm:px-6 lg:px-8 relative z-10">
@@ -22,7 +36,7 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {testimonialsData.items.map((testimonial, index) => (
+          {testimonialsData.items.map((testimonial: Testimonial, index: number) => (
             <div 
               key={index} 
               className="group bg-white p-8 rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-gray-300 transition-all duration-300 ease-in-out flex flex-col"
