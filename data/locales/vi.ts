@@ -14,7 +14,7 @@ export const vi = {
     title: "TRIPC SOLUTIONS",
     subtitle: "Chuyển Đổi Số Cho Doanh Nghiệp Du Lịch - Dịch Vụ",
     cta: {
-      primary: "Bắt đầu ngay",
+      primary: "Liên hệ ngay",
       secondary: "Xem các mẫu"
     },
     stats: [

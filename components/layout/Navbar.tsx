@@ -81,11 +81,11 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                     className={`relative z-10 px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${
                       isScrolled || !isHomepage
                         ? activeTab === item.name 
-                          ? 'text-white' 
-                          : 'text-gray-600 hover:text-gray-900'
+                          ? 'text-gray-900' 
+                          : 'text-gray-900 hover:text-gray-900'
                         : activeTab === item.name 
                           ? 'text-white' 
-                          : 'text-white hover:text-white'
+                          : 'text-white hover:text-gray-900'
                     }`}
                     onMouseEnter={() => setActiveTab(item.name)}
                     onMouseLeave={() => setActiveTab(null)}
@@ -98,8 +98,8 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                     <motion.div
                       className={`absolute -inset-2 h-[45px] rounded-lg ${
                         isScrolled || !isHomepage
-                          ? 'bg-gray-900 bg-opacity-70 shadow-lg' 
-                          : 'bg-gray-200 bg-opacity-40 shadow-lg text-white'
+                          ? 'bg-gray-900 bg-opacity-20 shadow-lg' 
+                          : 'bg-gray-200 bg-opacity-10 shadow-lg text-white'
                       }`}
                       layoutId="activeTab"
                       transition={{
