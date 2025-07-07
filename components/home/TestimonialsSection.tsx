@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {testimonialsData.items.map((testimonial: Testimonial, index: number) => (
+          {testimonialsData.items.map((testimonial, index) => (
             <div 
               key={index} 
               className="group bg-white p-8 rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-gray-300 transition-all duration-300 ease-in-out flex flex-col"
