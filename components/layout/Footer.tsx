@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { 
   Brain, 
   Twitter, 
@@ -20,7 +20,10 @@ import {
   Clock,
   Star,
   Heart,
-  Sparkles
+  Sparkles,
+  User,
+  MessageSquare,
+  CheckCircle
 } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -30,6 +33,14 @@ export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement>(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const { t, language } = useLanguage();
 
   // Get footer data based on current language
@@ -43,8 +54,8 @@ export default function Footer() {
           { name: 'Mẫu', href: '/templates' }
         ],
         socialLinks: [
-          { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nvtank', color: 'hover:bg-blue-600' },
-          { name: 'Facebook', href: 'https://www.facebook.com/tuan.anh.871341', color: 'hover:bg-blue-700' },
+          { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nvtank', color: 'hover:bg-[#0365FA]' },
+          { name: 'Facebook', href: 'https://www.facebook.com/tuan.anh.871341', color: 'hover:bg-[#0365FA]' },
           { name: 'YouTube', href: 'https://www.youtube.com/watch?v=Jh6Xz1WD3C0&list=RDHmFXik5Yz64&index=4', color: 'hover:bg-red-500' }
         ],
         quickLinksTitle: "Liên kết nhanh",
@@ -59,8 +70,8 @@ export default function Footer() {
           { name: 'Templates', href: '/templates' }
         ],
         socialLinks: [
-          { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nvtank', color: 'hover:bg-blue-600' },
-          { name: 'Facebook', href: 'https://facebook.com/tuan.anh.871341', color: 'hover:bg-blue-700' },
+          { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nvtank', color: 'hover:bg-[#0365FA]' },
+          { name: 'Facebook', href: 'https://facebook.com/tuan.anh.871341', color: 'hover:bg-[#0365FA]' },
           { name: 'YouTube', href: 'https://www.youtube.com/watch?v=Jh6Xz1WD3C0&list=RDHmFXik5Yz64&index=4', color: 'hover:bg-red-500' }
         ],
         quickLinksTitle: "Quick Links",
@@ -70,6 +81,31 @@ export default function Footer() {
   };
 
   const footerData = getFooterData();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      
+      // Reset success message after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    }, 2000);
+  };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -139,16 +175,17 @@ export default function Footer() {
   ];
 
   return (
-    <footer ref={footerRef} className="bg-gradient-to-br from-gray-900 via-slate-900 to-black text-white relative overflow-hidden py-16 md:py-24">
+    <>
+      <footer ref={footerRef} className="bg-gradient-to-br from-[#0365FA] via-[#0251C8] to-[#023D96] text-white relative overflow-hidden py-16 md:py-24 h-screen">
       {/* Floating Particles */}
       <div ref={particlesRef} className="absolute inset-0 pointer-events-none">
         {[...Array(15)].map((_, i) => (
           <div
             key={i}
             className={`absolute rounded-full ${
-              i % 3 === 0 ? 'w-2 h-2 bg-blue-400/20' :
-              i % 3 === 1 ? 'w-1 h-1 bg-indigo-400/30' :
-              'w-1.5 h-1.5 bg-purple-400/25'
+              i % 3 === 0 ? 'w-2 h-2 bg-white/20' :
+              i % 3 === 1 ? 'w-1 h-1 bg-white/30' :
+              'w-1.5 h-1.5 bg-white/25'
             }`}
             style={{
               left: `${Math.random() * 100}%`,
@@ -160,45 +197,45 @@ export default function Footer() {
 
       {/* Background Gradients */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-full h-full md:w-96 md:h-96 bg-blue-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-full h-full md:w-80 md:h-80 bg-indigo-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full md:w-[600px] md:h-[600px] bg-purple-500/3 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-full h-full md:w-96 md:h-96 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-full h-full md:w-80 md:h-80 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full md:w-[600px] md:h-[600px] bg-white/3 rounded-full blur-3xl" />
       </div>
 
       {/* Main Content */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           
-          {/* Left Section - Brand */}
-          <div className="space-y-6">
+          {/* Left Section - Company Info */}
+          <div className="space-y-8">
             {/* Brand */}
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center relative">
+                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/10 rounded-xl flex items-center justify-center relative">
                   <Brain className="w-7 h-7 text-white" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-xl blur-lg opacity-50 scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 rounded-xl blur-lg opacity-50 scale-110" />
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                   TripC Solutions
                 </div>
               </div>
               
-              <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
+              <p className="text-white/80 text-base leading-relaxed mb-6">
                 {footerData.description}
               </p>
               
               {/* Social Links */}
-              <div className="flex gap-3">
+              <div className="flex gap-3 mb-8">
                 {footerData.socialLinks.map((social, i) => (
                   <a 
                     key={i} 
                     href={social.href} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300 ${social.color} relative overflow-hidden`}
+                    className={`group w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 ${social.color} relative overflow-hidden`}
                     title={social.name}
                   >
-                    <span className="relative z-10 text-gray-300 group-hover:text-white transition-colors duration-300">
+                    <span className="relative z-10 text-white/80 group-hover:text-white transition-colors duration-300">
                       {socialIcons[social.name as keyof typeof socialIcons]}
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
@@ -206,92 +243,197 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Center Section - Links */}
-          <div className="space-y-6">
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-white relative">
-                {footerData.quickLinksTitle}
-                <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" />
-              </h3>
-              <div className="space-y-2">
-                {footerData.quickLinks.map((item, i) => (
-                  <a key={i} href={item.href} className="group text-gray-400 hover:text-blue-400 transition-all duration-300 flex items-center space-x-2 p-2 rounded-lg hover:bg-white/5">
-                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>
-                  </a>
-                ))}
+            {/* Quick Links & Stats Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {/* Quick Links */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-white relative">
+                  {footerData.quickLinksTitle}
+                  <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
+                </h3>
+                <div className="space-y-2">
+                  {footerData.quickLinks.map((item, i) => (
+                    <a key={i} href={item.href} className="group text-white/80 hover:text-white transition-all duration-300 flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10">
+                      <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                      <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Stats */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-white relative">
-                Thống kê
-                <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" />
-              </h3>
-              <div className="grid grid-cols-3 gap-2">
-                {stats.map((stat, index) => (
-                  <div key={index} className="group text-center p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:scale-105">
-                    <div className="flex items-center justify-center mb-1">
-                      <div className="bg-gradient-to-br from-blue-500 to-indigo-500 p-1.5 rounded-lg text-white group-hover:scale-110 transition-transform duration-300">
+              {/* Stats */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-white relative">
+                  Thống kê
+                  <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
+                </h3>
+                <div className="space-y-3">
+                  {stats.map((stat, index) => (
+                    <div key={index} className="group flex items-center space-x-3 p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:border-white/40 transition-all duration-300">
+                      <div className="bg-gradient-to-br from-white/20 to-white/10 p-2 rounded-lg text-white group-hover:scale-110 transition-transform duration-300">
                         {stat.icon}
                       </div>
+                      <div>
+                        <div className="text-lg font-bold text-white group-hover:text-white/90 transition-colors duration-300">
+                          {stat.number}
+                        </div>
+                        <div className="text-white/80 text-xs group-hover:text-white transition-colors duration-300">
+                          {stat.label}
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-lg font-bold text-white mb-1 group-hover:text-blue-400 transition-colors duration-300">
-                      {stat.number}
-                    </div>
-                    <div className="text-gray-400 text-xs group-hover:text-gray-300 transition-colors duration-300">
-                      {stat.label}
-                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-white relative">
+                Thông tin liên hệ
+                <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="group flex items-start space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <Mail className="w-5 h-5 mt-1 text-white/60 group-hover:text-white transition-colors duration-300" />
+                  <div>
+                    <p className="font-semibold text-white text-sm">Email</p>
+                    <a href="mailto:contact@tripc.ai" className="text-sm text-white/80 hover:text-white transition-colors duration-300">contact@tripc.ai</a>
                   </div>
-                ))}
+                </div>
+                <div className="group flex items-start space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <Phone className="w-5 h-5 mt-1 text-white/60 group-hover:text-white transition-colors duration-300" />
+                  <div>
+                    <p className="font-semibold text-white text-sm">Điện thoại</p>
+                    <a href="tel:+84123456789" className="text-sm text-white/80 hover:text-white transition-colors duration-300">+84 123 456 789</a>
+                  </div>
+                </div>
+                <div className="group flex items-start space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <Globe className="w-5 h-5 mt-1 text-white/60 group-hover:text-white transition-colors duration-300" />
+                  <div>
+                    <p className="font-semibold text-white text-sm">Website</p>
+                    <a href="https://solutions.tripc.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-white/80 hover:text-white transition-colors duration-300">solutions.tripc.ai</a>
+                  </div>
+                </div>
+                <div className="group flex items-start space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <MapPin className="w-5 h-5 mt-1 text-white/60 group-hover:text-white transition-colors duration-300" />
+                  <a href="https://maps.app.goo.gl/d1kHAhfboqUG4diV7" className="cursor-pointer">
+                    <p className="font-semibold text-white text-sm">Địa chỉ</p>
+                    <p className="text-sm text-white/80">153, Đống Đa, Thạch Thang Đà Nẵng</p>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Section - Contact */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white relative">
-              Liên Hệ
-              <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
-            </h3>
-            <div className="space-y-4">
-              <div className="group flex items-start space-x-3">
-                <Mail className="w-4 h-4 mt-1 text-gray-500 group-hover:text-blue-400 transition-colors duration-300" />
-                <div>
-                  <p className="font-semibold text-gray-200 text-sm">Email</p>
-                  <a href="mailto:contact@tripc.ai" className="text-sm text-gray-400 hover:text-blue-400 transition-colors duration-300">contact@tripc.ai</a>
+          {/* Right Section - Contact Form */}
+          <div className="lg:pl-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-white/30 transition-all duration-300">
+              <div className="text-center mb-8">
+                <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <MessageSquare className="w-8 h-8 text-white" />
                 </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Liên hệ với chúng tôi</h3>
+                <p className="text-white/80 text-sm">Gửi tin nhắn và chúng tôi sẽ phản hồi sớm nhất có thể</p>
               </div>
-              <div className="group flex items-start space-x-3">
-                <Globe className="w-4 h-4 mt-1 text-gray-500 group-hover:text-blue-400 transition-colors duration-300" />
-                <div>
-                  <p className="font-semibold text-gray-200 text-sm">Website</p>
-                  <a href="https://solutions.tripc.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-blue-400 transition-colors duration-300">solutions.tripc.ai</a>
+              
+              {isSubmitted ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-green-400" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-green-400 mb-2">Thành công!</h4>
+                  <p className="text-green-300 text-sm">Tin nhắn của bạn đã được gửi thành công.</p>
+                  <p className="text-green-300 text-sm">Chúng tôi sẽ liên hệ với bạn sớm nhất.</p>
                 </div>
-              </div>
-              <div className="group flex items-start space-x-3">
-                <MapPin className="w-4 h-4 mt-1 text-gray-500 group-hover:text-blue-400 transition-colors duration-300" />
-                <a href="https://maps.app.goo.gl/d1kHAhfboqUG4diV7" className="cursor-pointer">
-                  <p className="font-semibold text-gray-200 text-sm">Địa chỉ</p>
-                  <p className="text-sm text-gray-400">153, Đống Đa, Thạch Thang Đà Nẵng</p>
-                </a>
-              </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="relative">
+                      <User className="absolute left-3 top-3 w-4 h-4 text-white/60" />
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Họ và tên *"
+                        required
+                        className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-200"
+                      />
+                    </div>
+                    
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-3 w-4 h-4 text-white/60" />
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="Email *"
+                        required
+                        className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-200"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-3 w-4 h-4 text-white/60" />
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="Số điện thoại"
+                      className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-200"
+                    />
+                  </div>
+                  
+                  <div className="relative">
+                    <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-white/60" />
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder="Tin nhắn của bạn *"
+                      rows={4}
+                      required
+                      className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-200 resize-none"
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-white/15 hover:bg-white/20 border border-white/30 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed hover:border-white/40"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>Đang gửi...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Gửi tin nhắn</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-6 border-t border-white/10 text-center text-gray-500">
+        <div className="mt-12 pt-6 border-t border-white/20 text-center text-white/60">
           <p className="text-sm">&copy; {new Date().getFullYear()} TripC Solutions. Bản quyền đã được bảo hộ.</p>
         </div>
       </div>
 
       {/* Animated Border */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
     </footer>
+    </>
   );
 }
