@@ -14,7 +14,7 @@ export const en = {
     title: "TRIPC SOLUTIONS",
     subtitle: "Digital Transformation for Tourism & Service Businesses",
     cta: {
-      primary: "Get Started",
+      primary: "Contact Now",
       secondary: "View Templates"
     },
     stats: [
