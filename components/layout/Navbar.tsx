@@ -60,7 +60,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
       
             <Link href="/" className="flex items-center">
               <div className={`text-xl font-bold tracking-tight transition-colors duration-200 ${
-                isScrolled || !isHomepage ? 'text-gray-900' : 'text-white'
+                isScrolled || !isHomepage ? 'text-gray-900' : 'text-gray-900'
               }`}>
                 {t('nav.logo')}
               </div>

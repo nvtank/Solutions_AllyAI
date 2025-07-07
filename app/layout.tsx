@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TripC Solutions - Nền tảng đặt chỗ đa dịch vụ',
+    title: 'TripC Solutions ',
     description: 'TripC Solutions cung cấp nền tảng booking đa dịch vụ cho du lịch, ẩm thực, giải trí.',
     images: ['/images/og-image.jpg'],
     creator: '@tripcsolutions',
@@ -109,18 +109,18 @@ export default function RootLayout({
               "name": "TripC Solutions",
               "url": "https://solutions.tripc.ai",
               "logo": "https://solutions.tripc.ai/images/logo.png",
-              "description": "TripC Solutions cung cấp nền tảng booking đa dịch vụ cho du lịch, ẩm thực, giải trí.",
+              "description": "TripC Solutions",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "123 Innovation Drive",
-                "addressLocality": "Ho Chi Minh City",
+                "addressLocality": "153, Đống Đa, Thạch Thang, Hải Châu, Đà Nẵng",
                 "addressCountry": "VN"
               },
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+84-xxx-xxx-xxx",
+                "telephone": "0935 479 122",
                 "contactType": "customer service",
-                "email": "bd@tripc.ai"
+                "email": "quyen@allyai.ai"
               },
               "sameAs": [
                 "https://www.facebook.com/tripcsolutions",
