@@ -10,6 +10,7 @@ import SolutionsSection from '@/components/home/SolutionsSection';
 import HorizontalScrollSection from '@/components/home/HorizontalScrollSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CTASection from '@/components/home/CTASection';
+import FooterCTASection from '@/components/home/FooterCTASection';
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
         {/* <SolutionsSection /> */}
         <HorizontalScrollSection />
         <TestimonialsSection />
-        {/* <CTASection /> */}
+        <FooterCTASection />
         <Footer />
       
       </div>
