@@ -14,12 +14,12 @@ export default function ModernHeroSection() {
   const getHeroData = () => {
     if (language === 'vi') {
       return {
-        title: "TripC Solution",
+        title: "TripC Solutions",
         subtitle: "Tăng Tốc Chuyển Đổi Số",
         description: "Khám phá nền tảng công nghệ tiên phong giúp doanh nghiệp tối ưu hóa quy trình, kết nối tương lai và dẫn đầu trong kỷ nguyên số hóa.",
         cta: {
-          primary: "Bắt Đầu Ngay",
-          secondary: "Trải Nghiệm Demo"
+          primary: "Liên hệ ngay",
+          secondary: "Xem mẫu ngay"
         },
         stats: [
           { value: "500+", label: "Doanh nghiệp" },
@@ -74,7 +74,7 @@ export default function ModernHeroSection() {
       style={{
         background: `
           radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(3, 101, 250, 0.1) 0%, transparent 0%),
-          conic-gradient(from 270deg at 50% 50%, 
+          conic-gradient(from 270deg at 52% 50%, 
             white 0deg, 
             white 60deg,
             #0365FA 10deg,
@@ -188,7 +188,7 @@ export default function ModernHeroSection() {
                   alt="TripC Solution Hero"
                   width={800}
                   height={800}
-                  className="w-full h-auto object-contain drop-shadow-2xl transform scale-100 sm:scale-110 md:scale-115 lg:scale-125 transition-transform duration-700 hover:scale-105 sm:hover:scale-115 md:hover:scale-120 lg:hover:scale-130"
+                  className="w-full h-auto object-contain drop-shadow-2xl transform scale-100 sm:scale-110 md:scale-115 lg:scale-125 transition-transform duration-700 hover:scale-105 sm:hover:scale-115 md:hover:scale-105 lg:hover:scale-105"
                   priority
                 />
                 
