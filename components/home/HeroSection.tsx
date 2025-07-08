@@ -15,8 +15,8 @@ export default function ModernHeroSection() {
     if (language === 'vi') {
       return {
         title: "TripC Solutions",
-        subtitle: "Tăng Tốc Chuyển Đổi Số",
-        description: "Khám phá nền tảng công nghệ tiên phong giúp doanh nghiệp tối ưu hóa quy trình, kết nối tương lai và dẫn đầu trong kỷ nguyên số hóa.",
+        subtitle: "Chuyển Đổi Số Cho Doanh Nghiệp",
+        description: "Trong bối cảnh yêu cầu chuyển đổi số ngày càng cấp thiết thì TripC Solution được ra đời. Chúng tôi cung cấp nền tảng công nghệ toàn diện. Giúp doanh nghiệp số hóa hoạt động kinh doanh nhanh chóng.",
         cta: {
           primary: "Liên hệ ngay",
           secondary: "Xem mẫu ngay"
