@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { CreditCard, Calendar, Clock, ChevronRight } from 'lucide-react';
 import Image from 'next/image';

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { ArrowUp, Smile, TrendingDown, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -281,7 +283,7 @@ const ResultsShowcase = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
                 >
-                  "                  &ldquo;{testimonial.quote}&rdquo;"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </motion.p>
               </motion.div>
             ))}
