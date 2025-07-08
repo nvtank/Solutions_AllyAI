@@ -224,7 +224,7 @@ export default function Footer() {
                   <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
                 </h3>
                 <div className="space-y-2">
-                  {footerData.quickLinks.map((item, i) => (
+                  {footerData.quickLinks.map((item: { name: string; href: string }, i: number) => (
                     <a key={i} href={item.href} className="group text-white/80 hover:text-white transition-all duration-300 flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10">
                       <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                       <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>
@@ -232,8 +232,7 @@ export default function Footer() {
                   ))}
                 </div>
               </div>
-{/* 
-              {/* Stats */}
+
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-white relative">
                   {language === 'vi' ? 'Thống kê' : 'Statistics'}
