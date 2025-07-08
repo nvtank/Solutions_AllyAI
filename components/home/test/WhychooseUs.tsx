@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { PieChart, Eye, DollarSign, TrendingUp, CreditCard } from 'lucide-react';
 

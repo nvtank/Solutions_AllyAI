@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Building2, Smartphone, Globe, ShoppingCart, Users, Car, Monitor, Palette, Music, Play } from 'lucide-react';
 
