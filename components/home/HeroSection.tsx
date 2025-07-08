@@ -188,7 +188,7 @@ export default function ModernHeroSection() {
                   alt="TripC Solution Hero"
                   width={800}
                   height={800}
-                  className="w-full h-auto object-contain drop-shadow-2xl transform scale-100 sm:scale-110 md:scale-115 lg:scale-125 transition-transform duration-700 hover:scale-105 sm:hover:scale-115 md:hover:scale-105 lg:hover:scale-105"
+                  className="w-full h-auto object-contain drop-shadow-2xl "
                   priority
                 />
                 

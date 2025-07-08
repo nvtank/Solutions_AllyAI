@@ -298,11 +298,10 @@ export const vi = {
   footer: {
     quickLinks: [
       { name: 'Giải pháp', href: '/solutions' },
-      { name: 'Lĩnh vực', href: '#' },
       { name: 'Về chúng tôi', href: '/about' },
       { name: 'Liên hệ', href: '/contact' },
       { name: 'Mẫu', href: '/templates' },
-      { name: 'Hỗ trợ', href: '#' }
+    
     ],
     quickLinksTitle: "Liên kết nhanh",
     description: "TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng. Đồng thời tuân thủ quy định Nhà nước."

@@ -8,11 +8,7 @@ export default function Story2() {
     const { t, language } = useLanguage();
 
     const getCardData = () => {
-        const icons = [
-            <Brain className="w-8 h-8" />,
-            <Zap className="w-8 h-8" />,
-            <Target className="w-8 h-8" />
-        ];
+     
         
         const gradients = [
             "from-blue-500/10 to-gray-900",
@@ -37,7 +33,7 @@ export default function Story2() {
                 {
                     title: "Yêu Cầu Chuyển Đổi Số",
                     subtitle: "Chính phủ yêu cầu minh bạch doanh thu, xuất hóa đơn điện tử.",
-                    icon: icons[0],
+             
                     gradient: gradients[0],
                     borderColor: borderColors[0],
                     textColor: textColors[0]
@@ -45,7 +41,7 @@ export default function Story2() {
                 {
                     title: "Giải Pháp Toàn Diện",
                     subtitle: "TripC Solution giải quyết thách thức này hiệu quả.",
-                    icon: icons[1],
+                  
                     gradient: gradients[1],
                     borderColor: borderColors[1],
                     textColor: textColors[1]
@@ -53,7 +49,7 @@ export default function Story2() {
                 {
                     title: "Đa Dạng Lĩnh Vực",
                     subtitle: "Phục vụ du lịch, ẩm thực, chăm sóc sức khỏe, giải trí.",
-                    icon: icons[2],
+       
                     gradient: gradients[2],
                     borderColor: borderColors[2],
                     textColor: textColors[2]
@@ -64,7 +60,7 @@ export default function Story2() {
                 {
                     title: "Digital Transformation Requirements",
                     subtitle: "Government requires revenue transparency and electronic invoicing.",
-                    icon: icons[0],
+                   
                     gradient: gradients[0],
                     borderColor: borderColors[0],
                     textColor: textColors[0]
@@ -72,7 +68,7 @@ export default function Story2() {
                 {
                     title: "Comprehensive Solutions",
                     subtitle: "TripC Solution effectively addresses these challenges.",
-                    icon: icons[1],
+                
                     gradient: gradients[1],
                     borderColor: borderColors[1],
                     textColor: textColors[1]
@@ -80,7 +76,7 @@ export default function Story2() {
                 {
                     title: "Diverse Industries",
                     subtitle: "Serving tourism, dining, healthcare, entertainment.",
-                    icon: icons[2],
+                 
                     gradient: gradients[2],
                     borderColor: borderColors[2],
                     textColor: textColors[2]
@@ -158,9 +154,7 @@ export default function Story2() {
                         >
                             <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-30 rounded-2xl`}></div>
                             <div className="relative z-10 flex flex-col flex-grow">
-                                <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6 bg-gray-900/50 ${item.textColor}`}>
-                                    {item.icon}
-                                </div>
+                             
                                 <h2 className="text-2xl font-bold text-white mb-4">
                                     {item.title}
                                 </h2>

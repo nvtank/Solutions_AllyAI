@@ -10,19 +10,29 @@ import SolutionsSection from '@/components/home/SolutionsSection';
 import HorizontalScrollSection from '@/components/home/HorizontalScrollSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CTASection from '@/components/home/CTASection';
-
-
+import Brand from '@/components/home/test/Brand';
+import Benefits from '@/components/home/test/Benefits';
+import CoreFeatures from '@/components/home/test/CoreFeatures';
+import WhyChooseUs from '@/components/home/test/WhychooseUs';
+import HowItWorks from '@/components/home/test/HowItWorks';
+import ResultsShowcase from '@/components/home/test/ResultsShowcase';
 export default function Home() {
   return (
     <SmoothScrollProvider>
       <div className="min-h-screen bg-white overflow-hidden">
         <Navbar currentPage="home" />
         <HeroSection />
-        <Story2 />
-        <IndustriesSection />
+        <Brand/>
+        <Benefits/>
+        <CoreFeatures />
+        <WhyChooseUs />
+        <HowItWorks />
+        <ResultsShowcase />
+        {/* <Story2 /> */}
+        {/* <IndustriesSection />
         {/* <SolutionsSection /> */}
-        <HorizontalScrollSection />
-        <TestimonialsSection />
+        {/* <HorizontalScrollSection />
+        <TestimonialsSection />  */}
 
         <Footer />
       

@@ -153,7 +153,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer ref={footerRef} className="bg-gradient-to-br from-[#0365FA] via-[#0251C8] to-[#023D96] text-white relative overflow-hidden py-16 md:py-24 h-screen">
+      <footer ref={footerRef} className="bg-gradient-to-br from-[#0365FA] via-[#0251C8] to-[#023D96] text-white relative overflow-hidden py-16 md:py-20">
       {/* Floating Particles */}
       <div ref={particlesRef} className="absolute inset-0 pointer-events-none">
         {[...Array(15)].map((_, i) => (
@@ -172,11 +172,8 @@ export default function Footer() {
         ))}
       </div>
 
-
-
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          
           {/* Left Section - Company Info */}
           <div className="space-y-8">
             {/* Brand */}
@@ -215,91 +212,59 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Quick Links & Stats Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {/* Quick Links */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-white relative">
-                  {footerData.quickLinksTitle}
-                  <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
-                </h3>
-                <div className="space-y-2">
-                  {footerData.quickLinks.map((item: { name: string; href: string }, i: number) => (
-                    <a key={i} href={item.href} className="group text-white/80 hover:text-white transition-all duration-300 flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10">
-                      <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                      <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-white relative">
-                  {language === 'vi' ? 'Thống kê' : 'Statistics'}
-                  <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
-                </h3>
-                <div className="space-y-3">
-                  {stats.map((stat, index) => (
-                    <div key={index} className="group flex items-center space-x-3 p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:border-white/40 transition-all duration-300">
-                      <div className="bg-gradient-to-br from-white/20 to-white/10 p-2 rounded-lg text-white group-hover:scale-110 transition-transform duration-300">
-                        {stat.icon}
-                      </div>
-                      <div>
-                        <div className="text-lg font-bold text-white group-hover:text-white/90 transition-colors duration-300">
-                          {stat.number}
-                        </div>
-                        <div className="text-white/80 text-xs group-hover:text-white transition-colors duration-300">
-                          {stat.label}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div> 
-            </div>
-
             {/* Contact Info */}
             <div>
               <h3 className="text-lg font-semibold mb-4 text-white relative">
-                Thông tin liên hệ
+                {language === 'vi' ? 'Thông tin liên hệ' : 'Contact Information'}
                 <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="group flex items-start space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
-                  <Mail className="w-5 h-5 mt-1 text-white/60 group-hover:text-white transition-colors duration-300" />
+              <div className="space-y-3">
+                <div className="group flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <Mail className="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
                   <div>
-                    <p className="font-semibold text-white text-sm">Email</p>
+                    <p className="font-medium text-white text-sm">Email</p>
                     <a href="mailto:contact@tripc.ai" className="text-sm text-white/80 hover:text-white transition-colors duration-300">contact@tripc.ai</a>
                   </div>
                 </div>
-                <div className="group flex items-start space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
-                  <Phone className="w-5 h-5 mt-1 text-white/60 group-hover:text-white transition-colors duration-300" />
+                <div className="group flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <Phone className="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
                   <div>
-                    <p className="font-semibold text-white text-sm">Điện thoại</p>
+                    <p className="font-medium text-white text-sm">{language === 'vi' ? 'Điện thoại' : 'Phone'}</p>
                     <a href="tel:+84123456789" className="text-sm text-white/80 hover:text-white transition-colors duration-300">+84 123 456 789</a>
                   </div>
                 </div>
-                <div className="group flex items-start space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
-                  <Globe className="w-5 h-5 mt-1 text-white/60 group-hover:text-white transition-colors duration-300" />
+                <div className="group flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <MapPin className="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
                   <div>
-                    <p className="font-semibold text-white text-sm">Website</p>
-                    <a href="https://solutions.tripc.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-white/80 hover:text-white transition-colors duration-300">solutions.tripc.ai</a>
+                    <p className="font-medium text-white text-sm">{language === 'vi' ? 'Địa chỉ' : 'Address'}</p>
+                    <a href="https://maps.app.goo.gl/d1kHAhfboqUG4diV7" target="_blank" rel="noopener noreferrer" className="text-sm text-white/80 hover:text-white transition-colors duration-300">
+                      153, Đống Đa, Thạch Thang, Đà Nẵng
+                    </a>
                   </div>
                 </div>
-                <div className="group flex items-start space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
-                  <MapPin className="w-5 h-5 mt-1 text-white/60 group-hover:text-white transition-colors duration-300" />
-                  <a href="https://maps.app.goo.gl/d1kHAhfboqUG4diV7" className="cursor-pointer">
-                    <p className="font-semibold text-white text-sm">Địa chỉ</p>
-                    <p className="text-sm text-white/80">153, Đống Đa, Thạch Thang Đà Nẵng</p>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-white relative">
+                {footerData.quickLinksTitle}
+                <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
+              </h3>
+              <div className="space-y-2">
+                {footerData.quickLinks.map((item: { name: string; href: string }, i: number) => (
+                  <a key={i} href={item.href} className="group text-white/80 hover:text-white transition-all duration-300 flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10">
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                    <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{item.name}</span>
                   </a>
-                </div>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Right Section - Contact Form */}
-          <div className="lg:pl-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-white/30 transition-all duration-300">
+          <div className="flex justify-center">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-white/30 transition-all duration-300 w-full max-w-lg">
               <div className="text-center mb-8">
                 <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <MessageSquare className="w-8 h-8 text-white" />
@@ -406,7 +371,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-6 border-t border-white/20 text-center text-white/60">
+        <div className="mt-16 pt-8 border-t border-white/20 text-center text-white/60">
           <p className="text-sm">
             &copy; {new Date().getFullYear()} TripC Solutions. {language === 'vi' ? 'Bản quyền đã được bảo hộ.' : 'All rights reserved.'}
           </p>
