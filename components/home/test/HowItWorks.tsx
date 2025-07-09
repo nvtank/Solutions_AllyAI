@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Phone, MessageSquare, Settings, CheckCircle, Rocket } from 'lucide-react';
+import { Phone, MessageSquare, Settings, CheckCircle, Rocket, ArrowRight } from 'lucide-react';
 import { motion, useInView, useAnimation } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -209,7 +209,7 @@ const HowItWorks = () => {
             className="hidden md:block absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-[#0365FA] via-[#0365FA]/70 to-[#0365FA]/30 -translate-x-1/2 rounded-full origin-top transform-gpu"
           ></div>
           
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-16 md:space-y-16">
             {steps.map((step, index) => (
               <motion.div 
                 key={index}
@@ -299,52 +299,32 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <motion.div 
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-        >
-          <motion.div 
-            className="relative bg-gradient-to-r from-[#0365FA] to-blue-600 rounded-2xl p-8 shadow-xl overflow-hidden"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            {/* Animated background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="w-full h-full bg-gradient-to-r from-white/5 to-transparent animate-pulse"></div>
-            </div>
-            
-            <div className="relative z-10">
-              <motion.h3 
-                className="text-2xl font-bold text-white mb-4"
-                whileHover={{ scale: 1.05 }}
-              >
-                Sẵn sàng bắt đầu hành trình chuyển đổi số?
-              </motion.h3>
-              <motion.p 
-                className="text-blue-100 mb-6 max-w-2xl mx-auto"
-                initial={{ opacity: 0.8 }}
-                whileHover={{ opacity: 1 }}
-              >
-                Liên hệ với chúng tôi ngay hôm nay để nhận tư vấn miễn phí và khám phá cách TripC Solutions có thể giúp doanh nghiệp của bạn phát triển.
-              </motion.p>
-              <motion.button 
-                className="px-8 py-4 bg-white text-[#0365FA] font-bold rounded-xl shadow-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-300"
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -2,
-                  boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.3)"
-                }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-              >
-                Liên hệ ngay
-              </motion.button>
-            </div>
-          </motion.div>
-        </motion.div>
+
+      <motion.div
+      className="mt-20 text-center"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: true }}
+    >
+      <div className="relative bg-gradient-to-r from-[#0365FA] to-blue-600 rounded-2xl p-8 shadow-lg overflow-hidden">
+        <div className="relative z-10">
+          <h3 className="text-2xl font-bold text-white mb-4">
+            Sẵn sàng bắt đầu hành trình chuyển đổi số?
+          </h3>
+          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            Liên hệ với chúng tôi ngay hôm nay để nhận tư vấn miễn phí và khám phá cách TripC Solutions có thể giúp doanh nghiệp của bạn phát triển.
+          </p>
+          <div className='flex justify-center'>
+                    <a href='/contact' className="group  relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-900 to-[#0251D8] text-white rounded-2xl hover:from-[#0251D8] hover:to-[#013FB7] transition-all duration-500 flex items-center justify-center space-x-3 font-bold shadow-xl overflow-hidden text-sm sm:text-base">
+                          <span className="relative z-10">Liên hệ ngay</span>
+                          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                        </a>
+          </div>
+        </div>
+      </div>
+    </motion.div>
       </motion.div>
     </div>
   );

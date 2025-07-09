@@ -35,16 +35,16 @@ const Benefits = () => {
   const benefits = [
     {
       icon: <Zap size={30} />,
-      title: "Hiệu quả hoạt động",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Hiệu quả vận hành",
+      description: "Tối ưu chi phí nhân sự tư vấn bán hàng, đặt bàn, chăm sóc khách hàng bằng nhân viên AI. Hệ thống quản lý bán hàng chuyên nghiệp.",
       color: "from-[#0365FA] to-blue-600",
       iconBg: "bg-[#0365FA]/10",
       iconColor: "text-[#0365FA]"
     },
     {
       icon: <Shield size={30} />,
-      title: "Trải nghiệm nâng cao của khách hàng", 
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Nâng cao của khách hàng", 
+      description: "Không bao giờ bỏ lỡ tin nhắn của khách hàng, luôn luôn phản hồi ngay lập tức 24/7.",
       color: "from-[#0365FA] to-blue-600",
       iconBg: "bg-[#0365FA]/10", 
       iconColor: "text-[#0365FA]"
@@ -52,7 +52,7 @@ const Benefits = () => {
     {
       icon: <Clock size={30} />,
       title: "Tăng trưởng doanh thu",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      description: "Không bỏ lỡ đơn đặt hàng, đặt bàn của khách, gợi ý bán thêm bán chéo dịch vụ cộng thêm.",
       color: "from-[#0365FA] to-blue-600",
       iconBg: "bg-[#0365FA]/10",
       iconColor: "text-[#0365FA]"
@@ -71,7 +71,7 @@ const Benefits = () => {
             Lợi ích chính
           </h1>
           <p className="text-lg text-blue-100 max-w-3xl mx-auto leading-relaxed">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Tối ưu vận hành - Nâng tầm trải nghiệm – Tăng trưởng doanh thu
           </p>
         </div>
 
