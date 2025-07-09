@@ -7,7 +7,7 @@ const Brand = () => {
   const brands = [
     { 
       name: "S Florist", 
-      logo: "/s_florist.jpg",
+      logo: "/S_Florist.jpg",
       color: "bg-gradient-to-br from-gray-500 to-gray-900 hover:from-gray-700 hover:to-gray-800 border border-gray-200",
       textColor: "text-white",
       // url: "https://sflorist.com" // Thêm URL thực tế
