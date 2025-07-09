@@ -1,55 +1,54 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Building2, Smartphone, Globe, ShoppingCart, Users, Car, Monitor, Palette, Music, Play } from 'lucide-react';
+import Image from 'next/image';
 
 const Brand = () => {
   const brands = [
     { 
-      name: "Apple", 
-      icon: <Smartphone size={44} />, 
-      color: "bg-gradient-to-br from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700",
-      textColor: "text-white"
+      name: "S Florist", 
+      logo: "/s_florist.jpg",
+      color: "bg-gradient-to-br from-gray-500 to-gray-900 hover:from-gray-700 hover:to-gray-800 border border-gray-200",
+      textColor: "text-white",
+      // url: "https://sflorist.com" // Thêm URL thực tế
     },
     { 
-      name: "Microsoft", 
-      icon: <Monitor size={44} />, 
-      color: "bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600",
-      textColor: "text-white"
+      name: "VindeSoleil", 
+      logo: "/Logo_vindesoleil.jpg",
+      color: "bg-gradient-to-br from-red-500 to-red-900 hover:from-red-700 hover:to-red-800",
+      textColor: "text-white",
+      // url: "https://vindesoleil.com"
     },
     { 
-      name: "Google", 
-      icon: <Globe size={44} />, 
-      color: "bg-gradient-to-br from-white to-gray-50 hover:from-gray-50 hover:to-gray-100 border border-gray-200",
-      textColor: "text-gray-800"
+      name: "Nhà hàng Chiru", 
+      logo: "/Logo_Chiru.jpg",
+      color: "bg-gradient-to-br from-green-500 to-green-700 hover:from-green-500 hover:to-green-600",
+      textColor: "text-white",
+      // url: "https://chiru.com"
     },
     { 
-      name: "Amazon", 
-      icon: <ShoppingCart size={44} />, 
-      color: "bg-gradient-to-br from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400",
-      textColor: "text-gray-900"
+      name: "Tuần Châu ", 
+      logo: "/Logo_TuanChau.jpg",
+      color: "bg-gradient-to-br from-blue-400 to-blue-700 hover:from-blue-500 hover:to-blue-600",
+      textColor: "text-white",
+      // url: "https://tuanchauresort.com"
     },
     { 
-      name: "Meta", 
-      icon: <Users size={44} />, 
-      color: "bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500",
-      textColor: "text-white"
+      name: "Tuần Châu Resort Hạ Long", 
+      logo: "/Logo_TuanChau_HaLong.jpg",
+      color: "bg-gradient-to-br from-amber-500 to-amber-800 hover:from-amber-600 hover:to-amber-700",
+      textColor: "text-white",
+      // url: "https://tuanchauhalong.com"
     },
     { 
-      name: "Tesla", 
-      icon: <Car size={44} />, 
-      color: "bg-gradient-to-br from-red-500 to-red-600 hover:from-red-400 hover:to-red-500",
-      textColor: "text-white"
-    },
-    { 
-      name: "Samsung", 
-      icon: <Smartphone size={44} />, 
-      color: "bg-gradient-to-br from-blue-800 to-blue-900 hover:from-blue-700 hover:to-blue-800",
-      textColor: "text-white"
-    },
- 
+      name: "Paradise Suites Hotel HaLong", 
+      logo: "/Logo_ParadiseSuitesHotel_HaLong.jpg",
+      color: "bg-gradient-to-br from-orange-500 to-orange-800 hover:from-orange-600 hover:to-orange-800 border border-orange-300",
+      textColor: "text-white",
+      // url: "https://paradisesuites.com"
+    }, 
   ];
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -58,25 +57,30 @@ const Brand = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+        observer.unobserve(entry.target);
         }
       },
       {
-        threshold: 0.1, // Trigger when 10% of the component is visible
-        rootMargin: '0px 0px -100px 0px' // Trigger slightly before the element comes into view
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
       }
     );
 
-    const currentRef = sectionRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
       }
     };
   }, []);
+
+    const handleBrandClick = (url: string) => {
+      window.open(url, '_blank');
+    };
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   return (
     <div 
       ref={sectionRef}
@@ -108,26 +112,39 @@ const Brand = () => {
             Chúng tôi tự hào hợp tác cùng những thương hiệu hàng đầu trong ngành
           </p>
         </div>
-        
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 w-full'>
+                
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 w-full'>
           {brands.map((brand, index) => (
             <div 
               key={index}
-              className={`group flex flex-col items-center justify-center p-8 rounded-2xl shadow-lg transition-all duration-700 transform hover:-translate-y-4 hover:shadow-2xl hover:scale-105 w-full aspect-square ${brand.color} ${brand.textColor} cursor-pointer ${
+              // onClick={() => handleBrandClick(brand.url)}
+              className={`group flex flex-col items-center justify-center p-6 rounded-2xl shadow-md transition-all duration-300 h-full ease-[cubic-bezier(0.25,0.1,0.25,1)] transform hover:shadow-xl ${brand.color} ${brand.textColor} cursor-pointer ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-12'
               }`}
               style={{
-                transitionDelay: `${index * 150}ms`
+                transitionDelay: `${index * 100}ms`,
+                willChange: 'transform, opacity'
               }}
             >
-              <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                {brand.icon}
+              <div className="mb-4 transition-transform duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105 relative w-28 h-28 flex items-center justify-center">
+                <Image
+                  src={brand.logo}
+                  alt={`${brand.name} logo`}
+                  width={112}
+                  height={112}
+                  className="object-contain scale-110 max-w-full max-h-full rounded-lg shadow-sm"
+                  style={{
+                    transition: 'transform 0.3s cubic-bezier(0.25,0.1,0.25,1)',
+                    willChange: 'transform'
+                  }}
+                />
               </div>
-              <h3 className="text-xl font-bold text-center group-hover:scale-105 transition-transform duration-300">
+              <h3 className="text-base md:text-[20px] font-bold text-center transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)] grosup-hover:text-opacity-90 leading-tight mt-2">
                 {brand.name}
               </h3>
+           
             </div>
           ))}
         </div>
