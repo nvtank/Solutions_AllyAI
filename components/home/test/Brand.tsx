@@ -14,7 +14,7 @@ const Brand = () => {
     },
     { 
       name: "VindeSoleil", 
-      logo: "/Logo_vindesoleil.jpg",
+      logo: "/Logo_Vindesoleil.jpg",
       color: "bg-gradient-to-br from-red-500 to-red-900 hover:from-red-700 hover:to-red-800",
       textColor: "text-white",
       // url: "https://vindesoleil.com"
