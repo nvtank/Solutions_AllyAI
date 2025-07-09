@@ -86,6 +86,8 @@ export default function ModernHeroSection() {
         `
       }}
     >
+
+    
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating Geometric Shapes - Responsive */}
@@ -132,9 +134,30 @@ export default function ModernHeroSection() {
           <div className={`space-y-6 sm:space-y-8 order-2 lg:order-1 transform transition-all duration-1000 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
             {/* Logo/Brand */}
             <div className={`flex items-center space-x-3 transform transition-all duration-800 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0365FA] to-[#0251D8] rounded-xl flex items-center justify-center shadow-lg">
-                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                 {/* Free Chatbot Banner */}
+            <a href='/contact' className=" animate-bounce w-56 ">
+              <div className="relative bg-gradient-to-r from-pink-500 to-blue-500 rounded-lg p-2 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                <div className="flex items-center space-x-2">
+                  <div className=" w-16 h-16 right-3">
+                    <Image
+                      src="/removebg.png"
+                      alt="Free Chatbot"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-contain rounded-full"
+                    />
+                  </div>
+                  <div className="text-white">
+                    <div className="text-sm mb-3 font-bold leading-tight whitespace-nowrap">
+                      Tặng ngay Chatbot
+                    </div>
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full px-1.5 py-0.5 mt-0.5">
+                      <span className="text-xs font-bold text-white">MIỄN PHÍ</span>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </a>
             </div>
 
             {/* Main Title */}

@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { ArrowUp, Smile, TrendingDown, Quote } from 'lucide-react';
+import { ArrowUp, Smile, TrendingDown, Star, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import styles from './ResultsShowcase.module.css';
+import Image from 'next/image';
 
 const ResultsShowcase = () => {
   // Animation variants
@@ -16,30 +16,6 @@ const ResultsShowcase = () => {
   const fadeInDown = {
     initial: { opacity: 0, y: -60 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" }
-  };
-
-  const fadeIn = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
-
-  const scaleIn = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.5, ease: "easeOut" }
-  };
-
-  const slideInLeft = {
-    initial: { opacity: 0, x: -50 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, ease: "easeOut" }
-  };
-
-  const slideInRight = {
-    initial: { opacity: 0, x: 50 },
-    animate: { opacity: 1, x: 0 },
     transition: { duration: 0.6, ease: "easeOut" }
   };
 
@@ -79,14 +55,23 @@ const ResultsShowcase = () => {
     {
       quote: "TripC Solutions đã giúp chúng tôi tăng doanh thu đáng kể chỉ sau 3 tháng triển khai. Hệ thống dễ sử dụng và hỗ trợ tuyệt vời!",
       author: "Nguyễn Văn A",
-      position: "Giám đốc ABC Company",
-      website: "https://abccompany.com"
+      position: "Giám đốc",
+      company: "ABC Company",
+      avatar: "/1.jpg"
     },
     {
       quote: "Khách hàng của chúng tôi hài lòng hơn hẳn nhờ hệ thống quản lý chuyên nghiệp từ TripC. Đội ngũ tư vấn rất tận tâm!",
       author: "Trần Thị B",
-      position: "Quản lý XYZ Resort",
-      website: "https://xyzresort.com"
+      position: "Quản lý",
+      company: "XYZ Resort",
+      avatar: "/2.jpg"
+    },
+    {
+      quote: "Giải pháp của TripC đã giúp chúng tôi tiết kiệm thời gian và tăng hiệu quả làm việc một cách đáng kể.",
+      author: "Lê Văn C",
+      position: "CEO",
+      company: "Tech Solutions",
+      avatar: "/3.jpg"
     }
   ];
 
@@ -192,37 +177,38 @@ const ResultsShowcase = () => {
 
         {/* Testimonials */}
         <motion.div 
-          className="bg-blue-600 rounded-2xl shadow-2xl overflow-hidden py-16 px-6 lg:px-16"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="bg-gradient-to-b from-gray-50 to-white py-20 relative overflow-hidden"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           <motion.div 
-            className="text-center mb-12"
+            className="text-center mb-16"
             {...fadeInDown}
           >
-            <motion.div
-              initial={{ opacity: 0, y: -20, rotate: -10 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Quote className="w-10 h-10 text-blue-300 mx-auto mb-4" />
-            </motion.div>
             <motion.h3 
-              className="text-3xl font-bold text-white"
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6 }}
             >
               Lời chứng thực từ khách hàng
             </motion.h3>
+            <motion.p 
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Những phản hồi chính thống từ khách hàng đã sử dụng dịch vụ của chúng tôi
+            </motion.p>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -231,60 +217,45 @@ const ResultsShowcase = () => {
             {testimonials.map((testimonial, index) => (
               <motion.div 
                 key={index} 
-                className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-lg"
-                variants={index % 2 === 0 ? slideInLeft : slideInRight}
+                className="group bg-white p-8 rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-gray-300 transition-all duration-300 ease-in-out flex flex-col"
+                variants={fadeInUp}
                 whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
+                  y: -5,
+                  transition: { duration: 0.2 }
                 }}
               >
-                <motion.div 
-                  className="flex items-center gap-4 mb-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <div>
-                    <motion.div 
-                      className="text-white font-semibold text-xl"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-                    >
-                      {testimonial.author}
-                    </motion.div>
-                    <motion.div 
-                      className="text-blue-200 text-sm"
-                      initial={{ opacity: 0, y: 5 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                    >
-                      {testimonial.position}
-                    </motion.div>
+                <div className="flex items-center mb-6">
+                  <div className="w-14 h-14 rounded-full overflow-hidden mr-4 flex-shrink-0 ring-2 ring-offset-2 ring-gray-200/80 group-hover:ring-blue-200 transition-all duration-300">
+                    <Image
+                      src={testimonial.avatar}
+                      alt={testimonial.author}
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                </motion.div>
-
-                <motion.div 
-                  className="text-white/90 text-sm mb-2"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-                >
-                  Sản phẩm: <span className="italic">{testimonial.website}</span>
-                </motion.div>
-                <motion.p 
-                  className="text-white/90 italic text-base leading-relaxed"
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
-                >
-                  &ldquo;{testimonial.quote}&rdquo;
-                </motion.p>
+                  <div className="flex-grow">
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      {testimonial.author}
+                    </h4>
+                    <p className="text-sm text-gray-500">
+                      {testimonial.position}, <span className="font-medium text-gray-600">{testimonial.company}</span>
+                    </p>
+                    <div className="flex items-center mt-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex-grow">
+                  <blockquote className="text-gray-600 text-lg leading-relaxed relative">
+                    <p className="relative z-10">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </p>
+                  </blockquote>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -292,119 +263,30 @@ const ResultsShowcase = () => {
 
         {/* CTA */}
         <motion.div 
-          className="text-center mt-20"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mt-1"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.6 }}
         >
-          <motion.div 
-            className="relative inline-block group"
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
+          <motion.button 
+          
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            whileHover={{ 
+              scale: 1.05,
+              transition: { duration: 0.2 }
+            }}
+            whileTap={{ scale: 0.98 }}
           >
-            {/* Pulse rings */}
-            <motion.div 
-              className={styles.pulseRing}
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            ></motion.div>
-            <motion.div 
-              className={styles.pulseRing}
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            ></motion.div>
-            
-            {/* Floating particles */}
-            <motion.div 
-              className={styles.floatingParticle}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.8 }}
-            ></motion.div>
-            <motion.div 
-              className={styles.floatingParticle}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.9 }}
-            ></motion.div>
-            <motion.div 
-              className={styles.floatingParticle}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 1.0 }}
-            ></motion.div>
-            <motion.div 
-              className={styles.floatingParticle}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 1.1 }}
-            ></motion.div>
-            
-            {/* Animated background gradient with pulsing effect */}
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-600 to-blue-700 rounded-2xl blur-xl opacity-40 group-hover:opacity-70 transition-all duration-500 animate-pulse"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 0.4, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            ></motion.div>
-            
-            {/* Secondary glow effect */}
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition-all duration-700 scale-110"
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 0.2, scale: 1.1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.7 }}
-            ></motion.div>
-            
-            {/* Main button with advanced animations */}
-            <motion.button 
-              className={`${styles.ctaButton} ${styles.magneticEffect} relative px-16 py-7 text-white font-bold text-xl rounded-2xl shadow-2xl hover:shadow-blue-500/40 transition-all duration-500 transform hover:scale-110 hover:-translate-y-4 border border-blue-400/40 backdrop-blur-sm group overflow-hidden active:scale-95`}
-              initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              whileHover={{ 
-                scale: 1.1,
-                y: -16,
-                transition: { duration: 0.3 }
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {/* Shine effect */}
-              <div className={styles.shineEffect}></div>
-           
-              <motion.div 
-                className={`${styles.ctaButtonContent} relative flex items-center justify-center gap-4`}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1 }}
-              >
-                <motion.span 
-                  className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent font-extrabold tracking-wide"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 1.1 }}
-                >
-                  Liên hệ ngay
-                </motion.span>
-              </motion.div>
-            </motion.button>
-          </motion.div>
+               <a href='/templates' className="group  relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-900 to-[#0251D8] text-white rounded-2xl hover:from-[#0251D8] hover:to-[#013FB7] transition-all duration-500 flex items-center justify-center space-x-3 font-bold shadow-xl overflow-hidden text-sm sm:text-base">
+                <span className="relative z-10">Xem mẫu ngay</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              </a>
+          </motion.button>
         </motion.div>
       </div>
     </motion.div>

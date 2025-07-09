@@ -118,7 +118,7 @@ const Brand = () => {
             <div 
               key={index}
               // onClick={() => handleBrandClick(brand.url)}
-              className={`group flex flex-col items-center justify-center p-6 rounded-2xl shadow-md transition-all duration-300 h-full ease-[cubic-bezier(0.25,0.1,0.25,1)] transform hover:shadow-xl ${brand.color} ${brand.textColor} cursor-pointer ${
+              className={`group flex flex-col items-center justify-center p-10 rounded-2xl shadow-md transition-all duration-300 h-full ease-[cubic-bezier(0.25,0.1,0.25,1)] transform hover:shadow-xl ${brand.color} ${brand.textColor} cursor-pointer ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-12'

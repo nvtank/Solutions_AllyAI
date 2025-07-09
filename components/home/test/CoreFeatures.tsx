@@ -3,10 +3,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CreditCard, Calendar, Clock, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const CoreFeatures = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const router = useRouter();
+
+  const handleFeatureClick = () => {
+    router.push('/templates');
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,24 +40,25 @@ const CoreFeatures = () => {
   }, []);
 
 const features = [
-  {
-    image: "/1.jpg",
-    title: "Phần mềm booking",
-    description: "Cho phép khách hàng đặt lịch nhanh chóng, quản lý lịch hẹn và tự động hóa quá trình xác nhận đặt chỗ.",
-    color: "bg-[#0365FA]/10 text-[#0365FA]"
-  },
-  {
-    image: "/2.jpg",
-    title: "Quản lý đặt chỗ", 
-    description: "Kiểm soát dễ dàng tình trạng chỗ trống, phân bổ tài nguyên hợp lý và theo dõi lịch sử đặt chỗ chi tiết.",
-    color: "bg-[#0365FA]/10 text-[#0365FA]"
-  },
-  {
-    image: "/3.jpg",
-    title: "Chat bot",
-    description: "Tự động trả lời câu hỏi của khách, hỗ trợ đặt lịch và tư vấn dịch vụ 24/7 một cách thông minh.",
-    color: "bg-[#0365FA]/10 text-[#0365FA]"
-  }
+    {
+      image: "/booking.jpg",
+      title: "Phần mềm booking web",
+      description: "Đặt bàn, quản lý lịch hẹn và đơn hàng trực tuyến dễ dàng, chuyên nghiệp, mọi lúc mọi nơi.",
+      color: "bg-[#0365FA]/10 text-[#0365FA]"
+    },
+    {
+      image: "/mobile.png",
+      title: "Ứng dụng di động quản lí",
+      description: "Theo dõi doanh thu, đơn hàng và hiệu suất hoạt động ngay trên điện thoại – tiện lợi và tức thời.",
+      color: "bg-[#0365FA]/10 text-[#0365FA]"
+    },
+    {
+      image: "/chatbot.jpg",
+      title: "Chatbot AI",
+      description: "Tư vấn, chăm sóc khách hàng 24/7, tự động phản hồi và gợi ý dịch vụ giúp tăng đơn hiệu quả.",
+      color: "bg-[#0365FA]/10 text-[#0365FA]"
+    }
+
 ];
 
 
@@ -73,7 +80,8 @@ const features = [
         {features.map((feature, index) => (
           <div 
             key={index}
-            className={`group relative overflow-hidden transition-all duration-700 transform ${
+            onClick={handleFeatureClick}
+            className={`group relative overflow-hidden transition-all duration-700 transform cursor-pointer hover:shadow-lg ${
               isVisible 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-12'
@@ -83,13 +91,14 @@ const features = [
             }}
           >
             {/* Image Section */}
-            <div className="relative h-64 overflow-hidden">
+            <div className="relative h-64 overflow-hidden rounded-lg">
               <Image 
                 src={feature.image}
                 alt={feature.title}
                 fill
-                className="object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
+                className="object-cover group-hover:scale-105 duration-500 transition-all"
               />
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
             </div>
             
             {/* Content Section */}
@@ -97,11 +106,13 @@ const features = [
               <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#0365FA] transition-colors duration-300">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 mb-4">
                 {feature.description}
               </p>
-              
-
+              <div className="flex items-center text-[#0365FA] font-semibold group-hover:translate-x-1 transition-transform duration-300">
+                <span className="mr-2">Xem Ngay</span>
+                <ChevronRight className="w-4 h-4" />
+              </div>
             </div>
           </div>
         ))}

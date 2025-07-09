@@ -313,14 +313,12 @@ export const en = {
   footer: {
     quickLinks: [
       { name: 'Solutions', href: '/solutions' },
-      { name: 'Industries', href: '#' },
       { name: 'About Us', href: '/about' },
       { name: 'Contact', href: '/contact' },
       { name: 'Templates', href: '/templates' },
-      { name: 'Support', href: '#' }
     ],
     quickLinksTitle: "Quick Links",
-    description: "TripC Solution is a trusted partner for digital transformation. Helping tourism & service businesses grow while complying with government regulations."
+    description: "Tripc Solutions is a comprehensive Saas platform for restaurants, hotels and spas, combining online booking tools, 24/7 chatbot, QR code payment and invoice automation. Tripc Solutions of Ally Ai Joint Stock Company"
   },
 
   // Common UI Text

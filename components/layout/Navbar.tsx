@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Brain, Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -113,11 +114,12 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                 </div>
               ))}
               
-              <div className="ml-4">
+              <div className="ml-0">
                 <LanguageToggle />
               </div>
-            </div>
 
+
+            </div>
             <button
               className={`lg:hidden p-2 rounded-lg transition-colors duration-200 ${
                 isScrolled || !isHomepage
@@ -145,6 +147,38 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                     {item.name}
                   </Link>
                 ))}
+                
+                {/* Mobile Free Chatbot Banner */}
+                <div className="px-4 py-3 border-t border-gray-200 mt-4 pt-4">
+                  <div className="relative bg-gradient-to-r from-pink-500 to-blue-500 rounded-lg p-3 shadow-md">
+                    <div className="flex items-center space-x-3">
+                      <div className="flex-shrink-0 w-8 h-8 relative">
+                        <Image
+                          src="/freechatbot.jpg"
+                          alt="Free Chatbot"
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-contain rounded-full"
+                        />
+                      </div>
+                      <div className="text-white">
+                        <div className="text-sm font-bold leading-tight">
+                          Tặng ngay Chatbot
+                        </div>
+                        <div className="bg-white/20 backdrop-blur-sm rounded-full px-2 py-1 mt-1">
+                          <span className="text-xs font-bold text-white">MIỄN PHÍ</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Pulse effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-blue-500 rounded-lg animate-pulse opacity-30"></div>
+                    
+                    {/* Sparkle effect */}
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
+                  </div>
+                </div>
+                
                 <div className="px-4 py-3 border-t border-gray-200 mt-4 pt-4">
                   <LanguageToggle />
                 </div>
