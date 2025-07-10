@@ -43,7 +43,7 @@ export default function LanguageToggle() {
         className={`flex items-center space-x-2 px-3 py-2 text-sm font-medium transition-colors duration-200 ${
           scrolled || !isHomepage
             ? 'text-gray-600 hover:text-gray-900' 
-            : 'text-black hover:text-white'
+            : 'text-white hover:text-black'
         }`}
       >
         <Globe className="w-4 h-4" />
@@ -67,7 +67,7 @@ export default function LanguageToggle() {
                   className={`w-full text-left px-4 py-2 text-sm transition-colors duration-200 flex items-center space-x-3 ${
                     language === lang.code 
                       ? 'text-blue-600 bg-blue-50' 
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
+                      : 'text-black hover:text-blue-900 hover:bg-gray-50'
                   }`}
                 >
                   <span className="text-lg">{lang.flag}</span>
