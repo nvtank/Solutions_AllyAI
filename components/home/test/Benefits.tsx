@@ -65,7 +65,7 @@ const Benefits = () => {
       className="flex flex-col items-center justify-center py-16 bg-gradient-to-br from-[#0365FA] to-blue-700"
     >
       <div className="w-full max-w-7xl px-4">
-        {/* Header Section */}
+
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Lợi ích chính
@@ -75,7 +75,6 @@ const Benefits = () => {
           </p>
         </div>
 
-        {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {benefits.map((benefit, index) => (
             <div 
@@ -101,7 +100,7 @@ const Benefits = () => {
                 {benefit.description}
               </p>
               
-              {/* Gradient Border Effect */}
+  
               <div className={`absolute inset-0 bg-gradient-to-r ${benefit.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`}></div>
             </div>
           ))}
