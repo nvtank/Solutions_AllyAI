@@ -133,8 +133,8 @@ export default function ModernHeroSection() {
           {/* Left Content */}
           <div className={`space-y-6 sm:space-y-8 order-2 lg:order-1 transform transition-all duration-1000 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
             {/* Logo/Brand */}
-            <div className={`flex items-center space-x-3 transform transition-all duration-800 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                 {/* Free Chatbot Banner */}
+            {/* <div className={`flex items-center space-x-3 transform transition-all duration-800 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          
             <a href='/contact' className=" animate-bounce w-56 ">
               <div className="relative bg-gradient-to-r from-pink-500 to-blue-500 rounded-lg p-2 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer group">
                 <div className="flex items-center space-x-2">
@@ -158,7 +158,7 @@ export default function ModernHeroSection() {
                 </div>
               </div>
             </a>
-            </div>
+            </div> */}
 
             {/* Main Title */}
             <div className={`space-y-3 sm:space-y-4 transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
@@ -207,13 +207,20 @@ export default function ModernHeroSection() {
             <div className="relative w-full mt-12 h-64 sm:h-80 md:h-96 lg:h-full flex items-center justify-center">
               <div className={`relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl transform transition-all duration-1500 delay-400 ${isLoaded ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
                 <Image 
-                  src="/hero1.png" 
+                  src="/chatbothero.png" 
                   alt="TripC Solution Hero"
-                  width={800}
-                  height={800}
-                  className="w-full h-auto object-contain drop-shadow-2xl "
+                  width={900}
+                  height={900}
+                  className="w-full h-auto scale-105 object-contain drop-shadow-2xl rotate-[5deg]"
                   priority
                 />
+                
+                {/* Free AI Text */}
+                <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                  <div className="bg-gradient-to-r from-purple-500 to-[#0251D8] text-white px-6 py-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-800 ease-in-out animate-bounce">
+                    <span className="text-xl font-bold whitespace-nowrap">Tặng AI miễn phí</span>
+                  </div>
+                </div>
                 
                 {/* Sparkles - Responsive positioning */}
                 <Sparkles className={`absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#0365FA] animate-pulse transition-all duration-800 delay-1000 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`} />
