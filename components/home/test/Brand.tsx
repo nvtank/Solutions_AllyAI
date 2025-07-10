@@ -6,46 +6,36 @@ import Image from 'next/image';
 const Brand = () => {
   const brands = [
     { 
-      name: "S Florist", 
-      logo: "/s_florist.jpg",
-      color: "bg-gradient-to-br from-gray-500 to-gray-900 hover:from-gray-700 hover:to-gray-800 border border-gray-200",
-      textColor: "text-white",
-      // url: "https://sflorist.com" // Thêm URL thực tế
+
+      logo: "/s_florist.png",
+
+
     },
     { 
-      name: "VindeSoleil", 
-      logo: "/Logo_vindesoleil.jpg",
-      color: "bg-gradient-to-br from-red-500 to-red-900 hover:from-red-700 hover:to-red-800",
-      textColor: "text-white",
-      // url: "https://vindesoleil.com"
+  
+      logo: "/VindeSoleil.png",
+   
     },
     { 
-      name: "Nhà hàng Chiru", 
-      logo: "/Logo_Chiru.jpg",
-      color: "bg-gradient-to-br from-green-500 to-green-700 hover:from-green-500 hover:to-green-600",
-      textColor: "text-white",
-      // url: "https://chiru.com"
+  
+      logo: "/Logo_Chiru.png",
+
     },
     { 
-      name: "Tuần Châu ", 
-      logo: "/Logo_TuanChau.jpg",
-      color: "bg-gradient-to-br from-blue-400 to-blue-700 hover:from-blue-500 hover:to-blue-600",
-      textColor: "text-white",
-      // url: "https://tuanchauresort.com"
+    
+      logo: "/Logo_TuanChau.png",
+   
+    
     },
     { 
-      name: "Tuần Châu Resort Hạ Long", 
-      logo: "/Logo_TuanChau_HaLong.jpg",
-      color: "bg-gradient-to-br from-amber-500 to-amber-800 hover:from-amber-600 hover:to-amber-700",
-      textColor: "text-white",
-      // url: "https://tuanchauhalong.com"
+ 
+      logo: "/Logo_TuanChau_HaLong.png",
+   
     },
     { 
-      name: "Paradise Suites Hotel HaLong", 
-      logo: "/Logo_ParadiseSuitesHotel_HaLong.jpg",
-      color: "bg-gradient-to-br from-orange-500 to-orange-800 hover:from-orange-600 hover:to-orange-800 border border-orange-300",
-      textColor: "text-white",
-      // url: "https://paradisesuites.com"
+      
+      logo: "/Logo_ParadiseSuitesHotel_HaLong.png",
+  
     }, 
   ];
 
@@ -88,12 +78,12 @@ const Brand = () => {
       style={{
         background: `
           radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(3, 101, 250, 0.1) 0%, transparent 0%),
-          conic-gradient(from 20deg at 91% 0%, 
+          conic-gradient(from 0deg at 91% 0%, 
             #0365FA 10deg, 
             #0365FA 0deg,
             #0365FA 60deg,
             #0251D8 50deg,
-            #0365FA 210deg,
+            #0365FA 200deg,
             white 0deg,
             white 0deg
           )
@@ -113,38 +103,19 @@ const Brand = () => {
           </p>
         </div>
                 
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 w-full'>
+   {/* Grid 4 cột */}
+        <div className={`grid grid-cols-1 w-full h-full sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {brands.map((brand, index) => (
-            <div 
-              key={index}
-              // onClick={() => handleBrandClick(brand.url)}
-              className={`group flex flex-col items-center justify-center p-10 rounded-2xl shadow-md transition-all duration-300 h-full ease-[cubic-bezier(0.25,0.1,0.25,1)] transform hover:shadow-xl ${brand.color} ${brand.textColor} cursor-pointer ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-12'
-              }`}
-              style={{
-                transitionDelay: `${index * 100}ms`,
-                willChange: 'transform, opacity'
-              }}
-            >
-              <div className="mb-4 transition-transform duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105 relative w-28 h-28 flex items-center justify-center">
+            <div key={index} className="flex items-center justify-center h-28 w-full">
+              <div className="relative w-[220px] h-[200px]">
                 <Image
                   src={brand.logo}
-                  alt={`${brand.name} logo`}
-                  width={112}
-                  height={112}
-                  className="object-contain scale-110 max-w-full max-h-full rounded-lg shadow-sm"
-                  style={{
-                    transition: 'transform 0.3s cubic-bezier(0.25,0.1,0.25,1)',
-                    willChange: 'transform'
-                  }}
+                  alt={`Logo ${index}`}
+                  layout="fill"
+                  objectFit="contain"
+                  className="object-contain scale-125"
                 />
               </div>
-              <h3 className="text-base md:text-[20px] font-bold text-center transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)] grosup-hover:text-opacity-90 leading-tight mt-2">
-                {brand.name}
-              </h3>
-           
             </div>
           ))}
         </div>

@@ -54,24 +54,24 @@ const ResultsShowcase = () => {
   const testimonials = [
     {
       quote: "TripC Solutions đã giúp chúng tôi tăng doanh thu đáng kể chỉ sau 3 tháng triển khai. Hệ thống dễ sử dụng và hỗ trợ tuyệt vời!",
-      author: "Nguyễn Văn A",
-      position: "Giám đốc",
-      company: "ABC Company",
-      avatar: "/1.jpg"
+      author: "Mr Việt",
+      position: "Manager",
+      company: "Chiru",
+      // avatar: "/1.jpg"
     },
     {
       quote: "Khách hàng của chúng tôi hài lòng hơn hẳn nhờ hệ thống quản lý chuyên nghiệp từ TripC. Đội ngũ tư vấn rất tận tâm!",
-      author: "Trần Thị B",
-      position: "Quản lý",
-      company: "XYZ Resort",
-      avatar: "/2.jpg"
+      author: "A Nhã",
+      position: "Giám Đốc",
+      company: "Tuan Châu Resort",
+      // avatar: "/2.jpg"
     },
     {
       quote: "Giải pháp của TripC đã giúp chúng tôi tiết kiệm thời gian và tăng hiệu quả làm việc một cách đáng kể.",
-      author: "Lê Văn C",
+      author: "Mr Alex",
       position: "CEO",
-      company: "Tech Solutions",
-      avatar: "/3.jpg"
+      company: "Alex Restaurant",
+      // avatar: "/3.jpg"
     }
   ];
 
@@ -225,7 +225,7 @@ const ResultsShowcase = () => {
                 }}
               >
                 <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 rounded-full overflow-hidden mr-4 flex-shrink-0 ring-2 ring-offset-2 ring-gray-200/80 group-hover:ring-blue-200 transition-all duration-300">
+                  {/* <div className="w-14 h-14 rounded-full overflow-hidden mr-4 flex-shrink-0 ring-2 ring-offset-2 ring-gray-200/80 group-hover:ring-blue-200 transition-all duration-300">
                     <Image
                       src={testimonial.avatar}
                       alt={testimonial.author}
@@ -233,7 +233,7 @@ const ResultsShowcase = () => {
                       height={56}
                       className="w-full h-full object-cover"
                     />
-                  </div>
+                  </div> */}
                   <div className="flex-grow">
                     <h4 className="text-lg font-semibold text-gray-800">
                       {testimonial.author}

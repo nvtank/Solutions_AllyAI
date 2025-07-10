@@ -201,14 +201,12 @@ const HowItWorks = () => {
           ></motion.div>
         </motion.div>
 
-        {/* Timeline */}
+
         <div className="relative">
-          {/* Animated Timeline connector */}
           <div 
             ref={timelineRef}
             className="hidden md:block absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-[#0365FA] via-[#0365FA]/70 to-[#0365FA]/30 -translate-x-1/2 rounded-full origin-top transform-gpu"
           ></div>
-          
           <div className="space-y-16 md:space-y-16">
             {steps.map((step, index) => (
               <motion.div 
@@ -216,7 +214,7 @@ const HowItWorks = () => {
                 variants={stepVariants}
                 className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8`}
               >
-                {/* Step content */}
+        
                 <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                   <motion.div 
                     className="group relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-100 hover:border-[#0365FA]/30 transition-all duration-500"
@@ -253,7 +251,7 @@ const HowItWorks = () => {
                       {step.description}
                     </motion.p>
                     
-                    {/* Animated gradient overlay */}
+         
                     <motion.div 
                       className={`absolute inset-0 bg-gradient-to-r ${step.gradient} rounded-2xl`}
                       initial={{ opacity: 0 }}
@@ -263,7 +261,7 @@ const HowItWorks = () => {
                   </motion.div>
                 </div>
                 
-                {/* Step number (mobile) */}
+      
                 <div className="md:hidden flex items-center justify-center mb-4">
                   <motion.div 
                     className="w-14 h-14 rounded-full bg-[#0365FA] flex items-center justify-center border-4 border-white shadow-lg"
@@ -274,7 +272,6 @@ const HowItWorks = () => {
                   </motion.div>
                 </div>
                 
-                {/* Step number (desktop) */}
                 <motion.div 
                   className="hidden md:flex items-center justify-center w-20 h-20 rounded-full bg-white border-4 border-[#0365FA] z-10 shadow-lg cursor-pointer"
                   whileHover={{ 
@@ -291,8 +288,6 @@ const HowItWorks = () => {
                     {index + 1}
                   </motion.span>
                 </motion.div>
-                
-                {/* Empty spacer */}
                 <div className="hidden md:block md:w-1/2"></div>
               </motion.div>
             ))}
