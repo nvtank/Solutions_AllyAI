@@ -2,12 +2,12 @@
 
 import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useAnimations } from './solutions/useAnimations';
-import { useFloatingParticles } from './solutions/useFloatingParticles';
-import SolutionsHeader from './solutions/SolutionsHeader';
-import ProgressBar from './solutions/ProgressBar';
-import SolutionCard from './solutions/SolutionCard';
-import SolutionsCTA from './solutions/SolutionsCTA';
+import { useAnimations } from '../solutions/useAnimations';
+import { useFloatingParticles } from '../solutions/useFloatingParticles';
+import SolutionsHeader from '../solutions/SolutionsHeader';
+import ProgressBar from '../solutions/ProgressBar';
+import SolutionCard from '../solutions/SolutionCard';
+import SolutionsCTA from '../solutions/SolutionsCTA';
 
 export default function SolutionsSection() {
   const sectionRef = useRef<HTMLElement>(null);

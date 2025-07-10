@@ -13,7 +13,7 @@ export default function ContactMain() {
           {/* Additional Info */}
           <div className="space-y-8">
             <ContactSidebar />
-            <ContactCTA />
+         
           </div>
         </div>
       </div>

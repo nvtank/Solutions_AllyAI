@@ -1,5 +1,5 @@
 import React from 'react';
-import CoreFeatures from '@/components/home/test/CoreFeatures';
+import CoreFeatures from '@/components/home/main/CoreFeatures';
 
 export default function CoreFeaturesDemo() {
   return (

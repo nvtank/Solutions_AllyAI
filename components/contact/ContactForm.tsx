@@ -101,13 +101,6 @@ export default function ContactForm() {
     }
   };
 
-  const inquiryTypes = [
-    { value: 'general', label: 'Tư vấn chung', icon: <MessageSquare className="w-5 h-5" /> },
-    { value: 'sales', label: 'Bán hàng & Báo giá', icon: <Building2 className="w-5 h-5" /> },
-    { value: 'support', label: 'Hỗ trợ kỹ thuật', icon: <Headphones className="w-5 h-5" /> },
-    { value: 'partnership', label: 'Hợp tác đối tác', icon: <Users className="w-5 h-5" /> },
-    { value: 'demo', label: 'Yêu cầu Demo', icon: <Calendar className="w-5 h-5" /> }
-  ];
 
   return (
     <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
@@ -124,34 +117,7 @@ export default function ContactForm() {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Inquiry Type Selection */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-3">
-            Loại yêu cầu
-          </label>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {inquiryTypes.map((type) => (
-              <label key={type.value} className="relative">
-                <input
-                  type="radio"
-                  name="inquiryType"
-                  value={type.value}
-                  checked={formData.inquiryType === type.value}
-                  onChange={handleChange}
-                  className="sr-only"
-                />
-                <div className={`p-3 border-2 rounded-lg cursor-pointer transition-all duration-200 flex items-center space-x-2 ${
-                  formData.inquiryType === type.value 
-                    ? 'border-blue-500 bg-blue-50 text-blue-700' 
-                    : 'border-gray-200 hover:border-gray-300'
-                }`}>
-                  {type.icon}
-                  <span className="text-sm font-medium">{type.label}</span>
-                </div>
-              </label>
-            ))}
-          </div>
-        </div>
+    
 
         {/* Name and Email */}
         <div className="grid md:grid-cols-2 gap-6">
@@ -204,21 +170,7 @@ export default function ContactForm() {
 
         {/* Company and Phone */}
         <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Công ty
-            </label>
-            <input
-              type="text"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-              placeholder="Tên công ty của bạn"
-            />
-          </div>
-          
-          <div>
+          <div className='col-span-2'>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Số điện thoại
             </label>
@@ -231,30 +183,6 @@ export default function ContactForm() {
               placeholder="+84 xxx xxx xxx"
             />
           </div>
-        </div>
-
-        {/* Subject */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Chủ đề *
-          </label>
-          <input
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-            className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
-              errors.subject ? 'border-red-500' : 'border-gray-300'
-            }`}
-            placeholder="Tiêu đề tin nhắn"
-          />
-          {errors.subject && (
-            <p className="mt-1 text-sm text-red-600 flex items-center">
-              <AlertCircle className="w-4 h-4 mr-1" />
-              {errors.subject}
-            </p>
-          )}
         </div>
 
         {/* Message */}

@@ -2,10 +2,10 @@ import { Building2, Globe, Shield, Heart } from 'lucide-react';
 
 export default function AboutStats() {
   const stats = [
-    { number: "500+", label: "Projects Completed", icon: <Building2 className="w-6 h-6" /> },
-    { number: "50+", label: "Countries Served", icon: <Globe className="w-6 h-6" /> },
-    { number: "99.9%", label: "System Uptime", icon: <Shield className="w-6 h-6" /> },
-    { number: "24/7", label: "Support Available", icon: <Heart className="w-6 h-6" /> }
+    { number: "500+", label: "Dự án", icon: <Building2 className="w-6 h-6" /> },
+    { number: "50+", label: "Doanh nghiệp đã sử dụng", icon: <Globe className="w-6 h-6" /> },
+    { number: "99.9%", label: "Thời gian hoạt động", icon: <Shield className="w-6 h-6" /> },
+    { number: "24/7", label: "Hỗ trợ", icon: <Heart className="w-6 h-6" /> }
   ];
 
   return (
