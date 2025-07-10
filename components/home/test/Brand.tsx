@@ -6,34 +6,22 @@ import Image from 'next/image';
 const Brand = () => {
   const brands = [
     { 
-
       logo: "/s_florist.png",
-
-
     },
     { 
   
       logo: "/VindeSoleil.png",
-   
     },
     { 
-  
       logo: "/Logo_Chiru.png",
-
     },
     { 
-    
       logo: "/Logo_TuanChau.png",
-   
-    
     },
     { 
- 
       logo: "/Logo_TuanChau_HaLong.png",
-   
     },
-    { 
-      
+    {
       logo: "/Logo_ParadiseSuitesHotel_HaLong.png",
   
     }, 
