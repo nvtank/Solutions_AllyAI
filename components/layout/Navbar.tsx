@@ -171,10 +171,9 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
                       </div>
                     </div>
                     
-                    {/* Pulse effect */}
+              
                     <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-blue-500 rounded-lg animate-pulse opacity-30"></div>
-                    
-                    {/* Sparkle effect */}
+   
                     <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
                   </div>
                 </div>

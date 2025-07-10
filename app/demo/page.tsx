@@ -1,8 +1,8 @@
 import React from 'react';
-import Brand from '@/components/home/test/Brand';
-import CoreFeatures from '@/components/home/test/CoreFeatures';
-import Benefits from '@/components/home/test/Benefits';
-import WhyChooseUs from '@/components/home/test/WhychooseUs';
+import Brand from '@/components/home/main/Brand';
+import CoreFeatures from '@/components/home/main/CoreFeatures';
+import Benefits from '@/components/home/main/Benefits';
+import WhyChooseUs from '@/components/home/main/WhychooseUs';
 
 export default function DemoPage() {
   return (

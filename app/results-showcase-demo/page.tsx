@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultsShowcase from '@/components/home/test/ResultsShowcase';
+import ResultsShowcase from '@/components/home/main/ResultsShowcase';
 
 export default function ResultsShowcaseDemoPage() {
   return (

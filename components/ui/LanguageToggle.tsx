@@ -3,12 +3,17 @@
 import { useState, useEffect } from 'react';
 import { Globe, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  
+  // Check if current page is homepage
+  const isHomepage = pathname === '/';
 
   const languages = [
     { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
@@ -36,9 +41,9 @@ export default function LanguageToggle() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center space-x-2 px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-          scrolled 
+          scrolled || !isHomepage
             ? 'text-gray-600 hover:text-gray-900' 
-            : 'text-white/80 hover:text-white'
+            : 'text-black hover:text-white'
         }`}
       >
         <Globe className="w-4 h-4" />

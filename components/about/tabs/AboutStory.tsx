@@ -40,21 +40,7 @@ export default function AboutStory() {
         <p className="text-lg text-gray-600 mb-6">
           Chúng tôi cung cấp một nền tảng công nghệ toàn diện, giúp các doanh nghiệp nhanh chóng số hóa hoạt động kinh doanh, từ quản lý, vận hành đến tương tác khách hàng, mà không cần đầu tư lớn vào đội ngũ kỹ thuật riêng.
         </p>
-        <div className="flex items-center space-x-4">
-          <div className="flex -space-x-2">
-            {team.slice(0, 4).map((member, i) => (
-              <Image
-                key={i}
-                src={member.image}
-                alt={member.name}
-                width={40}
-                height={40}
-                className="w-10 h-10 rounded-full border-2 border-white object-cover"
-              />
-            ))}
-          </div>
-          <span className="text-gray-600">Meet our founding team</span>
-        </div>
+
       </div>
       <div className="relative">
         <Image

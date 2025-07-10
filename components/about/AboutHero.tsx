@@ -19,7 +19,7 @@ export default function AboutHero() {
               Về <span className="text-blue-200">TripC Solutions</span>
             </h1>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Trong bối cảnh yêu cầu chuyển đổi số ngày càng cấp thiết, TripC Solution ra đời. Chúng tôi cung cấp nền tảng công nghệ toàn diện. Giúp doanh nghiệp số hóa hoạt động kinh doanh nhanh chóng.
+             TripC Solutions là nền tảng SaaS toàn diện dành cho nhà hàng, khách sạn và spa, kết hợp công cụ đặt chỗ trực tuyến, chatbot AI 24/7, thanh toán QR Code và tự động hóa hoá đơn. TripC Solutions được phát triển bởi công ty cổ phần Ally AI.
             </p>
        
           </div>
