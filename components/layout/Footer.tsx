@@ -157,7 +157,7 @@ export default function Footer() {
                     <div>
                       <p className="font-medium text-white text-sm">{language === 'vi' ? 'Địa chỉ' : 'Address'}</p>
                       <a href="https://maps.app.goo.gl/d1kHAhfboqUG4diV7" target="_blank" rel="noopener noreferrer" className="text-sm text-white/80 hover:text-white transition-colors duration-300">
-                        153, Đống Đa, Thạch Thang, Đà Nẵng
+                      153 Đống Đa, phường Hải Châu, thành phố Đà Nẵng
                       </a>
                     </div>
                   </div>
