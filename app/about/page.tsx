@@ -28,7 +28,7 @@ export default function About() {
       <div className="min-h-screen bg-white">
         <Navbar currentPage="about" />
         <AboutHero />
-        <AboutStats />
+        {/* <AboutStats /> */}
         <AboutContent />
         <AboutCTA />
         <Footer />

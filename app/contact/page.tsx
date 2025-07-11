@@ -27,7 +27,7 @@ export default function Contact() {
       <div className="min-h-screen bg-white">
         <Navbar currentPage="contact" />
         <ContactHero />
-        <ContactInfo />
+        {/* <ContactInfo /> */}
         <ContactMain />
         <Footer />
       </div>
