@@ -9,7 +9,7 @@ export default function ContactSidebar() {
     {
       city: "Đà Nẵng",
       country: "Việt Nam",
-      address: "153, Đống Đa, Thạch Thang, Đà Nẵng",
+      address: "153 Đống Đa, phường Hải Châu, thành phố Đà Nẵng",
       phone: "0935 479 122",
       email: "quyen@allyai.ai",
       phoneLink: "tel:+84935479122",
