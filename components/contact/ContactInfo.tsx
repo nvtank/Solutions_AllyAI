@@ -26,7 +26,7 @@ export default function ContactInfo() {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: t('contact.info.address.title'),
-      details: "153, Đống Đa, Thạch Thang, Đà Nẵng",
+      details: "153 Đống Đa, phường Hải Châu, thành phố Đà Nẵng",
       description: t('contact.info.address.description'),
       color: "from-purple-500 to-pink-500",
       link: "https://maps.app.goo.gl/d1kHAhfboqUG4diV7"
