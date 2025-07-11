@@ -361,6 +361,118 @@ export const vi = {
     loadMore: "Tải Thêm Mẫu"
   },
 
+  // Terms Page
+  terms: {
+    title: "Điều Khoản Dịch Vụ",
+    subtitle: "Quy định và điều kiện sử dụng dịch vụ TripC Solutions một cách minh bạch và chuyên nghiệp",
+    items: [
+      {
+        title: "Sự Chấp Nhận Các Điều Khoản",
+        content: "Bằng cách truy cập và sử dụng các dịch vụ và nền tảng do TripC Solutions cung cấp, người dùng đang tham gia vào một thỏa thuận ràng buộc về mặt pháp lý dựa trên các Điều khoản và Điều kiện này. Nếu người dùng thấy các điều khoản này không phù hợp, họ được khuyên không nên sử dụng dịch vụ của chúng tôi."
+      },
+      {
+        title: "Mô Tả Dịch Vụ",
+        content: "TripC Solutions chuyên tạo ra các giải pháp chuyển đổi số được tăng cường bằng AI. Mục tiêu của chúng tôi là giúp các doanh nghiệp du lịch - dịch vụ xây dựng các hệ thống quản lý và vận hành hiệu quả. Điều này bao gồm các công cụ phần mềm, nền tảng, nội dung và công nghệ liên quan để cung cấp trải nghiệm kinh doanh tối ưu."
+      },
+      {
+        title: "Đăng Ký",
+        content: "Người dùng muốn hưởng lợi từ các tính năng và dịch vụ cao cấp của TripC Solutions có thể cần trải qua một quy trình đăng ký. Điều này bao gồm việc cung cấp các thông tin cá nhân và nghề nghiệp cụ thể. Người dùng có trách nhiệm đảm bảo rằng thông tin này luôn chính xác, cập nhật và đầy đủ."
+      },
+      {
+        title: "Trách Nhiệm Của Người Dùng",
+        content: "Sau khi đăng ký, người dùng sẽ có thông tin đăng nhập. Họ có trách nhiệm cho tất cả các hoạt động diễn ra dưới tài khoản của mình, bất kể hành động do họ hoặc người khác thực hiện. Việc chia sẻ quyền truy cập với người dùng không được ủy quyền là nghiêm cấm, và cần phải thực hiện các biện pháp để đảm bảo tính bảo mật của thông tin đăng nhập."
+      },
+      {
+        title: "Quyền Sở Hữu Trí Tuệ",
+        content: "TripC Solutions là chủ sở hữu hoặc người sử dụng có giấy phép của tất cả nội dung, phần mềm và công nghệ độc quyền trên nền tảng của mình. Điều này bao gồm nhưng không giới hạn ở đồ họa, thiết kế, văn bản và logo. Việc sử dụng, sao chép hoặc phân phối không được phép là nghiêm cấm và có thể dẫn đến các hành động pháp lý."
+      },
+      {
+        title: "Giới Hạn Trách Nhiệm",
+        content: "TripC Solutions nỗ lực cung cấp các dịch vụ xuất sắc, nhưng trong các tình huống người dùng gặp phải sự gián đoạn, lỗi hoặc thiệt hại - dù trực tiếp, ngẫu nhiên hay hậu quả - trách nhiệm của TripC Solutions sẽ bị giới hạn theo quy định của pháp luật."
+      }
+    ],
+    contact: {
+      title: "Có Thắc Mắc Về Điều Khoản?",
+      description: "Đội ngũ pháp lý và hỗ trợ khách hàng của chúng tôi sẵn sàng giải đáp mọi câu hỏi",
+      email: "quyen@allyai.ai",
+      phone: "0935 479 122",
+      workingHours: "Thời gian làm việc: 24/7 | Tư vấn pháp lý miễn phí"
+    }
+  },
+
+  // Policy Page
+  policy: {
+    title: "Chính Sách Bảo Mật",
+    subtitle: "Cam kết bảo vệ quyền riêng tư và dữ liệu khách hàng với các tiêu chuẩn bảo mật hàng đầu",
+    items: [
+      {
+        title: "Chính Sách Bảo Mật Thông Tin",
+        content: [
+          "Dữ liệu được mã hóa AES-256 và lưu trữ trên hệ thống bảo mật đạt chuẩn quốc tế",
+          "Không chia sẻ thông tin khách hàng với bên thứ ba nếu không có sự đồng ý rõ ràng",
+          "Khách hàng có quyền yêu cầu xóa hoặc chỉnh sửa dữ liệu cá nhân bất kỳ lúc nào"
+        ]
+      },
+      {
+        title: "Chính Sách Quy Định Sử Dụng",
+        content: [
+          "TripC Solutions cung cấp các dịch vụ tự động hóa và chăm sóc khách hàng theo đúng thỏa thuận trong hợp đồng.",
+          "Người dùng cần đảm bảo sử dụng nền tảng đúng mục đích, không gây gián đoạn hoặc làm hại đến hệ thống.",
+          "Mọi hành vi vi phạm có thể dẫn đến việc chấm dứt quyền sử dụng."
+        ]
+      },
+      {
+        title: "Chính Sách Hoàn Tiền & Đổi Trả",
+        content: [
+          "TripC Solutions hỗ trợ chính sách hoàn tiền nếu dịch vụ không đáp ứng đúng như cam kết trong giai đoạn dùng thử.",
+          "Trong trường hợp xảy ra sự cố hệ thống, khách hàng được hỗ trợ gia hạn thời gian sử dụng tương ứng."
+        ]
+      },
+      {
+        title: "Chính Sách Dùng Thử Miễn Phí",
+        content: [
+          "Trải nghiệm miễn phí 14 ngày với đầy đủ tính năng",
+          "Sau khi hết thời gian dùng thử, khách hàng có thể chọn các gói dịch vụ phù hợp để tiếp tục sử dụng."
+        ]
+      },
+      {
+        title: "Chính Sách Hỗ Trợ Kỹ Thuật",
+        content: [
+          "Hỗ trợ 24/7 qua email, chat trực tuyến và hotline chuyên dụng",
+          "Đội ngũ kỹ thuật luôn sẵn sàng xử lý mọi vấn đề trong vòng 4 giờ làm việc."
+        ]
+      },
+      {
+        title: "Chính Sách Nâng Cấp Dịch Vụ",
+        content: [
+          "TripC Solutions thường xuyên cập nhật và cải tiến tính năng để đáp ứng tốt hơn nhu cầu người dùng.",
+          "Khách hàng sẽ nhận thông báo trước về bất kỳ thay đổi hoặc nâng cấp nào liên quan đến dịch vụ."
+        ]
+      },
+      {
+        title: "Chính Sách Đối Tác Tích Hợp",
+        content: [
+          "TripC Solutions hỗ trợ tích hợp với các nền tảng như Klook, Booking.com, Agoda...",
+          "Cam kết hợp tác bền vững với các đối tác để đảm bảo tính ổn định và hiệu quả của hệ thống."
+        ]
+      },
+      {
+        title: "Liên Hệ Và Phản Hồi",
+        content: [
+          "TripC Solutions luôn hoan nghênh mọi phản hồi từ khách hàng để cải thiện dịch vụ.",
+          "Để gửi phản hồi hoặc thắc mắc, vui lòng liên hệ qua email: quyen@allyai.ai hoặc hotline: 0935 479 122."
+        ]
+      }
+    ],
+    contact: {
+      title: "Cần Hỗ Trợ Thêm?",
+      description: "Đội ngũ chuyên gia của chúng tôi sẵn sàng giải đáp mọi thắc mắc về chính sách và bảo mật",
+      email: "quyen@allyai.ai",
+      phone: "0935 479 122",
+      workingHours: "Thời gian làm việc: 24/7 | Phản hồi trong vòng 2 giờ"
+    }
+  },
+
   // Common
   common: {
     readMore: "Xem thêm",

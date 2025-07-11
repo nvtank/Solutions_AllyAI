@@ -18,6 +18,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const { t } = useLanguage();
   const pathname = usePathname();
   
@@ -61,7 +62,7 @@ export default function Navbar({ currentPage = 'home' }: NavbarProps) {
       
             <Link href="/" className="flex items-center">
               <div className={`text-xl font-bold tracking-tight transition-colors duration-200 ${
-                isScrolled || !isHomepage ? 'text-gray-900' : 'text-gray-900'
+                isScrolled || !isHomepage ? 'text-gray-900' : 'lg:text-gray-900 text-white'
               }`}>
                 {t('nav.logo')}
               </div>
