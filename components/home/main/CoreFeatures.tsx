@@ -81,7 +81,7 @@ const features = [
           <div 
             key={index}
             onClick={handleFeatureClick}
-            className={`group relative overflow-hidden transition-all duration-700 transform cursor-pointer hover:shadow-lg ${
+            className={`group relative overflow-hidden shadow-blue-300 transition-all duration-700 transform cursor-pointer rounded-xl ease-in-out hover:bg-gradient-to-r from-white via-pink-100 to-blue-100 shadow-xl p-5 ${
               isVisible 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-12'

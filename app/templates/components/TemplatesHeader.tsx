@@ -16,32 +16,32 @@ export default function TemplatesHeader({
   setShowFilters 
 }: TemplatesHeaderProps) {
   return (
-    <section className="bg-gradient-to-r from-gray-200 to-blue-500 py-16 mt-20">
+    <section className="bg-gradient-to-r from-blue-500 to-blue-900 py-16 mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           {/* Simple Professional Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Mẫu Website Du Lịch
           </h1>
-          <p className="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
+          <p className="text-xl text-white mb-6 max-w-3xl mx-auto">
             Bộ sưu tập mẫu website chuyên nghiệp cho ngành du lịch với tích hợp AI thông minh
           </p>
           
           {/* Clean Stats */}
           <div className="flex justify-center items-center space-x-8 mb-8">
             <div className="text-center">
-              <span className="text-2xl font-bold text-blue-600">12</span>
-              <p className="text-sm text-gray-500">Mẫu</p>
+              <span className="text-2xl font-bold text-white">12</span>
+              <p className="text-sm text-white">Mẫu</p>
             </div>
             <div className="w-px h-8 bg-gray-300"></div>
             <div className="text-center">
-              <span className="text-2xl font-bold text-blue-600">4.8★</span>
-              <p className="text-sm text-gray-500">Đánh giá</p>
+              <span className="text-2xl font-bold text-white">4.8★</span>
+              <p className="text-sm text-white">Đánh giá</p>
             </div>
             <div className="w-px h-8 bg-gray-300"></div>
             <div className="text-center">
-              <span className="text-2xl font-bold text-blue-600">50K+</span>
-              <p className="text-sm text-gray-500">Lượt tải</p>
+              <span className="text-2xl font-bold text-white">50K+</span>
+              <p className="text-sm text-white">Lượt tải</p>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ export default function TemplatesHeader({
           <div className="flex flex-col md:flex-row gap-4">
             {/* Simple Search Input */}
             <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white w-5 h-5" />
               <input
                 type="text"
                 placeholder="Tìm kiếm mẫu..."
@@ -77,7 +77,7 @@ export default function TemplatesHeader({
           
           {/* Professional Tags */}
           <div className="mt-6 text-center ">
-            <p className="text-sm text-gray-500 mb-3">Danh mục phổ biến:</p>
+            <p className="text-sm text-white mb-3">Danh mục phổ biến:</p>
             <div className="flex flex-wrap justify-center gap-2">
               {['Khách sạn', 'Tour du lịch', 'Homestay', 'Travel blog'].map((tag, idx) => (
                 <button

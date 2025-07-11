@@ -20,7 +20,6 @@ export default function Templates() {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
 
-  // Category mapping từ tiếng Việt sang tiếng Anh
   const categoryMapping: Record<string, string> = {
     'Tất Cả': 'All',
     'Kinh Doanh': 'Business',

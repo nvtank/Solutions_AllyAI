@@ -161,7 +161,7 @@ export default function ModernHeroSection() {
             </div> */}
 
             {/* Main Title */}
-            <div className={`space-y-3 sm:space-y-4 pt-12 md:pt-0 transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className={`space-y-3 sm:space-y-4 pt-12 md:pt-24 pr-4 w-full transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-tight">
                 <span className="block bg-gradient-to-r from-[#0365FA] to-[#0251D8] bg-clip-text text-transparent">
                   {heroData.title}
@@ -207,18 +207,30 @@ export default function ModernHeroSection() {
             <div className="relative w-full mt-12 h-64 sm:h-80 md:h-96 lg:h-full flex items-center justify-center">
               <div className={`relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl transform transition-all duration-1500 delay-400 ${isLoaded ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
                 <Image 
-                  src="/chatbothero.png" 
+                  src="/AI2.png" 
                   alt="TripC Solution Hero"
                   width={900}
                   height={900}
-                  className="w-full h-auto scale-105 object-contain drop-shadow-2xl rotate-[5deg]"
+                  className="w-full h-auto scale-105 object-contain drop-shadow-2xl "
                   priority
                 />
                 
                 {/* Free AI Text */}
-                <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                  <div className="bg-gradient-to-r from-purple-500 to-[#0251D8] text-white px-6 py-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-800 ease-in-out animate-bounce">
-                    <span className="text-xl font-bold whitespace-nowrap">Tặng AI miễn phí</span>
+                <div className={`absolute -bottom-8 left-40 transform -translate-x-1/2 transition-all duration-1000 w-[260px] delay-1400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                  <div className="relative group cursor-pointer">
+                    {/* Glow effect background */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-pink-500 to-[#0251D8] rounded-2xl blur-lg opacity-60 group-hover:opacity-80 animate-pulse transition-all duration-1000"></div>
+                    
+                    {/* Main badge */}
+                    <div className="relative bg-gradient-to-r from-purple-500 to-[#0251D8] text-white px-6 py-3 rounded-2xl shadow-lg hover:shadow-2xl h-[70px] transition-all duration-1000 ease-in-out animate-bounce group-hover:scale-105 overflow-hidden">
+                   
+                   
+                      
+                      {/* Text with gradient effect */}
+                      <span className="relative z-10 text-2xl font-bold whitespace-nowrap flex items-center h-full group-hover:text-yellow-100 transition-colors duration-1000 text-center w-full">
+                        Tặng AI miễn phí
+                      </span>
+                    </div>
                   </div>
                 </div>
                 
