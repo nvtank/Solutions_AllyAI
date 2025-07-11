@@ -138,21 +138,21 @@ export default function Footer() {
                   <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-white to-white/80 rounded-full" />
                 </h3>
                 <div className="space-y-3">
-                  <div className="group flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <div className="group flex items-center space-x-3 p-3  rounded-lg hover:bg-white/10 transition-all duration-300">
                     <Mail className="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
                     <div>
                       <p className="font-medium text-white text-sm">Email</p>
                       <a href="mailto:quyen@allyai.ai" className="text-sm text-white/80 hover:text-white transition-colors duration-300">quyen@allyai.ai</a>
                     </div>
                   </div>
-                  <div className="group flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <div className="group flex items-center space-x-3 p-3  rounded-lg hover:bg-white/10 transition-all duration-300">
                     <Phone className="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
                     <div>
                       <p className="font-medium text-white text-sm">{language === 'vi' ? 'Điện thoại' : 'Phone'}</p>
                       <a href="tel:+84935479122" className="text-sm text-white/80 hover:text-white transition-colors duration-300">0935 479 122</a>
                     </div>
                   </div>
-                  <div className="group flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <div className="group flex items-center space-x-3 p-3  rounded-lg hover:bg-white/10 transition-all duration-300">
                     <MapPin className="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
                     <div>
                       <p className="font-medium text-white text-sm">{language === 'vi' ? 'Địa chỉ' : 'Address'}</p>
@@ -164,7 +164,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            
+
             {/* Column 2 - Quick Links */}
             <div className="flex flex-col space-y-6">
               <div>
@@ -194,7 +194,7 @@ export default function Footer() {
                 </h3>
                 <div className="space-y-2">
                   <a 
-                    href="https://allyai.ai/terms" 
+                    href="/terms" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group text-white/80 hover:text-white transition-all duration-300 flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10"
@@ -205,7 +205,7 @@ export default function Footer() {
                     </span>
                   </a>
                   <a 
-                    href="https://allyai.ai/policy" 
+                    href="policy" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group text-white/80 hover:text-white transition-all duration-300 flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10"
