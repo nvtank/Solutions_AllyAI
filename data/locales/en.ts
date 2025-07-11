@@ -366,6 +366,118 @@ export const en = {
     loadMore: "Load More Templates"
   },
 
+  // Terms Page
+  terms: {
+    title: "Terms of Service",
+    subtitle: "Transparent and professional regulations and conditions for using TripC Solutions services",
+    items: [
+      {
+        title: "Acceptance of Terms",
+        content: "By accessing and using the services and platforms provided by TripC Solutions, users are entering into a legally binding agreement based on these Terms and Conditions. If users find these terms unsuitable, they are advised not to use our services."
+      },
+      {
+        title: "Service Description",
+        content: "TripC Solutions specializes in creating AI-enhanced digital transformation solutions. Our goal is to help tourism and hospitality businesses build efficient management and operational systems. This includes software tools, platforms, content, and related technologies to provide optimal business experiences."
+      },
+      {
+        title: "Registration",
+        content: "Users who wish to benefit from TripC Solutions' premium features and services may need to undergo a registration process. This includes providing specific personal and professional information. Users are responsible for ensuring this information is always accurate, up-to-date, and complete."
+      },
+      {
+        title: "User Responsibilities",
+        content: "After registration, users will have login credentials. They are responsible for all activities that occur under their account, regardless of whether the actions are performed by them or others. Sharing access with unauthorized users is prohibited, and measures must be taken to ensure the security of login information."
+      },
+      {
+        title: "Intellectual Property Rights",
+        content: "TripC Solutions owns or is a licensed user of all content, software, and proprietary technology on its platform. This includes but is not limited to graphics, designs, text, and logos. Unauthorized use, copying, or distribution is prohibited and may result in legal action."
+      },
+      {
+        title: "Limitation of Liability",
+        content: "TripC Solutions strives to provide excellent services, but in situations where users experience interruptions, errors, or damages - whether direct, incidental, or consequential - TripC Solutions' liability will be limited according to legal regulations."
+      }
+    ],
+    contact: {
+      title: "Questions About Terms?",
+      description: "Our legal and customer support team is ready to answer all your questions",
+      email: "quyen@allyai.ai",
+      phone: "0935 479 122",
+      workingHours: "Working hours: 24/7 | Free legal consultation"
+    }
+  },
+
+  // Policy Page
+  policy: {
+    title: "Privacy Policy",
+    subtitle: "Commitment to protecting customer privacy and data with leading security standards",
+    items: [
+      {
+        title: "Information Security Policy",
+        content: [
+          "Data is encrypted with AES-256 and stored on internationally certified security systems",
+          "Customer information is not shared with third parties without explicit consent",
+          "Customers have the right to request deletion or modification of personal data at any time"
+        ]
+      },
+      {
+        title: "Usage Policy",
+        content: [
+          "TripC Solutions provides automation and customer care services according to contract agreements.",
+          "Users must ensure proper platform usage without disrupting or harming the system.",
+          "Any violations may result in termination of usage rights."
+        ]
+      },
+      {
+        title: "Refund & Exchange Policy",
+        content: [
+          "TripC Solutions supports refund policy if services do not meet commitments during trial period.",
+          "In case of system failures, customers receive corresponding usage time extensions."
+        ]
+      },
+      {
+        title: "Free Trial Policy",
+        content: [
+          "14-day free experience with full features",
+          "After trial period, customers can choose suitable service packages to continue usage."
+        ]
+      },
+      {
+        title: "Technical Support Policy",
+        content: [
+          "24/7 support via email, live chat, and dedicated hotline",
+          "Technical team ready to handle all issues within 4 working hours."
+        ]
+      },
+      {
+        title: "Service Upgrade Policy",
+        content: [
+          "TripC Solutions regularly updates and improves features to better meet user needs.",
+          "Customers receive advance notifications about any changes or upgrades related to services."
+        ]
+      },
+      {
+        title: "Integration Partner Policy",
+        content: [
+          "TripC Solutions supports integration with platforms like Klook, Booking.com, Agoda...",
+          "Committed to sustainable partnerships to ensure system stability and efficiency."
+        ]
+      },
+      {
+        title: "Contact and Feedback",
+        content: [
+          "TripC Solutions welcomes all customer feedback to improve services.",
+          "To send feedback or inquiries, please contact via email: quyen@allyai.ai or hotline: 0935 479 122."
+        ]
+      }
+    ],
+    contact: {
+      title: "Need More Support?",
+      description: "Our expert team is ready to answer all questions about policies and security",
+      email: "quyen@allyai.ai",
+      phone: "0935 479 122",
+      workingHours: "Working hours: 24/7 | Response within 2 hours"
+    }
+  },
+
   // Common
   common: {
     readMore: "Read More",

@@ -10,6 +10,7 @@ export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
   
   // Check if current page is homepage
@@ -32,8 +33,21 @@ export default function LanguageToggle() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+    
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    handleResize();
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
@@ -41,9 +55,9 @@ export default function LanguageToggle() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center space-x-2 px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-          scrolled || !isHomepage
+          scrolled || !isHomepage || isMobile
             ? 'text-gray-600 hover:text-gray-900' 
-            : 'text-white hover:text-black'
+            : 'text-white hover:text-gray-200'
         }`}
       >
         <Globe className="w-4 h-4" />

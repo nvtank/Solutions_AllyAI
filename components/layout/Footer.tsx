@@ -225,6 +225,12 @@ export default function Footer() {
 
       {/* Footer Bottom */}
       <div className="py-4 border-t border-white/20 text-center text-white/60">
+              <div className="w-full text-xs sm:text-sm mb-2">
+                    <FileText className="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
+                    <div>
+                      <p className="">{language === 'vi' ? 'Giấy phép đăng ký kinh doanh: ' : 'Business registration certificate: '} 0402251123</p>
+                    </div>
+                  </div>
         <p className="text-xs sm:text-sm">
           &copy; {new Date().getFullYear()} TripC Solutions. {language === 'vi' ? 'Bản quyền đã được bảo hộ.' : 'All rights reserved.'}
         </p>
