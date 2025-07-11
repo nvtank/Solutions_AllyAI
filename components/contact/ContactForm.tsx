@@ -11,8 +11,10 @@ import {
   Calendar,
   AlertCircle
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactForm() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,23 +32,23 @@ export default function ContactForm() {
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Họ tên là bắt buộc';
+      newErrors.name = t('contact.form.nameRequired');
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email là bắt buộc';
+      newErrors.email = t('contact.form.emailRequired');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Email không hợp lệ';
+      newErrors.email = t('contact.form.emailInvalid');
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Tin nhắn là bắt buộc';
+      newErrors.message = t('contact.form.messageRequired');
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Tin nhắn phải có ít nhất 10 ký tự';
+      newErrors.message = t('contact.form.messageMinLength');
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = 'Chủ đề là bắt buộc';
+      newErrors.subject = t('contact.form.subjectRequired');
     }
 
     setErrors(newErrors);
@@ -104,15 +106,15 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-      <h2 className="text-3xl font-bold text-gray-900 mb-6">Gửi tin nhắn cho chúng tôi</h2>
+      <h2 className="text-3xl font-bold text-gray-900 mb-6">{t('contact.form.title')}</h2>
       <p className="text-gray-600 mb-8">
-        Điền thông tin dưới đây và chúng tôi sẽ liên hệ lại với bạn trong vòng 24 giờ.
+        {t('contact.form.subtitle')}
       </p>
 
       {isSubmitted && (
         <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3">
           <CheckCircle className="w-5 h-5 text-green-600" />
-          <span className="text-green-700">Tin nhắn đã được gửi thành công! Chúng tôi sẽ liên hệ sớm nhất.</span>
+          <span className="text-green-700">{t('contact.form.success')}</span>
         </div>
       )}
 
@@ -123,7 +125,7 @@ export default function ContactForm() {
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Họ tên *
+              {t('contact.form.name')} *
             </label>
             <input
               type="text"
@@ -134,7 +136,7 @@ export default function ContactForm() {
               className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
                 errors.name ? 'border-red-500' : 'border-gray-300'
               }`}
-              placeholder="Nhập họ tên của bạn"
+              placeholder={t('contact.form.namePlaceholder')}
             />
             {errors.name && (
               <p className="mt-1 text-sm text-red-600 flex items-center">
@@ -146,7 +148,7 @@ export default function ContactForm() {
           
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email *
+              {t('contact.form.email')} *
             </label>
             <input
               type="email"
@@ -157,7 +159,7 @@ export default function ContactForm() {
               className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
                 errors.email ? 'border-red-500' : 'border-gray-300'
               }`}
-              placeholder="email@example.com"
+              placeholder={t('contact.form.emailPlaceholder')}
             />
             {errors.email && (
               <p className="mt-1 text-sm text-red-600 flex items-center">
@@ -172,7 +174,7 @@ export default function ContactForm() {
         <div className="grid md:grid-cols-2 gap-6">
           <div className='col-span-2'>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Số điện thoại
+              {t('contact.form.phone')}
             </label>
             <input
               type="tel"
@@ -180,7 +182,7 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-              placeholder="+84 xxx xxx xxx"
+              placeholder={t('contact.form.phonePlaceholder')}
             />
           </div>
         </div>
@@ -188,7 +190,7 @@ export default function ContactForm() {
         {/* Message */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Tin nhắn *
+            {t('contact.form.message')} *
           </label>
           <textarea
             name="message"
@@ -199,7 +201,7 @@ export default function ContactForm() {
             className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-vertical ${
               errors.message ? 'border-red-500' : 'border-gray-300'
             }`}
-            placeholder="Mô tả chi tiết yêu cầu của bạn..."
+            placeholder={t('contact.form.messagePlaceholder')}
           />
           {errors.message && (
             <p className="mt-1 text-sm text-red-600 flex items-center">
@@ -218,22 +220,22 @@ export default function ContactForm() {
           {isSubmitting ? (
             <>
               <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-              <span>Đang gửi...</span>
+              <span>{t('contact.form.submitting')}</span>
             </>
           ) : (
             <>
               <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              <span>Gửi tin nhắn</span>
+              <span>{t('contact.form.submit')}</span>
             </>
           )}
         </button>
 
         <p className="text-sm text-gray-500 text-center">
-          Bằng cách gửi form này, bạn đồng ý với{' '}
+          {t('contact.form.privacy')}{' '}
           <a href="#" className="text-blue-600 hover:underline">
-            chính sách bảo mật
+            {t('contact.form.privacyLink')}
           </a>{' '}
-          của chúng tôi.
+          {t('contact.form.privacySuffix')}
         </p>
       </form>
     </div>

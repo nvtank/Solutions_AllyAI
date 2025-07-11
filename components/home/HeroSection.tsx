@@ -3,54 +3,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle, Sparkles, Play, Zap, Shield, Clock } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ModernHeroSection() {
   const heroRef = useRef<HTMLElement>(null);
-  const [language, setLanguage] = useState('vi');
+  const { t, language } = useLanguage();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Get hero data based on current language
-  const getHeroData = () => {
-    if (language === 'vi') {
-      return {
-        title: "TripC Solutions",
-        subtitle: "Chuyển Đổi Số Cho Doanh Nghiệp",
-        description: "Trong bối cảnh yêu cầu chuyển đổi số ngày càng cấp thiết thì TripC Solution được ra đời. Chúng tôi cung cấp nền tảng công nghệ toàn diện. Giúp doanh nghiệp số hóa hoạt động kinh doanh nhanh chóng.",
-        cta: {
-          primary: "Liên hệ ngay",
-          secondary: "Xem mẫu ngay"
-        },
-        stats: [
-          { value: "500+", label: "Doanh nghiệp" },
-          { value: "99.9%", label: "Uptime" },
-          { value: "24/7", label: "Hỗ trợ" }
-        ]
-      };
-    } else {
-      return {
-        title: "TripC Solution",
-        subtitle: "Accelerate Digital Transformation",
-        description: "Discover a cutting-edge technology platform that optimizes business processes, connects the future, and leads in the digital era.",
-        cta: {
-          primary: "Get Started",
-          secondary: "Try Demo"
-        },
-        features: [
-          { icon: Zap, text: "Smart Integration" },
-          { icon: Clock, text: "24/7 Continuous Support" },
-          { icon: Shield, text: "Enterprise-Grade Security" }
-        ],
-        stats: [
-          { value: "500+", label: "Enterprises" },
-          { value: "99.9%", label: "Uptime" },
-          { value: "24/7", label: "Support" }
-        ]
-      };
-    }
+  // Get hero data from locales
+  const heroData = {
+    title: t('hero.title'),
+    subtitle: t('hero.subtitle'), 
+    description: t('hero.description'),
+    cta: t('hero.cta'),
+    stats: t('hero.stats'),
+    features: language === 'en' ? t('hero.features') : null
   };
-
-  const heroData = getHeroData();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -192,7 +161,7 @@ export default function ModernHeroSection() {
 
             {/* Stats */}
             <div className={`flex flex-wrap gap-6 sm:gap-8 justify-center sm:justify-start transform transition-all duration-1000 delay-900 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              {heroData.stats.map((stat, index) => (
+              {heroData.stats.map((stat: any, index: number) => (
                 <div key={index} className={`text-center transform transition-all duration-800 ${isLoaded ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`} style={{ transitionDelay: `${1000 + index * 200}ms` }}>
                   <div className="text-2xl sm:text-3xl font-black text-[#0365FA]">{stat.value}</div>
                   <div className="text-xs sm:text-sm text-gray-600 font-medium">{stat.label}</div>
@@ -228,7 +197,7 @@ export default function ModernHeroSection() {
                       
                       {/* Text with gradient effect */}
                       <span className="relative z-10 text-2xl font-bold whitespace-nowrap flex items-center h-full group-hover:text-yellow-100 transition-colors duration-1000 text-center w-full">
-                        Tặng AI miễn phí
+                        {t('hero.freeAI')}
                       </span>
                     </div>
                   </div>

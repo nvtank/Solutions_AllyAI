@@ -4,8 +4,10 @@ import React from 'react';
 import { ArrowUp, Smile, TrendingDown, Star, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ResultsShowcase = () => {
+  const { t } = useLanguage();
   // Animation variants
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -30,50 +32,28 @@ const ResultsShowcase = () => {
   const stats = [
     {
       icon: <ArrowUp className="w-8 h-8" />,
-      value: "+20%",
-      label: "Tăng doanh thu trung bình",
-      description: "Nhờ giải pháp tối ưu hóa quy trình và tăng hiệu suất làm việc",
+      value: t('results.stats.0.value'),
+      label: t('results.stats.0.label'),
+      description: t('results.stats.0.description'),
       color: "bg-blue-100 text-blue-600"
     },
     {
       icon: <Smile className="w-8 h-8" />,
-      value: "+15%",
-      label: "Cải thiện sự hài lòng của khách",
-      description: "Hệ thống quản lý chuyên nghiệp mang đến trải nghiệm tốt hơn",
+      value: t('results.stats.1.value'),
+      label: t('results.stats.1.label'),
+      description: t('results.stats.1.description'),
       color: "bg-green-100 text-green-600"
     },
     {
       icon: <TrendingDown className="w-8 h-8" />,
-      value: "-10%",
-      label: "Giảm chi phí hoạt động",
-      description: "Tự động hóa giúp tiết kiệm nhân lực và tài nguyên vận hành",
+      value: t('results.stats.2.value'),
+      label: t('results.stats.2.label'),
+      description: t('results.stats.2.description'),
       color: "bg-purple-100 text-purple-600"
     }
   ];
 
-  const testimonials = [
-    {
-      quote: "TripC Solutions đã giúp chúng tôi tăng doanh thu đáng kể chỉ sau 3 tháng triển khai. Hệ thống dễ sử dụng và hỗ trợ tuyệt vời!",
-      author: "Mr Việt",
-      position: "Manager",
-      company: "Chiru",
-      // avatar: "/1.jpg"
-    },
-    {
-      quote: "Khách hàng của chúng tôi hài lòng hơn hẳn nhờ hệ thống quản lý chuyên nghiệp từ TripC. Đội ngũ tư vấn rất tận tâm!",
-      author: "A Nhã",
-      position: "Giám Đốc",
-      company: "Tuan Châu Resort",
-      // avatar: "/2.jpg"
-    },
-    {
-      quote: "Giải pháp của TripC đã giúp chúng tôi tiết kiệm thời gian và tăng hiệu quả làm việc một cách đáng kể.",
-      author: "Mr Alex",
-      position: "CEO",
-      company: "Alex Restaurant",
-      // avatar: "/3.jpg"
-    }
-  ];
+  const testimonials = t('results.testimonials.items');
 
   return (
     <motion.div 
@@ -95,7 +75,7 @@ const ResultsShowcase = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Kết quả thực tế
+            {t('results.title')}
           </motion.h2>
           <motion.div 
             className="w-24 h-2 bg-blue-600 mx-auto mb-6"
@@ -111,7 +91,7 @@ const ResultsShowcase = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Những con số biết nói từ các doanh nghiệp đã triển khai giải pháp của chúng tôi
+            {t('results.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -194,7 +174,7 @@ const ResultsShowcase = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              Lời chứng thực từ khách hàng
+              {t('results.testimonials.title')}
             </motion.h3>
             <motion.p 
               className="text-xl text-gray-600 max-w-3xl mx-auto"
@@ -214,7 +194,7 @@ const ResultsShowcase = () => {
             whileInView="animate"
             viewport={{ once: true, amount: 0.3 }}
           >
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial: any, index: number) => (
               <motion.div 
                 key={index} 
                 className="group bg-white p-8 rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-gray-300 transition-all duration-300 ease-in-out flex flex-col"
@@ -282,7 +262,7 @@ const ResultsShowcase = () => {
             whileTap={{ scale: 0.98 }}
           >
                <a href='/templates' className="group  relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-900 to-[#0251D8] text-white rounded-2xl hover:from-[#0251D8] hover:to-[#013FB7] transition-all duration-500 flex items-center justify-center space-x-3 font-bold shadow-xl overflow-hidden text-sm sm:text-base">
-                <span className="relative z-10">Xem mẫu ngay</span>
+                <span className="relative z-10">{t('common.viewDemo')}</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </a>

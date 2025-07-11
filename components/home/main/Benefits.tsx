@@ -2,10 +2,12 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Zap, Shield, Clock, TrendingUp, Users, HeartHandshake } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Benefits = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,24 +37,24 @@ const Benefits = () => {
   const benefits = [
     {
       icon: <Zap size={30} />,
-      title: "Hiệu quả vận hành",
-      description: "Tối ưu chi phí nhân sự tư vấn bán hàng, đặt bàn, chăm sóc khách hàng bằng nhân viên AI. Hệ thống quản lý bán hàng chuyên nghiệp.",
+      title: t('benefits.items.0.title'),
+      description: t('benefits.items.0.description'),
       color: "from-[#0365FA] to-blue-600",
       iconBg: "bg-[#0365FA]/10",
       iconColor: "text-[#0365FA]"
     },
     {
       icon: <Shield size={30} />,
-      title: "Nâng cao của khách hàng", 
-      description: "Không bao giờ bỏ lỡ tin nhắn của khách hàng, luôn luôn phản hồi ngay lập tức 24/7.",
+      title: t('benefits.items.1.title'), 
+      description: t('benefits.items.1.description'),
       color: "from-[#0365FA] to-blue-600",
       iconBg: "bg-[#0365FA]/10", 
       iconColor: "text-[#0365FA]"
     },
     {
       icon: <Clock size={30} />,
-      title: "Tăng trưởng doanh thu",
-      description: "Không bỏ lỡ đơn đặt hàng, đặt bàn của khách, gợi ý bán thêm bán chéo dịch vụ cộng thêm.",
+      title: t('benefits.items.2.title'),
+      description: t('benefits.items.2.description'),
       color: "from-[#0365FA] to-blue-600",
       iconBg: "bg-[#0365FA]/10",
       iconColor: "text-[#0365FA]"
@@ -68,10 +70,10 @@ const Benefits = () => {
 
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Lợi ích chính
+            {t('benefits.title')}
           </h1>
           <p className="text-lg text-blue-100 max-w-3xl mx-auto leading-relaxed">
-        Tối ưu vận hành - Nâng tầm trải nghiệm – Tăng trưởng doanh thu
+            {t('benefits.subtitle')}
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { Search, Filter } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TemplatesHeaderProps {
   searchTerm: string;
@@ -15,33 +16,34 @@ export default function TemplatesHeader({
   showFilters, 
   setShowFilters 
 }: TemplatesHeaderProps) {
+  const { t } = useLanguage();
   return (
     <section className="bg-gradient-to-r from-blue-500 to-blue-900 py-16 mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           {/* Simple Professional Title */}
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Mẫu Website Du Lịch
+            {t('templates.header.title')}
           </h1>
           <p className="text-xl text-white mb-6 max-w-3xl mx-auto">
-            Bộ sưu tập mẫu website chuyên nghiệp cho ngành du lịch với tích hợp AI thông minh
+            {t('templates.header.subtitle')}
           </p>
           
           {/* Clean Stats */}
           <div className="flex justify-center items-center space-x-8 mb-8">
             <div className="text-center">
               <span className="text-2xl font-bold text-white">12</span>
-              <p className="text-sm text-white">Mẫu</p>
+              <p className="text-sm text-white">{t('templates.header.stats.templates')}</p>
             </div>
             <div className="w-px h-8 bg-gray-300"></div>
             <div className="text-center">
               <span className="text-2xl font-bold text-white">4.8★</span>
-              <p className="text-sm text-white">Đánh giá</p>
+              <p className="text-sm text-white">{t('templates.header.stats.rating')}</p>
             </div>
             <div className="w-px h-8 bg-gray-300"></div>
             <div className="text-center">
               <span className="text-2xl font-bold text-white">50K+</span>
-              <p className="text-sm text-white">Lượt tải</p>
+              <p className="text-sm text-white">{t('templates.header.stats.downloads')}</p>
             </div>
           </div>
         </div>
@@ -54,7 +56,7 @@ export default function TemplatesHeader({
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white w-5 h-5" />
               <input
                 type="text"
-                placeholder="Tìm kiếm mẫu..."
+                placeholder={t('templates.header.search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
@@ -71,15 +73,15 @@ export default function TemplatesHeader({
               }`}
             >
               <Filter className="w-5 h-5" />
-              <span>Bộ lọc</span>
+              <span>{t('templates.header.search.filter')}</span>
             </button>
           </div>
           
           {/* Professional Tags */}
           <div className="mt-6 text-center ">
-            <p className="text-sm text-white mb-3">Danh mục phổ biến:</p>
+            <p className="text-sm text-white mb-3">{t('templates.header.search.popularCategories')}</p>
             <div className="flex flex-wrap justify-center gap-2">
-              {['Khách sạn', 'Tour du lịch', 'Homestay', 'Travel blog'].map((tag, idx) => (
+              {t('templates.header.search.categories').map((tag: string, idx: number) => (
                 <button
                   key={idx}
                   onClick={() => setSearchTerm(tag)}

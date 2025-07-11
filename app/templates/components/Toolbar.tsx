@@ -1,6 +1,7 @@
 'use client';
 
 import { Grid, List, Filter } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ToolbarProps {
   templatesCount: number;
@@ -17,10 +18,11 @@ export default function Toolbar({
   showFilters,
   setShowFilters
 }: ToolbarProps) {
+  const { t } = useLanguage();
   return (
     <div className="flex items-center justify-between mb-6">
       <div className="flex items-center space-x-4">        <span className="text-gray-600">
-          Tìm thấy {templatesCount} mẫu
+          {t('templates.toolbar.found')} {templatesCount} {t('templates.toolbar.templates')}
         </span>
         <div className="hidden sm:flex items-center space-x-2">
           <button
@@ -42,7 +44,7 @@ export default function Toolbar({
         onClick={() => setShowFilters(!showFilters)}
         className="lg:hidden px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors flex items-center space-x-2"
       >        <Filter className="w-4 h-4" />
-        <span>Bộ Lọc</span>
+        <span>{t('templates.toolbar.filter')}</span>
       </button>
     </div>
   );

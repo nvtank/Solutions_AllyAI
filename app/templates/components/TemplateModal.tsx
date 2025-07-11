@@ -2,6 +2,7 @@
 
 import { X, Star, Download, Check, Eye } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Template } from '../types';
 
 interface TemplateModalProps {
@@ -10,6 +11,8 @@ interface TemplateModalProps {
 }
 
 export default function TemplateModal({ template, onClose }: TemplateModalProps) {
+  const { t } = useLanguage();
+  
   if (!template) return null;
 
   return (
@@ -19,7 +22,7 @@ export default function TemplateModal({ template, onClose }: TemplateModalProps)
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div>
             <h3 className="text-2xl font-bold text-gray-900">{template.name}</h3>
-            <p className="text-gray-600">Mẫu {template.category}</p>
+            <p className="text-gray-600">{t('templates.modal.templateType')} {template.category}</p>
           </div>
           <button 
             onClick={onClose}
@@ -51,7 +54,7 @@ export default function TemplateModal({ template, onClose }: TemplateModalProps)
                     <Star className="w-5 h-5 text-amber-500 fill-current" />
                   </div>
                   <div className="text-2xl font-bold text-gray-900">{template.rating}</div>
-                  <div className="text-sm text-gray-600">Đánh giá</div>
+                  <div className="text-sm text-gray-600">{t('templates.modal.rating')}</div>
                 </div>
                 
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
@@ -59,7 +62,7 @@ export default function TemplateModal({ template, onClose }: TemplateModalProps)
                     <Download className="w-5 h-5 text-blue-500" />
                   </div>
                   <div className="text-2xl font-bold text-gray-900">{template.downloads.toLocaleString()}</div>
-                  <div className="text-sm text-gray-600">Lượt tải</div>
+                  <div className="text-sm text-gray-600">{t('templates.modal.downloads')}</div>
                 </div>
               </div>
               
@@ -70,7 +73,7 @@ export default function TemplateModal({ template, onClose }: TemplateModalProps)
                     ? 'bg-green-100 text-green-700' 
                     : 'bg-amber-100 text-amber-700'
                 }`}>
-                  {template.price === 'Free' ? 'Hoàn toàn miễn phí' : 'Mẫu cao cấp'}
+                  {template.price === 'Free' ? t('templates.modal.price.free') : t('templates.modal.price.premium')}
                 </span>
               </div>
             </div>
@@ -79,13 +82,13 @@ export default function TemplateModal({ template, onClose }: TemplateModalProps)
             <div className="space-y-6">
               {/* Description */}
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">Mô tả</h4>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('templates.modal.description')}</h4>
                 <p className="text-gray-600 leading-relaxed">{template.description}</p>
               </div>
               
               {/* Features */}
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">Tính năng</h4>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('templates.modal.features')}</h4>
                 <ul className="space-y-2">
                   {template.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center">
@@ -98,7 +101,7 @@ export default function TemplateModal({ template, onClose }: TemplateModalProps)
               
               {/* Tags */}
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">Từ khóa</h4>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('templates.modal.keywords')}</h4>
                 <div className="flex flex-wrap gap-2">
                   {template.tags.map((tag, idx) => (
                     <span key={idx} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded">
@@ -112,10 +115,10 @@ export default function TemplateModal({ template, onClose }: TemplateModalProps)
               <div className="flex space-x-3 pt-4">
                 <button className="flex-1 bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors flex items-center justify-center space-x-2">
                   <Eye className="w-5 h-5" />
-                  <span>Xem demo</span>
+                  <span>{t('templates.modal.actions.demo')}</span>
                 </button>
                 <button className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                  Sử dụng mẫu
+                  {t('templates.modal.actions.use')}
                 </button>
               </div>
             </div>

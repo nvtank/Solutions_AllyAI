@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AboutCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,24 +49,22 @@ export default function AboutCTA() {
         {/* Main heading */}
         <div className="max-w-3xl mx-auto mb-6 lg:mb-8">
           <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 leading-tight transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Bạn đã sẵn sàng chưa?
+            {t('about.cta.title')}
           </h2>
           
           <p className={`text-base sm:text-lg lg:text-xl mb-8 lg:mb-10 opacity-90 leading-relaxed transition-all duration-1000 delay-300 ${isVisible ? 'opacity-90 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Hãy để chúng tôi đồng hành cùng bạn trong việc ứng dụng AI để 
-            <span className="font-semibold text-yellow-300"> tối ưu hóa quy trình kinh doanh</span> và 
-            tạo ra những <span className="font-semibold text-yellow-300">giá trị bền vững</span>.
+            {t('about.cta.subtitle')}
           </p>
         </div>
 
         {/* CTA Buttons */}
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 lg:gap-6 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <a href="/contact" className="group w-full sm:w-auto px-6 lg:px-8 py-3 lg:py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-900 hover:text-white transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-base lg:text-lg font-bold">
-            <span className="relative z-10">Liên hệ ngay</span>
+            <span className="relative z-10">{t('about.cta.buttons.contact')}</span>
           </a>
           
           <a href="/templates" className="group w-full sm:w-auto px-6 lg:px-8 py-3 lg:py-4 border-2 border-white/80 text-white rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-base lg:text-lg font-semibold">
-            <span className="relative z-10">Xem mẫu</span>
+            <span className="relative z-10">{t('about.cta.buttons.templates')}</span>
           </a>
         </div>
       </div>

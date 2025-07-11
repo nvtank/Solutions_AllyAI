@@ -17,6 +17,7 @@ export interface Template {
 
 export interface Category {
   name: string;
+  key?: string;
   icon: React.ReactNode;
   count: number;
 }

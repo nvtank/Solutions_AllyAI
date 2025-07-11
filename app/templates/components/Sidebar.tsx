@@ -4,6 +4,7 @@ import {
   Grid, Building2, ShoppingCart, GraduationCap, Heart, Camera, 
   Briefcase, Utensils, Car, Home, Plane, Palette, Users, Shield
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Category } from '../types';
 
 interface SidebarProps {
@@ -38,10 +39,18 @@ export default function Sidebar({
   setSortBy,
   showFilters
 }: SidebarProps) {
+  const { t } = useLanguage();
+
   const categories: Category[] = [
-    { name: 'Tất Cả', icon: iconMap.Grid, count: 12 },
-    { name: 'Du Lịch', icon: iconMap.Plane, count: 12 }
+    { name: t('templates.sidebar.allCategories'), key: 'ALL', icon: iconMap.Grid, count: 12 },
+    { name: t('templates.sidebar.travel'), key: 'TRAVEL', icon: iconMap.Plane, count: 12 }
   ];
+
+  const isSelected = (categoryKey: string, categoryName: string) => {
+    return selectedCategory === categoryKey || 
+           selectedCategory === categoryName || 
+           (categoryKey === 'ALL' && (selectedCategory === 'ALL' || selectedCategory === t('templates.sidebar.allCategories')));
+  };
 
   return (
     <div className={`lg:w-80 ${showFilters ? 'block' : 'hidden lg:block'}`}>
@@ -50,64 +59,67 @@ export default function Sidebar({
         
         {/* Categories Section */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Danh Mục</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('templates.sidebar.categories')}</h3>
           
           <div className="space-y-2">
-            {categories.map((category) => (
-              <button
-                key={category.name}
-                onClick={() => setSelectedCategory(category.name)}
-                className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
-                  selectedCategory === category.name
-                    ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                    : 'text-gray-700 hover:bg-gray-50 border border-transparent'
-                }`}
-              >
-                <div className="flex items-center space-x-3">
-                  <div className={`${
-                    selectedCategory === category.name ? 'text-blue-600' : 'text-gray-400'
-                  }`}>
-                    {category.icon}
+            {categories.map((category) => {
+              const isActive = isSelected(category.key || '', category.name);
+              return (
+                <button
+                  key={category.name}
+                  onClick={() => setSelectedCategory(category.key || category.name)}
+                  className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
+                    isActive
+                      ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                      : 'text-gray-700 hover:bg-gray-50 border border-transparent'
+                  }`}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className={`${
+                      isActive ? 'text-blue-600' : 'text-gray-400'
+                    }`}>
+                      {category.icon}
+                    </div>
+                    <span className="font-medium">{category.name}</span>
                   </div>
-                  <span className="font-medium">{category.name}</span>
-                </div>
-                <span className={`px-2 py-1 rounded-full text-sm font-medium ${
-                  selectedCategory === category.name
-                    ? 'bg-blue-100 text-blue-700'
-                    : 'bg-gray-100 text-gray-600'
-                }`}>
-                  {category.count}
-                </span>
-              </button>
-            ))}
+                  <span className={`px-2 py-1 rounded-full text-sm font-medium ${
+                    isActive
+                      ? 'bg-blue-100 text-blue-700'
+                      : 'bg-gray-100 text-gray-600'
+                  }`}>
+                    {category.count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Sort Section */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Sắp xếp theo</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('templates.sidebar.sortBy')}</h3>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700 bg-white"
           >
-            <option value="popular">Phổ biến nhất</option>
-            <option value="rating">Đánh giá cao nhất</option>
-            <option value="newest">Mới nhất</option>
-            <option value="name">Tên A-Z</option>
+            <option value="popular">{t('templates.sidebar.sortOptions.popular')}</option>
+            <option value="rating">{t('templates.sidebar.sortOptions.rating')}</option>
+            <option value="newest">{t('templates.sidebar.sortOptions.newest')}</option>
+            <option value="name">{t('templates.sidebar.sortOptions.name')}</option>
           </select>
         </div>
 
         {/* Price Filter Section */}
         <div className="mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Giá cả</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('templates.sidebar.priceFilter.title')}</h3>
           <div className="space-y-3">
             <label className="flex items-center cursor-pointer">
               <input 
                 type="checkbox" 
                 className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
-              <span className="ml-3 text-gray-700">Mẫu miễn phí</span>
+              <span className="ml-3 text-gray-700">{t('templates.sidebar.priceFilter.free')}</span>
             </label>
             
             <label className="flex items-center cursor-pointer">
@@ -115,7 +127,7 @@ export default function Sidebar({
                 type="checkbox" 
                 className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
-              <span className="ml-3 text-gray-700">Mẫu cao cấp</span>
+              <span className="ml-3 text-gray-700">{t('templates.sidebar.priceFilter.premium')}</span>
             </label>
           </div>
         </div>
@@ -124,8 +136,8 @@ export default function Sidebar({
         <div className="p-4 bg-gray-50 rounded-lg border">
           <div className="text-center">
             <div className="text-2xl font-bold text-gray-900 mb-1">4.8★</div>
-            <div className="text-sm text-gray-600 mb-3">Đánh giá trung bình</div>
-            <div className="text-lg font-semibold text-gray-900">50K+ lượt tải</div>
+            <div className="text-sm text-gray-600 mb-3">{t('templates.sidebar.stats.averageRating')}</div>
+            <div className="text-lg font-semibold text-gray-900">50K+ {t('templates.sidebar.stats.totalDownloads')}</div>
           </div>
         </div>
       </div>

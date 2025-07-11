@@ -2,10 +2,12 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AboutStory() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,13 +65,13 @@ export default function AboutStory() {
     <div ref={sectionRef} className="grid md:grid-cols-2 gap-12 items-center">
       <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
         <h2 className={`text-4xl font-bold text-gray-900 mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          TripC Solution <span className="text-blue-600">Chuyển Đổi Số Cho Doanh Nghiệp Du Lịch – Dịch Vụ</span>
+          {t('about.story.title')} <span className="text-blue-600">{t('about.story.subtitle')}</span>
         </h2>
         <p className={`text-lg text-gray-600 mb-6 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng. Đồng thời tuân thủ quy định Nhà nước.
+          {t('about.story.description')}
         </p>
         <p className={`text-lg text-gray-600 mb-6 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          Chúng tôi cung cấp một nền tảng công nghệ toàn diện, giúp các doanh nghiệp nhanh chóng số hóa hoạt động kinh doanh, từ quản lý, vận hành đến tương tác khách hàng, mà không cần đầu tư lớn vào đội ngũ kỹ thuật riêng.
+          {t('about.story.description2')}
         </p>
       </div>
       
@@ -84,8 +86,8 @@ export default function AboutStory() {
           />
         </div>
         <div className={`absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border border-gray-200 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}`}>
-          <div className="text-2xl font-bold text-blue-600">500+</div>
-          <div className="text-sm text-gray-600">Projects Delivered</div>
+          <div className="text-2xl font-bold text-blue-600">{t('about.story.stat.value')}</div>
+          <div className="text-sm text-gray-600">{t('about.story.stat.label')}</div>
         </div>
       </div>
     </div>

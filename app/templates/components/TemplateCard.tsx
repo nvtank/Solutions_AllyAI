@@ -2,6 +2,7 @@
 
 import { Star, Download, Eye, Check } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Template } from '../types';
 
 interface TemplateCardProps {
@@ -11,6 +12,7 @@ interface TemplateCardProps {
 }
 
 export default function TemplateCard({ template, viewMode, onPreview }: TemplateCardProps) {
+  const { t } = useLanguage();
   return (
     <div className={`group bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-300 ${
       viewMode === 'list' ? 'flex' : ''
@@ -34,10 +36,10 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
           <div className="absolute bottom-4 left-4 right-4 flex space-x-2">
             <button className="flex-1 bg-white text-gray-800 px-3 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors flex items-center justify-center space-x-1">
               <Eye className="w-4 h-4" />
-              <span>Xem trước</span>
+              <span>{t('templates.card.preview')}</span>
             </button>
             <button className="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition-colors">
-              Sử dụng
+              {t('templates.card.use')}
             </button>
           </div>
         </div>
@@ -74,7 +76,7 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
         {/* Features for List View */}
         {viewMode === 'list' && (
           <div className="mb-4">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">Tính năng:</h4>
+            <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('templates.card.features')}</h4>
             <ul className="grid grid-cols-2 gap-1">
               {template.features.map((feature, idx) => (
                 <li key={idx} className="flex items-center text-xs text-gray-600">
@@ -93,10 +95,10 @@ export default function TemplateCard({ template, viewMode, onPreview }: Template
             className="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded text-sm font-medium hover:bg-gray-200 transition-colors flex items-center justify-center space-x-1"
           >
             <Eye className="w-4 h-4" />
-            <span>Xem trước</span>
+            <span>{t('templates.card.preview')}</span>
           </button>
           <button className="flex-1 bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition-colors">
-            Sử dụng
+            {t('templates.card.use')}
           </button>
         </div>
       </div>

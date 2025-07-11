@@ -1,36 +1,41 @@
+'use client';
+
 import { Mail, Globe, MapPin, Clock, Phone } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactInfo() {
+  const { t } = useLanguage();
+
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: "Email",
+      title: t('contact.info.email.title'),
       details: "quyen@allyai.ai",
-      description: "Gửi email cho chúng tôi bất cứ lúc nào",
+      description: t('contact.info.email.description'),
       color: "from-blue-500 to-indigo-500",
       link: "mailto:quyen@allyai.ai"
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Điện thoại",
+      title: t('contact.info.phone.title'),
       details: "0935 479 122",
-      description: "Liên hệ trực tiếp với chúng tôi",
+      description: t('contact.info.phone.description'),
       color: "from-green-500 to-emerald-500",
       link: "tel:+84935479122"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Địa chỉ",
+      title: t('contact.info.address.title'),
       details: "153, Đống Đa, Thạch Thang, Đà Nẵng",
-      description: "Văn phòng chính của chúng tôi",
+      description: t('contact.info.address.description'),
       color: "from-purple-500 to-pink-500",
       link: "https://maps.app.goo.gl/d1kHAhfboqUG4diV7"
     },
     {
       icon: <Clock className="w-6 h-6" />,
-      title: "Giờ làm việc",
-      details: "Thứ 2 - Thứ 6: 8:00 - 17:00",
-      description: "Chúng tôi luôn sẵn sàng hỗ trợ",
+      title: t('contact.info.hours.title'),
+      details: t('contact.info.hours.details'),
+      description: t('contact.info.hours.description'),
       color: "from-orange-500 to-red-500"
     }
   ];
