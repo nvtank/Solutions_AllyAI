@@ -17,7 +17,7 @@ export default function ContactSidebar() {
   return (
     <div className="space-y-8">
       {/* FAQ */}
-      <div className="bg-gray-50 p-8 rounded-2xl">
+      {/* <div className="bg-gray-50 p-8 rounded-2xl">
         <h3 className="text-2xl font-bold text-gray-900 mb-6">Câu Hỏi Thường Gặp</h3>
         <div className="space-y-4">
           <div>
@@ -33,7 +33,7 @@ export default function ContactSidebar() {
             <p className="text-gray-600">Chúng tôi cung cấp hỗ trợ kỹ thuật 24/7 và quản lý tài khoản chuyên dụng cho tất cả khách hàng.</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Office Information */}
       <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
