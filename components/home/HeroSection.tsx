@@ -161,7 +161,7 @@ export default function ModernHeroSection() {
             </div> */}
 
             {/* Main Title */}
-            <div className={`space-y-3 sm:space-y-4 transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className={`space-y-3 sm:space-y-4 pt-12 md:pt-0 transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-tight">
                 <span className="block bg-gradient-to-r from-[#0365FA] to-[#0251D8] bg-clip-text text-transparent">
                   {heroData.title}
