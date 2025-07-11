@@ -4,11 +4,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { CreditCard, Calendar, Clock, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CoreFeatures = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
   const router = useRouter();
+  const { t } = useLanguage();
 
   const handleFeatureClick = (index: number) => {
     const links = [
@@ -48,20 +50,20 @@ const CoreFeatures = () => {
 const features = [
       {
         image: "/bookingTuanchau.jpg",
-        title: "Phần mềm booking web",
-        description: "Giải pháp đặt bàn và quản lý lịch hẹn trực tuyến toàn diện, giúp doanh nghiệp tối ưu quy trình tiếp nhận khách, xử lý đơn hàng và hiển thị thông tin theo thời gian thực – chuyên nghiệp, chính xác và dễ dàng truy cập mọi lúc mọi nơi.",
+        title: t('coreFeatures.items.0.title'),
+        description: t('coreFeatures.items.0.description'),
         color: "bg-[#0365FA]/10 text-[#0365FA]"
       },
       {
         image: "/1122.png",
-        title: "Ứng dụng di động quản lí",
-        description: "Ứng dụng quản lý hoạt động kinh doanh ngay trên điện thoại, cho phép theo dõi doanh thu, số lượng đơn hàng, hiệu suất nhân viên và báo cáo tổng quan một cách trực quan – giúp chủ doanh nghiệp ra quyết định nhanh chóng và chính xác, mọi lúc mọi nơi.",
+        title: t('coreFeatures.items.1.title'),
+        description: t('coreFeatures.items.1.description'),
         color: "bg-[#0365FA]/10 text-[#0365FA]"
       },
       {
         image: "/1133.png",
-        title: "Chatbot AI",
-        description: "Trợ lý ảo thông minh hoạt động 24/7, hỗ trợ tư vấn và chăm sóc khách hàng tự động, phản hồi tức thì các câu hỏi phổ biến, gợi ý sản phẩm/dịch vụ phù hợp và giúp nâng cao trải nghiệm mua sắm, góp phần gia tăng đơn hàng hiệu quả và giảm tải cho nhân viên.",
+        title: t('coreFeatures.items.2.title'),
+        description: t('coreFeatures.items.2.description'),
         color: "bg-[#0365FA]/10 text-[#0365FA]"
       }
 
@@ -75,10 +77,10 @@ const features = [
     >
       <div className={`text-center mb-8 sm:mb-12 lg:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6">
-          Tính Năng Cốt Lõi
+          {t('coreFeatures.title')}
         </h2>
         <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2">
-          Nền tảng của chúng tôi cung cấp bộ công cụ toàn diện được thiết kế để tối ưu hóa mọi khía cạnh của doanh nghiệp bạn.
+          {t('coreFeatures.subtitle')}
         </p>
       </div>
 
@@ -117,7 +119,7 @@ const features = [
                   {feature.description}
                 </p>
                 <div className="flex items-center text-[#0365FA] font-semibold text-sm sm:text-base group-hover:translate-x-1 transition-transform duration-300">
-                  <span className="mr-2">Xem Ngay</span>
+                  <span className="mr-2">{t('common.viewDemo')}</span>
                   <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
               </div>

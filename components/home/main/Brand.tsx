@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Brand = () => {
   const brands = [
@@ -30,6 +31,7 @@ const Brand = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -56,13 +58,14 @@ const Brand = () => {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -96,10 +99,10 @@ const Brand = () => {
       >
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h1 className='text-4xl md:text-5xl font-bold text-gray-800 mb-4'>
-            Đối Tác Của Chúng Tôi
+            {t('brand.title')}
           </h1>
           <p className='text-lg text-gray-600 max-w-2xl mx-auto'>
-            Chúng tôi tự hào hợp tác cùng những thương hiệu hàng đầu trong ngành
+            {t('brand.subtitle')}
           </p>
         </div>
                 

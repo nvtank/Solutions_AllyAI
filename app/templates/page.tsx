@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import SmoothScrollProvider from '@/components/layout/SmoothScrollProvider';
@@ -13,31 +14,42 @@ import { templates } from './data/constants';
 import { Template } from './types';
 
 export default function Templates() {
+  const { t, language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Tất Cả');
+  const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [viewMode, setViewMode] = useState('grid');
   const [sortBy, setSortBy] = useState('popular');
   const [showFilters, setShowFilters] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
 
+  // Update selected category when language changes
+  useEffect(() => {
+    setSelectedCategory('ALL');
+  }, [language]);
+
   const categoryMapping: Record<string, string> = {
+    'ALL': 'All',
+    'TRAVEL': 'Travel',
+    [t('templates.sidebar.allCategories')]: 'All',
+    [t('templates.sidebar.travel')]: 'Travel',
     'Tất Cả': 'All',
-    'Kinh Doanh': 'Business',
-    'Thương Mại Điện Tử': 'E-commerce',
-    'Giáo Dục': 'Education',
-    'Y Tế': 'Healthcare',
-    'Hồ Sơ': 'Portfolio',
-    'Doanh Nghiệp': 'Corporate',
-    'Nhà Hàng': 'Restaurant',
-    'Ô Tô': 'Automotive',
-    'Bất Động Sản': 'Real Estate'
+    'All': 'All',
+    'Du lịch': 'Travel',
+    'Travel': 'Travel',
   };
 
   const filteredTemplates = templates.filter(template => {
     const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          template.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    
+    // Handle "All" category
+    if (selectedCategory === 'ALL' || selectedCategory === t('templates.sidebar.allCategories')) {
+      return matchesSearch;
+    }
+    
+    // Handle specific categories
     const englishCategory = categoryMapping[selectedCategory] || selectedCategory;
-    const matchesCategory = selectedCategory === 'Tất Cả' || template.category === englishCategory;
+    const matchesCategory = template.category === englishCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -104,7 +116,7 @@ export default function Templates() {
 
               <div className="text-center mt-12">
                 <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all font-medium">
-                  Tải Thêm Mẫu
+                  {t('templates.loadMore')}
                 </button>
               </div>
             </div>

@@ -1,342 +1,383 @@
 export const en = {
   // Navigation
   nav: {
-    logo: "TRIPC SOLUTIONS",
+    logo: "TripC Solutions",
     home: "Home",
     about: "About Us",
-    solutions: "Solutions",
+    solutions: "Solutions", 
     contact: "Contact",
     templates: "Templates"
   },
 
   // Hero Section
   hero: {
-    title: "TRIPC SOLUTIONS",
-    subtitle: "Digital Transformation for Tourism & Service Businesses",
+    title: "TripC Solutions",
+    subtitle: "Digital Transformation for Enterprises",
+    description: "In the context of increasingly urgent digital transformation requirements, TripC Solution was born. We provide a comprehensive technology platform that helps businesses quickly digitize their business operations.",
+    freeAI: "Free AI Gift",
     cta: {
       primary: "Contact Now",
       secondary: "View Templates"
     },
+    features: [
+      { text: "Smart Integration" },
+      { text: "24/7 Continuous Support" },
+      { text: "Enterprise-Grade Security" }
+    ],
     stats: [
-      { number: '500+', label: 'Projects' },
-      { number: '2000+', label: 'Users' },
-      { number: '99.9%', label: 'Uptime SLA' }
+      { value: "500+", label: "Enterprises" },
+      { value: "99.9%", label: "Uptime" },
+      { value: "24/7", label: "Support" }
     ]
   },
 
-  // Story Section
-  story: {
-    title: "Digital Transformation Journey",
-    subtitle: "Discover the key steps in digital transformation and our modern technology solutions.",
-    cards: [
+  // Benefits Section
+  benefits: {
+    title: "Key Benefits",
+    subtitle: "Optimize Operations - Enhance Experience - Boost Revenue",
+    items: [
       {
-        title: "Digital Transformation Requirements",
-        subtitle: "Government requires revenue transparency and electronic invoicing."
+        title: "Operational Efficiency",
+        description: "Optimize personnel costs for sales consulting, reservations, and customer care with AI staff. Professional sales management system."
       },
       {
-        title: "Comprehensive Solutions", 
-        subtitle: "TripC Solution effectively addresses these challenges."
+        title: "Enhanced Customer Experience", 
+        description: "Never miss customer messages, always respond immediately 24/7."
       },
       {
-        title: "Diverse Industries",
-        subtitle: "Serving tourism, dining, healthcare, entertainment."
+        title: "Revenue Growth",
+        description: "Don't miss customer orders and reservations, suggest upselling and cross-selling additional services."
       }
     ]
   },
 
-  // Industries Section
-  industries: {
-    title: "WHAT DOES TRIPC SOLUTIONS BRING?",
-    subtitle: "Smart Platform helps businesses automate processes to improve customer experience",
-    originalTitle: "Serving All Industries",
-    originalSubtitle: "Customized solutions for each sector",
-    items: [
-      {
-        name: "Hotels & Resorts",
-        description: "Room management, F&B, spa and integrated tours",
-        image: "/images/hotel.jpg",
-        stats: "200+ hotels",
-        features: ["PMS Integration", "Channel Manager", "Revenue Management"],
-        title_main: "Multi-Service Booking Platform",
-        title1: "Versatile Booking System",
-        title2: "User-Friendly Interface",
-        description1: "Book tables, rooms, tours, event tickets, healthcare packages. Support resorts, restaurants, spas, entertainment venues, travel agencies.",
-        description2: "Easy to use on websites and mobile apps. Customizable for each brand and service sector."
-      },
-      {
-        name: "Restaurants & F&B",
-        description: "Table booking, online ordering and delivery management",
-        image: "/images/restaurant.jpg", 
-        stats: "500+ restaurants",
-        features: ["Table Management", "Kitchen Display", "Loyalty Program"],
-        title_main: "Order Management Application",
-        title1: "Order Tracking",
-        title2: "Quick Processing",
-        description1: "Track order status in real-time. Manage transaction history, revenue reports.",
-        description2: "Quick order updates and processing right on phone or computer."
-      },
-      {
-        name: "Tours & Travel",
-        description: "Tour booking, flight tickets and combo packages",
-        image: "/images/travel.jpg",
-        stats: "100+ tour operators", 
-        features: ["Package Builder", "Supplier Network", "Dynamic Pricing"],
-        title_main: "Invoice & Electronic Payment Integration",
-        title1: "Automatic Invoicing",
-        title2: "QR Code Payment",
-        description1: "Automatically issue electronic invoices according to regulations. Custom invoice templates.",
-        description2: "Fast, convenient payment via QR Code. Support popular e-wallets and banks."
-      },
-      {
-        name: "Spa & Wellness",
-        description: "Treatment scheduling, membership and retail",
-        image: "/images/spa.jpg",
-        stats: "150+ spa centers",
-        features: ["Therapist Scheduling", "Membership Management", "Inventory Control"],
-        title_main: "Legal Compliance & Transparent Management",
-        title1: "Legal Compliance",
-        title2: "Secure Data Storage",
-        description1: "System helps businesses comply with invoice and tax regulations.",
-        description2: "Safe data storage, easy retrieval."
-      },
-    
-    ]
+  // Brand Section
+  brand: {
+    title: "Our Partners",
+    subtitle: "We proudly partner with leading brands in the industry"
   },
 
-  // Solutions Section
-  solutions: {
-    header: {
-      title: "SOLUTIONS",
-      subtitle: "TRIPC SOLUTIONS provides a comprehensive ecosystem of solutions supporting businesses from sales to finance"
-    },
-    items: [
+  // How It Works Section
+  howItWorks: {
+    title: "Work Process",
+    subtitle: "TripC Solutions brings comprehensive digital transformation solutions with professional and effective processes",
+    steps: [
       {
-        id: "01",
-        title: "Multi-Service Booking Platform",
-        subtitle: "Comprehensive digitization solution",
-        description: "Platform that helps businesses digitize the entire travel service sales process in a unified management system.",
-        subProducts: [
-          {
-            title: "Service booking website",
-            description: "Provides online service booking interface, user-friendly, supports payment, information viewing and booking management.",
-            buttonText: "View Now"
-          },
-          {
-            title: "Admin management website",
-            description: "Allows partners to update service information, adjust prices, manage promotions, track orders and revenue.",
-            buttonText: "View Now"
-          },
-          {
-            title: "TripC Merchant App",
-            description: "App for staff at facilities (hotels, tour pickup points, entertainment venues...) to confirm services, scan QR codes and update order status right on mobile.",
-            buttonText: ""
-          }
-        ],
-        stats: {
-          value: "500K+",
-          label: "Bookings/month"
-        }
+        title: "Contact Us",
+        description: "Submit a request through the contact form or call directly to get consultation on solutions suitable for your business."
       },
       {
-        id: "02",
-        title: "Entertainment & Travel Ticket Booking Platform",
-        subtitle: "Online ticket sales solution",
-        description: "Platform supporting entertainment venues and tourist attractions to sell tickets online with friendly interface, quick ticket booking, clear display of program information, time, ticket prices and offers.",
-        stats: {
-          value: "100K+",
-          label: "Tickets sold/month"
-        }
+        title: "Discuss Requirements", 
+        description: "Our expert team will analyze needs and propose the most optimal solution for your system."
       },
       {
-        id: "03",
-        title: "Tourism Train & Ferry Ticket Booking Platform",
-        subtitle: "Flexible multi-industry booking",
-        description: "Flexible booking solution for various entertainment service types",
-        stats: {
-          value: "95%",
-          label: "Usage rate"
-        }
+        title: "Deploy Implementation",
+        description: "Install and integrate the system with standard processes, ensuring smooth operation with existing systems."
       },
       {
-        id: "04",
-        title: "Restaurant, Spa, Karaoke & Sports Court Reservation Platform",
-        subtitle: "Flexible multi-industry reservation",
-        description: "Flexible reservation solution for entertainment service types – from restaurants, spas to karaoke and sports courts.",
-        stats: {
-          value: "1M+",
-          label: "Searches/month"
-        }
+        title: "Quality Check",
+        description: "Run comprehensive tests and adjustments to ensure the system operates perfectly before handover."
       },
       {
-        id: "05",
-        title: "Accommodation Booking Platform",
-        subtitle: "Accommodation Comparison & Search Platform",
-        description: "Platform supporting users to discover popular destinations, compare room prices from multiple sources and direct to suitable booking sites.",
-        stats: {
-          value: "500+",
-          label: "API endpoints"
-        }
+        title: "Official Operation",
+        description: "System handover and 24/7 support to ensure smooth operation just days after deployment."
       }
     ],
     cta: {
-      title: "Ready to transform your business operations?",
-      subtitle: "Discover how our smart platforms can upgrade your operational processes and create breakthrough growth for your business.",
-      buttonText: "Start Free Trial"
+      title: "Ready to start your digital transformation journey?",
+      description: "Contact us today to receive free consultation and discover how TripC Solutions can help your business grow."
     }
   },
 
-  // Horizontal Scroll Section
-  whyChoose: {
+  // Core Features Section
+  coreFeatures: {
+    title: "Core Features",
+    subtitle: "Our platform provides a comprehensive toolkit designed to optimize every aspect of your business.",
+    items: [
+      {
+        title: "Web Booking Software",
+        description: "Comprehensive online table reservation and appointment management solution, helping businesses optimize customer reception processes, order processing and real-time information display – professional, accurate and easily accessible anytime, anywhere."
+      },
+      {
+        title: "Mobile Management Application",
+        description: "Business management application right on the phone, allowing to track revenue, number of orders, employee performance and overview reports visually – helping business owners make quick and accurate decisions, anytime, anywhere."
+      },
+      {
+        title: "AI Chatbot",
+        description: "Smart virtual assistant operating 24/7, supporting automatic customer consultation and care, instantly responding to common questions, suggesting suitable products/services and helping improve shopping experience, contributing to effective order increase and reducing staff workload."
+      }
+    ]
+  },
+
+  // Results Showcase Section
+  results: {
+    title: "Real Results",
+    subtitle: "Telling numbers from businesses that have deployed our solutions",
+    stats: [
+      {
+        value: "+20%",
+        label: "Average Revenue Increase",
+        description: "Thanks to process optimization solutions and increased work efficiency"
+      },
+      {
+        value: "+15%",
+        label: "Improved Customer Satisfaction",
+        description: "Professional management system brings better experience"
+      },
+      {
+        value: "-10%",
+        label: "Reduced Operating Costs",
+        description: "Automation helps save labor and operational resources"
+      }
+    ],
+    testimonials: {
+      title: "What Our Customers Say About Us",
+      items: [
+        {
+          quote: "TripC Solutions helped us significantly increase revenue just 3 months after deployment. The system is easy to use and support is excellent!",
+          author: "Mr Viet",
+          position: "Manager",
+          company: "Chiru"
+        },
+        {
+          quote: "Our customers are much more satisfied thanks to TripC's professional management system. The consulting team is very dedicated!",
+          author: "A Nha",
+          position: "Director",
+          company: "Tuan Chau Resort"
+        },
+        {
+          quote: "TripC's solution has helped us save time and significantly increase work efficiency.",
+          author: "Mr Alex",
+          position: "CEO", 
+          company: "Alex Restaurant"
+        }
+      ]
+    }
+  },
+
+  // Why Choose Us Section
+  whyChooseUs: {
     title: "Why Choose TripC Solutions?",
-    subtitle: "We don't just provide technology, we bring comprehensive solutions to help your business take off.",
-    items: [
-      {
-        icon: "Zap",
-        title: "Rapid Digital Transformation",
-        description: "Easy platform deployment without investing in technical teams. TripC helps businesses start immediately with ready infrastructure and full operational support.",
-        image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      },
-      {
-        icon: "Banknote",
-        title: "Outstanding Cost Savings",
-        description: "Optimize operational and management costs with intelligent automation solutions. Our platform helps minimize manual work, saving time and resources.",
-        image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      },
-      {
-        icon: "TrendingUp",
-        title: "Sustainable Revenue Growth",
-        description: "Significantly improve sales efficiency by personalizing customer experience. Collect and analyze data to deliver effective business strategies, increasing conversion rates.",
-        image: "https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      },
-      {
-        icon: "ShieldCheck",
-        title: "Transparency & Professionalism",
-        description: "Build professional and trustworthy brand image. Transparent reporting and management system helps track performance and make data-driven decisions.",
-        image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      },
-      {
-        icon: "GitBranch",
-        title: "Easy Scaling",
-        description: "Flexible platform allows easy business scaling, seamless integration with new partners and services without disrupting current operations.",
-        image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      }
-    ]
-  },
-
-  // ...existing code...
-
-  // Features Section
-  features: {
-    title: "Outstanding Features",
-    subtitle: "All in one platform",
-    items: [
-      {
-        icon: "Calendar",
-        title: "Smart Booking",
-        description: "Automated booking system with AI optimization, avoiding overbooking and optimizing occupancy rates."
-      },
-      {
-        icon: "CreditCard", 
-        title: "Flexible Payments",
-        description: "Integrate 15+ payment gateways, support installments, pay later and loyalty points."
-      },
-      {
-        icon: "BarChart",
-        title: "Advanced Analytics",
-        description: "Real-time dashboard with AI insights, trend forecasting and custom reports."
-      },
-      {
-        icon: "Users",
-        title: "Integrated CRM",
-        description: "360° customer management, marketing automation and personalized customer care."
-      },
-      {
-        icon: "Shield",
-        title: "High Security",
-        description: "PCI DSS standards, end-to-end encryption and compliance with GDPR & PDPA."
-      },
-      {
-        icon: "Zap",
-        title: "Quick Integration",
-        description: "Full API, real-time webhooks and SDK for all popular programming languages."
-      }
-    ]
-  },
-
-  // Testimonials Section
-  testimonials: {
-    title: "Trusted by Industry Leaders",
-    subtitle: "Our clients have achieved outstanding results. See what they say about their partnership with TripC Solutions.",
-    items: [
-      {
-        quote: "TripC Solutions' platform has revolutionized our operations. The intuitive interface and powerful features have helped us increase efficiency by 40% and significantly reduce operational costs. This is an indispensable solution for any business wanting to optimize processes.",
-        author: "Tran Van Minh",
-        position: "Operations Director",
-        company: "TechGlobal Corporation",
-        avatar: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
-      },
-      {
-        quote: "We deployed TripC's predictive maintenance system and the results are amazing. It has helped us prevent many serious incidents, saving thousands of dollars in repair costs and downtime. Their support team is also very professional and enthusiastic.",
-        author: "Le Thi Thu Ha",
-        position: "Plant Manager",
-        company: "Advanced Industries",
-        avatar: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
-      },
-      {
-        quote: "TripC's AI solutions are truly superior. Real-time data analysis capabilities have given us unprecedented insights, helping us make business decisions quickly and accurately. This partnership has created a clear competitive advantage for us.",
-        author: "Pham Nhat Vuong",
-        position: "Chief Technology Officer",
-        company: "Innovatech Solutions",
-        avatar: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400",
-      }
-    ]
-  },
-
-  // CTA Section
-  cta: {
-    title: "Ready for Digital Transformation?",
-    subtitle: "Start your success journey with TripC Solutions",
-    description: "Over 1000+ businesses have trusted us. Don't let competitors outpace you in the digital race.",
-    buttons: {
-      primary: "Start Free Trial",
-      secondary: "Schedule Consultation"
-    },
+    subtitle: "Discover the superior benefits that TripC Solutions brings to your business",
     features: [
-      "✅ 30-day free trial",
-      "✅ Free setup and training", 
-      "✅ 24/7 Vietnamese support",
-      "✅ No long-term contract commitment"
+      {
+        title: "Tax Regulation Compliance",
+        description: "Integrate electronic invoices & revenue reports to ensure compliance with tax regulations."
+      },
+      {
+        title: "Transparent Product & Service Information",
+        description: "Publish accurate menus, prices & service details across all channels."
+      },
+      {
+        title: "Reduce Operating Costs & Never Miss Orders",
+        description: "AI staff will automatically receive orders and respond immediately."
+      },
+      {
+        title: "Increase Orders & Revenue",
+        description: "AI upselling, cross-selling products and services."
+      },
+      {
+        title: "Seamless Payment & Invoicing",
+        description: "Integrate diverse payment methods including bank transfers, QR codes and automatically generate instant invoices."
+      }
     ]
   },
 
   // Footer
   footer: {
-    quickLinks: [
-      { name: 'Solutions', href: '/solutions' },
-      { name: 'About Us', href: '/about' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Templates', href: '/templates' },
-    ],
+    description: "TripC Solutions - Accompanying businesses in their digital transformation journey. Comprehensive technology platform, optimizing business processes.",
     quickLinksTitle: "Quick Links",
-    description: "Tripc Solutions is a comprehensive Saas platform for restaurants, hotels and spas, combining online booking tools, 24/7 chatbot, QR code payment and invoice automation. Tripc Solutions of Ally Ai Joint Stock Company"
+    quickLinks: [
+      { name: "Home", href: "/" },
+      { name: "About Us", href: "/about" },
+      { name: "Contact", href: "/contact" },
+      { name: "Templates", href: "/templates" }
+    ],
+    contact: {
+      title: "Contact Information",
+      phone: "+84 913 888 694",
+      email: "contact@tripcsolutions.com", 
+      address: "Hanoi, Vietnam"
+    },
+    policies: {
+      title: "Policies",
+      items: [
+        { name: "Terms of Service", href: "/terms" },
+        { name: "Privacy Policy", href: "/policy" }
+      ]
+    },
+    copyright: "All rights reserved."
   },
 
-  // Common UI Text
+  // About Page
+  about: {
+    hero: {
+      title: "About TripC Solutions",
+      subtitle: "TripC Solutions is a comprehensive SaaS platform for restaurants, hotels and spas, combining online booking tools, 24/7 AI chatbot, QR Code payments and automated invoicing. TripC Solutions is developed by Ally AI Corporation."
+    },
+    story: {
+      title: "TripC Solution",
+      subtitle: "Digital Transformation For Tourism & Service Businesses",
+      description: "TripC Solution is a trusted partner for digital transformation. Helping tourism and service businesses grow while complying with state regulations.",
+      description2: "We provide a comprehensive technology platform that helps businesses quickly digitize their business operations, from management and operations to customer interaction, without requiring large investments in dedicated technical teams.",
+      stat: {
+        value: "500+",
+        label: "Projects Delivered"
+      }
+    },
+    cta: {
+      title: "Are you ready?",
+      subtitle: "Let us accompany you in applying AI to optimize business processes and create sustainable value.",
+      buttons: {
+        contact: "Contact Now",
+        templates: "View Templates"
+      }
+    }
+  },
+
+  // Contact Form
+  contact: {
+    hero: {
+      title: "Contact",
+      subtitle: "Us",
+      description: "Ready to transform your business operations? We're here to help you get started with AI solutions tailored to your specific needs."
+    },
+    sidebar: {
+      office: "Office",
+      address: "Address",
+      phone: "Phone",
+      email: "Email"
+    },
+    cta: {
+      title: "Ready to Get Started?",
+      description: "Schedule a free consultation to discuss your industrial AI needs.",
+      button: "Schedule Consultation"
+    },
+    info: {
+      email: {
+        title: "Email",
+        description: "Send us an email anytime"
+      },
+      phone: {
+        title: "Phone",
+        description: "Contact us directly"
+      },
+      address: {
+        title: "Address",
+        description: "Our main office"
+      },
+      hours: {
+        title: "Working Hours",
+        details: "Monday - Friday: 8:00 - 17:00",
+        description: "We're always ready to help"
+      }
+    },
+    form: {
+      title: "Send us a message",
+      subtitle: "Fill out the information below and we will contact you within 24 hours.",
+      name: "Full Name",
+      email: "Email",
+      phone: "Phone Number",
+      message: "Message",
+      namePlaceholder: "Enter your full name",
+      emailPlaceholder: "email@example.com",
+      phonePlaceholder: "+84 xxx xxx xxx",
+      messagePlaceholder: "Describe your requirements in detail...",
+      submit: "Send Message",
+      submitting: "Sending...",
+      success: "Message sent successfully! We will contact you soon.",
+      nameRequired: "Full name is required",
+      emailRequired: "Email is required",
+      emailInvalid: "Invalid email",
+      phoneRequired: "Please enter your phone number", 
+      messageRequired: "Message is required",
+      messageMinLength: "Message must be at least 10 characters",
+      subjectRequired: "Subject is required",
+      privacy: "By submitting this form, you agree to our",
+      privacyLink: "privacy policy",
+      privacySuffix: "."
+    }
+  },
+
+  // Templates Page
+  templates: {
+    header: {
+      title: "Travel Website Templates",
+      subtitle: "Professional website template collection for the travel industry with smart AI integration",
+      stats: {
+        templates: "Templates",
+        rating: "Rating", 
+        downloads: "Downloads"
+      },
+      search: {
+        placeholder: "Search templates...",
+        filter: "Filter",
+        popularCategories: "Popular categories:",
+        categories: ["Hotels", "Tours", "Homestay", "Travel blog"]
+      }
+    },
+    sidebar: {
+      categories: "Categories",
+      allCategories: "All",
+      travel: "Travel",
+      sortBy: "Sort by",
+      sortOptions: {
+        popular: "Most Popular",
+        rating: "Highest Rated", 
+        newest: "Newest",
+        name: "Name A-Z"
+      },
+      priceFilter: {
+        title: "Price",
+        free: "Free templates",
+        premium: "Premium templates"
+      },
+      stats: {
+        averageRating: "Average rating",
+        totalDownloads: "downloads"
+      }
+    },
+    toolbar: {
+      found: "Found",
+      templates: "templates",
+      filter: "Filter"
+    },
+    card: {
+      preview: "Preview",
+      use: "Use",
+      features: "Features:"
+    },
+    modal: {
+      templateType: "Template",
+      description: "Description",
+      features: "Features",
+      keywords: "Keywords",
+      rating: "Rating",
+      downloads: "Downloads",
+      price: {
+        free: "Completely free",
+        premium: "Premium template"
+      },
+      actions: {
+        demo: "View demo",
+        use: "Use template"
+      }
+    },
+    loadMore: "Load More Templates"
+  },
+
+  // Common
   common: {
+    readMore: "Read More",
+    readLess: "Read Less", 
+    learnMore: "Learn More",
+    getStarted: "Get Started",
+    contactNow: "Contact Now",
+    viewDemo: "View Demo",
+    viewNow: "View Now",
+    close: "Close",
     loading: "Loading...",
     error: "An error occurred",
-    success: "Success",
-    tryAgain: "Try Again",
-    readMore: "Read More",
-    viewAll: "View All",
-    back: "Back",
-    next: "Next",
-    submit: "Submit",
-    cancel: "Cancel",
-    save: "Save",
-    edit: "Edit",
-    delete: "Delete"
+    tryAgain: "Try Again"
   }
 };
-
-export default en;

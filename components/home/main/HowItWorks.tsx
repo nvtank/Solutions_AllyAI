@@ -3,6 +3,7 @@ import { Phone, MessageSquare, Settings, CheckCircle, Rocket, ArrowRight } from 
 import { motion, useInView, useAnimation } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +14,7 @@ const HowItWorks = () => {
   const timelineRef = useRef(null);
   const controls = useAnimation();
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (isInView) {
@@ -115,36 +117,36 @@ const HowItWorks = () => {
   const steps = [
     {
       icon: <Phone className="w-8 h-8" />,
-      title: "Liên hệ với chúng tôi",
-      description: "Gửi yêu cầu qua form liên hệ hoặc gọi điện trực tiếp để được tư vấn về giải pháp phù hợp với doanh nghiệp của bạn.",
+      title: t('howItWorks.steps.0.title'),
+      description: t('howItWorks.steps.0.description'),
       color: "bg-[#0365FA]/10 text-[#0365FA]",
       gradient: "from-[#0365FA]/20 to-[#0365FA]/5"
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
-      title: "Thảo luận yêu cầu",
-      description: "Đội ngũ chuyên gia sẽ phân tích nhu cầu và đề xuất giải pháp tối ưu nhất cho hệ thống của bạn.",
+      title: t('howItWorks.steps.1.title'),
+      description: t('howItWorks.steps.1.description'),
       color: "bg-[#0365FA]/15 text-[#0365FA]",
       gradient: "from-[#0365FA]/25 to-[#0365FA]/10"
     },
     {
       icon: <Settings className="w-8 h-8" />,
-      title: "Triển khai thực hiện",
-      description: "Cài đặt và tích hợp hệ thống với quy trình chuẩn, đảm bảo hoạt động trơn tru với hệ thống hiện có.",
+      title: t('howItWorks.steps.2.title'),
+      description: t('howItWorks.steps.2.description'),
       color: "bg-[#0365FA]/20 text-[#0365FA]",
       gradient: "from-[#0365FA]/30 to-[#0365FA]/15"
     },
     {
       icon: <CheckCircle className="w-8 h-8" />,
-      title: "Kiểm tra chất lượng",
-      description: "Chạy thử nghiệm toàn diện và điều chỉnh để đảm bảo hệ thống hoạt động hoàn hảo trước khi bàn giao.",
+      title: t('howItWorks.steps.3.title'),
+      description: t('howItWorks.steps.3.description'),
       color: "bg-[#0365FA]/25 text-[#0365FA]",
       gradient: "from-[#0365FA]/35 to-[#0365FA]/20"
     },
     {
       icon: <Rocket className="w-8 h-8" />,
-      title: "Vận hành chính thức",
-      description: "Bàn giao hệ thống và hỗ trợ 24/7 để đảm bảo vận hành trơn tru chỉ sau vài ngày triển khai.",
+      title: t('howItWorks.steps.4.title'),
+      description: t('howItWorks.steps.4.description'),
       color: "bg-[#0365FA]/30 text-[#0365FA]",
       gradient: "from-[#0365FA]/40 to-[#0365FA]/25"
     }
@@ -183,7 +185,7 @@ const HowItWorks = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
-            Quy Trình Hoạt Động
+            {t('howItWorks.title')}
           </motion.h2>
           <motion.p 
             className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
@@ -191,7 +193,7 @@ const HowItWorks = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            TripC Solutions mang đến giải pháp chuyển đổi số toàn diện với quy trình chuyên nghiệp và hiệu quả
+            {t('howItWorks.subtitle')}
           </motion.p>
           <motion.div 
             className="w-24 h-1 bg-[#0365FA] mx-auto mt-6"
@@ -305,14 +307,14 @@ const HowItWorks = () => {
       <div className="relative bg-gradient-to-r from-[#0365FA] to-blue-600 rounded-2xl p-8 shadow-lg overflow-hidden">
         <div className="relative z-10">
           <h3 className="text-2xl font-bold text-white mb-4">
-            Sẵn sàng bắt đầu hành trình chuyển đổi số?
+            {t('howItWorks.cta.title')}
           </h3>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Liên hệ với chúng tôi ngay hôm nay để nhận tư vấn miễn phí và khám phá cách TripC Solutions có thể giúp doanh nghiệp của bạn phát triển.
+            {t('howItWorks.cta.description')}
           </p>
           <div className='flex justify-center'>
                     <a href='/contact' className="group  relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-900 to-[#0251D8] text-white rounded-2xl hover:from-[#0251D8] hover:to-[#013FB7] transition-all duration-500 flex items-center justify-center space-x-3 font-bold shadow-xl overflow-hidden text-sm sm:text-base">
-                          <span className="relative z-10">Liên hệ ngay</span>
+                          <span className="relative z-10">{t('common.contactNow')}</span>
                           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
                           <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                         </a>

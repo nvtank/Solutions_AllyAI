@@ -3,10 +3,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { PieChart, Eye, DollarSign, TrendingUp, CreditCard } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const WhyChooseUs = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,37 +37,32 @@ const WhyChooseUs = () => {
 
   const features = [
     {
-    
-      title: "Tuân thủ quy định Thuế",
-      description: "Tích hợp hoá đơn điện tử & báo cáo doanh thu để đảm bảo tuân thủ quy định về thuế.",
+      title: t('whyChooseUs.features.0.title'),
+      description: t('whyChooseUs.features.0.description'),
       image: "minhbach.webp",
       color: "text-[#0365FA] bg-[#0365FA]/10"
     },
     {
-    
-      title: "Minh bạch Thông tin Sản phẩm & Dịch vụ",
-      description: "Công bố thực đơn, giá cả & chi tiết dịch vụ chính xác trên mọi kênh.",
+      title: t('whyChooseUs.features.1.title'),
+      description: t('whyChooseUs.features.1.description'),
       image: "/tamnhin.png",
       color: "text-[#0365FA] bg-[#0365FA]/10"
     },
     {
-   
-      title: "Giảm chi phí Vận hành & Không bỏ lỡ Đơn hàng",
-      description: "Nhân viên AI sẽ tự động tiếp nhận đơn hàng, trả lời phản hồi ngay lập tức.",
+      title: t('whyChooseUs.features.2.title'),
+      description: t('whyChooseUs.features.2.description'),
       image: "/lowcost.png",
       color: "text-[#0365FA] bg-[#0365FA]/10"
     },
     {
-    
-      title: "Tăng Đơn hàng & Doanh thu",
-      description: "Upsell bằng AI, bán thêm, bán chéo sản phẩm dịch vụ.",
+      title: t('whyChooseUs.features.3.title'),
+      description: t('whyChooseUs.features.3.description'),
       image: "/tangcost.jpg",
       color: "text-[#0365FA] bg-[#0365FA]/10"
     },
     {
-    
-      title: "Thanh toán & Hoá đơn Liền mạch",
-      description: "Tích hợp thanh toán đa dạng chuyển khoản ngân hàng , QR code và tự động tạo hoá đơn tức thời.",
+      title: t('whyChooseUs.features.4.title'),
+      description: t('whyChooseUs.features.4.description'),
       image: "/thanhtoan.jpg",
       color: "text-[#0365FA] bg-[#0365FA]/10"
     }
@@ -77,10 +74,10 @@ const WhyChooseUs = () => {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-gray-50"
     >
       <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Tại Sao Chọn TripC Solutions?</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t('whyChooseUs.title')}</h1>
         <div className="w-24 h-1 bg-[#0365FA] mx-auto mb-8"></div>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Khám phá những lợi ích vượt trội mà TripC Solutions mang lại cho doanh nghiệp của bạn
+          {t('whyChooseUs.subtitle')}
         </p>
       </div>
 

@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { ArrowRight, Play } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AboutHero() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -16,10 +18,10 @@ export default function AboutHero() {
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Về <span className="text-blue-200">TripC Solutions</span>
+              {t('about.hero.title')}
             </h1>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-             TripC Solutions là nền tảng SaaS toàn diện dành cho nhà hàng, khách sạn và spa, kết hợp công cụ đặt chỗ trực tuyến, chatbot AI 24/7, thanh toán QR Code và tự động hóa hoá đơn. TripC Solutions được phát triển bởi công ty cổ phần Ally AI.
+              {t('about.hero.subtitle')}
             </p>
        
           </div>

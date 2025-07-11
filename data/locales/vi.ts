@@ -1,328 +1,378 @@
 export const vi = {
   // Navigation
   nav: {
-    logo: "TRIPC SOLUTIONS",
+    logo: "TripC Solutions",
     home: "Trang chủ",
-    about: "Về chúng tôi",
+    about: "Về chúng tôi", 
     solutions: "Giải pháp",
     contact: "Liên hệ",
-    templates: "Mẫu thiết kế"
+    templates: "Mẫu"
   },
 
   // Hero Section
   hero: {
-    title: "TRIPC SOLUTIONS",
-    subtitle: "Chuyển Đổi Số Cho Doanh Nghiệp Du Lịch - Dịch Vụ",
+    title: "TripC Solutions",
+    subtitle: "Chuyển Đổi Số Cho Doanh Nghiệp",
+    description: "Trong bối cảnh yêu cầu chuyển đổi số ngày càng cấp thiết thì TripC Solution được ra đời. Chúng tôi cung cấp nền tảng công nghệ toàn diện. Giúp doanh nghiệp số hóa hoạt động kinh doanh nhanh chóng.",
+    freeAI: "Tặng AI miễn phí",
     cta: {
       primary: "Liên hệ ngay",
-      secondary: "Xem các mẫu"
+      secondary: "Xem mẫu ngay"
     },
     stats: [
-      { number: '500+', label: 'Dự án' },
-      { number: '2000+', label: 'Người dùng' },
-      { number: '99.9%', label: 'Uptime SLA' }
+      { value: "500+", label: "Doanh nghiệp" },
+      { value: "99.9%", label: "Uptime" },
+      { value: "24/7", label: "Hỗ trợ" }
     ]
   },
 
-  // Story Section
-  story: {
-    title: "Hành Trình Chuyển Đổi",
-    subtitle: "Khám phá những bước tiến quan trọng trong việc chuyển đổi số và các giải pháp công nghệ hiện đại của chúng tôi.",
-    cards: [
+  // Benefits Section
+  benefits: {
+    title: "Lợi ích chính",
+    subtitle: "Tối ưu vận hành - Nâng tầm trải nghiệm – Tăng trưởng doanh thu",
+    items: [
       {
-        title: "Yêu Cầu Chuyển Đổi Số",
-        subtitle: "Chính phủ yêu cầu minh bạch doanh thu, xuất hóa đơn điện tử."
+        title: "Hiệu quả vận hành",
+        description: "Tối ưu chi phí nhân sự tư vấn bán hàng, đặt bàn, chăm sóc khách hàng bằng nhân viên AI. Hệ thống quản lý bán hàng chuyên nghiệp."
       },
       {
-        title: "Giải Pháp Toàn Diện", 
-        subtitle: "TripC Solution giải quyết thách thức này hiệu quả."
+        title: "Nâng cao trải nghiệm khách hàng",
+        description: "Không bao giờ bỏ lỡ tin nhắn của khách hàng, luôn luôn phản hồi ngay lập tức 24/7."
       },
       {
-        title: "Đa Dạng Lĩnh Vực",
-        subtitle: "Phục vụ du lịch, ẩm thực, chăm sóc sức khỏe, giải trí."
+        title: "Tăng trưởng doanh thu",
+        description: "Không bỏ lỡ đơn đặt hàng, đặt bàn của khách, gợi ý bán thêm bán chéo dịch vụ cộng thêm."
       }
     ]
   },
 
-  // Industries Section
-  industries: {
-    title: "TRIPC SOLUTIONS MANG ĐẾN?",
-    subtitle: "Nền tảng thông minh giúp doanh nghiệp tự động hóa quy trình nâng cao trải nghiệm khách hàng",
-    items: [
-      {
-        title_main: "Nền Tảng Đặt Đa Dịch Vụ",
-        title1: "Hệ thống Booking đa năng",
-        title2: "Giao diện thân thiện",
-        description1: "Đặt bàn, phòng, tour, vé sự kiện, gói chăm sóc sức khỏe. Hỗ trợ resort, nhà hàng, spa, khu vui chơi, travel agency.",
-        description2: "Dễ sử dụng trên website và ứng dụng di động. Tùy biến theo từng thương hiệu, lĩnh vực dịch vụ.",
-     
-        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-      },
-      {
-        title_main: "Ứng Dụng Quản Lý Đơn Hàng",
-        title1: "Theo Dõi Đơn Hàng",
-        title2: "Xử Lý Nhanh Chóng",
-        description1: "Theo dõi tình trạng đơn hàng theo thời gian thực. Quản lý lịch sử giao dịch, báo cáo doanh thu.",
-        description2: "Cập nhật và xử lý đơn nhanh ngay trên điện thoại hoặc máy tính.",
-    
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80"
-      },
-      {
-        title_main: "Tích Hợp Hóa Đơn & Thanh Toán Điện Tử",
-        title1: "Hóa Đơn Tự Động",
-        title2: "Thanh Toán QR Code",
-        description1: "Tự động xuất hóa đơn điện tử theo chuẩn quy định. Tùy chỉnh mẫu hóa đơn riêng.",
-        description2: "Thanh toán nhanh chóng, tiện lợi qua QR Code. Hỗ trợ ví điện tử và ngân hàng phổ biến.",
-       
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-      },
-      {
-        title_main: "Đáp Ứng Yêu Cầu Pháp Lý & Quản Lý Minh Bạch",
-        title1: "Tuân Thủ Pháp Luật",
-        title2: "Lưu Trữ Dữ Liệu An Toàn",
-        description1: "Hệ thống giúp doanh nghiệp tuân thủ hóa đơn, thuế.",
-        description2: "Lưu trữ dữ liệu an toàn, dễ dàng truy xuất.",
-    
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-      }
-    ]
+  // Brand Section
+  brand: {
+    title: "Đối Tác Của Chúng Tôi",
+    subtitle: "Chúng tôi tự hào hợp tác cùng những thương hiệu hàng đầu trong ngành"
   },
 
-  // Solutions Section
-  solutions: {
-    header: {
-      title: "GIẢI PHÁP",
-      subtitle: "TRIPC SOLUTIONS đưa ra một hệ sinh thái giải pháp toàn diện hỗ trợ doanh nghiệp từ bán hàng đến tài chính"
-    },
-    items: [
+  // How It Works Section
+  howItWorks: {
+    title: "Quy Trình Hoạt Động",
+    subtitle: "TripC Solutions mang đến giải pháp chuyển đổi số toàn diện với quy trình chuyên nghiệp và hiệu quả",
+    steps: [
       {
-        id: "01",
-        title: "Nền tảng Booking Đa dịch vụ",
-        subtitle: "Giải pháp số hóa toàn diện",
-        description: "Nền tảng giúp doanh nghiệp số hóa toàn bộ quy trình bán dịch vụ du lịch trong một hệ thống quản lý thống nhất.",
-        subProducts: [
-          {
-            title: "Website booking dịch vụ",
-            description: "Cung cấp giao diện đặt dịch vụ trực tuyến, thân thiện với người dùng, hỗ trợ thanh toán, xem thông tin và quản lý đơn đặt.",
-            buttonText: "Xem ngay"
-          },
-          {
-            title: "Website quản trị dành cho Admin",
-            description: "Cho phép đối tác cập nhật thông tin dịch vụ, điều chỉnh giá, quản lý khuyến mãi, theo dõi đơn hàng và doanh thu.",
-            buttonText: "Xem ngay"
-          },
-          {
-            title: "TripC Merchant App",
-            description: "Ứng dụng dành cho nhân viên tại cơ sở (khách sạn, điểm đón tour, khu vui chơi...) giúp xác nhận dịch vụ, quét mã QR và cập nhật trạng thái đơn hàng ngay trên điện thoại.",
-            buttonText: ""
-          }
-        ],
-        stats: {
-          value: "500K+",
-          label: "Booking/tháng"
-        }
+        title: "Liên hệ với chúng tôi",
+        description: "Gửi yêu cầu qua form liên hệ hoặc gọi điện trực tiếp để được tư vấn về giải pháp phù hợp với doanh nghiệp của bạn."
       },
       {
-        id: "02",
-        title: "Nền tảng Booking Bán vé khu vui chơi & Du lịch",
-        subtitle: "Giải pháp bán vé trực tuyến",
-        description: "Nền tảng hỗ trợ các khu vui chơi, điểm du lịch bán vé trực tuyến với giao diện thân thiện, đặt vé nhanh chóng, hiển thị rõ thông tin chương trình, thời gian, giá vé và ưu đãi.",
-        stats: {
-          value: "100K+",
-          label: "Vé bán/tháng"
-        }
+        title: "Thảo luận yêu cầu", 
+        description: "Đội ngũ chuyên gia sẽ phân tích nhu cầu và đề xuất giải pháp tối ưu nhất cho hệ thống của bạn."
       },
       {
-        id: "03",
-        title: "Nền tảng Booking bán vé tàu du lịch, vé phà",
-        subtitle: "Booking linh hoạt đa ngành",
-        description: "Giải pháp Booking linh hoạt cho các loại hình dịch vụ giải trí",
-        stats: {
-          value: "95%",
-          label: "Tỷ lệ sử dụng"
-        }
+        title: "Triển khai thực hiện",
+        description: "Cài đặt và tích hợp hệ thống với quy trình chuẩn, đảm bảo hoạt động trơn tru với hệ thống hiện có."
       },
       {
-        id: "04",
-        title: "Nền tảng đặt chỗ nhà hàng, spa, karaoke & sân thể thao",
-        subtitle: "Đặt chỗ linh hoạt đa ngành",
-        description: "Giải pháp đặt chỗ linh hoạt cho các loại hình dịch vụ giải trí – từ nhà hàng, spa đến karaoke và sân thể thao.",
-        stats: {
-          value: "1M+",
-          label: "Tìm kiếm/tháng"
-        }
+        title: "Kiểm tra chất lượng",
+        description: "Chạy thử nghiệm toàn diện và điều chỉnh để đảm bảo hệ thống hoạt động hoàn hảo trước khi bàn giao."
       },
       {
-        id: "05",
-        title: "Nền tảng đặt phòng lưu trú",
-        subtitle: "Nền tảng so sánh & Tìm kiếm Lưu trú",
-        description: "Nền tảng hỗ trợ người dùng khám phá các điểm đến phổ biến, so sánh giá phòng từ nhiều nguồn khác nhau và điều hướng đến các trang đặt phòng phù hợp.",
-        stats: {
-          value: "500+",
-          label: "API endpoints"
-        }
+        title: "Vận hành chính thức",
+        description: "Bàn giao hệ thống và hỗ trợ 24/7 để đảm bảo vận hành trơn tru chỉ sau vài ngày triển khai."
       }
     ],
     cta: {
-      title: "Sẵn sàng chuyển đổi hoạt động kinh doanh?",
-      subtitle: "Khám phá cách các nền tảng thông minh của chúng tôi có thể nâng cấp quy trình vận hành và tạo bứt phá tăng trưởng cho doanh nghiệp của bạn.",
-      buttonText: "Dùng thử miễn phí"
+      title: "Sẵn sàng bắt đầu hành trình chuyển đổi số?",
+      description: "Liên hệ với chúng tôi ngay hôm nay để nhận tư vấn miễn phí và khám phá cách TripC Solutions có thể giúp doanh nghiệp của bạn phát triển."
     }
   },
 
-  // Horizontal Scroll Section
-  whyChoose: {
+  // Core Features Section
+  coreFeatures: {
+    title: "Tính Năng Cốt Lõi",
+    subtitle: "Nền tảng của chúng tôi cung cấp bộ công cụ toàn diện được thiết kế để tối ưu hóa mọi khía cạnh của doanh nghiệp bạn.",
+    items: [
+      {
+        title: "Phần mềm booking web",
+        description: "Giải pháp đặt bàn và quản lý lịch hẹn trực tuyến toàn diện, giúp doanh nghiệp tối ưu quy trình tiếp nhận khách, xử lý đơn hàng và hiển thị thông tin theo thời gian thực – chuyên nghiệp, chính xác và dễ dàng truy cập mọi lúc mọi nơi."
+      },
+      {
+        title: "Ứng dụng di động quản lí",
+        description: "Ứng dụng quản lý hoạt động kinh doanh ngay trên điện thoại, cho phép theo dõi doanh thu, số lượng đơn hàng, hiệu suất nhân viên và báo cáo tổng quan một cách trực quan – giúp chủ doanh nghiệp ra quyết định nhanh chóng và chính xác, mọi lúc mọi nơi."
+      },
+      {
+        title: "Chatbot AI",
+        description: "Trợ lý ảo thông minh hoạt động 24/7, hỗ trợ tư vấn và chăm sóc khách hàng tự động, phản hồi tức thì các câu hỏi phổ biến, gợi ý sản phẩm/dịch vụ phù hợp và giúp nâng cao trải nghiệm mua sắm, góp phần gia tăng đơn hàng hiệu quả và giảm tải cho nhân viên."
+      }
+    ]
+  },
+
+  // Results Showcase Section
+  results: {
+    title: "Kết quả thực tế",
+    subtitle: "Những con số biết nói từ các doanh nghiệp đã triển khai giải pháp của chúng tôi",
+    stats: [
+      {
+        value: "+20%",
+        label: "Tăng doanh thu trung bình",
+        description: "Nhờ giải pháp tối ưu hóa quy trình và tăng hiệu suất làm việc"
+      },
+      {
+        value: "+15%",
+        label: "Cải thiện sự hài lòng của khách",
+        description: "Hệ thống quản lý chuyên nghiệp mang đến trải nghiệm tốt hơn"
+      },
+      {
+        value: "-10%",
+        label: "Giảm chi phí hoạt động",
+        description: "Tự động hóa giúp tiết kiệm nhân lực và tài nguyên vận hành"
+      }
+    ],
+    testimonials: {
+      title: "Khách hàng nói gì về chúng tôi",
+      items: [
+        {
+          quote: "TripC Solutions đã giúp chúng tôi tăng doanh thu đáng kể chỉ sau 3 tháng triển khai. Hệ thống dễ sử dụng và hỗ trợ tuyệt vời!",
+          author: "Mr Việt",
+          position: "Manager",
+          company: "Chiru"
+        },
+        {
+          quote: "Khách hàng của chúng tôi hài lòng hơn hẳn nhờ hệ thống quản lý chuyên nghiệp từ TripC. Đội ngũ tư vấn rất tận tâm!",
+          author: "A Nhã",
+          position: "Giám Đốc",
+          company: "Tuan Châu Resort"
+        },
+        {
+          quote: "Giải pháp của TripC đã giúp chúng tôi tiết kiệm thời gian và tăng hiệu quả làm việc một cách đáng kể.",
+          author: "Mr Alex",
+          position: "CEO",
+          company: "Alex Restaurant"
+        }
+      ]
+    }
+  },
+
+  // Why Choose Us Section
+  whyChooseUs: {
     title: "Tại Sao Chọn TripC Solutions?",
-    subtitle: "Chúng tôi không chỉ cung cấp công nghệ, chúng tôi mang đến giải pháp toàn diện giúp doanh nghiệp của bạn cất cánh.",
-    items: [
-      {
-        icon: "Zap",
-        title: "Chuyển Đổi Số Nhanh Chóng",
-        description: "Triển khai nền tảng dễ dàng mà không cần đầu tư đội ngũ kỹ thuật. TripC giúp doanh nghiệp bắt đầu ngay với hạ tầng sẵn có và hỗ trợ vận hành trọn gói.",
-        image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      },
-      {
-        icon: "Banknote",
-        title: "Tiết Kiệm Chi Phí Vượt Trội",
-        description: "Tối ưu hóa chi phí vận hành và quản lý với các giải pháp tự động hóa thông minh. Nền tảng của chúng tôi giúp giảm thiểu các công việc thủ công, tiết kiệm thời gian và nguồn lực.",
-        image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      },
-      {
-        icon: "TrendingUp",
-        title: "Tăng Trưởng Doanh Thu Bền Vững",
-        description: "Cải thiện đáng kể hiệu quả bán hàng bằng cách cá nhân hóa trải nghiệm khách hàng. Thu thập và phân tích dữ liệu để đưa ra các chiến lược kinh doanh hiệu quả, tăng tỷ lệ chuyển đổi.",
-        image: "https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      },
-      {
-        icon: "ShieldCheck",
-        title: "Minh Bạch & Chuyên Nghiệp",
-        description: "Xây dựng hình ảnh thương hiệu chuyên nghiệp và đáng tin cậy. Hệ thống báo cáo và quản lý minh bạch giúp theo dõi hiệu suất và đưa ra quyết định dựa trên dữ liệu thực tế.",
-        image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      },
-      {
-        icon: "GitBranch",
-        title: "Dễ Dàng Mở Rộng Quy Mô",
-        description: "Nền tảng linh hoạt cho phép dễ dàng mở rộng quy mô kinh doanh, tích hợp với các đối tác và dịch vụ mới một cách liền mạch, không làm gián đoạn hoạt động hiện tại.",
-        image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      }
-    ]
-  },
-
-  // ...existing code...
-
-  // Features Section
-  features: {
-    title: "Tính năng nổi bật",
-    subtitle: "Tất cả trong một nền tảng",
-    items: [
-      {
-        icon: "Calendar",
-        title: "Booking thông minh",
-        description: "Hệ thống đặt chỗ tự động với AI optimization, tránh overbooking và tối ưu occupancy rate."
-      },
-      {
-        icon: "CreditCard", 
-        title: "Thanh toán linh hoạt",
-        description: "Tích hợp 15+ cổng thanh toán, hỗ trợ trả góp, thanh toán sau và loyalty points."
-      },
-      {
-        icon: "BarChart",
-        title: "Analytics nâng cao",
-        description: "Dashboard real-time với AI insights, dự báo xu hướng và báo cáo tùy chỉnh."
-      },
-      {
-        icon: "Users",
-        title: "CRM tích hợp",
-        description: "Quản lý khách hàng 360°, automation marketing và chăm sóc khách hàng cá nhân hóa."
-      },
-      {
-        icon: "Shield",
-        title: "Bảo mật cao",
-        description: "Tiêu chuẩn PCI DSS, mã hóa end-to-end và compliance với GDPR & PDPA."
-      },
-      {
-        icon: "Zap",
-        title: "Tích hợp nhanh",
-        description: "API đầy đủ, webhook real-time và SDK cho mọi ngôn ngữ lập trình phổ biến."
-      }
-    ]
-  },
-
-  // Testimonials Section
-  testimonials: {
-    title: "Được Tin Dùng Bởi Các Nhà Lãnh Đạo",
-    subtitle: "Khách hàng của chúng tôi đã đạt được những kết quả vượt trội. Hãy xem họ nói gì về sự hợp tác với TripC Solutions.",
-    items: [
-      {
-        quote: "Nền tảng của TripC Solutions đã cách mạng hóa hoạt động của chúng tôi. Giao diện trực quan và các tính năng mạnh mẽ đã giúp chúng tôi tăng hiệu quả lên 40% và giảm đáng kể chi phí vận hành. Đây là một giải pháp không thể thiếu cho bất kỳ doanh nghiệp nào muốn tối ưu hóa quy trình.",
-        author: "Trần Văn Minh",
-        position: "Giám đốc Vận hành",
-        company: "Tập đoàn TechGlobal",
-        avatar: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
-      },
-      {
-        quote: "Chúng tôi đã triển khai hệ thống bảo trì dự đoán của TripC và kết quả thật đáng kinh ngạc. Nó đã giúp chúng tôi ngăn chặn nhiều sự cố nghiêm trọng, tiết kiệm hàng ngàn đô la chi phí sửa chữa và thời gian ngừng hoạt động. Đội ngũ hỗ trợ của họ cũng rất chuyên nghiệp và nhiệt tình.",
-        author: "Lê Thị Thu Hà",
-        position: "Quản lý Nhà máy",
-        company: "Advanced Industries",
-        avatar: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
-      },
-      {
-        quote: "Các giải pháp AI của TripC thực sự vượt trội. Khả năng phân tích dữ liệu thời gian thực đã mang lại cho chúng tôi những hiểu biết sâu sắc chưa từng có, giúp chúng tôi đưa ra quyết định kinh doanh nhanh chóng và chính xác hơn. Sự hợp tác này đã tạo ra một lợi thế cạnh tranh rõ rệt cho chúng tôi.",
-        author: "Phạm Nhật Vượng",
-        position: "Giám đốc Công nghệ",
-        company: "Innovatech Solutions",
-        avatar: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400",
-      }
-    ]
-  },
-
-  // CTA Section
-  cta: {
-    title: "Sẵn sàng chuyển đổi số?",
-    subtitle: "Bắt đầu hành trình thành công cùng TripC Solutions",
-    description: "Hơn 1000+ doanh nghiệp đã tin tưởng. Đừng để đối thủ vượt xa bạn trong cuộc đua số hóa.",
-    buttons: {
-      primary: "Đăng ký dùng thử miễn phí",
-      secondary: "Đặt lịch tư vấn"
-    },
+    subtitle: "Khám phá những lợi ích vượt trội mà TripC Solutions mang lại cho doanh nghiệp của bạn",
     features: [
-      "✅ Dùng thử 30 ngày miễn phí",
-      "✅ Setup và training miễn phí", 
-      "✅ Hỗ trợ 24/7 bằng tiếng Việt",
-      "✅ Không ràng buộc hợp đồng dài hạn"
+      {
+        title: "Tuân thủ quy định Thuế",
+        description: "Tích hợp hoá đơn điện tử & báo cáo doanh thu để đảm bảo tuân thủ quy định về thuế."
+      },
+      {
+        title: "Minh bạch Thông tin Sản phẩm & Dịch vụ",
+        description: "Công bố thực đơn, giá cả & chi tiết dịch vụ chính xác trên mọi kênh."
+      },
+      {
+        title: "Giảm chi phí Vận hành & Không bỏ lỡ Đơn hàng",
+        description: "Nhân viên AI sẽ tự động tiếp nhận đơn hàng, trả lời phản hồi ngay lập tức."
+      },
+      {
+        title: "Tăng Đơn hàng & Doanh thu",
+        description: "Upsell bằng AI, bán thêm, bán chéo sản phẩm dịch vụ."
+      },
+      {
+        title: "Thanh toán & Hoá đơn Liền mạch",
+        description: "Tích hợp thanh toán đa dạng chuyển khoản ngân hàng , QR code và tự động tạo hoá đơn tức thời."
+      }
     ]
   },
 
   // Footer
   footer: {
-    quickLinks: [
-      { name: 'Giải pháp', href: '/solutions' },
-      { name: 'Về chúng tôi', href: '/about' },
-      { name: 'Liên hệ', href: '/contact' },
-      { name: 'Mẫu', href: '/templates' },
-    
-    ],
+    description: "TripC Solutions - Đồng hành cùng doanh nghiệp trong hành trình chuyển đổi số. Nền tảng công nghệ toàn diện, tối ưu quy trình kinh doanh.",
     quickLinksTitle: "Liên kết nhanh",
-    description: "TripC Solutions là nền tảng SaaS toàn diện dành cho nhà hàng, khách sạn và spa, kết hợp công cụ đặt chỗ trực tuyến, chatbot AI 24/7, thanh toán QR Code và tự động hóa hoá đơn. TripC Solutions thuộc công ty cổ phần Ally AI"
+    quickLinks: [
+      { name: "Trang chủ", href: "/" },
+      { name: "Về chúng tôi", href: "/about" },
+      { name: "Liên hệ", href: "/contact" },
+      { name: "Mẫu", href: "/templates" }
+    ],
+    contact: {
+      title: "Thông tin liên hệ",
+      phone: "+84 913 888 694",
+      email: "contact@tripcsolutions.com",
+      address: "Hà Nội, Việt Nam"
+    },
+    policies: {
+      title: "Chính sách",
+      items: [
+        { name: "Điều khoản dịch vụ", href: "/terms" },
+        { name: "Chính sách bảo mật", href: "/policy" }
+      ]
+    },
+    copyright: "Bản quyền đã được bảo hộ."
   },
 
-  // Common UI Text
+  // About Page
+  about: {
+    hero: {
+      title: "Về TripC Solutions",
+      subtitle: "TripC Solutions là nền tảng SaaS toàn diện dành cho nhà hàng, khách sạn và spa, kết hợp công cụ đặt chỗ trực tuyến, chatbot AI 24/7, thanh toán QR Code và tự động hóa hoá đơn. TripC Solutions được phát triển bởi công ty cổ phần Ally AI."
+    },
+    story: {
+      title: "TripC Solution",
+      subtitle: "Chuyển Đổi Số Cho Doanh Nghiệp Du Lịch – Dịch Vụ",
+      description: "TripC Solution là đối tác đáng tin cậy cho chuyển đổi số. Giúp doanh nghiệp du lịch – dịch vụ tăng trưởng. Đồng thời tuân thủ quy định Nhà nước.",
+      description2: "Chúng tôi cung cấp một nền tảng công nghệ toàn diện, giúp các doanh nghiệp nhanh chóng số hóa hoạt động kinh doanh, từ quản lý, vận hành đến tương tác khách hàng, mà không cần đầu tư lớn vào đội ngũ kỹ thuật riêng.",
+      stat: {
+        value: "500+",
+        label: "Projects Delivered"
+      }
+    },
+    cta: {
+      title: "Bạn đã sẵn sàng chưa?",
+      subtitle: "Hãy để chúng tôi đồng hành cùng bạn trong việc ứng dụng AI để tối ưu hóa quy trình kinh doanh và tạo ra những giá trị bền vững.",
+      buttons: {
+        contact: "Liên hệ ngay",
+        templates: "Xem mẫu"
+      }
+    }
+  },
+
+  // Contact Form
+  contact: {
+    hero: {
+      title: "Liên Hệ",
+      subtitle: "Với Chúng Tôi",
+      description: "Sẵn sàng chuyển đổi hoạt động kinh doanh của bạn? Chúng tôi ở đây để giúp bạn bắt đầu với các giải pháp AI được tùy chỉnh theo nhu cầu cụ thể của bạn."
+    },
+    sidebar: {
+      office: "Văn Phòng",
+      address: "Địa chỉ",
+      phone: "Điện thoại",
+      email: "Email"
+    },
+    cta: {
+      title: "Sẵn sàng bắt đầu?",
+      description: "Đặt lịch tư vấn miễn phí để thảo luận về nhu cầu AI công nghiệp của bạn.",
+      button: "Đặt lịch tư vấn"
+    },
+    info: {
+      email: {
+        title: "Email",
+        description: "Gửi email cho chúng tôi bất cứ lúc nào"
+      },
+      phone: {
+        title: "Điện thoại",
+        description: "Liên hệ trực tiếp với chúng tôi"
+      },
+      address: {
+        title: "Địa chỉ",
+        description: "Văn phòng chính của chúng tôi"
+      },
+      hours: {
+        title: "Giờ làm việc",
+        details: "Thứ 2 - Thứ 6: 8:00 - 17:00",
+        description: "Chúng tôi luôn sẵn sàng hỗ trợ"
+      }
+    },
+    form: {
+      title: "Gửi tin nhắn cho chúng tôi",
+      subtitle: "Điền thông tin dưới đây và chúng tôi sẽ liên hệ lại với bạn trong vòng 24 giờ.",
+      name: "Họ tên",
+      email: "Email",
+      phone: "Số điện thoại", 
+      message: "Tin nhắn",
+      namePlaceholder: "Nhập họ tên của bạn",
+      emailPlaceholder: "email@example.com",
+      phonePlaceholder: "+84 xxx xxx xxx",
+      messagePlaceholder: "Mô tả chi tiết yêu cầu của bạn...",
+      submit: "Gửi tin nhắn",
+      submitting: "Đang gửi...",
+      success: "Tin nhắn đã được gửi thành công! Chúng tôi sẽ liên hệ sớm nhất.",
+      nameRequired: "Họ tên là bắt buộc",
+      emailRequired: "Email là bắt buộc",
+      emailInvalid: "Email không hợp lệ",
+      phoneRequired: "Vui lòng nhập số điện thoại",
+      messageRequired: "Tin nhắn là bắt buộc",
+      messageMinLength: "Tin nhắn phải có ít nhất 10 ký tự",
+      subjectRequired: "Chủ đề là bắt buộc",
+      privacy: "Bằng cách gửi form này, bạn đồng ý với",
+      privacyLink: "chính sách bảo mật",
+      privacySuffix: "của chúng tôi."
+    }
+  },
+
+  // Templates Page
+  templates: {
+    header: {
+      title: "Mẫu Website Du Lịch",
+      subtitle: "Bộ sưu tập mẫu website chuyên nghiệp cho ngành du lịch với tích hợp AI thông minh",
+      stats: {
+        templates: "Mẫu",
+        rating: "Đánh giá", 
+        downloads: "Lượt tải"
+      },
+      search: {
+        placeholder: "Tìm kiếm mẫu...",
+        filter: "Bộ lọc",
+        popularCategories: "Danh mục phổ biến:",
+        categories: ["Khách sạn", "Tour du lịch", "Homestay", "Travel blog"]
+      }
+    },
+    sidebar: {
+      categories: "Danh Mục",
+      allCategories: "Tất Cả",
+      travel: "Du Lịch",
+      sortBy: "Sắp xếp theo",
+      sortOptions: {
+        popular: "Phổ biến nhất",
+        rating: "Đánh giá cao nhất", 
+        newest: "Mới nhất",
+        name: "Tên A-Z"
+      },
+      priceFilter: {
+        title: "Giá cả",
+        free: "Mẫu miễn phí",
+        premium: "Mẫu cao cấp"
+      },
+      stats: {
+        averageRating: "Đánh giá trung bình",
+        totalDownloads: "lượt tải"
+      }
+    },
+    toolbar: {
+      found: "Tìm thấy",
+      templates: "mẫu",
+      filter: "Bộ Lọc"
+    },
+    card: {
+      preview: "Xem trước",
+      use: "Sử dụng",
+      features: "Tính năng:"
+    },
+    modal: {
+      templateType: "Mẫu",
+      description: "Mô tả",
+      features: "Tính năng",
+      keywords: "Từ khóa",
+      rating: "Đánh giá",
+      downloads: "Lượt tải",
+      price: {
+        free: "Hoàn toàn miễn phí",
+        premium: "Mẫu cao cấp"
+      },
+      actions: {
+        demo: "Xem demo",
+        use: "Sử dụng mẫu"
+      }
+    },
+    loadMore: "Tải Thêm Mẫu"
+  },
+
+  // Common
   common: {
+    readMore: "Xem thêm",
+    readLess: "Thu gọn",
+    learnMore: "Tìm hiểu thêm",
+    getStarted: "Bắt đầu ngay",
+    contactNow: "Liên hệ ngay",
+    viewDemo: "Xem demo",
+    viewNow: "Xem ngay",
+    close: "Đóng",
     loading: "Đang tải...",
     error: "Có lỗi xảy ra",
-    success: "Thành công",
-    tryAgain: "Thử lại",
-    readMore: "Đọc thêm",
-    viewAll: "Xem tất cả",
-    back: "Quay lại",
-    next: "Tiếp theo",
-    submit: "Gửi",
-    cancel: "Hủy",
-    save: "Lưu",
-    edit: "Chỉnh sửa",
-    delete: "Xóa"
+    tryAgain: "Thử lại"
   }
 };
-
-export default vi;
