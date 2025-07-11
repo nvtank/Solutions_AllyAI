@@ -1,6 +1,6 @@
 export default function AboutCTA() {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600">
+    <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-900">
       <div className="max-w-4xl mx-auto text-center text-white px-6">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Ready to Join Our Mission?

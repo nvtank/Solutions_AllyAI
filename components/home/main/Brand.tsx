@@ -28,7 +28,19 @@ const Brand = () => {
   ];
 
   const [isVisible, setIsVisible] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
   const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,9 +74,9 @@ const Brand = () => {
   return (
     <div 
       ref={sectionRef}
-      className='flex items-center justify-center py-16 bg-gradient-to-br from-gray-50 to-gray-100 px-8'
+      className='flex items-center justify-center py-16 px-8 bg-white lg:bg-transparent'
       style={{
-        background: `
+        background: isLargeScreen ? `
           radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(3, 101, 250, 0.1) 0%, transparent 0%),
           conic-gradient(from 0deg at 91% 0%, 
             #0365FA 10deg, 
@@ -75,7 +87,7 @@ const Brand = () => {
             white 0deg,
             white 0deg
           )
-        `
+        ` : undefined
       }}
     >
       <div
